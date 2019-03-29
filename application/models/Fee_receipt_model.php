@@ -14,5 +14,11 @@ class Fee_receipt_model extends CI_Model {
 		$query=$this->db->get('course_details');
 		//echo $this->db->last_query(); die();
 		return $query->result();
+	}
+	/*function getinvoice($class,$yearfrom,$monthfrom,$yearto,$monthto){
+		$this->db->where('course_ID', $course);
+		$query=$this->db->get('course_details');
+		//echo $this->db->last_query(); die();
+		return $query->result();
 	}*/
 }
