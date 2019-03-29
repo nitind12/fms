@@ -40,7 +40,7 @@ class receipt extends CI_Controller {
 		$this->load->view('templates/receiptside');
 		$this->load->view('Dashboard/indexreceipt', $data);
 		$this->load->view('templates/footer');
-	}
+	}*/
 
-}*/
+}
 
