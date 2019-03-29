@@ -23,11 +23,30 @@
 				</a>
 				<ul class="children collapse" id="sub-item-2">
 					<li><a class="" href="master">
-						<span class="fa fa-arrow-right">&nbsp;</span> Student
+						<span class="fa fa-arrow-right">&nbsp;</span> Session
 					</a></li>
 					<li><a class="" href="staffmaster">
-						<span class="fa fa-arrow-right">&nbsp;</span> Staff
+						<span class="fa fa-arrow-right">&nbsp;</span> Class
 					</a></li>
+					<li><a class="" href="master">
+						<span class="fa fa-arrow-right">&nbsp;</span> Class in session
+					</a></li>
+					<li><a class="" href="staffmaster">
+						<span class="fa fa-arrow-right">&nbsp;</span> Static heads
+					</a></li>
+					<li><a class="" href="master">
+						<span class="fa fa-arrow-right">&nbsp;</span> Flexible heads
+					</a></li>
+					<li><a class="" href="staffmaster">
+						<span class="fa fa-arrow-right">&nbsp;</span> Static in class
+					</a></li>
+					<li><a class="" href="master">
+						<span class="fa fa-arrow-right">&nbsp;</span> Flexihead to students
+					</a></li>
+					<li><a class="" href="staffmaster">
+						<span class="fa fa-arrow-right">&nbsp;</span> Drop student
+					</a></li>
+					
 				</ul>
 			</li>
 			<li class="active"><a href="registration"><em class="fa fa-graduation-cap">&nbsp;</em> Registration</a></li>
