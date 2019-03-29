@@ -68,6 +68,8 @@
 											<?php } ?>
 										</select>
 								</div>
+
+								<!--Year To input-->
 								<div class="form-group col-md-4">
 									<label>Month From</label>
 									<select name="cmbClass" id="cmbClass">
