@@ -9,7 +9,7 @@ class Fee_receipt_model extends CI_Model {
 		//echo $this->db->last_query(); die();
 		return $query->result();
 	}
-	function getcourse($course){
+	/*function getcourse($course){
 		$this->db->where('course_ID', $course);
 		$query=$this->db->get('course_details');
 		//echo $this->db->last_query(); die();
