@@ -1,3 +1,10 @@
+<head>
+<style>
+body{
+		background-image:url("assets/image/fee-management.jpg");
+	}	
+</style>
+</head>
 <body>
 	<div class="row">
 		<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
@@ -23,4 +30,3 @@
 			</div>
 		</div><!-- /.col-->
 	</div><!-- /.row -->	
-	
