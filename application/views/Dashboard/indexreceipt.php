@@ -1,9 +1,17 @@
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 		<!--/.row-->
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#">
+					<em class="fa fa-home"></em>Home
+				</a></li>
+				<li class="active">Fee</li>
+			</ol>
+		</div>
 		
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Receipt</h1>
+				<h1 class="page-header">Fee</h1>
 			</div>
 		</div><!--/.row-->
 		<div class="row">
@@ -61,18 +69,6 @@
 										</select>
 								</div>
 								<div class="form-group col-md-4">
-									<label>Year To</label>
-										<select name="cmbClass" id="cmbClass">
-											<option value="">Select Year</option>
-											<?php for ($loop=date('Y');$loop<=2019; $loop++) {?>
-												<option value="<?php echo $loop;?>"><?php echo $loop;?></option>
-											<?php } ?>
-										</select>
-								</div>
-							
-								
-								<!-- Month From body -->
-								<div class="form-group col-md-4">
 									<label>Month From</label>
 									<select name="cmbClass" id="cmbClass">
 											<option value="">Select Month</option>
@@ -82,7 +78,15 @@
 											<?php } ?>
 										</select>
 								</div>
-
+								<div class="form-group col-md-4">
+									<label>Year To</label>
+										<select name="cmbClass" id="cmbClass">
+											<option value="">Select Year</option>
+											<?php for ($loop=date('Y');$loop<=2019; $loop++) {?>
+												<option value="<?php echo $loop;?>"><?php echo $loop;?></option>
+											<?php } ?>
+										</select>
+								</div>
 
 								<!-- Month To body -->
 								<div class="form-group">

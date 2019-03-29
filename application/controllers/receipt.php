@@ -21,7 +21,7 @@ class receipt extends CI_Controller {
 	 function index()
 	{
 		$this->load->model('fee_receipt_model', 'frm');
-		$data['class_in_session'] = $this->frm->getclasses_sessionwise('2025-26');
+		$data['class_in_session'] = $this->frm->getclasses_sessionwise('2026-27');
 		$this->load->view('templates/header');
 		$this->load->view('templates/navheader');
 		$this->load->view('templates/receiptside');
@@ -31,7 +31,7 @@ class receipt extends CI_Controller {
 
 
 
- function index()
+/* function index()
 	{
 		$this->load->model('fee_receipt_model', 'frm');
 		$data['course_details'] = $this->frm->getclasses_studentwise();
@@ -40,7 +40,7 @@ class receipt extends CI_Controller {
 		$this->load->view('templates/receiptside');
 		$this->load->view('Dashboard/indexreceipt', $data);
 		$this->load->view('templates/footer');
-	}
+	}*/
 
 }
 

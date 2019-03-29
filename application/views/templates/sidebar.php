@@ -50,7 +50,12 @@
 				</ul>
 			</li>
 			<li><a href="registration"><em class="fa fa-graduation-cap">&nbsp;</em> Registration</a></li>
-			<li><a href="fees"><em class="fa fa-credit-card">&nbsp;</em>Invoice/Receipt</a></li>
+			<li class="parent"><a data-toggle="collapse" href="#receipt"><em class="fa fa-credit-card">&nbsp;</em>Fee
+				<span class="caret" data-toggle="collapse" href="#receipt" class="icon pull-right"></span></a>
+			<ul class="children collapse" id="receipt">
+				<li><a class="" href="receipt"><span class="fa fa-arrow-right">&nbsp;</span>Invoice/Receipt</a></li>
+			</ul>
+			</li>
 			<li class="parent "><a data-toggle="collapse" href="#sub-item-1"><em class="fa fa-book">&nbsp;</em>
 				 Reports<span class="caret" data-toggle="collapse" href="#sub-item-1" class="icon pull-right"></span>
 				</a>
