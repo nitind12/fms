@@ -23,7 +23,16 @@ class My_model extends CI_Model {
 
 		return $bool;
 	}
-
+	function getStudents(){
+		$this->db->select('student_ID, first_Name, last_Name');
+		$query = $this->db->get('student_details');
+		return $query->result();
+	}
+	function getCourse(){
+		$this->db->select('course_ID, course');
+		$query = $this->db->get('course_details');
+		return $query->result();
+	}
 	/*function submitSession(){
 		$st = $this->input->post('txtStartSession');
 		$end_ = $this->input->post('txtEndSession');

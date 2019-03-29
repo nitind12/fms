@@ -22,14 +22,18 @@
 										<label>Select Student</label>
 										<select class="form-control" name="txtstts">
 											<option>Select</option>
-											<option>ABC</option>
+											<?php foreach ($students as $item) { ?>
+											<option value="<?php echo $item->student_ID;?>"><?php echo $item->first_Name . " " . $item->last_Name; ?></option>
+											<?php } ?>
 										</select>
 								</div>
 								<div class="form-group">
 										<label>Course</label>
 										<select class="form-control" name="txtstts">
 											<option>Select Course</option>
-											<option>BCA</option>
+											<?php foreach ($course as $item) { ?>
+											<option value="<?php echo $item->course_ID;?>"><?php echo $item->course; ?></option>
+											<?php } ?>
 										</select>
 								</div>
 								<div class="form-group">

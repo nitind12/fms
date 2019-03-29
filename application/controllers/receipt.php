@@ -31,16 +31,16 @@ class receipt extends CI_Controller {
 
 
 
- /*function index()
+ function index()
 	{
 		$this->load->model('fee_receipt_model', 'frm');
-		$data['student_details'] = $this->frm->getclasses_studentwise();
+		$data['course_details'] = $this->frm->getclasses_studentwise();
 		$this->load->view('templates/header');
 		$this->load->view('templates/navheader');
 		$this->load->view('templates/receiptside');
 		$this->load->view('Dashboard/indexreceipt', $data);
 		$this->load->view('templates/footer');
-	}*/
+	}
 
 }
 

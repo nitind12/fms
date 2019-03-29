@@ -20,10 +20,15 @@ class master extends CI_Controller {
 	 */
 	public function index()
 	{
+		$this->load->model('my_model', 'mm');
+		$data['students'] = $this->mm->getStudents();
+		$this->load->model('my_model', 'mm');
+		$data['course'] = $this->mm->getCourse();
+
 		$this->load->view('templates/header');
 		$this->load->view('templates/navheader');
 		$this->load->view('templates/masterside');
-		$this->load->view('Dashboard/indexmaster');
+		$this->load->view('Dashboard/indexmaster', $data);
 		$this->load->view('templates/footer');
 	}
 }
