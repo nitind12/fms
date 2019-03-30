@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class staffmaster extends CI_Controller {
+class studentregi extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -20,10 +20,15 @@ class staffmaster extends CI_Controller {
 	 */
 	public function index()
 	{
+		$this->load->model('my_model', 'mm');
+		$data['students'] = $this->mm->getStudents();
+		$this->load->model('my_model', 'mm');
+		$data['course'] = $this->mm->getCourse();
+
 		$this->load->view('templates/header');
 		$this->load->view('templates/navheader');
-		$this->load->view('templates/masterside');
-		$this->load->view('Dashboard/indexstaffmaster');
+		$this->load->view('templates/registrationside');
+		$this->load->view('Dashboard/indexstudentregi', $data);
 		$this->load->view('templates/footer');
 	}
 }

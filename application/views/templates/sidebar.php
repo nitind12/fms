@@ -17,49 +17,59 @@
 		</form>
 		<ul class="nav menu">
 			<li class="active"><a href="dashboard"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
-			
-			<li class="parent"><a data-toggle="collapse" href="#sub-item-2"><em class="fa fa-user-circle-o">&nbsp;</em>
-				 Master<span class="caret" data-toggle="collapse" href="#sub-item-2" class="icon pull-right"></span>
+			<li class="parent"><a data-toggle="collapse" href="#master"><em class="fa fa-user-circle-o">&nbsp;</em>
+				 Master<span class="caret" data-toggle="collapse" href="#master" class="icon pull-right"></span>
 				</a>
-				<ul class="children collapse" id="sub-item-2">
-					<li><a class="" href="master">
+				<ul class="children collapse" id="master">
+					<li><a class="" href="#">
 						<span class="fa fa-arrow-right">&nbsp;</span> Session
 					</a></li>
-					<li><a class="" href="staffmaster">
+					<li><a class="" href="#">
 						<span class="fa fa-arrow-right">&nbsp;</span> Class
 					</a></li>
-					<li><a class="" href="master">
+					<li><a class="" href="#">
 						<span class="fa fa-arrow-right">&nbsp;</span> Class in session
 					</a></li>
-					<li><a class="" href="staffmaster">
+					<li><a class="" href="#">
 						<span class="fa fa-arrow-right">&nbsp;</span> Static heads
 					</a></li>
-					<li><a class="" href="master">
+					<li><a class="" href="#">
 						<span class="fa fa-arrow-right">&nbsp;</span> Flexible heads
 					</a></li>
-					<li><a class="" href="staffmaster">
+					<li><a class="" href="#">
 						<span class="fa fa-arrow-right">&nbsp;</span> Static in class
 					</a></li>
-					<li><a class="" href="master">
-						<span class="fa fa-arrow-right">&nbsp;</span> Flexihead to students
+					<li><a class="" href="#">
+						<span class="fa fa-arrow-right">&nbsp;</span> Flexihead-students
 					</a></li>
-					<li><a class="" href="staffmaster">
+					<li><a class="" href="#">
 						<span class="fa fa-arrow-right">&nbsp;</span> Drop student
 					</a></li>
-					
 				</ul>
 			</li>
-			<li><a href="registration"><em class="fa fa-graduation-cap">&nbsp;</em> Registration</a></li>
+			<li class="parent"><a data-toggle="collapse" href="#registration"><em class="fa fa-graduation-cap">&nbsp;</em>
+				 Registration<span class="caret" data-toggle="collapse" href="#registration" class="icon pull-right"></span>
+				</a>
+				<ul class="children collapse" id="registration">
+					<li><a class="" href="studentregi">
+						<span class="fa fa-arrow-right">&nbsp;</span> Student
+					</a></li>
+					<li><a class="" href="staffregi">
+						<span class="fa fa-arrow-right">&nbsp;</span> Staff
+					</a></li>
+				</ul>
+			</li>
+		
 			<li class="parent"><a data-toggle="collapse" href="#receipt"><em class="fa fa-credit-card">&nbsp;</em>Fee
 				<span class="caret" data-toggle="collapse" href="#receipt" class="icon pull-right"></span></a>
 			<ul class="children collapse" id="receipt">
 				<li><a class="" href="receipt"><span class="fa fa-arrow-right">&nbsp;</span>Invoice/Receipt</a></li>
 			</ul>
 			</li>
-			<li class="parent "><a data-toggle="collapse" href="#sub-item-1"><em class="fa fa-book">&nbsp;</em>
-				 Reports<span class="caret" data-toggle="collapse" href="#sub-item-1" class="icon pull-right"></span>
+			<li class="parent "><a data-toggle="collapse" href="#reports"><em class="fa fa-book">&nbsp;</em>
+				 Reports<span class="caret" data-toggle="collapse" href="#reports" class="icon pull-right"></span>
 				</a>
-				<ul class="children collapse" id="sub-item-1">
+				<ul class="children collapse" id="reports">
 					<li><a class="" href="dreports">
 						<span class="fa fa-arrow-right">&nbsp;</span> Daily Reports
 					</a></li>

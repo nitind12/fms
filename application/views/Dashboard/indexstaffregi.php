@@ -10,20 +10,12 @@
 		
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Registration</h1>
+				<h1 class="page-header">Staff</h1>
 			</div>
-		</div><!--/.row-->
-		<div class="row">
-					<div class="col-md-12">
-						<div class="panel panel-default">
-					<div class="panel-heading">	
-											
-						<span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span>
-					</div>
-					<div class="panel-body">
-
-						
-							<form role="form" name="frmSession" method="post" action="<?php echo site_url('fms/submitstudentdetails');?>">
+		</div>
+		<div class="panel-heading">Staff Details</div>
+		<div class="panel-body">
+		<form role="form" name="frmSession" method="post" action="<?php echo site_url('fms/submitstudentdetails');?>">
 								<!--student details-->
 								<div class="col-md-3">
 									<div class="form-group">
@@ -92,17 +84,13 @@
 									<button type="submit" class="btn btn-primary">Register</button>
 									<button type="reset" class="btn btn-default">Reset</button>
 								</div>
-							</form>
-						</div>
-					</div>
-				</div><!-- /.panel-->
-			</div>
-			<!-- /.col-->
+							</form>	
 
-	
-
+		</div>
+		
+			
 			<div class="col-sm-12">
 				<p class="back-link">BCA final Year Project by <a href="#">FMS team</a></p>
 			</div>
 		</div><!--/.row-->
-	
+	</div>
