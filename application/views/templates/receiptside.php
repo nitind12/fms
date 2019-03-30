@@ -21,7 +21,7 @@
 				 Master<span class="caret" data-toggle="collapse" href="#master" class="icon pull-right"></span>
 				</a>
 				<ul class="children collapse" id="master">
-					<li><a class="" href="#">
+					<li><a class="" href="sessions">
 						<span class="fa fa-arrow-right">&nbsp;</span> Session
 					</a></li>
 					<li><a class="" href="#">
