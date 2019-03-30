@@ -30,7 +30,7 @@
 					<li><a class="" href="#">
 						<span class="fa fa-arrow-right">&nbsp;</span> Class in session
 					</a></li>
-					<li><a class="" href="#">
+					<li><a class="" href="statichead">
 						<span class="fa fa-arrow-right">&nbsp;</span> Static heads
 					</a></li>
 					<li><a class="" href="#">
