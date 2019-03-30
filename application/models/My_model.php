@@ -40,6 +40,21 @@ class My_model extends CI_Model {
 		$query = $this->db->get('course_details');
 		return $query->result();
 	}
+	function getSession(){
+		$this->db->select('session_ID');
+		$query = $this->db->get('session_master');
+		return $query->result();
+	}
+	function getSessionstart(){
+		$this->db->select('session_ID,session_Start');
+		$query = $this->db->get('session_master');
+		return $query->result();
+	}
+	function getSessionend(){
+		$this->db->select('session_ID,session_End');
+		$query = $this->db->get('session_master');
+		return $query->result();
+	}
 	/*function submitSession(){
 		$st = $this->input->post('txtStartSession');
 		$end_ = $this->input->post('txtEndSession');
