@@ -15,17 +15,34 @@
 								<div class="col-md-3">
 									<div class="form-group">
 									<label>Session ID</label>
-									<input class="form-control"  name="txtstdid">
-								</div></div>
+									<select class="form-control" name="txtstts" id="cmbStudents">
+											<option>Select</option>
+											<?php foreach ($session as $item) { ?>
+											<option value="<?php echo $item->session_ID;?>"><?php echo $item->session_ID; ?></option>
+											<?php } ?>
+										</select>
+								</div>
+							</div>
 								<div class="col-md-3">
 									<div class="form-group">
-									<label><em class="fa fa-hourglass-start">&nbsp</em>Session Start</label>
-									<input class="form-control" name="txtfrstnme">
-								</div></div>
+									<label>Session Start</label>
+									<select class="form-control" name="txtstts" id="cmbStudents">
+											<option>Select</option>
+											<?php foreach ($sessionstart as $item) { ?>
+											<option value="<?php echo $item->session_ID;?>"><?php echo $item->session_Start; ?></option>
+											<?php } ?>
+										</select>
+								</div>
+							</div>
 								<div class="col-md-3">
 									<div class="form-group">
-									<label><em class="fa fa-hourglass-end">&nbsp</em>Session end</label>
-									<input class="form-control" name="txtlstnme">
+									<label>Session End</label>
+									<select class="form-control" name="txtstts" id="cmbStudents">
+											<option>Select</option>
+											<?php foreach ($sessionend as $item) { ?>
+											<option value="<?php echo $item->session_ID;?>"><?php echo $item->session_End; ?></option>
+											<?php } ?>
+										</select>
 								</div></div>
 								<div class="form-group col-md-3">
 									<label>Date</label>

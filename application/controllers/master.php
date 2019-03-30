@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class sessions extends CI_Controller {
+class master extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -21,15 +21,14 @@ class sessions extends CI_Controller {
 	public function index()
 	{
 		$this->load->model('my_model', 'mm');
-		$data['session'] = $this->mm->getSession();
+		$data['students'] = $this->mm->getStudents();
 		$this->load->model('my_model', 'mm');
-		$data['sessionstart'] = $this->mm->getSessionstart();
-		$this->load->model('my_model', 'mm');
-		$data['sessionend'] = $this->mm->getSessionend();
+		$data['course'] = $this->mm->getCourse();
+
 		$this->load->view('templates/header');
 		$this->load->view('templates/navheader');
 		$this->load->view('templates/masterside');
-		$this->load->view('Dashboard/indexsessions',$data);
+		$this->load->view('Dashboard/indexmaster', $data);
 		$this->load->view('templates/footer');
 	}
 }
