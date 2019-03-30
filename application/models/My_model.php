@@ -23,10 +23,17 @@ class My_model extends CI_Model {
 
 		return $bool;
 	}
-	function getStudents(){
-		$this->db->select('student_ID, first_Name, last_Name');
+	function getStudents($stdid=''){
+		if($stdid!=''){
+			$this->db->where('student_ID', $stdid);
+		}
+		$this->db->select('student_ID, first_Name, last_Name, fathers_Name');
 		$query = $this->db->get('student_details');
-		return $query->result();
+		if($stdid!=''){
+			return $query->row();
+		} else {
+			return $query->result();
+		}
 	}
 	function getCourse(){
 		$this->db->select('course_ID, course');

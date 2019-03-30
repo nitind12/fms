@@ -4,6 +4,10 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Fee - Dashboard</title>
+	<script type="text/javascript">
+		site_url_ = '<?php echo site_url();?>';
+		base_url_ = '<?php echo base_url();?>';
+	</script>
 	<link href="<?php echo base_url('assets/css/bootstrap.min.css');?>" rel="stylesheet">
 	<link href="<?php echo base_url('assets/css/font-awesome.min.css');?>" rel="stylesheet">
 	<link href="<?php echo base_url('assets/css/datepicker3.css');?>" rel="stylesheet">

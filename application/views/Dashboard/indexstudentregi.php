@@ -20,12 +20,13 @@
 				<form name="form" method="post" action="#">
 				<div class="form-group ">
 										<label>Select Student</label>
-										<select class="form-control" name="txtstts">
+										<select class="form-control" name="txtstts" id="cmbStudents">
 											<option>Select</option>
 											<?php foreach ($students as $item) { ?>
 											<option value="<?php echo $item->student_ID;?>"><?php echo $item->first_Name . " " . $item->last_Name; ?></option>
 											<?php } ?>
 										</select>
+										<div style="clear: both;" id="printhere">ok</div>
 								</div>
 								<div class="form-group">
 										<label>Course</label>
@@ -65,7 +66,7 @@
 								<div class="col-md-3">
 									<div class="form-group">
 									<label>First Name</label>
-									<input class="form-control" placeholder="Input First Name" name="txtfrstnme">
+									<input class="form-control" placeholder="Input First Name" name="txtfrstnme" id="txtfrstnme">
 								</div></div>
 								<div class="col-md-3">
 									<div class="form-group">

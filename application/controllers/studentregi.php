@@ -31,4 +31,10 @@ class studentregi extends CI_Controller {
 		$this->load->view('Dashboard/indexstudentregi', $data);
 		$this->load->view('templates/footer');
 	}
+
+	function getStudent($stdid=''){
+		$this->load->model('my_model', 'mm');
+		$data['stud'] = $this->mm->getStudents($stdid);
+		echo json_encode($data);
+	}
 }
