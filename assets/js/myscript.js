@@ -10,7 +10,7 @@ $(function(){
 			success: function(data){
 				var obj = JSON.parse(data);
 				var str = '';
-				alert(obj.stud.length);
+				//alert(obj.stud.length);
 				str = str + "<table border='1' class='table'>";
 				str = str + "<tr>";
 				str = str + "<th>Student Name</th>";
