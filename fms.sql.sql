@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 29, 2019 at 05:25 PM
+-- Generation Time: Mar 31, 2019 at 07:55 AM
 -- Server version: 5.6.11
 -- PHP Version: 5.5.3
 
@@ -67,7 +67,8 @@ CREATE TABLE IF NOT EXISTS `class_in_session` (
 INSERT INTO `class_in_session` (`class_sess_ID`, `session_ID`, `class`) VALUES
 ('BCAivA201819', '2018-19', 'BCA_iv_A'),
 ('BCAvA201819', '2018-19', 'BCA_v_A'),
-('BCAviA201920', '2019-20', 'BCA_vi_A');
+('BCAviA201920', '2019-20', 'BCA_vi_A'),
+('BCAViiA202122', '2021-22', 'BCA_Vii_A');
 
 -- --------------------------------------------------------
 
@@ -140,6 +141,16 @@ CREATE TABLE IF NOT EXISTS `fee_flexible_head` (
   KEY `username` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `fee_flexible_head`
+--
+
+INSERT INTO `fee_flexible_head` (`flexible_head_ID`, `fee_Head`, `amount`, `username`, `date`) VALUES
+('ff10', 'tution', 1000, 'fms', '2019-03-04'),
+('ff11', 'tution', 1000, 'kanika', '2019-03-08'),
+('ff22', 'tution', 700, 'lp', '2019-03-09'),
+('ff33', 'tution', 600, 'mng', '2019-03-26');
+
 -- --------------------------------------------------------
 
 --
@@ -176,6 +187,16 @@ CREATE TABLE IF NOT EXISTS `fee_invoice` (
   KEY `static_head_ID` (`static_head_ID`),
   KEY `flexible_head_ID` (`flexible_head_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `fee_invoice`
+--
+
+INSERT INTO `fee_invoice` (`invoice_ID`, `session_ID`, `class_sess_ID`, `year_From`, `month_From`, `year_To`, `month_To`, `no_of_Month`, `description`, `student_ID`, `static_head_ID`, `static_head_Amount`, `flexible_head_ID`, `flexible_head_Amount`, `actual_Amount`, `applicable_discount_Amount`, `actual_due_Amount`, `previous_due_Amount`, `due_Amount`) VALUES
+('i2001', '2018-19', 'BCAivA201819', 2012, 0, 2019, 0, 12, 'present', 's20000', 'st11', 500, 'ff10', 1000, 1200, 500, 200, 100, 600),
+('i2002', '2019-20', 'BCAvA201819', 2012, 0, 2019, 0, 12, 'Present', 's20001', 'st22', 500, 'ff11', 500, 600, 50, 70, 200, 500),
+('i2003', '2020-21', 'BCAviA201920', 2012, 0, 2019, 0, 12, 'present', 's20002', 'st33', 600, 'ff22', 400, 500, 100, 100, 200, 300),
+('i2004', '2021-22', 'BCAViiA202122', 2012, 0, 201, 0, 12, 'present', 's20003', 'st44', 500, 'ff33', 200, 1000, 100, 200, 300, 500);
 
 -- --------------------------------------------------------
 
@@ -223,11 +244,22 @@ CREATE TABLE IF NOT EXISTS `fee_static_head` (
   `fee_Head` varchar(10) DEFAULT NULL,
   `username` varchar(20) DEFAULT NULL,
   `date` date DEFAULT NULL,
-  `amount` decimal(2,0) DEFAULT NULL,
+  `amount` int(20) DEFAULT NULL,
   `discount_Applicable` int(2) NOT NULL,
   PRIMARY KEY (`static_head_ID`),
   KEY `username` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `fee_static_head`
+--
+
+INSERT INTO `fee_static_head` (`static_head_ID`, `fee_Head`, `username`, `date`, `amount`, `discount_Applicable`) VALUES
+('st11', 'tution', 'fms', '2019-03-05', 99, 500),
+('st22', 'tution', 'fms', '2019-03-06', 99, 100),
+('st33', 'tution', 'fms', '2019-03-14', 99, 100),
+('st44', 'tution', 'fms', '2019-03-13', 99, 100),
+('st55', 'tution', 'fms', '2019-03-20', 99, 100);
 
 -- --------------------------------------------------------
 
@@ -265,7 +297,10 @@ CREATE TABLE IF NOT EXISTS `login_details` (
 --
 
 INSERT INTO `login_details` (`username`, `password`, `status_ID`, `date`, `status`) VALUES
-('fms', '111', '1', '2019-03-04', '1');
+('fms', '111', '1', '2019-03-04', '1'),
+('kanika', '123', '2', '2019-03-13', '1'),
+('lp', '334', '4', '2019-03-20', '1'),
+('mng', '234', '3', '2019-03-19', '1');
 
 -- --------------------------------------------------------
 
@@ -309,15 +344,17 @@ CREATE TABLE IF NOT EXISTS `session_master` (
 --
 
 INSERT INTO `session_master` (`session_ID`, `session_Start`, `session_End`, `date`) VALUES
-('2018-19', 0, 0, '2019-02-23'),
-('2019-20', 0, 0, '2019-02-23'),
-('2020-21', 0, 0, '2019-02-22'),
-('2021-22', 0, 0, '2019-02-23'),
-('2022-23', 0, 0, '2019-02-23'),
-('2023-24', 0, 0, '2019-02-24'),
-('2024-25', 0, 0, '2019-02-25'),
-('2025-26', 0, 0, '2019-01-26'),
-('2026-27', 2026, 2017, '2019-04-26');
+('2018-19', 2018, 2019, '2019-02-23'),
+('2019-20', 2019, 2020, '2019-02-23'),
+('2020-21', 2020, 20121, '2019-02-22'),
+('2021-22', 2021, 2022, '2019-02-23'),
+('2022-23', 2022, 2023, '2019-02-23'),
+('2023-24', 2023, 2024, '2019-02-24'),
+('2024-25', 2024, 2025, '2019-02-25'),
+('2025-26', 2025, 2026, '2019-01-26'),
+('2026-27', 2026, 2027, '2019-04-26'),
+('2027-28', 2027, 2028, '0000-00-00'),
+('2028-29', 2028, 2029, '0000-00-00');
 
 -- --------------------------------------------------------
 
