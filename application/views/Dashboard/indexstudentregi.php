@@ -26,7 +26,7 @@
 											<option value="<?php echo $item->student_ID;?>"><?php echo $item->first_Name . " " . $item->last_Name; ?></option>
 											<?php } ?>
 										</select>
-										<div style="clear: both;" id="printhere">ok</div>
+										<div style="clear: both;" id="printhere"></div>
 								</div>
 								<div class="form-group">
 										<label>Course</label>

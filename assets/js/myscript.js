@@ -11,7 +11,7 @@ $(function(){
 				var obj = JSON.parse(data);
 				var str = '';
 				//alert(obj.stud.length);
-				str = str + "<table border='1' class='table'>";
+				str = str + "<table class='table table-striped'>";
 				str = str + "<tr>";
 				str = str + "<th>Student Name</th>";
 				str = str + "</tr>";
