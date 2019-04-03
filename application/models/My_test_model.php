@@ -16,7 +16,7 @@ class My_test_model extends CI_Model {
 		if($query->num_rows()!=0){
 			$bool_ = array(
 				'res' => false,
-				'msg' => 'This name is already exists. Please try again !!'
+				'msg' => '<b class="text-danger">This name is already exists. Please try again !!</b>'
 			);
 		} else {
 
@@ -28,7 +28,7 @@ class My_test_model extends CI_Model {
 
 			$bool_ = array(
 				'res' => true,
-				'msg' => 'Record successfully inserted...'
+				'msg' => '<b class="text-success">Record successfully inserted...</b>'
 			);
 		}
 
