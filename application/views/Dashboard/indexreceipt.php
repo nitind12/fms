@@ -53,9 +53,10 @@
 										<select name="cmbClass" id="cmbClass">
 											<option value="">Select Class</option>
 											<?php foreach ($class_in_session as $item) {?>
-												<option value="<?php echo $item->class_sess_ID;?>"><?php echo $item->class;?></option>
+												<option value="<?php echo $item->class_sess_ID;?>"><?php echo $item->class_ID;?></option>
 											<?php } ?>
 										</select>
+										<div style="clear: both;" id="printhere1"></div>
 								</div>
 
 								<!-- Year From input-->
@@ -180,7 +181,7 @@
 					    </thead>
 					   <tbody>
 					   	<tr>
-					   		<td></td>
+					   		<td  name="printthis" id="printthis"></td>
 					   		<td></td>
 					   		<td></td>
 					   		<td></td>
