@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 01, 2019 at 06:26 AM
+-- Generation Time: Apr 03, 2019 at 09:55 AM
 -- Server version: 5.6.11
 -- PHP Version: 5.5.3
 
@@ -21,6 +21,31 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `fms` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `fms`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `class`
+--
+
+CREATE TABLE IF NOT EXISTS `class` (
+  `class_ID` varchar(20) NOT NULL,
+  `course` varchar(10) NOT NULL,
+  `sem` int(10) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  PRIMARY KEY (`class_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `class`
+--
+
+INSERT INTO `class` (`class_ID`, `course`, `sem`, `section`) VALUES
+('BCA_iv_A', 'BCA', 5, 'A'),
+('BCA_viii_A', 'BCA', 5, 'A'),
+('BCA_vii_A', 'BCA', 5, 'A'),
+('BCA_vi_A', 'BCA', 5, 'A'),
+('BCA_v_A', 'BCA', 5, 'A');
 
 -- --------------------------------------------------------
 
@@ -55,20 +80,22 @@ CREATE TABLE IF NOT EXISTS `class_fee_session` (
 CREATE TABLE IF NOT EXISTS `class_in_session` (
   `class_sess_ID` varchar(20) NOT NULL DEFAULT '',
   `session_ID` varchar(20) DEFAULT NULL,
-  `class` varchar(10) DEFAULT NULL,
+  `class_ID` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`class_sess_ID`),
-  KEY `session_ID` (`session_ID`)
+  KEY `session_ID` (`session_ID`),
+  KEY `class_ID` (`class_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `class_in_session`
 --
 
-INSERT INTO `class_in_session` (`class_sess_ID`, `session_ID`, `class`) VALUES
+INSERT INTO `class_in_session` (`class_sess_ID`, `session_ID`, `class_ID`) VALUES
 ('BCAivA201819', '2018-19', 'BCA_iv_A'),
 ('BCAvA201819', '2018-19', 'BCA_v_A'),
 ('BCAviA201920', '2019-20', 'BCA_vi_A'),
-('BCAViiA202122', '2021-22', 'BCA_Vii_A');
+('BCAViiA202122', '2021-22', 'BCA_Vii_A'),
+('BCAviiiA202324', '2023-24', 'BCA_viii_A');
 
 -- --------------------------------------------------------
 
@@ -548,7 +575,8 @@ CREATE TABLE IF NOT EXISTS `student_academic_details` (
 --
 
 INSERT INTO `student_academic_details` (`student_ID`, `course_ID`, `sem_ID`, `batch`, `status`, `class_session_ID`) VALUES
-('s2000', 'cc1', 'ss1', '1', '1', 'BCAvA201819');
+('s2000', 'cc1', 'ss1', '1', '1', 'BCAvA201819'),
+('s2001', 'cc2', 'ss2', '1', '1', 'BCAviA201920');
 
 -- --------------------------------------------------------
 
@@ -681,6 +709,36 @@ CREATE TABLE IF NOT EXISTS `student_email_details` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `student_in_session`
+--
+
+CREATE TABLE IF NOT EXISTS `student_in_session` (
+  `std_ID` varchar(20) NOT NULL,
+  `student_ID` varchar(20) NOT NULL,
+  `class_sess_ID` varchar(20) NOT NULL,
+  `session_ID` varchar(20) NOT NULL,
+  `username` varchar(20) NOT NULL,
+  `status` decimal(2,0) NOT NULL,
+  `date` date NOT NULL,
+  PRIMARY KEY (`std_ID`),
+  KEY `std_ID` (`std_ID`),
+  KEY `student_ID` (`student_ID`),
+  KEY `class_sess_ID` (`class_sess_ID`),
+  KEY `session_ID` (`session_ID`),
+  KEY `username` (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `student_in_session`
+--
+
+INSERT INTO `student_in_session` (`std_ID`, `student_ID`, `class_sess_ID`, `session_ID`, `username`, `status`, `date`) VALUES
+('s121', 's20001', 'BCAviA201920', '2019-20', 'fms', '1', '2019-04-05'),
+('s212', 's20000', 'BCAivA201819', '2018-19', 'fms', '1', '2019-04-10');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `student_register_discount`
 --
 
@@ -695,6 +753,26 @@ CREATE TABLE IF NOT EXISTS `student_register_discount` (
   KEY `discount_ID` (`discount_ID`),
   KEY `username` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `testing`
+--
+
+CREATE TABLE IF NOT EXISTS `testing` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(25) NOT NULL,
+  `hobby` varchar(20) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `testing`
+--
+
+INSERT INTO `testing` (`ID`, `name`, `hobby`) VALUES
+(1, 'kanika', 'xyz');
 
 --
 -- Constraints for dumped tables
@@ -713,6 +791,7 @@ ALTER TABLE `class_fee_session`
 -- Constraints for table `class_in_session`
 --
 ALTER TABLE `class_in_session`
+  ADD CONSTRAINT `class_in_session_ibfk_2` FOREIGN KEY (`class_ID`) REFERENCES `class` (`class_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `class_in_session_ibfk_1` FOREIGN KEY (`session_ID`) REFERENCES `session_master` (`session_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
@@ -838,6 +917,15 @@ ALTER TABLE `student_details`
 ALTER TABLE `student_email_details`
   ADD CONSTRAINT `student_email_details_ibfk_1` FOREIGN KEY (`student_ID`) REFERENCES `student_details` (`student_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `student_email_details_ibfk_2` FOREIGN KEY (`student_ID`) REFERENCES `student_details` (`student_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `student_in_session`
+--
+ALTER TABLE `student_in_session`
+  ADD CONSTRAINT `student_in_session_ibfk_4` FOREIGN KEY (`username`) REFERENCES `login_details` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `student_in_session_ibfk_1` FOREIGN KEY (`student_ID`) REFERENCES `student_details` (`student_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `student_in_session_ibfk_2` FOREIGN KEY (`class_sess_ID`) REFERENCES `class_in_session` (`class_sess_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `student_in_session_ibfk_3` FOREIGN KEY (`session_ID`) REFERENCES `session_master` (`session_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `student_register_discount`
