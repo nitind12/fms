@@ -3,7 +3,7 @@
 		
 		
 		<div class="bg-text">
-		<h1 align="center" class="page-header"><strong>Welcome to Fees Management System</strong></h1>
+		<h1 align="center" class="page-header"><strong>Welcome to Fee Management System</strong></h1>
 
 		<div class="row">
 		<div class="   col-md-5 col-md-offset-4 ">
