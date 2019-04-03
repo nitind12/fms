@@ -27,7 +27,7 @@
 					<li><a class="" href="#">
 						<span class="fa fa-arrow-right">&nbsp;</span> Class
 					</a></li>
-					<li><a class="" href="#">
+					<li><a class="" href="Class_in_session">
 						<span class="fa fa-arrow-right">&nbsp;</span> Class in session
 					</a></li>
 					<li><a class="" href="statichead">
