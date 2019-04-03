@@ -2,7 +2,7 @@ $(function(){
 	$('#cmbStudents').change(function(){
 		$('#printhere').html("Loading...");
 
-		var url_ = site_url_ + "/studentregi/getStudent/";
+		var url_ = site_url_ + "/studentregi/getStudent/"+ $(this).val();
 		
 		$.ajax({
 			type: "GET",
@@ -10,8 +10,9 @@ $(function(){
 			success: function(data){
 				var obj = JSON.parse(data);
 				var str = '';
-				//alert(obj.stud.length);
-				str = str + "<table class='table table-striped'>";
+				
+				$('#txtfrstnme').val(obj['stud']['first_Name'])
+				/*str = str + "<table class='table table-striped'>";
 				str = str + "<tr>";
 				str = str + "<th>Student Name</th>";
 				str = str + "</tr>";
@@ -22,6 +23,7 @@ $(function(){
 				}
 				str = str + "</table>";
 				$('#printhere').html(str);
+				*/
 				// /$('#txtfrstnme').val(obj.stud.first_Name);
 			}
 		});

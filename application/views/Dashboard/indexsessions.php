@@ -10,37 +10,35 @@
 		
 		<div class="panel-heading">Session</div>
 		<div class="panel-body">
-			<form role="form" name="frmSession" method="post" action="<?php echo site_url('fms/submitstudentdetails');?>">
+			<form class="form form-vertical" action="<?php echo site_url('sessions/insert_record');?>" method="post">
+						 
+				<fieldset>
 								<!--student details-->
 								<div class="col-md-3">
 									<div class="form-group">
 									<label>Session ID</label>
-									<select class="form-control" name="txtstts" id="cmbStudents">
-											<option>Select</option>
-											<?php foreach ($session as $item) { ?>
-											<option value="<?php echo $item->session_ID;?>"><?php echo $item->session_ID; ?></option>
-											<?php } ?>
-										</select>
+									<input type="text" name="txtsid" id="txtsid">
 								</div>
 							</div>
 								<div class="col-md-3">
 									<div class="form-group">
 									<label>Session Start</label>
-									<select class="form-control" name="txtstts" id="cmbStudents">
+									<select class="form-control" name="txtsstart" id="txtsstart">
 											<option>Select</option>
-											<?php foreach ($sessionstart as $item) { ?>
-											<option value="<?php echo $item->session_ID;?>"><?php echo $item->session_Start; ?></option>
+											<?php for ($loop=date('Y');$loop>=2014; $loop--) {?>
+												<option value="<?php echo $loop;?>"><?php echo $loop;?></option>
 											<?php } ?>
 										</select>
 								</div>
 							</div>
+							
 								<div class="col-md-3">
 									<div class="form-group">
 									<label>Session End</label>
-									<select class="form-control" name="txtstts" id="cmbStudents">
+									<select class="form-control" name="txtsend" id="txtsend">
 											<option>Select</option>
-											<?php foreach ($sessionend as $item) { ?>
-											<option value="<?php echo $item->session_ID;?>"><?php echo $item->session_End; ?></option>
+											<?php for($loop=2025;$loop>=2017;$loop--){?>
+											<option><?php echo $loop; ?></option>
 											<?php } ?>
 										</select>
 								</div></div>
@@ -48,14 +46,20 @@
 									<label>Date</label>
 									<input class="form-control" type="date" name="txtdte">
 								</div>
-								
-							</form>
-							<form class="col-sm-12">
-									<button type="submit" class="btn btn-primary">Register</button>
+									<div class="form-group col-sm-12"> 
+									<button type="submit" class="btn btn-primary">Submit</button>
 									<button type="reset" class="btn btn-default">Reset</button>
 								</div>
+
+								
+									<div class="form-group">
+									<div class="col-md-12 widget-left" id="msghere" style="font-size: 10px; color: #ff0000">
+									<br><br>	<?php echo $this->session->flashdata('msg_'); ?>
+									</div>
+								</div>
+							
 							</form>	
-</div>
+					</div>
 					
 				
 								
@@ -64,5 +68,4 @@
 			<div class="col-sm-12">
 				<p class="back-link">BCA final Year Project by <a href="#">FMS team</a></p>
 			</div>
-		</div><!--/.row-->
-	</div>
+		</div>

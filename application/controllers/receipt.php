@@ -20,7 +20,7 @@ class receipt extends CI_Controller {
 	 */
 	 function index()
 	{
-		$this->load->model('fee_receipt_model', 'frm');
+		$this->load->model('receipt_model', 'frm');
 		$data['class_in_session'] = $this->frm->getclasses_sessionwise('2025-26');
 		$this->load->view('templates/header');
 		$this->load->view('templates/navheader');
