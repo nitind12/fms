@@ -27,7 +27,6 @@ class My_model extends CI_Model {
 		if($stdid!=''){
 			$this->db->where('student_ID', $stdid);
 		}
-		$this->db->select('student_ID, first_Name, last_Name, fathers_Name');
 		
 		$query = $this->db->get('student_details');
 		if($stdid!=''){
@@ -41,7 +40,7 @@ class My_model extends CI_Model {
 		$query = $this->db->get('course_details');
 		return $query->result();
 	}
-	function getSession(){
+	/*function getSession(){
 		$this->db->select('session_ID');
 		$query = $this->db->get('session_master');
 		return $query->result();
@@ -55,7 +54,7 @@ class My_model extends CI_Model {
 		$this->db->select('session_ID,session_End');
 		$query = $this->db->get('session_master');
 		return $query->result();
-	}
+	}*/
 	/*function submitSession(){
 		$st = $this->input->post('txtStartSession');
 		$end_ = $this->input->post('txtEndSession');

@@ -105,12 +105,13 @@
 											<option>1</option>
 										</select>
 								</div>
-							</form>
+							
 							<div class="col-sm-12">
 									<button type="submit" class="btn btn-success">Update</button>
 									<button type="cancel" class="btn btn-danger">Cancel</button>
 								
 							</div>
+						</form>
 						</div>
 					<div id="parents" class="tab-pane fade">
 						<form role="form" name="frmSession" method="post" action="<?php echo site_url('fms/submitstudentdetails');?>">
@@ -122,12 +123,13 @@
 									<label>Mother's Name</label>
 									<input class="form-control" placeholder="Input Mother's Name" name="txtmnme" id="txtmnme">
 								</div>
-							</form>
-							<form class="col-sm-12">
+							
+							<div class="col-sm-12">
 									<button type="submit" class="btn btn-success">Update</button>
 									<button type="cancel" class="btn btn-danger">Cancel</button>
 								
-							</form>
+							</div>
+						</form>
 						</div>
 					<div id="address" class="tab-pane fade">
 						<form>
@@ -135,11 +137,11 @@
 									<label>Address</label>
 									<textarea class="form-control" rows="3"></textarea>
 								</div>
-						</form>
-						<form class="col-sm-12">
+						
+						<div class="col-sm-12">
 									<button type="submit" class="btn btn-success">Update</button>
 									<button type="cancel" class="btn btn-danger">Cancel</button>
-								
+							</div>>	
 						</form>
 					</div>
 					<div id="sibling" class="tab-pane fade">
@@ -149,10 +151,11 @@
 									<input class="form-control" name="txtnme">
 									
 								</div>
-						</form>
-						<form class="col-sm-12">
+						
+						<div class="col-sm-12">
 								<button type="submit" class="btn btn-success">Update</button>
 								<button type="cancel" class="btn btn-danger">Cancel</button>
+							</div>
 						</form>
 					</div>
 					<div id="category" class="tab-pane fade">
@@ -166,17 +169,20 @@
 											<option>OBC</option>
 										</select>
 									</div>
-							</form>
-							<form class="col-sm-12">
+							
+							<div class="col-sm-12">
 								<button type="submit" class="btn btn-success">Update</button>
 								<button type="cancel" class="btn btn-danger">Cancel</button>
-						</form>
+						</div>
+					</form>
 					</div>
+
 					<div id="discount" class="tab-pane fade">
-<form>
+					<form>
 							<div class="form-group col-md-3" >
 										<label>Discount offered(if any?)</label>
 										<select class="form-control" name="ctgry">
+											<option>Select</option>
 											<option>No Discount</option>
 											<option>Referential</option>
 											<option>Categorical</option>
@@ -188,11 +194,12 @@
 									<textarea class="form-control" rows="3"></textarea>
 								</div>
 
-							</form>
-							<form class="col-sm-12">
+							
+							<div class="col-sm-12">
 								<button type="submit" class="btn btn-success">Update</button>
 								<button type="cancel" class="btn btn-danger">Cancel</button>
-						</form>
+						</div>
+					</form>
 					</div>
 				</div>
 
