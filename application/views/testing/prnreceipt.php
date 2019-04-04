@@ -55,9 +55,6 @@
 
 
 <div class="col-lg-6">
-			
-		
-		<div class="panel-heading" align="center"><strong>College Receipt</strong></div>
 		<div class="panel-body">
 		
 				<table class="table table-striped">
@@ -79,23 +76,6 @@
 				      </tr>
 				     </thead>
 				 </table>
-		<table><u class="text-danger">Fee Details Below:</u>
-				<table>
-					<table class="table table-striped">
-					<thead>
-						<tr>
-							<td>Actual Fee:</td>
-						</tr>
-						<tr>
-							<td>Previous Due:</td>
-						</tr>
-						<tr>
-							<td>Total Due:</td>
-						</tr>
-					</thead>
-				</table>
-				<div class="danger">
-
 
 
 	</div>
