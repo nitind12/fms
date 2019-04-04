@@ -4,9 +4,9 @@ body, html {
 }
 .bg-image
 {
-	background-image:url("student-fee.png");
+	background-image:url("school-accounting-software.jpeg");
 	 /* Add the blur effect */
-  /*filter: blur(2px);
+  filter: blur(2px);
   -webkit-filter: blur(2px);
   
   /* Full height */
