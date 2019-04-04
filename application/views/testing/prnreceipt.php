@@ -4,28 +4,100 @@
 				<li><a href="#">
 					<em class="fa fa-home"></em>Home
 				</a></li>
-				<li class="active">Registration</li>
+				<li class="active">Invoice/Receipt</li>
 			</ol>
 		</div><!--/.row-->
 		
 		<div class="row">
-			<div class="col-lg-12">
-				<h1 class="page-header">Staff</h1>
+			<div class="col-lg-6">
+			
+		
+		<div class="panel-heading" align="center"><small class="text-small"> date</small>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<strong>College Receipt</strong></div>
+		<div class="panel-body">
+		
+				<table class="table table-striped" border="1">
+					<thead>
+				      <tr>
+				      	<td>Registration No.:</td>
+				      </tr>
+				      <tr>
+				      	<td>Name:</td>
+				      </tr>
+				      <tr>
+				      	<td>Class:</td>
+				      </tr>
+				      <tr>
+				      	<td>Session:</td>
+				      </tr>
+				      <tr>
+				      	<td>Father:</td>
+				      </tr>
+				     </thead>
+				 </table>
+		<table><u class="text-danger">Fee Details Below:</u>
+				</table>
+					<table class="table table-striped active">
+					<thead>
+						<tr class="active">
+							<td>Actual Fee:</td>
+						</tr>
+						<tr class="active">
+							<td>Previous Due:</td>
+						</tr>
+						<tr class="active">
+							<td>Total Due:</td>
+						</tr>
+					</thead>
+				</table>
+				</div>
 			</div>
 		</div>
-		<div class="panel-heading">Staff Details</div>
+
+
+<div class="col-lg-6">
+			
+		
+		<div class="panel-heading" align="center"><strong>College Receipt</strong></div>
 		<div class="panel-body">
-		<div class="col-sm-6">
-			<form>
+		
 				<table class="table table-striped">
-					<label>Regi No.:</label>
-					
-				</div>
-			</form>
+					<thead>
+				      <tr>
+				      	<td>Registration No.:</td>
+				      </tr>
+				      <tr>
+				      	<td>Name:</td>
+				      </tr>
+				      <tr>
+				      	<td>Class:</td>
+				      </tr>
+				      <tr>
+				      	<td>Session:</td>
+				      </tr>
+				      <tr>
+				      	<td>Father:</td>
+				      </tr>
+				     </thead>
+				 </table>
+		<table><u class="text-danger">Fee Details Below:</u>
+				<table>
+					<table class="table table-striped">
+					<thead>
+						<tr>
+							<td>Actual Fee:</td>
+						</tr>
+						<tr>
+							<td>Previous Due:</td>
+						</tr>
+						<tr>
+							<td>Total Due:</td>
+						</tr>
+					</thead>
+				</table>
+				<div class="danger">
 
 
-			<div class="col-sm-12">
-				<p class="back-link">BCA final Year Project by <a href="#">FMS team</a></p>
-			</div>
-		</div><!--/.row-->
+
 	</div>
+</table>
+
