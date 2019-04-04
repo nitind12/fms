@@ -42,7 +42,7 @@
 					<li><a class="" href="#">
 						<span class="fa fa-arrow-right">&nbsp;</span> Flexihead-students
 					</a></li>
-					<li><a class="" href="#">
+					<li><a class="" href="dropstudent">
 						<span class="fa fa-arrow-right">&nbsp;</span> Drop student
 					</a></li>
 				</ul>
