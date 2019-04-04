@@ -162,7 +162,7 @@
 						<span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span>
 					</div>
 					<div class="panel-body">
-						<table class="table table-bordered table-hover table-responsive">
+						<!--<table class="table table-bordered table-hover table-responsive">
 					    <thead>
 					      <tr>
 					        <th>Reg.No</th>
@@ -176,210 +176,43 @@
 					        <th>Undo Invoice</th>
 					        <th>Dues</th>
 					        <th>Pay Fee</th>
-					        <th>Print Receipt</th>
-					      </tr>
-					    </thead>
-					   <tbody>
-					   	<tr>
-					   		<td  name="printthis" id="printthis"></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td>
-					   				<span class="glyphicon glyphicon-lock"></span>
-					   		</td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td>
-					   				<em class="fa fa-credit-card"></em>
-					   		</td>
-					   	</tr>
-					   	<tr>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td>
-					   				<span class="glyphicon glyphicon-lock"></span>
-					   		</td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td>
-					   				<em class="fa fa-credit-card"></em>
-					   		</td>
-					   	</tr>
-					   	<tr>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td>
-					   				<span class="glyphicon glyphicon-lock"></span>
-					   		</td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td>
-					   				<em class="fa fa-credit-card"></em>
-					   		</td>
-					   	</tr>
-					   	<tr>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td>
-					   				<span class="glyphicon glyphicon-lock"></span>
-					   		</td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td>
-					   				<em class="fa fa-credit-card"></em>
-					   		</td>
-					   	</tr>
-					   	<tr>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td>
-					   				<span class="glyphicon glyphicon-lock"></span>
-					   		</td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td>
-					   				<em class="fa fa-credit-card"></em>
-					   		</td>
-					   	</tr>
-					   	<tr>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td>
-					   				<span class="glyphicon glyphicon-lock"></span>
-					   		</td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td>
-					   				<em class="fa fa-credit-card"></em>
-					   		</td>
-					   	</tr>
-					   	<tr>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td>
-					   				<span class="glyphicon glyphicon-lock"></span>
-					   		</td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td>
-					   				<em class="fa fa-credit-card"></em>
-					   		</td>
-					   	</tr>
-					   	<tr>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td>
-					   				<span class="glyphicon glyphicon-lock"></span>
-					   		</td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td>
-					   				<em class="fa fa-credit-card"></em>
-					   		</td>
-					   	</tr>
-					   	<tr>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td>
-					   				<span class="glyphicon glyphicon-lock"></span>
-					   		</td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td>
-					   				<em class="fa fa-credit-card"></em>
-					   		</td>
-					   	</tr>
-					   	<tr>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td>
-					   				<span class="glyphicon glyphicon-lock"></span>
-					   		</td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td>
-					   				<em class="fa fa-credit-card"></em>
-					   		</td>
-					   	</tr>
-					   	<tr>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td>
-					   				<span class="glyphicon glyphicon-lock"></span>
-					   		</td>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		<td>
-					   				<em class="fa fa-credit-card"></em>
-					   		</td>
-					   	</tr>
-					  </tbody>	
-					</table>
+					        <th>Print Receipt</th>-->
+				
+					   	<?php
+					   		echo '<table class="table table-bordered table-hover table-responsive">';
+					      echo '<tr>';
+					      echo '<th>'."Reg.No".'</th>';
+					      echo '<th>'."Name".'</th>';
+					      echo '<th>'."Discount".'</th>';
+					      echo  '<th>'."Fix Fee".'</th>';
+					       echo '<th>'."Opted Fee".'</th>';
+					       echo '<th>'."Amount".'</th>';
+					       echo '<th>'."Total Fee".'</th>';
+					       echo '<th>'."Invoice".'</th>';
+					       echo '<th>'."Undo Invoice".'</th>';
+					       echo '<th>'."Dues".'</th>';
+					       echo '<th>'."Pay Fee".'</th>';
+					       echo '<th>'."Print Receipt".'</th>';
+						   echo '</tr>';
+					   		foreach($students as $item)
+					   			{
+					   				echo '<tr>';
+									echo '<td>'.$item->student_ID.'</td>';
+									echo '<td>'.$item->first_Name . " " . $item->last_Name.'</td>';
+									echo '<td></td>';
+									echo '<td></td>';
+									echo '<td></td>';
+									echo '<td></td>';
+									echo '<td></td>';
+									echo '<td><span class="glyphicon glyphicon-lock"></span>'.'</td>';
+									echo '<td></td>';
+									echo '<td></td>';
+									echo '<td></td>';
+									echo '<td><em class="fa fa-credit-card"></em>'.'</td>';
+									echo '</tr>';
+								}
+							echo '</table>';
+						?>
 					</div>
 				</div>
 			</div>			

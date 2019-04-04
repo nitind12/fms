@@ -22,17 +22,15 @@ class receipt extends CI_Controller {
 	{
 		$this->load->model('fee_receipt_model', 'frm');
 		$data['class_in_session'] = $this->frm->getclass('2018-19');
+		$this->load->model('fee_receipt_model', 'frm');
+		$data['students'] = $this->frm->getstudent();
 		$this->load->view('templates/header');
 		$this->load->view('templates/navheader');
 		$this->load->view('templates/receiptside');
 		$this->load->view('Dashboard/indexreceipt', $data);
 		$this->load->view('templates/footer');
 	}
-	function getStudent_classwises($classid=''){
-		$this->load->model('fee_receipt_model', 'mm');
-		$data['stud1'] = $this->mm->getstudent_classwise($classid);
-		echo json_encode($data);
-	}
+	
 	
 
 
