@@ -12,6 +12,7 @@ $(function(){
 				var obj = JSON.parse(data);
 				var str = '';
 				
+				$('#txtstdid').val(obj['stud']['student_ID']);
 				$('#txtfrstnme').val(obj['stud']['first_Name']);
 				$('#txtlstnme').val(obj['stud']['last_Name']);
 				$('#txtfnme').val(obj['stud']['fathers_Name']);
@@ -20,6 +21,9 @@ $(function(){
 				$('#txtbgrp').val(obj['stud']['blood_Group']);
 				$('#txtstts').val(obj['stud']['status']);
 				$('#txtmnme').val(obj['stud']['mothers_Name']);
+				$('#txtusrnme').val(obj['stud']['username']);
+				$('#txtctgry').val(obj['stud']['category']);
+
 				
 				if(obj['stud']['gender'] == 'MALE'){
 				

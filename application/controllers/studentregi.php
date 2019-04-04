@@ -2,28 +2,17 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class studentregi extends CI_Controller {
-
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 */
+	function __construct(){
+		parent::__construct();
+		$this->load->model('student_model', 'stm');
+	}
+	
 	public function index()
 	{
-		$this->load->model('my_model', 'mm');
-		$data['students'] = $this->mm->getStudents();
-		$this->load->model('my_model', 'mm');
-		$data['course'] = $this->mm->getCourse();
+		$this->load->model('student_model', 'stm');
+		$data['students'] = $this->stm->getStudents();
+		$this->load->model('student_model', 'stm');
+		$data['course'] = $this->stm->getCourse();
 
 		$this->load->view('templates/header');
 		$this->load->view('templates/navheader');
@@ -32,8 +21,16 @@ class studentregi extends CI_Controller {
 		$this->load->view('templates/footer');
 	}
 	function getStudent($stdid=''){
-		$this->load->model('my_model', 'mm');
-		$data['stud'] = $this->mm->getStudents($stdid);
+		$this->load->model('student_model', 'stm');
+		$data['stud'] = $this->stm->getStudents($stdid);
 		echo json_encode($data);
+	}
+
+function insert_record(){
+		$data = $this->stm->submission();
+
+		$this->session->set_flashdata('msg_', $data['msg']);
+
+		redirect('studentregi');
 	}
 }

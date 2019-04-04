@@ -61,8 +61,13 @@
 			</ul>
 			<div class="tab-content">
 				<div id="personal" class="tab-pane fade">
-					<form role="form" name="frmSession" method="post" action="<?php echo site_url('fms/submitstudentdetails');?>">
+					<form role="form" name="frmSession" method="post" action="<?php echo site_url('studentregi/insert_record');?>">
 								<!--student details-->
+								<div class="col-md-3">
+									<div class="form-group">
+									<label>Student ID</label>
+									<input class="form-control" name="txtstdid" id="txtstdid">
+								</div></div>
 								<div class="col-md-3">
 									<div class="form-group">
 									<label>First Name</label>
@@ -78,17 +83,18 @@
 										<label>Gender</label>
 										<div class="radio">
 											<label>
-												<input type="radio" name="txtgndr" value="checked" id="txtmle">Male
+												<input type="radio" name="txtgndr" value="MALE" id="txtmle">Male
 											</label>&nbsp &nbsp &nbsp
 											<label>
-												<input type="radio" name="txtgndr" value="unchecked" id="txtfmle">Female
+												<input type="radio" name="txtgndr" value="FEMALE" id="txtfmle">Female
 											</label>
-										</div>
+										</div><br>
 									</div>
 									<div class="form-group col-md-3" >
 									<label>Nationality</label>
-									<input class="form-control" name="txtntlty" id="txtntnlty">
+									<input class="form-control" name="txtntnlty" id="txtntnlty">
 									</div>
+
 								<div class="form-group col-md-3">
 									<label>Date Of Birth </label>
 									<input class="form-control" type="date" id="txtdte" name="txtdte">
@@ -103,18 +109,29 @@
 											<option>select</option>
 											<option>0</option>
 											<option>1</option>
-										</select>
-								</div>
+										</select><br>
+									</div>
+										<div class="col-md-3">
+									<div class="form-group">
+									<label>Username</label>
+									<input class="form-control" placeholder="Input Username" name="txtusrnme" id="txtusrnme">
+								</div></div>
+								
 							
 							<div class="col-sm-12">
 									<button type="submit" class="btn btn-success">Update</button>
 									<button type="cancel" class="btn btn-danger">Cancel</button>
 								
 							</div>
+							<div class="form-group">
+									<div class="col-md-12 widget-left" id="msghere" style="font-size: 10px; color: #ff0000">
+									<br><br>	<?php echo $this->session->flashdata('msg_'); ?>
+									</div>
+								</div>
 						</form>
 						</div>
 					<div id="parents" class="tab-pane fade">
-						<form role="form" name="frmSession" method="post" action="<?php echo site_url('fms/submitstudentdetails');?>">
+						<form role="form" name="frmSession" method="post" action="<?php echo site_url('studentregi/insert_record');?>">
 							<div class="form-group col-md-3">
 									<label>Father's Name</label>
 									<input class="form-control" placeholder="Input Father's Name" name="txtfnme" id="txtfnme">
@@ -141,7 +158,12 @@
 						<div class="col-sm-12">
 									<button type="submit" class="btn btn-success">Update</button>
 									<button type="cancel" class="btn btn-danger">Cancel</button>
-							</div>>	
+							</div>
+							<div class="form-group">
+									<div class="col-md-12 widget-left" id="msghere" style="font-size: 10px; color: #ff0000">
+									<br><br>	<?php echo $this->session->flashdata('msg_'); ?>
+									</div>
+								</div>	
 						</form>
 					</div>
 					<div id="sibling" class="tab-pane fade">
@@ -159,11 +181,12 @@
 						</form>
 					</div>
 					<div id="category" class="tab-pane fade">
-						<form>
+						<form name="frm" method="post" action="<?php echo site_url ('studentregi/insert_record')?>">
 							<div class="form-group col-md-3" >
 										<label>Category</label>
-										<select class="form-control" name="ctgry">
-											<option>General</option>
+										<select class="form-control" name="txtctgry" id="txtctgry">
+											<option>select</option>
+											<option>GENERAL</option>
 											<option>SC</option>
 											<option>ST</option>
 											<option>OBC</option>
@@ -174,6 +197,11 @@
 								<button type="submit" class="btn btn-success">Update</button>
 								<button type="cancel" class="btn btn-danger">Cancel</button>
 						</div>
+						<div class="form-group">
+									<div class="col-md-12 widget-left" id="msghere" style="font-size: 10px; color: #ff0000">
+									<br><br>	<?php echo $this->session->flashdata('msg_'); ?>
+									</div>
+								</div>
 					</form>
 					</div>
 
