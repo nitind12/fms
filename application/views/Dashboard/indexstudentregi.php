@@ -71,55 +71,56 @@
 								<div class="col-md-3">
 									<div class="form-group">
 									<label>Last Name</label>
-									<input class="form-control" placeholder="Input Last Name" name="txtlstnme">
+									<input class="form-control" placeholder="Input Last Name" name="txtlstnme" id="txtlstnme">
 								</div>
 							</div>
 									<div class="form-group col-md-3"> 
 										<label>Gender</label>
 										<div class="radio">
 											<label>
-												<input type="radio" name="txtgndr" id="optionsRadios1" value="option1" >Male
+												<input type="radio" name="txtgndr" value="checked" id="txtmle">Male
 											</label>&nbsp &nbsp &nbsp
 											<label>
-												<input type="radio" name="txtgndr" id="optionsRadios2" value="option2">Female
+												<input type="radio" name="txtgndr" value="unchecked" id="txtfmle">Female
 											</label>
 										</div>
 									</div>
 									<div class="form-group col-md-3" >
-									<label>Nationaliy</label>
-									<input class="form-control" name="txtntlty">
+									<label>Nationality</label>
+									<input class="form-control" name="txtntlty" id="txtntnlty">
 									</div>
 								<div class="form-group col-md-3">
 									<label>Date Of Birth </label>
-									<input class="form-control" type="date" name="txtdte">
+									<input class="form-control" type="date" id="txtdte" name="txtdte">
 								</div>
 								<div class="form-group col-md-3">
 									<label>Blood Group</label>
-									<input class="form-control" name="txtbgrp">
+									<input class="form-control" name="txtbgrp" id="txtbgrp">
 								</div>
 								<div class="form-group col-md-3">
 										<label>Status</label>
-										<select class="form-control" name="txtstts">
+										<select class="form-control" name="txtstts" id="txtstts">
+											<option>select</option>
 											<option>0</option>
 											<option>1</option>
 										</select>
 								</div>
 							</form>
-							<form class="col-sm-12">
+							<div class="col-sm-12">
 									<button type="submit" class="btn btn-success">Update</button>
 									<button type="cancel" class="btn btn-danger">Cancel</button>
 								
-							</form>
+							</div>
 						</div>
 					<div id="parents" class="tab-pane fade">
 						<form role="form" name="frmSession" method="post" action="<?php echo site_url('fms/submitstudentdetails');?>">
 							<div class="form-group col-md-3">
 									<label>Father's Name</label>
-									<input class="form-control" placeholder="Input Father's Name" name="txtfnme">
+									<input class="form-control" placeholder="Input Father's Name" name="txtfnme" id="txtfnme">
 								</div>
 								<div class="form-group col-md-3">
 									<label>Mother's Name</label>
-									<input class="form-control" placeholder="Input Mother's Name" name="txtmnme">
+									<input class="form-control" placeholder="Input Mother's Name" name="txtmnme" id="txtmnme">
 								</div>
 							</form>
 							<form class="col-sm-12">

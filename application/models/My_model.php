@@ -28,6 +28,7 @@ class My_model extends CI_Model {
 			$this->db->where('student_ID', $stdid);
 		}
 		$this->db->select('student_ID, first_Name, last_Name, fathers_Name');
+		
 		$query = $this->db->get('student_details');
 		if($stdid!=''){
 			return $query->row();
