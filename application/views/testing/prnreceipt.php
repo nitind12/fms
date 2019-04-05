@@ -15,7 +15,7 @@
 					
 			<div class="row-lg-6">
 				<div class="panel-body">
-					<table class="table table-striped">
+					<table class="table table-striped" align="center">
 					<thead>
 				      <tr>
 				      	<td>Registration No.:</td>
@@ -88,18 +88,16 @@
 				 	 		<thead>
 				 	 	
 				 	 	<tr>
-				 	 			<div class="dropdown">
-							    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Payment Mode 
-							    <span class="caret"></span></button>
-							    <ul class="dropdown-menu">
-							      <li>Cash</li>
-							      <li>Cheque</li>
-							      <li>Credit Card</li>
-							      <li>Others</li>
-							      <li>
-							    </ul>
-							  </div>
-							</div>
+				 	 			<div class="form-group">
+  <label for="sel1">Paymengt Mode</label>
+  <select class="form-control" id="sel1">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+  </select>
+</div>
+
 						</tr>
 						<table><b class="text-danger">Any Remark?</b>
 							<div class="form-group">

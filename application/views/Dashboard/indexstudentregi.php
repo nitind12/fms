@@ -22,6 +22,7 @@
 										<label>Select Student</label>
 										<select class="form-control" name="txtstts" id="cmbStudents">
 											<option>Select</option>
+											<option value="new">New...	</option>
 											<?php foreach ($students as $item) { ?>
 											<option value="<?php echo $item->student_ID;?>"><?php echo $item->first_Name . " " . $item->last_Name; ?></option>
 											<?php } ?>
@@ -60,10 +61,14 @@
 				<li><a data-toggle="tab" href="#discount">Discount(if any?)</a></li>
 			</ul>
 			<div class="tab-content">
-				<div id="personal" class="tab-pane fade">
+				<div id="personal" class="tab-pane fade active in">
 					<form role="form" name="frmSession" method="post" action="<?php echo site_url('studentregi/insert_record');?>">
 								<!--student details-->
-							
+								<div class="col-md-3">
+									<div class="form-group">
+									<label>Student ID</label>
+									<input class="form-control" name="txtstdid" id="txtstdid">
+								</div></div>							
 								<div class="col-md-3">
 									<div class="form-group">
 									<label>First Name</label>
@@ -124,10 +129,9 @@
 									<br><br>	<?php echo $this->session->flashdata('msg_'); ?>
 									</div>
 								</div>
-						</form>
+						
 						</div>
 					<div id="parents" class="tab-pane fade">
-						<form role="form" name="frmSession" method="post" action="<?php echo site_url('studentregi/insert_record');?>">
 							<div class="form-group col-md-3">
 									<label>Father's Name</label>
 									<input class="form-control" placeholder="Input Father's Name" name="txtfnme" id="txtfnme">
@@ -142,10 +146,9 @@
 									<button type="cancel" class="btn btn-danger">Cancel</button>
 								
 							</div>
-						</form>
+						
 						</div>
 					<div id="address" class="tab-pane fade">
-						<form>
 							<div class="form-group col-sm-6">
 									<label>Address</label>
 									<textarea class="form-control" rows="3"></textarea>
@@ -160,10 +163,8 @@
 									<br><br>	<?php echo $this->session->flashdata('msg_'); ?>
 									</div>
 								</div>	
-						</form>
 					</div>
 					<div id="sibling" class="tab-pane fade">
-					<form>
 							<div class="form-group col-sm-6">
 									<label>If Yes then <br>Name</label>
 									<input class="form-control" name="txtnme">
@@ -174,10 +175,8 @@
 								<button type="submit" class="btn btn-success">Update</button>
 								<button type="cancel" class="btn btn-danger">Cancel</button>
 							</div>
-						</form>
 					</div>
 					<div id="category" class="tab-pane fade">
-						<form name="frm" method="post" action="<?php echo site_url ('studentregi/insert_record')?>">
 							<div class="form-group col-md-3" >
 										<label>Category</label>
 										<select class="form-control" name="txtctgry" id="txtctgry">
@@ -198,11 +197,9 @@
 									<br><br>	<?php echo $this->session->flashdata('msg_'); ?>
 									</div>
 								</div>
-					</form>
 					</div>
 
 					<div id="discount" class="tab-pane fade">
-					<form>
 							<div class="form-group col-md-3" >
 										<label>Discount offered(if any?)</label>
 										<select class="form-control" name="ctgry">
@@ -223,10 +220,10 @@
 								<button type="submit" class="btn btn-success">Update</button>
 								<button type="cancel" class="btn btn-danger">Cancel</button>
 						</div>
-					</form>
 					</div>
 				</div>
-
+</form>
+</div>
 
 							
 
@@ -236,7 +233,7 @@
 
 
 
-		</div>
+	
 		
 			
 			<div class="col-sm-12">
