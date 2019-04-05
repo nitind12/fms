@@ -52,7 +52,7 @@
 	</div>
 		<div class="col-lg-9">
 			<ul class="pagination">
-				<li><a data-toggle="tab" href="#personal">Personal Details</a></li>
+				<li class="active"><a data-toggle="tab" href="#personal">Personal Details</a></li>
 				<li><a data-toggle="tab" href="#parents">Parent's Details</a></li>
 				<li><a data-toggle="tab" href="#address">Address</a></li>
 				<li><a data-toggle="tab" href="#sibling">Any Sibling(s)?</a></li>
@@ -63,11 +63,7 @@
 				<div id="personal" class="tab-pane fade">
 					<form role="form" name="frmSession" method="post" action="<?php echo site_url('studentregi/insert_record');?>">
 								<!--student details-->
-								<div class="col-md-3">
-									<div class="form-group">
-									<label>Student ID</label>
-									<input class="form-control" name="txtstdid" id="txtstdid">
-								</div></div>
+							
 								<div class="col-md-3">
 									<div class="form-group">
 									<label>First Name</label>
@@ -92,7 +88,7 @@
 									</div>
 									<div class="form-group col-md-3" >
 									<label>Nationality</label>
-									<input class="form-control" name="txtntnlty" id="txtntnlty">
+									<input class="form-control" name="txtntnlty" id="txtntnlty"><br>
 									</div>
 
 								<div class="form-group col-md-3">

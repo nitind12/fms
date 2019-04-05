@@ -1,7 +1,7 @@
-<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+@@ -4,28 +4,100 @@
+				<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 		<div class="row">
-			<ol class="breadcrumb">
-				<li><a href="#">
+			<ol class="breadcrumb"><li><a href="#">
 					<em class="fa fa-home"></em>Home
 				</a></li>
 				<li class="active">Invoice/Receipt</li>
@@ -97,7 +97,6 @@
 				<div class="danger">
 
 
-
+			
 	</div>
 </table>
-
