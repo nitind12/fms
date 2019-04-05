@@ -10,8 +10,7 @@
 		
 		<div class="row">
 			<div class="col-lg-6">
-				<div class="container">
-				  <span class="border"></span>
+				
 
 
 					<div class="panel-heading" align="center"><small class="text-small"> Date</small>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<strong>Fee Receipt</strong>
@@ -90,12 +89,7 @@
 				 	 
 				 	 	<table class="table table-striped">
 				 	 		<thead>
-				 	 	
-				 	 	<tr>
-				 	 			<div class="form-group">
-								  <label class="form-group"for="sel1">Payment Mode</label>
-
-								  <select class="form-control" id="sel1">
+								  <select class="btn btn-primary">
 								    <option>Cash</option>
 								    <option>Cheque</option>
 								    <option>Credit</option>
