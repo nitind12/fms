@@ -89,12 +89,13 @@
 				 	 	
 				 	 	<tr>
 				 	 			<div class="form-group">
-  <label for="sel1">Paymengt Mode</label>
+  <label class="form-group"for="sel1">Payment Mode</label>
+
   <select class="form-control" id="sel1">
-    <option>1</option>
-    <option>2</option>
-    <option>3</option>
-    <option>4</option>
+    <option>Cash</option>
+    <option>Cheque</option>
+    <option>Credit</option>
+    <option>Other</option>
   </select>
 </div>
 
