@@ -15,7 +15,7 @@
 		<div class="panel-heading" align="center"><small class="text-small"> date</small>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<strong>College Receipt</strong></div>
 		<div class="panel-body">
 		
-				<table class="table table-striped" border="1">
+				<table class="table table-striped">
 					<thead>
 				      <tr>
 				      	<td>Registration No.:</td>
@@ -60,23 +60,20 @@
 				<table class="table table-striped">
 					<thead>
 				      <tr>
-				      	<td>Registration No.:</td>
+				      	<td>Total Fee:</td>
+				      </tr>
+				      <tr class="text-danger">
+				      <td>Discount?</td>
+				      </tr>
+				      <tr class="text-danger">
+				      	<td>Fine?</td>
 				      </tr>
 				      <tr>
-				      	<td>Name:</td>
-				      </tr>
-				      <tr>
-				      	<td>Class:</td>
-				      </tr>
-				      <tr>
-				      	<td>Session:</td>
-				      </tr>
-				      <tr>
-				      	<td>Father:</td>
+				      	<td>Total:</td>
 				      </tr>
 				     </thead>
 				 </table>
-
+				 	 <button type="button" class="btn btn-danger">Update</button>
 
 	</div>
 </table>
