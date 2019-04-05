@@ -10,8 +10,12 @@
 		
 		<div class="row">
 			<div class="col-lg-6">
-					<div class="panel-heading" align="center"><small class="text-small"> Date</small>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<strong>Fee Receipt</strong></div>
-					<div class="panel-heading" align="center"><small class="text-small"> Receipt No.</small>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</div>
+				<div class="container">
+				  <span class="border"></span>
+
+
+					<div class="panel-heading" align="center"><small class="text-small"> Date</small>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<strong>Fee Receipt</strong>
+					 Receipt No.</small>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</div>
 					
 			<div class="row-lg-6">
 				<div class="panel-body">
@@ -89,15 +93,15 @@
 				 	 	
 				 	 	<tr>
 				 	 			<div class="form-group">
-  <label class="form-group"for="sel1">Payment Mode</label>
+								  <label class="form-group"for="sel1">Payment Mode</label>
 
-  <select class="form-control" id="sel1">
-    <option>Cash</option>
-    <option>Cheque</option>
-    <option>Credit</option>
-    <option>Other</option>
-  </select>
-</div>
+								  <select class="form-control" id="sel1">
+								    <option>Cash</option>
+								    <option>Cheque</option>
+								    <option>Credit</option>
+								    <option>Other</option>
+								  </select>
+								</div>
 
 						</tr>
 						<table><b class="text-danger">Any Remark?</b>
@@ -108,6 +112,6 @@
 
 				 	 </table>
 				 	
-
+	</div>
 	</div>
 </table>
