@@ -36,10 +36,10 @@
 					<li><a class="" href="flexiblehead">
 						<span class="fa fa-arrow-right">&nbsp;</span> Flexible heads
 					</a></li>
-					<li><a class="" href="static_class">
+					<li><a class="" href="#">
 						<span class="fa fa-arrow-right">&nbsp;</span> Static in class
 					</a></li>
-					<li><a class="" href="flexihead_students">
+					<li><a class="" href="#">
 						<span class="fa fa-arrow-right">&nbsp;</span> Flexihead-students
 					</a></li>
 					<li><a class="" href="dropstudent">

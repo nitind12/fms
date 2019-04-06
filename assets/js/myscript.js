@@ -52,37 +52,3 @@ $(function(){
 		});
 	});
 });
-
-$(function(){
-	$('#cmbStudents').change(function(){
-		$('#printhere').html("");
-
-		var url_ = site_url_ + "/flexihead_students/getflexiblehead/"+ $(this).val();
-		
-		$.ajax({
-			type: "GET",
-			url: url_,
-			success: function(data){
-				//alert(data);
-				var obj = JSON.parse(data);
-				var str = '';
-				
-				$('#txtflexiid').val(obj['flexi']['flexible_head_ID']);
-				$('#txtflexiamount').val(obj['flexi']['amount']);
-				/*str = str + "<table class='table table-striped'>";
-				str = str + "<tr>";
-				str = str + "<th>Student Name</th>";
-				str = str + "</tr>";
-				for(i=0; i<obj.stud.length; i++){
-					str = str + "<tr>";
-					str = str + "<td>" + obj.stud[i]['first_Name'] + "</td>";
-					str = str + "</tr>";
-				}
-				str = str + "</table>";
-				$('#printhere').html(str);
-				*/
-				// /$('#txtfrstnme').val(obj.stud.first_Name);
-			}
-		});
-	});
-});

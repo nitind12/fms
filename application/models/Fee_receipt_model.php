@@ -33,5 +33,26 @@ class Fee_receipt_model extends CI_Model {
 		//echo $this->db->last_query(); die();
 		return $query->result();
 	}
+	function getdiscount(){
+		$this->db->from('student_register_discount a');
+		$this->db->join('discount_details b', 'a.discount_ID=b.discount_ID');
+		$query = $this->db->get();
+		//echo $this->db->last_query(); die();
+		return $query->result();
+	}
+	function getfee(){
+		$this->db->from('fee_invoice a');
+		$this->db->join('fee_flexible_head b','a.flexible_head_ID=b.flexible_head_ID');
+		$query = $this->db->get();
+		//echo $this->db->last_query(); die();
+		return $query->result();
+	}
+	function getinvoice(){
+		$this->db->from('fee_invoice a');
+		$this->db->join('class_in_session b', 'a.class_sess_ID=b.class_sess_ID');
+		$query = $this->db->get();
+		//echo $this->db->last_query(); die();
+		return $query->result();
+	}
 	
 }
