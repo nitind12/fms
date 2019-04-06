@@ -7,31 +7,22 @@
 				<li class="active">Invoice/Receipt</li>
 			</ol>
 
-					<div class="text-left text-center text-right">Date
-					<p class="text-center">The Demo School, Haldwani</p>
-					<p class="text-right">Receipt No.</div>
+					<div class="text-left text-center text-right">
+					<h4><b><p class="text-center">The Demo School, Haldwani</p></b></h4>
+					<h4><b><p class="text-right">Receipt No.:</div></p></b></h4>
+					<h4><b><p class="text-left">Date:</p></b></h4>
 				
-					<table class="table" align="center">
+					
 					
 
 		</div><!--/.row-->
 		
 		<div class="row">
-			
 			<div class="col-lg-6">
-
-					<div class="panel-heading" align="center"><small class="text-small"> Date</small>&nbsp&nbsp&nbsp&nbsp&nbsp<strong>Fee Receipt</strong>
-					 Receipt No.</small>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</div>
-
-					<div class="panel-heading" align="center"><small class="text-small"> Date</small>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<strong>Fee Receipt</strong></div>
-					<div class="panel-heading" align="center"><small class="text-small"> Receipt No.</small>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</div>
-					
-
-			<div class="row-lg-6">
+				
 				<div class="panel-body">
 					<table class="table table-striped">
 					<thead>
-
 				      <tr>
 				      	<td>Reg No.:</td>
 				      </tr>
@@ -51,7 +42,7 @@
 				 </table>
 
 			
-				<table><blockquote class="text-danger"><u>Fee Details Below:</u></blockquote>
+				
 
 
 			<div class="row-lg-6">
@@ -71,16 +62,12 @@
 						</tr>
 					</thead>
 				</table>
-
 				</div>
 			</div>
 		</div>
 
-
-				
-			
-		
-
+				<div class="row-lg-6">
+				<div class="panel-body">
 				<table class="table table-striped">
 					<thead>
 				      <tr>
@@ -98,36 +85,30 @@
 				     </thead>
 				 </table>
 				 	 <button type="button" class="btn btn-danger">Update</button>
-					<div class="panel-body">
+				 	 <div class="panel-body">
+
 				 	 <table class="table table-striped">
 				 	 	<thead>
 				 	 	<tr>
 				 	 		<td>Paid Amount:</td>
 				 	 	</tr>
-
-				 	 	<tr>
-				 	 		<td>Payment Mode:</td>
-				 	 	</tr>
-				 	 
-				 	 
-				 	 	<table class="table table-striped">
-				 	 		<thead>
-				 	 	
-				 	 	<tr>
-				 	 			<div class="dropdown">
-							    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Payment Mode 
-							    <span class="caret"></span></button>
-							    <ul class="dropdown-menu">
-							      <li>Cash</li>
-							      <li>Cheque</li>
-							      <li>Credit Card</li>
-							      <li>Others</li>
-							      <li>
-							    </ul>
-							  </div>
-							</div>
-						</tr>
-						<table><b class="text-danger">Any Remark?</b>
+				 	 		<tr>
+				 	 			<td>Payment Mode:</td>
+						   	
+						</thead>
+					</table>
+					<table class="table table-striped">
+						<tr>
+						      <label for="sel1"></label>
+						      <select class="form-control" id="sel1">
+						        <option>cash</option>
+						        <option>cheque</option>
+						        <option>card</option>
+						        <option>other</option>
+						      </select>
+						</tr>    
+					</table>
+				 	 	<table><b class="text-danger">Any Remark?</b>
 							<div class="form-group">
 							  
 							  <textarea class="form-control" rows="5" ></textarea>
