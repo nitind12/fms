@@ -27,10 +27,11 @@ class Fee_receipt_model extends CI_Model {
 		//echo $this->db->last_query(); die();
 		return $query->result();
 	}
-	function getstudent($student){
-		$this->db->where('student_ID', $student);
+	function getstudent(){
+		$this->db->select('student_ID,first_Name,last_Name');
 		$query=$this->db->get('student_details');
 		//echo $this->db->last_query(); die();
 		return $query->result();
 	}
+	
 }

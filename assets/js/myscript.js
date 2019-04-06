@@ -12,6 +12,9 @@ $(function(){
 				var obj = JSON.parse(data);
 				var str = '';
 				
+
+				$('#txtfrstnme').val(obj['stud']['first_Name'])
+
 				$('#txtstdid').val(obj['stud']['student_ID']);
 				$('#txtfrstnme').val(obj['stud']['first_Name']);
 				$('#txtlstnme').val(obj['stud']['last_Name']);
@@ -31,6 +34,7 @@ $(function(){
 				} else {
 					$('#txtfmle').attr('checked', true);
 				}
+
 				/*str = str + "<table class='table table-striped'>";
 				str = str + "<tr>";
 				str = str + "<th>Student Name</th>";
@@ -65,7 +69,6 @@ $(function(){
 				
 				$('#txtflexiid').val(obj['flexi']['flexible_head_ID']);
 				$('#txtflexiamount').val(obj['flexi']['amount']);
-
 				/*str = str + "<table class='table table-striped'>";
 				str = str + "<tr>";
 				str = str + "<th>Student Name</th>";

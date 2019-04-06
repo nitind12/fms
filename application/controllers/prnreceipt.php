@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class receipt extends CI_Controller {
+class prnreceipt extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -18,33 +18,12 @@ class receipt extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	 function index()
+	public function index()
 	{
-		$this->load->model('fee_receipt_model', 'frm');
-		$data['class_in_session'] = $this->frm->getclass('2018-19');
-		$this->load->model('fee_receipt_model', 'frm');
-		$data['students'] = $this->frm->getstudent();
 		$this->load->view('templates/header');
 		$this->load->view('templates/navheader');
 		$this->load->view('templates/receiptside');
-		$this->load->view('Dashboard/indexreceipt', $data);
+		$this->load->view('testing/prnreceipt');
 		$this->load->view('templates/footer');
 	}
-	
-	
-
-
-
-	/* function index()
-	{
-		$this->load->model('fee_receipt_model', 'frm');
-		$data['course_details'] = $this->frm->getclasses_studentwise();
-		$this->load->view('templates/header');
-		$this->load->view('templates/navheader');
-		$this->load->view('templates/receiptside');
-		$this->load->view('Dashboard/indexreceipt', $data);
-		$this->load->view('templates/footer');
-	}*/
-
 }
-

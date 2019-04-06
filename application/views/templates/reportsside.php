@@ -24,7 +24,7 @@
 					<li><a class="" href="sessions">
 						<span class="fa fa-arrow-right">&nbsp;</span> Session
 					</a></li>
-					<li><a class="" href="#">
+					<li><a class="" href="classes">
 						<span class="fa fa-arrow-right">&nbsp;</span> Class
 					</a></li>
 					<li><a class="" href="Class_in_session">
@@ -42,7 +42,7 @@
 					<li><a class="" href="flexihead_students">
 						<span class="fa fa-arrow-right">&nbsp;</span> Flexihead-students
 					</a></li>
-					<li><a class="" href="#">
+					<li><a class="" href="dropstudent">
 						<span class="fa fa-arrow-right">&nbsp;</span> Drop student
 					</a></li>
 				</ul>
