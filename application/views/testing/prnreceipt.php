@@ -91,11 +91,10 @@
 				 	 	<tr>
 				 	 		<td>Paid Amount:</td>
 				 	 	</tr>
+				 	 	
 				 	 </thead>
-				 	</table>
-				 	 
-						   <div class="form-group">
-						      <label for="sel1">Payment Mode:</label>
+				 	
+				 			<label for="sel1">Payment Mode:</label>
 						      <select>
 						        <option>cash</option>
 						        <option>cheque</option>
