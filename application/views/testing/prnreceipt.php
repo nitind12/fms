@@ -9,13 +9,11 @@
 		</div><!--/.row-->
 		
 		<div class="row">
+			
 			<div class="col-lg-6">
-				
+					<div class="panel-heading" align="center"><small class="text-small"> Date</small>&nbsp&nbsp&nbsp&nbsp&nbsp<strong>Fee Receipt</strong>
+					 Receipt No.</small>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</div>
 
-
-					<div class="panel-heading" align="center"><small class="text-small"> Date</small>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<strong>Fee Receipt</strong>
-					 Receipt No.</small>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</div>
-					
 			<div class="row-lg-6">
 				<div class="panel-body">
 					<table class="table table-striped" align="center">
@@ -37,6 +35,7 @@
 				      </tr>
 				     </thead>
 				 </table>
+
 			<div class="row-lg-6">
 				<div class="panel-body">
 				<table><u class="text-danger">Fee Details Below:</u>
@@ -57,6 +56,7 @@
 				</div>
 			</div>
 		</div>
+
 				<table class="table table-striped">
 					<thead>
 				      <tr>
@@ -101,10 +101,11 @@
 						<table><b class="text-danger">Any Remark?</b>
 							<div class="form-group">
 							  
-							  <textarea class="form-control" rows="5" id="comment"></textarea>
+							  <textarea class="form-control" rows="5" ></textarea>
 							</div>
 
 				 	 </table>
+
 				 	
 	</div>
 	</div>
