@@ -37,14 +37,8 @@
 				      </tr>
 				      <tr>
 				      	<td>Father:</td>
-				      </tr>
-				     
+				      </tr>  
 				 </table>
-
-			
-				
-
-
 			<div class="row-lg-6">
 				<div class="panel-body">
 				<table><u class="text-danger">Fee Details Below:</u>
@@ -91,9 +85,7 @@
 				 	 	<tr>
 				 	 		<td>Paid Amount:</td>
 				 	 	</tr>
-				 	 	
 				 	 </thead>
-				 	
 				 			<label for="sel1">Payment Mode:</label>
 						      <select>
 						        <option>cash</option>
@@ -101,23 +93,16 @@
 						        <option>card</option>
 						        <option>other</option>
 						      </select>
-						      
 						    </div>
+					</table>
 				 	 	<table><b class="text-danger">Any Remark?</b>
 							<div class="form-group">
-							  
 							  <textarea class="form-control" rows="5" ></textarea>
 							</div>
-
 				 	 </table>
 
-				 	
-
-	
 </table>
 </div>
-
-
 	</div>
 </table>
 
