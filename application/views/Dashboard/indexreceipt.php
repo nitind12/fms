@@ -18,7 +18,10 @@
 					<div class="col-md-12">
 						<div class="panel panel-default">
 					<div class="panel-heading">
+						<div class="widget-title"> <span class="icon"> <i class="icon-briefcase"></i> </span>
+
 						Manage Invoice
+					</div>
 						<ul class="pull-right panel-settings panel-button-tab-right">
 							<li class="dropdown"><a class="pull-right dropdown-toggle" data-toggle="dropdown" href="#">
 								<em class="fa fa-cogs"></em>
@@ -45,7 +48,7 @@
 						<span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span>
 					</div>
 					<div class="panel-body">
-						<form class="form" action="" method="post">
+						<form class="form" action="" method="post" >
 							<fieldset>
 								<!-- Class input-->
 								<div class="form-group col-md-4">
@@ -53,16 +56,16 @@
 										<select name="cmbClass" id="cmbClass">
 											<option value="">Select Class</option>
 											<?php foreach ($class_in_session as $item) {?>
-												<option value="<?php echo $item->class_sess_ID;?>"><?php echo $item->class_ID;?></option>
+												<option value="<?php echo $item->session_ID;?>"><?php echo $item->class_ID;?></option>
 											<?php } ?>
 										</select>
-										<div style="clear: both;" id="printhere1"></div>
+										<!--<div style="clear: both;" id="printhere1"></div>-->
 								</div>
 
 								<!-- Year From input-->
 								<div class="form-group col-md-4">
 									<label>Year From</label>
-										<select name="cmbClass" id="cmbClass">
+										<select name="cmbYearf" id="cmbYearf">
 											<option value="">Select Year</option>
 											<?php for ($loop=date('Y');$loop>=2014; $loop--) {?>
 												<option value="<?php echo $loop;?>"><?php echo $loop;?></option>
@@ -73,7 +76,7 @@
 								<!--Year To input-->
 								<div class="form-group col-md-4">
 									<label>Month From</label>
-									<select name="cmbClass" id="cmbClass">
+									<select name="cmbMonthf" id="cmbMonthf">
 											<option value="">Select Month</option>
 											<?php for ($loop=1;$loop<=12; $loop++) {?>
 												<option value="<?php echo $this->my_lib->getMonths($loop);?>">"<?php echo $this->my_lib->getMonths($loop);?>"
@@ -83,7 +86,7 @@
 								</div>
 								<div class="form-group col-md-4">
 									<label>Year To</label>
-										<select name="cmbClass" id="cmbClass">
+										<select name="cmbYeart" id="cmbYeart">
 											<option value="">Select Year</option>
 											<?php for ($loop=date('Y');$loop<=2019; $loop++) {?>
 												<option value="<?php echo $loop;?>"><?php echo $loop;?></option>
@@ -94,7 +97,7 @@
 								<!-- Month To body -->
 								<div class="form-group">
 									<label>Month To</label>
-									<select name="cmbClass" id="cmbClass">
+									<select name="cmbMontht" id="cmbMontht">
 											<option value="">Select Month</option>
 											<?php for ($loop=1;$loop<=12; $loop++) {?>
 												<option value="<?php echo $this->my_lib->getMonths($loop);?>">"<?php echo $this->my_lib->getMonths($loop);?>"
@@ -110,7 +113,19 @@
 										<button type="submit" class="btn btn-default btn-md pull-right">Submit</button>
 									</div>
 								</div>
-							</fieldset>
+						<!--<?php
+									if(isset($_POST['submit']))
+									{
+									$class = $_POST['cmbClass'];
+									echo "your class:".$class;
+									$yearf = $_POST['cmbYearf'];
+									$monthf = $_POST['cmbMonthf'];
+									$yeart = $_POST['cmbYeart'];
+									$montht = $_POST['cmbMontht']; 
+									 // Storing Selected Value In Variable
+									}
+						?>--->
+						</fieldset>
 						</form>
 					</div>
 				</div>
@@ -196,15 +211,78 @@
 						   echo '</tr>';
 					   		foreach($students as $item)
 					   			{
+					   				$did = '';
+					   				$fid= '';
+					   				$d_amount='';
 					   				echo '<tr>';
 									echo '<td>'.$item->student_ID.'</td>';
 									echo '<td>'.$item->first_Name . " " . $item->last_Name.'</td>';
-									echo '<td></td>';
-									echo '<td></td>';
-									echo '<td></td>';
-									echo '<td></td>';
-									echo '<td></td>';
+									echo '<td>';
+											foreach ($discount as $item1){
+												if($item->student_ID == $item1->student_ID){
+													if($did == ''){
+														$did = $item1->discount_Type;	
+													} else $did =  $did . ", " . $item1->discount_Type;
+												}
+											}
+											
+											echo $did;
+									echo '</td>';
+									echo '<td>';
+											foreach ($fee as $item2){
+												if($item->student_ID == $item2->student_ID){
+													echo $item2->static_head_Amount;
+												}
+											}
+									echo '</td>';
+									echo '<td>';
+											foreach ($fee as $item2){
+												if($item->student_ID == $item2->student_ID){
+													if($fid == ''){
+														$fid = $item2->fee_Head;	
+													} else $fid = $item2->fee_Head;
+												}
+											}
+												echo $fid;
+									echo '</td>';
+									echo '<td>';
+										foreach ($fee as $item2){
+												if($item->student_ID == $item2->student_ID){
+													echo $item2->flexible_head_Amount;
+												}
+											}
+									echo '</td>';
+									echo '<td>';
+									foreach ($discount as $item1){
+											if($item->student_ID == $item1->student_ID){
+												if($d_amount == ''){
+														$d_amount = $item1->discount_Amount;	
+													} else $d_amount =  $d_amount + $item1->discount_Amount;
+												}
+											}
+									foreach ($fee as $item2){
+												if($item->student_ID == $item2->student_ID){
+													$f_amount = $item2->flexible_head_Amount;
+													$s_amount = $item2->static_head_Amount;
+													if($d_amount == ''){
+														$s_amount = $s_amount - '';
+													}else $s_amount = $s_amount - $d_amount;
+													if($f_amount == ''){
+														echo $s_amount;
+													}else $total_fee = $s_amount + $f_amount;
+													    echo $total_fee;
+												}
+											}	
+									echo '</td>';
+
 									echo '<td><span class="glyphicon glyphicon-lock"></span>'.'</td>';
+									/*foreach ($invoice as $item3)
+										{
+												if($item->student_ID == $item3->student_ID){
+													echo '<span class="glyphicon glyphicon-print"></span>';
+												}else  echo '<span class="glyphicon glyphicon-lock"></span>';
+										}
+									echo '</td>';*/
 									echo '<td></td>';
 									echo '<td></td>';
 									echo '<td></td>';
