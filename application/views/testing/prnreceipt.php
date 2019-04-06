@@ -96,7 +96,7 @@
 				 	 
 						   <div class="form-group">
 						      <label for="sel1">Payment Mode:</label>
-						      <select class="form-control" id="sel1">
+						      <select>
 						        <option>cash</option>
 						        <option>cheque</option>
 						        <option>card</option>
