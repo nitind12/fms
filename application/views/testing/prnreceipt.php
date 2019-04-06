@@ -8,12 +8,12 @@
 			</ol>
 		</div><!--/.row-->
 		
-		<div class="row">
+		
 			<div class="col-lg-6">
-					<div class="panel-heading" align="center"><small class="text-small"> Date</small>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<strong>Fee Receipt</strong></div>
-					<div class="panel-heading" align="center"><small class="text-small"> Receipt No.</small>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</div>
+					<div class="panel-heading" align="center"><small class="text-small"> Date</small>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<strong>Fee Receipt</strong>
+					<small class="text-small"> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspReceipt No.</small></div>
 					
-			<div class="row-lg-6">
+			<div class="row">
 				<div class="panel-body">
 					<table class="table table-striped" align="center">
 					<thead>
@@ -34,7 +34,7 @@
 				      </tr>
 				     </thead>
 				 </table>
-			<div class="row-lg-6">
+			
 				<div class="panel-body">
 				<table><u class="text-danger">Fee Details Below:</u>
 				</table>
