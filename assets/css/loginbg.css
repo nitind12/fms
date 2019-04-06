@@ -34,3 +34,6 @@ body, html {
   text-align: center;
 }
 
+.dotted{
+  border-style: solid;
+}

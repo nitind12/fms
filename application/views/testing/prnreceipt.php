@@ -6,26 +6,14 @@
 				</a></li>
 				<li class="active">Invoice/Receipt</li>
 			</ol>
-		</div><!--/.row-->
-		
-		
-			<div class="col-lg-6">
-
-					<div class="panel-heading" align="center"><small class="text-small"> Date</small>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<strong>Fee Receipt</strong>
-					<small class="text-small"> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspReceipt No.</small></div>
-
+					<div class="text-left text-center text-right">Date
+					<p class="text-center">The Demo School, Haldwani</p>
+					<p class="text-right">Receipt No.</div>
 				
-
-
-					<div class="panel-heading" align="center"><small class="text-small"> Date</small>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<strong>Fee Receipt</strong>
-					 Receipt No.</small>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</div>
+					<table class="table" align="center">
 					
-			<div class="row">
-				<div class="panel-body">
-					<table class="table table-striped" align="center">
-					<thead>
 				      <tr>
-				      	<td>Registration No.:</td>
+				      	<td>Reg No.:</td>
 				      </tr>
 				      <tr>
 				      	<td>Name:</td>
@@ -39,28 +27,27 @@
 				      <tr>
 				      	<td>Father:</td>
 				      </tr>
-				     </thead>
+				     
 				 </table>
 			
-				<div class="panel-body">
-				<table><u class="text-danger">Fee Details Below:</u>
+				<table><blockquote class="text-danger"><u>Fee Details Below:</u></blockquote>
 				</table>
-					<table class="table table-striped active">
+					<table class="table">
 					<thead>
-						<tr class="active">
+						<tr >
 							<td>Actual Fee:</td>
 						</tr>
-						<tr class="active">
+						<tr >
 							<td>Previous Due:</td>
 						</tr>
-						<tr class="active">
+						<tr >
 							<td>Total Due:</td>
 						</tr>
 					</thead>
 				</table>
-				</div>
-			</div>
-		</div>
+				
+			
+		
 				<table class="table table-striped">
 					<thead>
 				      <tr>
@@ -78,7 +65,6 @@
 				     </thead>
 				 </table>
 				 	 <button type="button" class="btn btn-danger">Update</button>
-			<div class="row-lg-6">
 					<div class="panel-body">
 				 	 <table class="table table-striped">
 				 	 	<thead>
@@ -110,6 +96,6 @@
 
 				 	 </table>
 				 	
-	</div>
-	</div>
+	
 </table>
+</div>
