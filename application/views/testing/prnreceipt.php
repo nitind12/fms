@@ -85,29 +85,25 @@
 				     </thead>
 				 </table>
 				 	 <button type="button" class="btn btn-danger">Update</button>
-				 	 <div class="panel-body">
-
+					<div class="panel-body">
 				 	 <table class="table table-striped">
 				 	 	<thead>
 				 	 	<tr>
 				 	 		<td>Paid Amount:</td>
 				 	 	</tr>
-				 	 		<tr>
-				 	 			<td>Payment Mode:</td>
-						   	
-						</thead>
-					</table>
-					<table class="table table-striped">
-						<tr>
-						      <label for="sel1"></label>
+				 	 </thead>
+				 	</table>
+				 	 
+						   <div class="form-group">
+						      <label for="sel1">Payment Mode:</label>
 						      <select class="form-control" id="sel1">
 						        <option>cash</option>
 						        <option>cheque</option>
 						        <option>card</option>
 						        <option>other</option>
 						      </select>
-						</tr>    
-					</table>
+						      
+						    </div>
 				 	 	<table><b class="text-danger">Any Remark?</b>
 							<div class="form-group">
 							  
