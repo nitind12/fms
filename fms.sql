@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 03, 2019 at 09:55 AM
+-- Generation Time: Apr 06, 2019 at 04:46 PM
 -- Server version: 5.6.11
 -- PHP Version: 5.5.3
 
@@ -31,7 +31,7 @@ USE `fms`;
 CREATE TABLE IF NOT EXISTS `class` (
   `class_ID` varchar(20) NOT NULL,
   `course` varchar(10) NOT NULL,
-  `sem` int(10) NOT NULL,
+  `sem` varchar(10) NOT NULL,
   `section` varchar(10) NOT NULL,
   PRIMARY KEY (`class_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -41,11 +41,8 @@ CREATE TABLE IF NOT EXISTS `class` (
 --
 
 INSERT INTO `class` (`class_ID`, `course`, `sem`, `section`) VALUES
-('BCA_iv_A', 'BCA', 5, 'A'),
-('BCA_viii_A', 'BCA', 5, 'A'),
-('BCA_vii_A', 'BCA', 5, 'A'),
-('BCA_vi_A', 'BCA', 5, 'A'),
-('BCA_v_A', 'BCA', 5, 'A');
+('C100', 'BCA', 'First', 'A'),
+('C101', 'MCA', 'First', 'A');
 
 -- --------------------------------------------------------
 
@@ -79,23 +76,20 @@ CREATE TABLE IF NOT EXISTS `class_fee_session` (
 
 CREATE TABLE IF NOT EXISTS `class_in_session` (
   `class_sess_ID` varchar(20) NOT NULL DEFAULT '',
-  `session_ID` varchar(20) DEFAULT NULL,
   `class_ID` varchar(20) DEFAULT NULL,
+  `session_ID` varchar(20) NOT NULL,
   PRIMARY KEY (`class_sess_ID`),
-  KEY `session_ID` (`session_ID`),
-  KEY `class_ID` (`class_ID`)
+  KEY `class_ID` (`class_ID`),
+  KEY `session_ID` (`session_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `class_in_session`
 --
 
-INSERT INTO `class_in_session` (`class_sess_ID`, `session_ID`, `class_ID`) VALUES
-('BCAivA201819', '2018-19', 'BCA_iv_A'),
-('BCAvA201819', '2018-19', 'BCA_v_A'),
-('BCAviA201920', '2019-20', 'BCA_vi_A'),
-('BCAViiA202122', '2021-22', 'BCA_Vii_A'),
-('BCAviiiA202324', '2023-24', 'BCA_viii_A');
+INSERT INTO `class_in_session` (`class_sess_ID`, `class_ID`, `session_ID`) VALUES
+('BCA2018-19', 'C100', '2018-19'),
+('MCA2018-19', 'C101', '2018-19');
 
 -- --------------------------------------------------------
 
@@ -104,21 +98,19 @@ INSERT INTO `class_in_session` (`class_sess_ID`, `session_ID`, `class_ID`) VALUE
 --
 
 CREATE TABLE IF NOT EXISTS `course_details` (
-  `course_ID` varchar(20) NOT NULL DEFAULT '',
+  `course_ID` int(10) NOT NULL AUTO_INCREMENT,
   `course` varchar(20) DEFAULT NULL,
   `university` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`course_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=103 ;
 
 --
 -- Dumping data for table `course_details`
 --
 
 INSERT INTO `course_details` (`course_ID`, `course`, `university`) VALUES
-('cc1', 'bba', 'kumaon university'),
-('cc2', 'bca', 'kumaon university'),
-('cc3', 'btech', 'kumaon university'),
-('cc4', 'mba', 'kumaon university');
+(101, 'BCA', 'Kumaun University'),
+(102, 'MCA', 'Kumaun University');
 
 -- --------------------------------------------------------
 
@@ -127,24 +119,22 @@ INSERT INTO `course_details` (`course_ID`, `course`, `university`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `discount_details` (
-  `discount_ID` varchar(20) NOT NULL DEFAULT '',
+  `discount_ID` int(10) NOT NULL AUTO_INCREMENT,
   `discount_Type` varchar(10) DEFAULT NULL,
   `discount_Amount` decimal(10,0) DEFAULT NULL,
   `unit` varchar(5) DEFAULT NULL,
   `category` varchar(10) DEFAULT NULL,
   `status` decimal(2,0) DEFAULT NULL,
   PRIMARY KEY (`discount_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `discount_details`
 --
 
 INSERT INTO `discount_details` (`discount_ID`, `discount_Type`, `discount_Amount`, `unit`, `category`, `status`) VALUES
-('D100', 'reference', '100', 'Rs', 'General', '1'),
-('D101', 'refrence', '500', 'Rs.', 'general', '1'),
-('D102', 'refrence', '500', 'Rs.', 'General', '1'),
-('D104', 'refrence', '500', 'Rs.', 'General', '1');
+(10, 'Reference', '400', 'Rs', 'Other', '1'),
+(11, 'Siblings', '200', 'Rs', 'Other', '1');
 
 -- --------------------------------------------------------
 
@@ -153,11 +143,11 @@ INSERT INTO `discount_details` (`discount_ID`, `discount_Type`, `discount_Amount
 --
 
 CREATE TABLE IF NOT EXISTS `fee_flexible_head` (
-  `flexible_head_ID` varchar(20) NOT NULL,
-  `fee_Head` varchar(10) NOT NULL,
-  `amount` int(10) NOT NULL,
-  `username` varchar(20) NOT NULL,
-  `date` date NOT NULL,
+  `flexible_head_ID` int(10) NOT NULL AUTO_INCREMENT,
+  `fee_Head` varchar(10) DEFAULT NULL,
+  `amount` int(10) DEFAULT NULL,
+  `username` varchar(20) DEFAULT NULL,
+  `date` date DEFAULT NULL,
   PRIMARY KEY (`flexible_head_ID`),
   UNIQUE KEY `user_name_4` (`username`),
   KEY `user_name` (`username`),
@@ -171,17 +161,14 @@ CREATE TABLE IF NOT EXISTS `fee_flexible_head` (
   KEY `user_name_10` (`username`),
   KEY `user_name_11` (`username`),
   KEY `username` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=201 ;
 
 --
 -- Dumping data for table `fee_flexible_head`
 --
 
 INSERT INTO `fee_flexible_head` (`flexible_head_ID`, `fee_Head`, `amount`, `username`, `date`) VALUES
-('ff10', 'tution', 1000, 'fms', '2019-03-04'),
-('ff11', 'tution', 1000, 'kanika', '2019-03-08'),
-('ff22', 'tution', 700, 'lp', '2019-03-09'),
-('ff33', 'tution', 600, 'mng', '2019-03-26');
+(200, 'Bus', 600, 'fms', '2019-04-06');
 
 -- --------------------------------------------------------
 
@@ -190,19 +177,19 @@ INSERT INTO `fee_flexible_head` (`flexible_head_ID`, `fee_Head`, `amount`, `user
 --
 
 CREATE TABLE IF NOT EXISTS `fee_invoice` (
-  `invoice_ID` varchar(20) NOT NULL,
+  `invoice_ID` int(10) NOT NULL AUTO_INCREMENT,
   `session_ID` varchar(20) NOT NULL,
   `class_sess_ID` varchar(20) NOT NULL,
   `year_From` int(10) NOT NULL,
-  `month_From` int(10) NOT NULL,
+  `month_From` varchar(10) NOT NULL,
   `year_To` int(10) NOT NULL,
-  `month_To` int(10) NOT NULL,
+  `month_To` varchar(10) NOT NULL,
   `no_of_Month` int(10) NOT NULL,
   `description` varchar(20) NOT NULL,
-  `student_ID` varchar(20) NOT NULL,
-  `static_head_ID` varchar(20) NOT NULL,
+  `student_ID` int(20) NOT NULL,
+  `static_head_ID` int(10) NOT NULL,
   `static_head_Amount` int(10) NOT NULL,
-  `flexible_head_ID` varchar(20) NOT NULL,
+  `flexible_head_ID` int(10) NOT NULL,
   `flexible_head_Amount` int(10) NOT NULL,
   `actual_Amount` int(10) NOT NULL,
   `applicable_discount_Amount` int(10) NOT NULL,
@@ -212,23 +199,20 @@ CREATE TABLE IF NOT EXISTS `fee_invoice` (
   PRIMARY KEY (`invoice_ID`),
   KEY `sess_id` (`session_ID`),
   KEY `class_sem_id` (`class_sess_ID`),
-  KEY `student_id` (`student_ID`),
   KEY `session_ID` (`session_ID`),
   KEY `class_sess_ID` (`class_sess_ID`),
-  KEY `student_ID_2` (`student_ID`),
+  KEY `student_ID` (`student_ID`),
   KEY `static_head_ID` (`static_head_ID`),
   KEY `flexible_head_ID` (`flexible_head_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `fee_invoice`
 --
 
 INSERT INTO `fee_invoice` (`invoice_ID`, `session_ID`, `class_sess_ID`, `year_From`, `month_From`, `year_To`, `month_To`, `no_of_Month`, `description`, `student_ID`, `static_head_ID`, `static_head_Amount`, `flexible_head_ID`, `flexible_head_Amount`, `actual_Amount`, `applicable_discount_Amount`, `actual_due_Amount`, `previous_due_Amount`, `due_Amount`) VALUES
-('i2001', '2018-19', 'BCAivA201819', 2012, 0, 2019, 0, 12, 'present', 's20000', 'st11', 500, 'ff10', 1000, 1200, 500, 200, 100, 600),
-('i2002', '2019-20', 'BCAvA201819', 2012, 0, 2019, 0, 12, 'Present', 's20001', 'st22', 500, 'ff11', 500, 600, 50, 70, 200, 500),
-('i2003', '2020-21', 'BCAviA201920', 2012, 0, 2019, 0, 12, 'present', 's20002', 'st33', 600, 'ff22', 400, 500, 100, 100, 200, 300),
-('i2004', '2021-22', 'BCAViiA202122', 2012, 0, 201, 0, 12, 'present', 's20003', 'st44', 500, 'ff33', 200, 1000, 100, 200, 300, 500);
+(1, '2018-19', 'BCA2018-19', 2018, 'August', 2019, 'August', 12, 'fee paid', 1000, 100, 1000, 200, 600, 1600, 0, 0, 0, 0),
+(2, '2018-19', 'BCA2018-19', 2018, 'August', 2019, 'August', 12, 'fee paid', 1001, 100, 1000, 200, 600, 1600, 1000, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -237,9 +221,9 @@ INSERT INTO `fee_invoice` (`invoice_ID`, `session_ID`, `class_sess_ID`, `year_Fr
 --
 
 CREATE TABLE IF NOT EXISTS `fee_receipt` (
-  `receipt_ID` varchar(20) NOT NULL,
-  `invoice_ID` varchar(20) NOT NULL,
-  `student_ID` varchar(20) NOT NULL,
+  `receipt_ID` int(10) NOT NULL AUTO_INCREMENT,
+  `invoice_ID` int(10) NOT NULL,
+  `student_ID` int(20) NOT NULL,
   `discount_ID` varchar(20) NOT NULL,
   `discount_Status` int(2) NOT NULL,
   `discount_Amount` int(10) NOT NULL,
@@ -247,7 +231,7 @@ CREATE TABLE IF NOT EXISTS `fee_receipt` (
   `actual_paid_Amount` int(10) NOT NULL,
   `paid` int(10) NOT NULL,
   `fine` int(10) NOT NULL,
-  `type_ID` varchar(20) NOT NULL,
+  `type_ID` int(10) NOT NULL,
   `fee_Mode` varchar(10) NOT NULL,
   `bank_Name` varchar(20) NOT NULL,
   `cheque_No` int(10) NOT NULL,
@@ -257,23 +241,14 @@ CREATE TABLE IF NOT EXISTS `fee_receipt` (
   `username` varchar(20) NOT NULL,
   `date` date NOT NULL,
   PRIMARY KEY (`receipt_ID`),
-  KEY `invoice_ID` (`invoice_ID`),
-  KEY `student_ID` (`student_ID`),
   KEY `discount_ID` (`discount_ID`),
   KEY `type_ID` (`type_ID`),
   KEY `session_ID` (`session_ID`),
-  KEY `username` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `fee_receipt`
---
-
-INSERT INTO `fee_receipt` (`receipt_ID`, `invoice_ID`, `student_ID`, `discount_ID`, `discount_Status`, `discount_Amount`, `description`, `actual_paid_Amount`, `paid`, `fine`, `type_ID`, `fee_Mode`, `bank_Name`, `cheque_No`, `cheque_Date`, `date_of_Entry`, `session_ID`, `username`, `date`) VALUES
-('rec11', 'i2001', 's20000', 'D100', 1, 500, 'paid', 1000, 500, 100, 'typ1', 'cheque', 'bob', 2222, '2019-03-06', '2019-03-04', '2018-19', 'fms', '2019-03-06'),
-('rec12', 'i2002', 's20001', 'D101', 0, 500, 'paid', 1500, 1500, 100, 'typ2', 'cheque', 'bob', 3333, '2019-03-08', '2019-03-07', '2019-20', 'fms', '2019-03-19'),
-('rec123', 'i2004', 's20003', 'D104', 1, 500, 'paid', 1000, 500, 200, 'typ4', 'cheque', 'bob', 1123, '2019-03-16', '2019-03-08', '2021-22', 'fms', '2019-03-06'),
-('rec13', 'i2003', 's20002', 'D102', 1, 100, 'paid', 200, 100, 100, 'typ3', 'cheque', 'bob', 4444, '2019-03-01', '2019-03-12', '2020-21', 'fms', '2019-03-05');
+  KEY `username` (`username`),
+  KEY `invoice_ID` (`invoice_ID`),
+  KEY `invoice_ID_2` (`invoice_ID`),
+  KEY `student_ID` (`student_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -282,7 +257,7 @@ INSERT INTO `fee_receipt` (`receipt_ID`, `invoice_ID`, `student_ID`, `discount_I
 --
 
 CREATE TABLE IF NOT EXISTS `fee_static_head` (
-  `static_head_ID` varchar(20) NOT NULL,
+  `static_head_ID` int(10) NOT NULL AUTO_INCREMENT,
   `fee_Head` varchar(10) DEFAULT NULL,
   `username` varchar(20) DEFAULT NULL,
   `date` date DEFAULT NULL,
@@ -290,18 +265,16 @@ CREATE TABLE IF NOT EXISTS `fee_static_head` (
   `discount_Applicable` int(2) NOT NULL,
   PRIMARY KEY (`static_head_ID`),
   KEY `username` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=103 ;
 
 --
 -- Dumping data for table `fee_static_head`
 --
 
 INSERT INTO `fee_static_head` (`static_head_ID`, `fee_Head`, `username`, `date`, `amount`, `discount_Applicable`) VALUES
-('st11', 'tution', 'fms', '2019-03-05', 99, 500),
-('st22', 'tution', 'fms', '2019-03-06', 99, 100),
-('st33', 'tution', 'fms', '2019-03-14', 99, 100),
-('st44', 'tution', 'fms', '2019-03-13', 99, 100),
-('st55', 'tution', 'fms', '2019-03-20', 99, 100);
+(100, 'Registrati', 'fms', '2019-04-06', 1000, 0),
+(101, 'Exam', 'fms', '2019-04-06', 500, 0),
+(102, 'Books', 'fms', '2019-04-06', 800, 0);
 
 -- --------------------------------------------------------
 
@@ -310,23 +283,13 @@ INSERT INTO `fee_static_head` (`static_head_ID`, `fee_Head`, `username`, `date`,
 --
 
 CREATE TABLE IF NOT EXISTS `fee_type` (
-  `type_ID` varchar(20) NOT NULL,
+  `type_ID` int(10) NOT NULL AUTO_INCREMENT,
   `type` varchar(10) NOT NULL,
   `username` varchar(20) NOT NULL,
   `date` date NOT NULL,
   PRIMARY KEY (`type_ID`),
   KEY `username` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `fee_type`
---
-
-INSERT INTO `fee_type` (`type_ID`, `type`, `username`, `date`) VALUES
-('typ1', 'cash', 'fms', '2019-03-06'),
-('typ2', 'cash', 'fms', '2019-03-06'),
-('typ3', 'cash', 'fms', '2019-03-05'),
-('typ4', 'cash', 'fms', '2019-03-08');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -337,7 +300,7 @@ INSERT INTO `fee_type` (`type_ID`, `type`, `username`, `date`) VALUES
 CREATE TABLE IF NOT EXISTS `login_details` (
   `username` varchar(20) NOT NULL,
   `password` varchar(20) DEFAULT NULL,
-  `status_ID` varchar(20) DEFAULT NULL,
+  `status_ID` int(10) NOT NULL,
   `date` date DEFAULT NULL,
   `status` decimal(2,0) DEFAULT NULL,
   PRIMARY KEY (`username`),
@@ -349,10 +312,7 @@ CREATE TABLE IF NOT EXISTS `login_details` (
 --
 
 INSERT INTO `login_details` (`username`, `password`, `status_ID`, `date`, `status`) VALUES
-('fms', '111', '1', '2019-03-04', '1'),
-('kanika', '123', '2', '2019-03-13', '1'),
-('lp', '334', '4', '2019-03-20', '1'),
-('mng', '234', '3', '2019-03-19', '1');
+('fms', '1234', 1, '2019-04-06', '1');
 
 -- --------------------------------------------------------
 
@@ -361,21 +321,20 @@ INSERT INTO `login_details` (`username`, `password`, `status_ID`, `date`, `statu
 --
 
 CREATE TABLE IF NOT EXISTS `semester_details` (
-  `sem_ID` varchar(20) NOT NULL DEFAULT '',
-  `course_ID` varchar(20) DEFAULT NULL,
+  `sem_ID` int(10) NOT NULL AUTO_INCREMENT,
+  `course_ID` int(10) NOT NULL,
   `sem` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`sem_ID`),
-  KEY `Course_ID` (`course_ID`),
-  KEY `course_ID_2` (`course_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  KEY `course_ID` (`course_ID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `semester_details`
 --
 
 INSERT INTO `semester_details` (`sem_ID`, `course_ID`, `sem`) VALUES
-('ss1', 'cc1', 'sem1'),
-('ss2', 'cc2', 'sem1');
+(1, 101, 'First'),
+(2, 102, 'First');
 
 -- --------------------------------------------------------
 
@@ -396,17 +355,8 @@ CREATE TABLE IF NOT EXISTS `session_master` (
 --
 
 INSERT INTO `session_master` (`session_ID`, `session_Start`, `session_End`, `date`) VALUES
-('2018-19', 2018, 2019, '2019-02-23'),
-('2019-20', 2019, 2020, '2019-02-23'),
-('2020-21', 2020, 20121, '2019-02-22'),
-('2021-22', 2021, 2022, '2019-02-23'),
-('2022-23', 2022, 2023, '2019-02-23'),
-('2023-24', 2023, 2024, '2019-02-24'),
-('2024-25', 2024, 2025, '2019-02-25'),
-('2025-26', 2025, 2026, '2019-01-26'),
-('2026-27', 2026, 2027, '2019-04-26'),
-('2027-28', 2027, 2028, '0000-00-00'),
-('2028-29', 2028, 2029, '0000-00-00');
+('2018-19', 2018, 2019, '2019-04-06'),
+('2019-20', 2019, 2020, '2019-04-06');
 
 -- --------------------------------------------------------
 
@@ -415,21 +365,14 @@ INSERT INTO `session_master` (`session_ID`, `session_Start`, `session_End`, `dat
 --
 
 CREATE TABLE IF NOT EXISTS `staff_address_details` (
-  `address_ID` varchar(20) NOT NULL DEFAULT '',
-  `staff_ID` varchar(20) DEFAULT NULL,
+  `address_ID` int(10) NOT NULL AUTO_INCREMENT,
+  `staff_ID` int(20) DEFAULT NULL,
   `address` varchar(30) DEFAULT NULL,
   `date` date DEFAULT NULL,
   `status` decimal(2,0) DEFAULT NULL,
   PRIMARY KEY (`address_ID`),
   KEY `staff_ID` (`staff_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `staff_address_details`
---
-
-INSERT INTO `staff_address_details` (`address_ID`, `staff_ID`, `address`, `date`, `status`) VALUES
-('a11', '1', 'Haldwani', '1997-02-03', '1');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -438,14 +381,14 @@ INSERT INTO `staff_address_details` (`address_ID`, `staff_ID`, `address`, `date`
 --
 
 CREATE TABLE IF NOT EXISTS `staff_contact_details` (
-  `staff_ID` varchar(20) DEFAULT NULL,
-  `contact_ID` varchar(20) NOT NULL DEFAULT '',
+  `contact_ID` int(10) NOT NULL AUTO_INCREMENT,
+  `staff_ID` int(20) DEFAULT NULL,
   `contact` decimal(10,0) DEFAULT NULL,
   `date` date DEFAULT NULL,
   `status` decimal(2,0) DEFAULT NULL,
   PRIMARY KEY (`contact_ID`),
   KEY `staff_ID` (`staff_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -454,7 +397,7 @@ CREATE TABLE IF NOT EXISTS `staff_contact_details` (
 --
 
 CREATE TABLE IF NOT EXISTS `staff_details` (
-  `staff_ID` varchar(20) NOT NULL DEFAULT '',
+  `staff_ID` int(20) NOT NULL AUTO_INCREMENT,
   `first_Name` varchar(20) DEFAULT NULL,
   `second_Name` varchar(20) DEFAULT NULL,
   `gender` varchar(5) DEFAULT NULL,
@@ -467,7 +410,7 @@ CREATE TABLE IF NOT EXISTS `staff_details` (
   `status` decimal(2,0) DEFAULT NULL,
   PRIMARY KEY (`staff_ID`),
   KEY `username` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -476,14 +419,14 @@ CREATE TABLE IF NOT EXISTS `staff_details` (
 --
 
 CREATE TABLE IF NOT EXISTS `staff_email_details` (
-  `email_ID` varchar(20) NOT NULL DEFAULT '',
-  `staff_ID` varchar(20) DEFAULT NULL,
+  `email_ID` int(10) NOT NULL AUTO_INCREMENT,
+  `staff_ID` int(20) DEFAULT NULL,
   `email` varchar(20) DEFAULT NULL,
   `date` date DEFAULT NULL,
   `status` decimal(2,0) DEFAULT NULL,
   PRIMARY KEY (`email_ID`),
   KEY `staff_ID` (`staff_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -536,21 +479,20 @@ CREATE TABLE IF NOT EXISTS `static_fee_associate_class_details` (
 --
 
 CREATE TABLE IF NOT EXISTS `status_details` (
-  `status_ID` varchar(20) NOT NULL,
+  `status_ID` int(10) NOT NULL AUTO_INCREMENT,
   `name` varchar(20) DEFAULT NULL,
   `status` decimal(2,0) DEFAULT NULL,
   PRIMARY KEY (`status_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `status_details`
 --
 
 INSERT INTO `status_details` (`status_ID`, `name`, `status`) VALUES
-('1', 'System Admin', '1'),
-('2', 'DEO', '1'),
-('3', 'Accountant', '1'),
-('4', 'Student', '1');
+(1, 'DEO', '1'),
+(2, 'Accountant', '1'),
+(3, 'Director', '1');
 
 -- --------------------------------------------------------
 
@@ -559,24 +501,15 @@ INSERT INTO `status_details` (`status_ID`, `name`, `status`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `student_academic_details` (
-  `student_ID` varchar(20) NOT NULL DEFAULT '',
-  `course_ID` varchar(20) DEFAULT NULL,
-  `sem_ID` varchar(20) DEFAULT NULL,
+  `student_ID` int(20) NOT NULL AUTO_INCREMENT,
+  `course_ID` int(10) NOT NULL,
+  `sem_ID` int(10) NOT NULL,
   `batch` decimal(10,0) DEFAULT NULL,
   `status` decimal(2,0) DEFAULT NULL,
-  `class_session_ID` varchar(20) NOT NULL,
   PRIMARY KEY (`student_ID`),
   KEY `course_ID` (`course_ID`),
   KEY `sem_ID` (`sem_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `student_academic_details`
---
-
-INSERT INTO `student_academic_details` (`student_ID`, `course_ID`, `sem_ID`, `batch`, `status`, `class_session_ID`) VALUES
-('s2000', 'cc1', 'ss1', '1', '1', 'BCAvA201819'),
-('s2001', 'cc2', 'ss2', '1', '1', 'BCAviA201920');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -585,16 +518,14 @@ INSERT INTO `student_academic_details` (`student_ID`, `course_ID`, `sem_ID`, `ba
 --
 
 CREATE TABLE IF NOT EXISTS `student_address_details` (
-  `address_ID` varchar(20) NOT NULL DEFAULT '',
-  `student_ID` varchar(20) NOT NULL DEFAULT '',
+  `address_ID` int(10) NOT NULL AUTO_INCREMENT,
   `address` varchar(30) DEFAULT NULL,
+  `student_ID` int(20) NOT NULL,
   `date` date DEFAULT NULL,
   `status` decimal(2,0) DEFAULT NULL,
   PRIMARY KEY (`address_ID`),
-  KEY `Student_ID` (`student_ID`),
-  KEY `student_ID_2` (`student_ID`),
-  KEY `student_ID_3` (`student_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  KEY `student_ID` (`student_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -603,15 +534,14 @@ CREATE TABLE IF NOT EXISTS `student_address_details` (
 --
 
 CREATE TABLE IF NOT EXISTS `student_contact_details` (
-  `contact_ID` varchar(20) NOT NULL DEFAULT '',
-  `student_ID` varchar(20) DEFAULT NULL,
+  `contact_ID` int(10) NOT NULL AUTO_INCREMENT,
   `contact` decimal(10,0) DEFAULT NULL,
+  `student_ID` int(20) NOT NULL,
   `status` decimal(2,0) DEFAULT NULL,
   `date` date DEFAULT NULL,
   PRIMARY KEY (`contact_ID`),
-  KEY `Student_ID` (`student_ID`),
-  KEY `student_ID_2` (`student_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  KEY `student_ID` (`student_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -620,7 +550,7 @@ CREATE TABLE IF NOT EXISTS `student_contact_details` (
 --
 
 CREATE TABLE IF NOT EXISTS `student_details` (
-  `student_ID` varchar(20) NOT NULL,
+  `student_ID` int(20) NOT NULL AUTO_INCREMENT,
   `first_Name` varchar(20) DEFAULT NULL,
   `last_Name` varchar(20) DEFAULT NULL,
   `fathers_Name` varchar(20) DEFAULT NULL,
@@ -638,56 +568,62 @@ CREATE TABLE IF NOT EXISTS `student_details` (
   KEY `username_3` (`username`),
   KEY `username_4` (`username`),
   KEY `username_5` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1049 ;
 
 --
 -- Dumping data for table `student_details`
 --
 
 INSERT INTO `student_details` (`student_ID`, `first_Name`, `last_Name`, `fathers_Name`, `mothers_Name`, `category`, `gender`, `nationality`, `dob`, `blood_Group`, `status`, `username`) VALUES
-('s20000', 'AKSHAT', 'SAXENA', 'AMIT KUMAR SAXENA', 'VARTIKA SAXENA', 'GENERAL', 'MALE', 'INDAIN', '2018-12-12', 'A+', '1', 'fms'),
-('s20001', 'ANAND', 'TIGGA', 'RANJEET TIGGA', 'URMILLA TIGGA', 'GENERAL', 'MALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
-('s20002', 'AYUSMAN ', 'SATI', 'KAMAL SATI', 'DEEPA SATI', 'GENERAL', 'MALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
-('s20003', 'BHASKER SINGH', 'NAINWAL', 'MADAN SINGH', 'HEMA DEVI', 'GENERAL', 'MALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
-('s20004', 'DEEPIKA ', 'PANT', 'UMESH CHANDRA PANT', 'LATA PANT', 'GENERAL', 'FEMALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
-('s20005', 'DEVAM ', 'KHATI', 'RAMESH SINGH KHATI', 'BHAGWATI KHATI', 'GENERAL', 'MALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
-('s20006', 'DIKSHITA ', 'TIWARI', 'AJAY TIWARI', 'HEENA TIWARI', 'GENERAL', 'FEMALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
-('s20007', 'GAURAV ', 'PANDEY', 'BACCHI DUTT PANDEY', 'KAMLA DEVI', 'GENERAL', 'MALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
-('s20008', 'GEETANJALI', ' JOSHI', 'DEEPAK CHANDRA JOSHI', 'BABITA JOSHI', 'GENERAL', 'FEMALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
-('s20009', 'GUNJAN ', 'PANDEY', 'SHYAM SUNDAR PANDEY', 'BHAWNA DEVI', 'GENERAL', 'FEMALE', 'INDIAN', '0000-00-00', 'B+', '1', 'fms'),
-('s20010', 'HARSHITA ', 'DWIVEDI', 'HARI OM DWIVEDI', 'NEEMA DWIVEDI', 'GENERAL', 'FEMALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
-('s20011', 'JHILMIL ', 'PANT', 'SUBHASH PANT', 'SUSHILA PANT', 'GENERAL', 'FEMALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
-('s20012', 'KAPIL ', 'MEHRA', 'SURESH CHANDRA SINGH', 'UMA DEVI', 'GENERAL', 'MALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
-('s20013', 'KHUSBOO ', 'TIWARI', 'GOPAL TIWARI', 'LALITA TIWARI', 'GENERAL', 'FEMALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
-('s20014', 'KOMAL ', 'ARYA', 'DEEPAK KUMAR', 'NANDI DEVI', 'SC', 'FEMALE', 'INDIAN', '0000-00-00', 'O+', '1', 'fms'),
-('s20015', 'LAKSHITA ', 'JOSHI', 'PRAKASH CHANDRA JOSH', 'MAMTA JOSHI', 'GENERAL', 'FEMALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
-('s20016', 'LOVELESH ', 'JOSHI', 'HARISH CHANDRA JOSHI', 'PUSHPA JOSHI', 'GENERAL', 'MALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
-('s20017', 'MANISHA ', 'CHADDA', 'KAUSHAL SINGH CHADDA', 'ANITA CHADDA', 'GENERAL', 'FEMALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
-('s20018', 'MAYANK ', 'SINGH', 'LALIT MOHAN', 'USHA DEVI', 'GENERAL', 'MALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
-('s20019', 'NAVYA ', 'SHUKLA', 'MUNNA LAL SHUKLA', 'BABITA SHUKLA', 'GENERAL', 'FEMALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
-('s20020', 'NEHA ', 'BARGALI', 'HARENDRA BARGALI', 'PUSHPA BARGALI', 'GENERAL', 'FEMALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
-('s20021', 'NIHARIKA', ' BHATT', 'MANOJ BHATT', 'BHAWNA BHATT', 'GENERAL', 'FEMALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
-('s20022', 'NIVEDITA ', 'DANU', 'RAJENDRA SINGH DANU', 'BHAWNA DEVI', 'GENERAL', 'FEMALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
-('s20023', 'POORVA ', 'LOHIYA', 'HEM CHANDRA', 'MEENA LOHIYA', 'GENERAL', 'FEMALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
-('s20024', 'PRANSHU ', 'BHATT', 'DEEP CHANDRA BHATT', 'RUKMANI BHATT', 'GENERAL', 'MALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
-('s20025', 'PRIYANJAL ', 'BHANDARI', 'SHYAM SINGH BHANDARI', 'REKHA BHANDARI', 'GENERAL', 'FEMALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
-('s20026', 'PRIYANK ', 'OJHA', 'HARISH CHANDRA', 'UMA', 'GENERAL', 'MALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
-('s20027', 'RAHUL ', 'JOSHI', 'RAJENDRA PRASAD JOSH', 'KIRAN JOSHI', 'GENERAL', 'MALE', 'INDIAN', '0000-00-00', 'O+', '1', 'fms'),
-('s20028', 'RIYA ', 'KARNATAK', 'GIRISH CHANDRA KARNA', 'VIMLA KARNATAK', 'GENERAL', 'FEMALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
-('s20029', 'RIYA ', 'RANA', 'MOHAN SINGH RANA', 'DEEPA RANA', 'GENERAL', 'FEMALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
-('s20030', 'ROHAN ', 'FARTYAL', 'KRIPAL SINGH FARTYAL', 'BHWANA FARTIYAL', 'GENERAL', 'MALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
-('s20031', 'ROSHNI ', 'SHARMA', 'CHANDRA SHEKHAR SHAR', 'KAMLESH SHARMA', 'GENERAL', 'FEMALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
-('s20032', 'SAGAR ', 'KASHYAP', 'PAPPU KASHYAP', 'PRITI KASHYAP', 'GENERAL', 'MALE', 'INDIAN', '0000-00-00', 'B+', '1', 'fms'),
-('s20033', 'SAHIL ', 'SINGH', 'JITENDRA SINGH', 'DEEPA DEVI', 'GENERAL', 'MALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
-('s20034', 'SARITA ', 'RAUTELA', 'RAJENDRA SINGH', 'HEMA DEVI', 'GENERAL', 'FEMALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
-('s20035', 'SAURABH ', 'DANU', 'MADHO SINGH DANU', 'BASANTI DEVI', 'GENERAL', 'MALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
-('s20036', 'SONU', 'SINGH PADIYAR', 'PRAKASH SINGH', 'PREMA', 'GENERAL', 'MALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
-('s20037', 'VAIBHAV ', 'MISHRA', 'DEEPAK MISHRA', 'ASHA MISHRA', 'GENERAL', 'MALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
-('s20038', 'VANSHIKA', 'DURGAPAL', 'BASANT BALLABH', 'GEETA DURGAPAL', 'GENERAL', 'FEMALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
-('s20039', 'VIDHI', 'KANDPAL', 'VINOD KANDPAL', 'SAROJ KANDPAL', 'GENERAL', 'FEMALE', 'INDIAN', '0000-00-00', 'O-', '1', 'fms'),
-('s20040', 'VINAY ', 'GOSWAMI', 'SHANKAR PURI GOSWAMI', 'MEENA GOSWAMI', 'GENERAL', 'MALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
-('s20041', 'YAMAN', 'SINGH KOSHYARI', 'KUNDAN KOSHYARI', 'REKHA DEVI', 'GENERAL', 'MALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
-('s20042', 'YASHASWI ', 'PADIYAR', 'PRATAP SINGH PADIYAR', 'GOVINDI', 'GENERAL', 'MALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms');
+(1000, 'AKSHAT', 'SAXENA', 'AMIT KUMAR SAXENA', 'VARTIKA SAXENA', 'GENERAL', 'MALE', 'INDAIN', '2018-12-12', 'A+', '1', 'fms'),
+(1001, 'ANAND', 'TIGGA', 'RANJEET TIGGA', 'URMILLA TIGGA', 'GENERAL', 'MALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
+(1002, 'AYUSMAN ', 'SATI', 'KAMAL SATI', 'DEEPA SATI', 'GENERAL', 'MALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
+(1003, 'BHASKER SINGH', 'NAINWAL', 'MADAN SINGH', 'HEMA DEVI', 'GENERAL', 'MALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
+(1004, 'DEEPIKA ', 'PANT', 'UMESH CHANDRA PANT', 'LATA PANT', 'GENERAL', 'FEMALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
+(1005, 'DEVAM ', 'KHATI', 'RAMESH SINGH KHATI', 'BHAGWATI KHATI', 'GENERAL', 'MALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
+(1006, 'DIKSHITA ', 'TIWARI', 'AJAY TIWARI', 'HEENA TIWARI', 'GENERAL', 'FEMALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
+(1007, 'GAURAV ', 'PANDEY', 'BACCHI DUTT PANDEY', 'KAMLA DEVI', 'GENERAL', 'MALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
+(1008, 'GEETANJALI', ' JOSHI', 'DEEPAK CHANDRA JOSHI', 'BABITA JOSHI', 'GENERAL', 'FEMALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
+(1009, 'GUNJAN ', 'PANDEY', 'SHYAM SUNDAR PANDEY', 'BHAWNA DEVI', 'GENERAL', 'FEMALE', 'INDIAN', '0000-00-00', 'B+', '1', 'fms'),
+(1010, 'HARSHITA ', 'DWIVEDI', 'HARI OM DWIVEDI', 'NEEMA DWIVEDI', 'GENERAL', 'FEMALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
+(1011, 'JHILMIL ', 'PANT', 'SUBHASH PANT', 'SUSHILA PANT', 'GENERAL', 'FEMALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
+(1012, 'KAPIL ', 'MEHRA', 'SURESH CHANDRA SINGH', 'UMA DEVI', 'GENERAL', 'MALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
+(1013, 'KHUSBOO ', 'TIWARI', 'GOPAL TIWARI', 'LALITA TIWARI', 'GENERAL', 'FEMALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
+(1014, 'KOMAL ', 'ARYA', 'DEEPAK KUMAR', 'NANDI DEVI', 'SC', 'FEMALE', 'INDIAN', '0000-00-00', 'O+', '1', 'fms'),
+(1015, 'LAKSHITA ', 'JOSHI', 'PRAKASH CHANDRA JOSH', 'MAMTA JOSHI', 'GENERAL', 'FEMALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
+(1016, 'LOVELESH ', 'JOSHI', 'HARISH CHANDRA JOSHI', 'PUSHPA JOSHI', 'GENERAL', 'MALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
+(1017, 'MANISHA ', 'CHADDA', 'KAUSHAL SINGH CHADDA', 'ANITA CHADDA', 'GENERAL', 'FEMALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
+(1018, 'MAYANK ', 'SINGH', 'LALIT MOHAN', 'USHA DEVI', 'GENERAL', 'MALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
+(1019, 'NAVYA ', 'SHUKLA', 'MUNNA LAL SHUKLA', 'BABITA SHUKLA', 'GENERAL', 'FEMALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
+(1020, 'NEHA ', 'BARGALI', 'HARENDRA BARGALI', 'PUSHPA BARGALI', 'GENERAL', 'FEMALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
+(1021, 'NIHARIKA', ' BHATT', 'MANOJ BHATT', 'BHAWNA BHATT', 'GENERAL', 'FEMALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
+(1022, 'NIVEDITA ', 'DANU', 'RAJENDRA SINGH DANU', 'BHAWNA DEVI', 'GENERAL', 'FEMALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
+(1023, 'POORVA ', 'LOHIYA', 'HEM CHANDRA', 'MEENA LOHIYA', 'GENERAL', 'FEMALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
+(1024, 'PRANSHU ', 'BHATT', 'DEEP CHANDRA BHATT', 'RUKMANI BHATT', 'GENERAL', 'MALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
+(1025, 'PRIYANJAL ', 'BHANDARI', 'SHYAM SINGH BHANDARI', 'REKHA BHANDARI', 'GENERAL', 'FEMALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
+(1026, 'PRIYANK ', 'OJHA', 'HARISH CHANDRA', 'UMA', 'GENERAL', 'MALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
+(1027, 'RAHUL ', 'JOSHI', 'RAJENDRA PRASAD JOSH', 'KIRAN JOSHI', 'GENERAL', 'MALE', 'INDIAN', '0000-00-00', 'O+', '1', 'fms'),
+(1028, 'RIYA ', 'KARNATAK', 'GIRISH CHANDRA KARNA', 'VIMLA KARNATAK', 'GENERAL', 'FEMALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
+(1029, 'RIYA ', 'RANA', 'MOHAN SINGH RANA', 'DEEPA RANA', 'GENERAL', 'FEMALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
+(1030, 'ROHAN ', 'FARTYAL', 'KRIPAL SINGH FARTYAL', 'BHWANA FARTIYAL', 'GENERAL', 'MALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
+(1031, 'ROSHNI ', 'SHARMA', 'CHANDRA SHEKHAR SHAR', 'KAMLESH SHARMA', 'GENERAL', 'FEMALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
+(1032, 'SAGAR ', 'KASHYAP', 'PAPPU KASHYAP', 'PRITI KASHYAP', 'GENERAL', 'MALE', 'INDIAN', '0000-00-00', 'B+', '1', 'fms'),
+(1033, 'SAHIL ', 'SINGH', 'JITENDRA SINGH', 'DEEPA DEVI', 'GENERAL', 'MALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
+(1034, 'SARITA ', 'RAUTELA', 'RAJENDRA SINGH', 'HEMA DEVI', 'GENERAL', 'FEMALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
+(1035, 'SAURABH ', 'DANU', 'MADHO SINGH DANU', 'BASANTI DEVI', 'GENERAL', 'MALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
+(1036, 'SONU', 'SINGH PADIYAR', 'PRAKASH SINGH', 'PREMA', 'GENERAL', 'MALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
+(1037, 'VAIBHAV ', 'MISHRA', 'DEEPAK MISHRA', 'ASHA MISHRA', 'GENERAL', 'MALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
+(1038, 'VANSHIKA', 'DURGAPAL', 'BASANT BALLABH', 'GEETA DURGAPAL', 'GENERAL', 'FEMALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
+(1039, 'VIDHI', 'KANDPAL', 'VINOD KANDPAL', 'SAROJ KANDPAL', 'GENERAL', 'FEMALE', 'INDIAN', '0000-00-00', 'O-', '1', 'fms'),
+(1040, 'VINAY ', 'GOSWAMI', 'SHANKAR PURI GOSWAMI', 'MEENA GOSWAMI', 'GENERAL', 'MALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
+(1041, 'YAMAN', 'SINGH KOSHYARI', 'KUNDAN KOSHYARI', 'REKHA DEVI', 'GENERAL', 'MALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
+(1042, 'YASHASWI ', 'PADIYAR', 'PRATAP SINGH PADIYAR', 'GOVINDI', 'GENERAL', 'MALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
+(1043, 'ROHAN ', 'Singh', 'Kamal Singh', 'Kamla', 'GENERAL', 'MALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
+(1044, 'Shiv', 'Kumar', 'Jitendra kumar', 'SAROJ ', 'GENERAL', 'MALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
+(1045, 'Ram', 'Singh', 'Ravi Singh', 'Anju', 'GENERAL', 'MALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
+(1046, 'Shubham', 'Pandey', 'Keshav Pandey', 'Anandi', 'GENERAL', 'MALE', 'INDIAN', '0000-00-00', 'A+', '1', 'fms'),
+(1047, 'Amit', 'Rawat', 'Kamal Rawat', 'Champa Rawat', 'General', 'Male', 'Indian', '2019-04-06', 'B+', '1', 'fms'),
+(1048, 'Abhishek', 'Rawat', 'Vimal Rawat', 'Sheela Rawat', 'General', 'Male', 'Indian', '2019-04-06', 'B+', '1', 'fms');
 
 -- --------------------------------------------------------
 
@@ -696,15 +632,14 @@ INSERT INTO `student_details` (`student_ID`, `first_Name`, `last_Name`, `fathers
 --
 
 CREATE TABLE IF NOT EXISTS `student_email_details` (
-  `email_ID` varchar(20) NOT NULL DEFAULT '',
-  `student_ID` varchar(20) DEFAULT NULL,
+  `email_ID` int(10) NOT NULL AUTO_INCREMENT,
   `email` varchar(20) DEFAULT NULL,
+  `student_ID` int(20) NOT NULL,
   `date` date DEFAULT NULL,
   `status` decimal(2,0) DEFAULT NULL,
   PRIMARY KEY (`email_ID`),
-  KEY `Student_ID` (`student_ID`),
-  KEY `student_ID_2` (`student_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  KEY `student_ID` (`student_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -713,8 +648,8 @@ CREATE TABLE IF NOT EXISTS `student_email_details` (
 --
 
 CREATE TABLE IF NOT EXISTS `student_in_session` (
-  `std_ID` varchar(20) NOT NULL,
-  `student_ID` varchar(20) NOT NULL,
+  `std_ID` int(20) NOT NULL AUTO_INCREMENT,
+  `student_ID` int(20) NOT NULL,
   `class_sess_ID` varchar(20) NOT NULL,
   `session_ID` varchar(20) NOT NULL,
   `username` varchar(20) NOT NULL,
@@ -722,19 +657,11 @@ CREATE TABLE IF NOT EXISTS `student_in_session` (
   `date` date NOT NULL,
   PRIMARY KEY (`std_ID`),
   KEY `std_ID` (`std_ID`),
-  KEY `student_ID` (`student_ID`),
   KEY `class_sess_ID` (`class_sess_ID`),
   KEY `session_ID` (`session_ID`),
-  KEY `username` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `student_in_session`
---
-
-INSERT INTO `student_in_session` (`std_ID`, `student_ID`, `class_sess_ID`, `session_ID`, `username`, `status`, `date`) VALUES
-('s121', 's20001', 'BCAviA201920', '2019-20', 'fms', '1', '2019-04-05'),
-('s212', 's20000', 'BCAivA201819', '2018-19', 'fms', '1', '2019-04-10');
+  KEY `username` (`username`),
+  KEY `student_ID` (`student_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -743,16 +670,27 @@ INSERT INTO `student_in_session` (`std_ID`, `student_ID`, `class_sess_ID`, `sess
 --
 
 CREATE TABLE IF NOT EXISTS `student_register_discount` (
-  `student_ID` varchar(20) NOT NULL DEFAULT '',
-  `discount_ID` varchar(20) DEFAULT NULL,
-  `discount_Offered` decimal(2,0) DEFAULT NULL,
+  `d_ID` int(10) NOT NULL AUTO_INCREMENT,
+  `student_ID` int(20) NOT NULL,
+  `discount_ID` int(10) NOT NULL,
+  `discount_Offered` int(3) DEFAULT NULL,
   `date` date DEFAULT NULL,
   `username` varchar(20) DEFAULT NULL,
   `status` decimal(2,0) DEFAULT NULL,
-  PRIMARY KEY (`student_ID`),
-  KEY `discount_ID` (`discount_ID`),
-  KEY `username` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`d_ID`),
+  KEY `username` (`username`),
+  KEY `student_ID` (`student_ID`),
+  KEY `discount_ID` (`discount_ID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `student_register_discount`
+--
+
+INSERT INTO `student_register_discount` (`d_ID`, `student_ID`, `discount_ID`, `discount_Offered`, `date`, `username`, `status`) VALUES
+(1, 1000, 10, 1, '2019-04-06', 'fms', '1'),
+(2, 1001, 10, 1, '2019-04-06', 'fms', '1'),
+(3, 1001, 11, 2, '2019-04-06', 'fms', '1');
 
 -- --------------------------------------------------------
 
@@ -792,7 +730,7 @@ ALTER TABLE `class_fee_session`
 --
 ALTER TABLE `class_in_session`
   ADD CONSTRAINT `class_in_session_ibfk_2` FOREIGN KEY (`class_ID`) REFERENCES `class` (`class_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `class_in_session_ibfk_1` FOREIGN KEY (`session_ID`) REFERENCES `session_master` (`session_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `class_in_session_ibfk_3` FOREIGN KEY (`session_ID`) REFERENCES `session_master` (`session_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `fee_flexible_head`
@@ -804,22 +742,21 @@ ALTER TABLE `fee_flexible_head`
 -- Constraints for table `fee_invoice`
 --
 ALTER TABLE `fee_invoice`
-  ADD CONSTRAINT `fee_invoice_ibfk_1` FOREIGN KEY (`student_ID`) REFERENCES `student_details` (`student_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fee_invoice_ibfk_2` FOREIGN KEY (`session_ID`) REFERENCES `session_master` (`session_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fee_invoice_ibfk_3` FOREIGN KEY (`class_sess_ID`) REFERENCES `class_in_session` (`class_sess_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fee_invoice_ibfk_4` FOREIGN KEY (`static_head_ID`) REFERENCES `fee_static_head` (`static_head_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fee_invoice_ibfk_5` FOREIGN KEY (`flexible_head_ID`) REFERENCES `fee_flexible_head` (`flexible_head_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fee_invoice_ibfk_4` FOREIGN KEY (`student_ID`) REFERENCES `student_details` (`student_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fee_invoice_ibfk_5` FOREIGN KEY (`static_head_ID`) REFERENCES `fee_static_head` (`static_head_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fee_invoice_ibfk_6` FOREIGN KEY (`flexible_head_ID`) REFERENCES `fee_flexible_head` (`flexible_head_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `fee_receipt`
 --
 ALTER TABLE `fee_receipt`
-  ADD CONSTRAINT `fee_receipt_ibfk_1` FOREIGN KEY (`invoice_ID`) REFERENCES `fee_invoice` (`invoice_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fee_receipt_ibfk_2` FOREIGN KEY (`student_ID`) REFERENCES `student_details` (`student_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fee_receipt_ibfk_3` FOREIGN KEY (`discount_ID`) REFERENCES `discount_details` (`discount_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fee_receipt_ibfk_4` FOREIGN KEY (`type_ID`) REFERENCES `fee_type` (`type_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fee_receipt_ibfk_5` FOREIGN KEY (`session_ID`) REFERENCES `session_master` (`session_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fee_receipt_ibfk_6` FOREIGN KEY (`username`) REFERENCES `login_details` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fee_receipt_ibfk_6` FOREIGN KEY (`username`) REFERENCES `login_details` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fee_receipt_ibfk_7` FOREIGN KEY (`invoice_ID`) REFERENCES `fee_invoice` (`invoice_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fee_receipt_ibfk_8` FOREIGN KEY (`student_ID`) REFERENCES `student_details` (`student_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fee_receipt_ibfk_9` FOREIGN KEY (`type_ID`) REFERENCES `fee_type` (`type_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `fee_static_head`
@@ -843,14 +780,13 @@ ALTER TABLE `login_details`
 -- Constraints for table `semester_details`
 --
 ALTER TABLE `semester_details`
-  ADD CONSTRAINT `semester_details_ibfk_1` FOREIGN KEY (`course_ID`) REFERENCES `course_details` (`course_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `semester_details_ibfk_2` FOREIGN KEY (`course_ID`) REFERENCES `course_details` (`course_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `semester_details_ibfk_1` FOREIGN KEY (`course_ID`) REFERENCES `course_details` (`course_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `staff_address_details`
 --
 ALTER TABLE `staff_address_details`
-  ADD CONSTRAINT `staff_address_details_ibfk_1` FOREIGN KEY (`staff_ID`) REFERENCES `status_details` (`status_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `staff_address_details_ibfk_1` FOREIGN KEY (`staff_ID`) REFERENCES `staff_details` (`staff_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `staff_contact_details`
@@ -895,15 +831,13 @@ ALTER TABLE `student_academic_details`
 -- Constraints for table `student_address_details`
 --
 ALTER TABLE `student_address_details`
-  ADD CONSTRAINT `student_address_details_ibfk_1` FOREIGN KEY (`student_ID`) REFERENCES `student_details` (`student_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `student_address_details_ibfk_2` FOREIGN KEY (`student_ID`) REFERENCES `student_details` (`student_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `student_address_details_ibfk_1` FOREIGN KEY (`student_ID`) REFERENCES `student_details` (`student_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `student_contact_details`
 --
 ALTER TABLE `student_contact_details`
-  ADD CONSTRAINT `student_contact_details_ibfk_1` FOREIGN KEY (`student_ID`) REFERENCES `student_details` (`student_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `student_contact_details_ibfk_2` FOREIGN KEY (`student_ID`) REFERENCES `student_details` (`student_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `student_contact_details_ibfk_1` FOREIGN KEY (`student_ID`) REFERENCES `student_details` (`student_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `student_details`
@@ -915,24 +849,24 @@ ALTER TABLE `student_details`
 -- Constraints for table `student_email_details`
 --
 ALTER TABLE `student_email_details`
-  ADD CONSTRAINT `student_email_details_ibfk_1` FOREIGN KEY (`student_ID`) REFERENCES `student_details` (`student_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `student_email_details_ibfk_2` FOREIGN KEY (`student_ID`) REFERENCES `student_details` (`student_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `student_email_details_ibfk_1` FOREIGN KEY (`student_ID`) REFERENCES `student_details` (`student_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `student_in_session`
 --
 ALTER TABLE `student_in_session`
-  ADD CONSTRAINT `student_in_session_ibfk_4` FOREIGN KEY (`username`) REFERENCES `login_details` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `student_in_session_ibfk_1` FOREIGN KEY (`student_ID`) REFERENCES `student_details` (`student_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `student_in_session_ibfk_2` FOREIGN KEY (`class_sess_ID`) REFERENCES `class_in_session` (`class_sess_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `student_in_session_ibfk_3` FOREIGN KEY (`session_ID`) REFERENCES `session_master` (`session_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `student_in_session_ibfk_3` FOREIGN KEY (`session_ID`) REFERENCES `session_master` (`session_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `student_in_session_ibfk_4` FOREIGN KEY (`username`) REFERENCES `login_details` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `student_in_session_ibfk_5` FOREIGN KEY (`student_ID`) REFERENCES `student_details` (`student_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `student_register_discount`
 --
 ALTER TABLE `student_register_discount`
-  ADD CONSTRAINT `student_register_discount_ibfk_1` FOREIGN KEY (`discount_ID`) REFERENCES `discount_details` (`discount_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `student_register_discount_ibfk_2` FOREIGN KEY (`username`) REFERENCES `login_details` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `student_register_discount_ibfk_2` FOREIGN KEY (`username`) REFERENCES `login_details` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `student_register_discount_ibfk_3` FOREIGN KEY (`student_ID`) REFERENCES `student_details` (`student_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `student_register_discount_ibfk_4` FOREIGN KEY (`discount_ID`) REFERENCES `discount_details` (`discount_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
