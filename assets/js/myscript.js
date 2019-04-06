@@ -48,20 +48,24 @@ $(function(){
 		});
 	});
 });
-$(function(){
-	$('#cmbClass').change(function(){
-		$('#printhere1').html("Loading...");
 
-		var url_ = site_url_ + "/receipt/getStudent_classwises"+ $(this).val();
+$(function(){
+	$('#cmbStudents').change(function(){
+		$('#printhere').html("");
+
+		var url_ = site_url_ + "/flexihead_students/getflexiblehead/"+ $(this).val();
 		
 		$.ajax({
 			type: "GET",
 			url: url_,
 			success: function(data){
+				//alert(data);
 				var obj = JSON.parse(data);
 				var str = '';
 				
-				$('#printthis').val(obj['stud1']['student_ID'])
+				$('#txtflexiid').val(obj['flexi']['flexible_head_ID']);
+				$('#txtflexiamount').val(obj['flexi']['amount']);
+
 				/*str = str + "<table class='table table-striped'>";
 				str = str + "<tr>";
 				str = str + "<th>Student Name</th>";
