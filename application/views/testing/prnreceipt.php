@@ -10,8 +10,15 @@
 		
 		
 			<div class="col-lg-6">
+
 					<div class="panel-heading" align="center"><small class="text-small"> Date</small>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<strong>Fee Receipt</strong>
 					<small class="text-small"> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspReceipt No.</small></div>
+
+				
+
+
+					<div class="panel-heading" align="center"><small class="text-small"> Date</small>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<strong>Fee Receipt</strong>
+					 Receipt No.</small>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</div>
 					
 			<div class="row">
 				<div class="panel-body">
@@ -86,18 +93,13 @@
 				 	 
 				 	 	<table class="table table-striped">
 				 	 		<thead>
-				 	 	
-				 	 	<tr>
-				 	 			<div class="form-group">
-  <label class="form-group"for="sel1">Payment Mode</label>
-
-  <select class="form-control" id="sel1">
-    <option>Cash</option>
-    <option>Cheque</option>
-    <option>Credit</option>
-    <option>Other</option>
-  </select>
-</div>
+								  <select class="btn btn-primary">
+								    <option>Cash</option>
+								    <option>Cheque</option>
+								    <option>Credit</option>
+								    <option>Other</option>
+								  </select>
+								</div>
 
 						</tr>
 						<table><b class="text-danger">Any Remark?</b>
@@ -108,6 +110,6 @@
 
 				 	 </table>
 				 	
-
+	</div>
 	</div>
 </table>
