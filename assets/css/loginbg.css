@@ -36,5 +36,5 @@ body, html {
 }
 
 .dotted{
-  border-style: solid;
+  border-style: groove;
 }
