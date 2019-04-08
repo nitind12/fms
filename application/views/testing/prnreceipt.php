@@ -9,9 +9,10 @@
 				<li class="active">Invoice/Receipt</li>
 			</ol>
 		</div>
-					<h5><b><p class="text-left">Date:</p></b></h5>
+					<h5><b><p class="text-left">Date:&nbsp 27-5-2019</p></b></h5>
 					<h4><b><p class="text-center">The Demo School, Haldwani</p></b></h4>
-					<h5><b><p class="text-right">Receipt No.:</p></b></h5>
+					<h4><b><p class="text-center">Receipt</p></b></h4>
+					<h5><b><p class="text-right">Receipt No.:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</p></b></h5>
 
 
 				<div class="col-md-5">
@@ -38,17 +39,17 @@
 				
 
 
-				<table><u class="text-danger">Fee Details Below:</u>
+				<table><b><u class="text-danger">Fee Details Below:</u></b>
 				</table>
 					<table class="table">
-						<tr >
-							<td>Actual Fee:</td>
+						<tr class="active" >
+							<td><b>Actual Fee:</b></td>
 						</tr>
-						<tr >
-							<td>Previous Due:</td>
+						<tr class="active" >
+							<td><b>Previous Due:</b></td>
 						</tr>
-						<tr >
-							<td>Total Due:</td>
+						<tr class="active" >
+							<td><b>Total Due:</b></td>
 						</tr>
 				</table>
 
