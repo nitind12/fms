@@ -18,7 +18,7 @@
 				
 			</ul>
 			<div class="tab-content">
-				<div id=mfhead class="tab-pane fade">
+				<div id="mfhead" class="tab-pane fade">
 								<div class="panel-heading">Add Flexible Heads<em class="caret"></em></div>
 								<div class="panel-body ">
 					<form role="form" name="frmSession" method="post" action="<?php echo site_url('flexihead_students/insert_record');?>">
@@ -56,18 +56,20 @@
 									</div>
 								</div>
 						</form>
+
+            </div>
 						 <div class="controls span6">
         <div class="widget-box">
-            <div class="widget-title"> <span class="icon"><i class="icon-time"></i></span>
-                <h5>View Static Heads</h5>
-            </div>
+            
             <div class="widget-content nopadding">
+                <div class="">View Flexible Head<em class="caret"></em></div>
                 <table class="table table-striped table-bordered">
                     <thead>
                         <tr>
-                            <th style="text-align: left">Static Heads</th>
+                            <th style="text-align: left">Flexible Heads</th>
+                             <th style="text-align: left">Amount(INR)</th>
                             <th style="text-align: left">How many times</th>
-                            <th>Discount Applicable ?</th>
+                            <th></th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -110,15 +112,15 @@
             </div>
         </div>
     </div>
-</div>                    </form>                </div>
-                <div id="flexible_head" class="tab-pane">
-                	<form action="https://school.teamfreelancers.com/index.php/#" class="form-vertical" name="frmFlexibleFee" id="frmFlexibleFee" method="post" accept-charset="utf-8">
+</div>    
+                <div id="afhead" class="tab-pane">
+                	<form action="#" class="form-vertical" name="frmFlexibleFee" id="frmFlexibleFee" method="post" accept-charset="utf-8">
                     <div class="row-fluid">
 	<div class="controls span3">
 		<div class="widget-box">
             <div  style="border: #ff0000 solid 0px; width: 50px; height:50px; float: right; right: 0px; z-index: 2222; position: absolute;" id="student_photo_here"></div>
             <div class="widget-title"> <span class="icon"> <i class="icon-ok-sign"></i> </span>
-                <h5>Add Flexible Heads</h5>
+                <h4>Add Flexible Heads</h4>
             </div>
             <div class="widget-content">
                 <div class="control-group">
@@ -152,8 +154,8 @@
 	</div>
     <div class="controls span6">
         <div class="widget-box">
-          <div class="widget-title"> <span class="icon"><i class="icon-time"></i></span>
-            <h5>View Flexible Heads</h5>
+          <div class="widget-title"> <span class="icon"><i class="icon-time"></i></span><br></br>
+              <h4>View Flexible Heads</h4>
           </div>
           <div class="widget-content nopadding">
             <table class="table table-striped table-bordered">
@@ -168,91 +170,236 @@
               <tbody id="flexible_fee_heads_here">
                                 <tr>
                   <td style="text-align: left" class="taskDesc"><i class="icon-info-sign"></i> EXAM FEE</td>
-                  <td  style="text-align: right" class="taskDesc"> 500</td>
-                  <td style="text-align: left" class="taskDesc">One time</td>
+                  <td  style="text-align: right" class="taskDesc"> </td>
+                  <td style="text-align: left" class="taskDesc"></td>
                   <td class="taskOptions">
-                  <a href="#" class="tip edit_flexible_head_" id="EditFlexibleHead~1~EXAM FEE~500~1~One time"><i class="icon-pencil"></i></a> |
+                  <a href="#" class="tip edit_flexible_head_" id="EditFlexibleHead~1~EXAM FEE~500~1~One time"><i class="icon-pencil"></i></a> 
                   <a href="#" class="tip-top delete_flexible_head_" id="1"><i class="icon-remove"></a></td>
                 </tr>
                                 <tr>
                   <td style="text-align: left" class="taskDesc"><i class="icon-info-sign"></i> BUS FEE</td>
-                  <td  style="text-align: right" class="taskDesc"> 1000</td>
-                  <td style="text-align: left" class="taskDesc">As per selected months</td>
+                  <td  style="text-align: right" class="taskDesc"> </td>
+                  <td style="text-align: left" class="taskDesc"></td>
                   <td class="taskOptions">
-                  <a href="#" class="tip edit_flexible_head_" id="EditFlexibleHead~2~BUS FEE~1000~n~As per selected months"><i class="icon-pencil"></i></a> |
+                  <a href="#" class="tip edit_flexible_head_" id="EditFlexibleHead~2~BUS FEE~1000~n~As per selected months"><i class="icon-pencil"></i></a> 
                   <a href="#" class="tip-top delete_flexible_head_" id="2"><i class="icon-remove"></a></td>
                 </tr>
                                 <tr>
                   <td style="text-align: left" class="taskDesc"><i class="icon-info-sign"></i> EXAM FEE (1 CLASS)</td>
-                  <td  style="text-align: right" class="taskDesc"> 400</td>
-                  <td style="text-align: left" class="taskDesc">One time</td>
+                  <td  style="text-align: right" class="taskDesc"> </td>
+                  <td style="text-align: left" class="taskDesc"></td>
                   <td class="taskOptions">
-                  <a href="#" class="tip edit_flexible_head_" id="EditFlexibleHead~3~EXAM FEE (1 CLASS)~400~1~One time"><i class="icon-pencil"></i></a> |
+                  <a href="#" class="tip edit_flexible_head_" id="EditFlexibleHead~3~EXAM FEE (1 CLASS)~400~1~One time"><i class="icon-pencil"></i></a> 
                   <a href="#" class="tip-top delete_flexible_head_" id="3"><i class="icon-remove"></a></td>
                 </tr>
                                 <tr>
                   <td style="text-align: left" class="taskDesc"><i class="icon-info-sign"></i> CULTURAL PARTICIPATION FEE</td>
-                  <td  style="text-align: right" class="taskDesc"> 1500</td>
-                  <td style="text-align: left" class="taskDesc">One time</td>
+                  <td  style="text-align: right" class="taskDesc"></td>
+                  <td style="text-align: left" class="taskDesc"></td>
                   <td class="taskOptions">
-                  <a href="#" class="tip edit_flexible_head_" id="EditFlexibleHead~4~CULTURAL PARTICIPATION FEE~1500~1~One time"><i class="icon-pencil"></i></a> |
+                  <a href="#" class="tip edit_flexible_head_" id="EditFlexibleHead~4~CULTURAL PARTICIPATION FEE~1500~1~One time"><i class="icon-pencil"></i></a> 
                   <a href="#" class="tip-top delete_flexible_head_" id="4"><i class="icon-remove"></a></td>
                 </tr>
                                 <tr>
                   <td style="text-align: left" class="taskDesc"><i class="icon-info-sign"></i> SPORTS FEE</td>
-                  <td  style="text-align: right" class="taskDesc"> 1000</td>
-                  <td style="text-align: left" class="taskDesc">As per selected months</td>
+                  <td  style="text-align: right" class="taskDesc"></td>
+                  <td style="text-align: left" class="taskDesc"></td>
                   <td class="taskOptions">
-                  <a href="#" class="tip edit_flexible_head_" id="EditFlexibleHead~5~SPORTS FEE~1000~n~As per selected months"><i class="icon-pencil"></i></a> |
+                  <a href="#" class="tip edit_flexible_head_" id="EditFlexibleHead~5~SPORTS FEE~1000~n~As per selected months"><i class="icon-pencil"></i></a> 
                   <a href="#" class="tip-top delete_flexible_head_" id="5"><i class="icon-remove"></a></td>
                 </tr>
                                 <tr>
                   <td style="text-align: left" class="taskDesc"><i class="icon-info-sign"></i> MUSIC FEE</td>
-                  <td  style="text-align: right" class="taskDesc"> 850</td>
-                  <td style="text-align: left" class="taskDesc">As per selected months</td>
+                  <td  style="text-align: right" class="taskDesc"></td>
+                  <td style="text-align: left" class="taskDesc"></td>
                   <td class="taskOptions">
-                  <a href="#" class="tip edit_flexible_head_" id="EditFlexibleHead~6~MUSIC FEE~850~n~As per selected months"><i class="icon-pencil"></i></a> |
+                  <a href="#" class="tip edit_flexible_head_" id="EditFlexibleHead~6~MUSIC FEE~850~n~As per selected months"><i class="icon-pencil"></i></a> 
                   <a href="#" class="tip-top delete_flexible_head_" id="6"><i class="icon-remove"></a></td>
                 </tr>
                                 <tr>
                   <td style="text-align: left" class="taskDesc"><i class="icon-info-sign"></i> ADMISSION</td>
-                  <td  style="text-align: right" class="taskDesc"> 2000</td>
-                  <td style="text-align: left" class="taskDesc">One time</td>
+                  <td  style="text-align: right" class="taskDesc"></td>
+                  <td style="text-align: left" class="taskDesc"></td>
                   <td class="taskOptions">
-                  <a href="#" class="tip edit_flexible_head_" id="EditFlexibleHead~7~ADMISSION~2000~1~One time"><i class="icon-pencil"></i></a> |
-                  <a href="#" class="tip-top delete_flexible_head_" id="7"><i class="icon-remove"></a></td>
+                  <a href="#" class="tip edit_flexible_head_" id="EditFlexibleHead~7~ADMISSION~2000~1~One time"><i class="icon-pencil"></i></a> 
+                  <a href="#" class="tip-top delete_flexible_head_" id="7"><i class="icon-remove"></i></a></td>
                 </tr>
                                 <tr>
                   <td style="text-align: left" class="taskDesc"><i class="icon-info-sign"></i> KARATE</td>
-                  <td  style="text-align: right" class="taskDesc"> 200</td>
-                  <td style="text-align: left" class="taskDesc">As per selected months</td>
+                  <td  style="text-align: right" class="taskDesc"></td>
+                  <td style="text-align: left" class="taskDesc"></td>
                   <td class="taskOptions">
-                  <a href="#" class="tip edit_flexible_head_" id="EditFlexibleHead~8~KARATE~200~n~As per selected months"><i class="icon-pencil"></i></a> |
-                  <a href="#" class="tip-top delete_flexible_head_" id="8"><i class="icon-remove"></a></td>
+                  <a href="#" class="tip edit_flexible_head_" id="EditFlexibleHead~8~KARATE~200~n~As per selected months"><i class="icon-pencil"></i></a> 
+                  <a href="#" class="tip-top delete_flexible_head_" id="8"><i class="icon-remove"></i></a></td>
                 </tr>
                                 <tr>
                   <td style="text-align: left" class="taskDesc"><i class="icon-info-sign"></i> SWIMMING</td>
-                  <td  style="text-align: right" class="taskDesc"> 200</td>
-                  <td style="text-align: left" class="taskDesc">As per selected months</td>
+                  <td  style="text-align: right" class="taskDesc"></td>
+                  <td style="text-align: left" class="taskDesc"></td>
                   <td class="taskOptions">
-                  <a href="#" class="tip edit_flexible_head_" id="EditFlexibleHead~9~SWIMMING~200~n~As per selected months"><i class="icon-pencil"></i></a> |
-                  <a href="#" class="tip-top delete_flexible_head_" id="9"><i class="icon-remove"></a></td>
+                  <a href="#" class="tip edit_flexible_head_" id="EditFlexibleHead~9~SWIMMING~200~n~As per selected months"><i class="icon-pencil"></i></a> 
+                  <a href="#" class="tip-top delete_flexible_head_" id="9"><i class="icon-remove"></i></a></td>
                 </tr>
                               </tbody>
             </table>
           </div>
+          <div class="controls span3">
+        <div class="widget-box">
+          <div class="widget-title">
+            <div style="float: left; padding: 5px; border:#C0C0C0 solid 1px; width: 20px;height: 25px; text-align: center">
+                <input type="checkbox" id="classes_for_static_heads_check_boxes" name="title-checkbox" />
+            </div>
+            <h5>Classes in Session 2018-19</h5>
+          </div>
+          <div class="widget-content nopadding" style="overflow: auto; height: 350px">
+            <table class="table table-bordered table-striped with-check">
+              <thead>
+                <tr>
+                  <th><i class="icon-resize-vertical"></i></th>
+                  <th style="text-align: left">Select Classe(s)</th>
+                </tr>
+              </thead>
+              <tbody id="classes_associates_staticHeads">
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
+       <div class="control-group">
+            <div class="controls">
+                <input type="button" value="Add Fee to selected Class" class="btn btn-success span9" id="associate_static_head_with_classes">
+                <input type="reset" value="X" class="btn btn-danger cancel_static_associates_classes span3" style="float: right">
+            </div>
         </div>
     </div>
+    <div class="controls span5" id="accordion_staticHeads_in_classes">
+        <div class="accordion" id="collapse-group">
+            <div class="accordion-group widget-box">
+                <div class="accordion-heading">
+                    <div class="widget-title"> 
+                        <a data-parent="#collapse-group" href="#collapseGOne" data-toggle="collapse"> 
+                            <span class="icon"><i class="icon-plus-sign"></i></span>
+                            <h5>Accordion option1</h5>
+                        </a> 
+                    </div>
+                </div>
 
-					</div>
-						</div>
+                <div class="collapse in accordion-body" id="collapseGOne">
+                    <div class="widget-content"> This is opened by default </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>                    </form>                </div>
+                <div id="associate_flexible" class="tab-pane">
+                    <form action="https://school.teamfreelancers.com/index.php/#" class="form-vertical" name="frmAssociateFlexibleFee" id="frmAssociateFlexibleFee" method="post" accept-charset="utf-8">
+                    <div class="row-fluid">
+    <div class="controls span4">
+            <div class="widget-box">
+              <div class="widget-title">
+                <h5>Flexible Heads</h5>
+              </div>
+              <div class="widget-content nopadding" style="overflow: auto; height: 200px">
+                <table class="table table-bordered table-striped with-check">
+                  <thead>
+                    <tr>
+                      <th><i class="icon-resize-vertical"></i></th>
+                      <th style="text-align: left">Select Flexible Head</th>
+                    </tr>
+                  </thead>
+                  <tbody id="flexibleHeads_for_associating_Students">
+                  </tbody>
+                </table>
+              </div>
+            </div>
+        </div>
+    <div class="controls span3">
+        <div class="widget-box">
+          <div class="widget-title"> 
+            <h5>Classes in Session 2018-19</h5>
+          </div>
+          <div class="widget-content nopadding" style="overflow: auto; height: 350px">
+            <table class="table table-bordered table-striped with-check">
+              <thead>
+                <tr>
+                  <th><i class="icon-resize-vertical"></i></th>
+                  <th style="text-align: left">Select Class</th>
+                </tr>
+              </thead>
+              <tbody id="classes_to_find_students">
+                
+              </tbody>
+            </table>
+          </div>
+       </div>
+    </div>
+    <div class="controls span5">
+      <div class="control-group">
+        <div class="widget-box">
+          <div class="widget-title">
+            <div style="float: left; padding: 5px; border:#C0C0C0 solid 1px; width: 20px;height: 25px; text-align: center">
+              <input type="checkbox" id="classes_associates_students_for_flexibleHeads_check_boxes" />
+            </div>
+            <h5 id="name_of_class_for_students"></h5>
+            <div style="clear: both"></div>
+          </div>
+          <div class="widget-content nopadding" style="overflow: auto; height: 300px">
+            <table class="table table-bordered table-striped with-check">
+              <thead>
+                <tr>
+                  <th><i class="icon-resize-vertical"></i></th>
+                  <th style="text-align: left">Select Classe(s)</th>
+                </tr>
+              </thead>
+              <tbody id="students_for_selected_class">
+                
+              </tbody>
+            </table>
+          </div>
+      </div>
+     </div>
+     <div class="control-group">
+            <div class="controls">
+                <input type="button" value="Add Fee to selected Student(s)" class="btn btn-success span9" id="associate_flexible_head_with_Students">
+                <input type="reset" value="X" class="btn btn-danger cancel_sassociate_flexible_head_with_Student span3" style="float: right">
+            </div>
+        </div>
+    </div>
+</div>
+<hr />
+<h4>View Associated Flexible Heads</h4>
+<div class="row-fluid">
+    <div class="controls span12">
+      <div class="controls span4">
+    <div class="widget-box">
+      <div class="widget-title"> 
+        <h5>Classes in Session 2018-19</h5>
+      </div>
+      <div class="widget-content nopadding" style="overflow: hidden;">
+        <table class="table table-bordered table-striped with-check">
+          <thead>
+            <tr>
+              <th><i class="icon-resize-vertical"></i></th>
+              <th style="text-align: left">Select Class</th>
+            </tr>
+          </thead>
+          <tbody id="classes_to_View_Students_status">
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+</div>
+     
+
+
 					<div id="afhead" class="tab-pane fade"><div id="associate_flexible" class="tab-pane">
                 	<form>
                     <div class="row-fluid">
 	<div class="controls span4">
             <div class="widget-box">
-	          <div class="widget-title">
-	            <h5>Flexible Heads</h5>
+	          <div class="widget-title"><br>
+	            <h4>Flexible Heads</h4>
 	          </div>
 	          <div class="widget-content nopadding" style="overflow: auto; height: 200px">
 	            <table class="table table-bordered table-striped with-check">
@@ -271,7 +418,7 @@
 	<div class="controls span3">
 		<div class="widget-box">
           <div class="widget-title"> 
-            <h5>Classes in Session 2018-19</h5>
+            <h4>Classes in Session 2018-19</h4>
           </div>
           <div class="widget-content nopadding" style="overflow: auto; height: 350px">
             <table class="table table-bordered table-striped with-check">
