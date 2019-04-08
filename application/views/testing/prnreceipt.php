@@ -1,4 +1,4 @@
-<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main dotted">
+<div class="col-sm-2 col-sm-offset-3 col-lg-8 col-lg-offset-3 main dotted">
 
 		
 			<div class="row">
@@ -9,9 +9,9 @@
 				<li class="active">Invoice/Receipt</li>
 			</ol>
 		</div>
-					<h4><b><p class="text-center">The Demo School, Haldwani</p></b></h4>
 					<h5><b><p class="text-left">Date:</p></b></h5>
-					<h5><b><p class="text-right">Receipt:</p></b></h5>
+					<h4><b><p class="text-center">The Demo School, Haldwani</p></b></h4>
+					<h5><b><p class="text-right">Receipt No.:</p></b></h5>
 
 
 				<div class="col-md-5">
@@ -68,21 +68,22 @@
 				      <tr>
 				      	<td>Total:</td>
 				      </tr>
+				      <tr>
+				 	 		<td >Paid Amount:</td>
+				 	 	</tr>
 				 </table>
 				 	
 				 	 <button type="button" class="btn btn-danger">Update</button>
 				 	 <table class="table table-danger">
-				 	 	<tr class="navbar-inverse text-muted">
-				 	 		<td >Paid Amount:</td>
-				 	 	</tr>
+				 	 	
 				 	</table>
 				 	 
 						      <label>Payment Mode:</label>
-						      <select class="form-control">
-						        <option>Select</option>
+						      <select>
 						        <option>Cash</option>
 						        <option>Cheque</option>
 						        <option>Demand Draft</option>
+						        <option>Other</option>
 						      </select><br><br>
 					</div>
 					<div class="col-md-6">    
