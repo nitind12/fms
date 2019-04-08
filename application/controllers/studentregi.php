@@ -26,6 +26,7 @@ class studentregi extends CI_Controller {
 		echo json_encode($data);
 	}
 
+
 function insert_record(){
 		$data = $this->stm->submission();
 

@@ -2,7 +2,7 @@ $(function(){
 	$('#cmbStudents').change(function(){
 		$('#printhere').html("");
 
-		var url_ = site_url_ + "/studentregi/getStudent/"+ $(this).val();
+		var url_ = site_url_ + "/staffregi/getStaff/"+ $(this).val();
 		
 		$.ajax({
 			type: "GET",
@@ -10,10 +10,8 @@ $(function(){
 			success: function(data){
 				//alert(data);
 				var obj = JSON.parse(data);
-				var str = '';
 				
 
-				$('#txtfrstnme').val(obj['stud']['first_Name'])
 
 				$('#txtstdid').val(obj['stud']['student_ID']);
 				$('#txtfrstnme').val(obj['stud']['first_Name']);
@@ -36,20 +34,6 @@ $(function(){
 					$('#txtfmle').attr('checked', true);
 				}
 
-
-				/*str = str + "<table class='table table-striped'>";
-				str = str + "<tr>";
-				str = str + "<th>Student Name</th>";
-				str = str + "</tr>";
-				for(i=0; i<obj.stud.length; i++){
-					str = str + "<tr>";
-					str = str + "<td>" + obj.stud[i]['first_Name'] + "</td>";
-					str = str + "</tr>";
-				}
-				str = str + "</table>";
-				$('#printhere').html(str);
-				*/
-				// /$('#txtfrstnme').val(obj.stud.first_Name);
 			}
 		});
 	});
