@@ -17,12 +17,12 @@
 			<div class="panel-heading">Registration
 			</div>
 			<div class="panel-body">
-				<form name="form" method="post" action="#">
+				<form name="form" method="post" action="">
 				<div class="form-group ">
 										<label>Select Student</label>
 										<select class="form-control" name="txtstts" id="cmbStudents">
 											<option>Select</option>
-											<option value="new">New...	</option>
+											<option>New..</option>
 											<?php foreach ($students as $item) { ?>
 											<option value="<?php echo $item->student_ID;?>"><?php echo $item->first_Name . " " . $item->last_Name; ?></option>
 											<?php } ?>
@@ -64,11 +64,7 @@
 				<div id="personal" class="tab-pane fade active in">
 					<form role="form" name="frmSession" method="post" action="<?php echo site_url('studentregi/insert_record');?>">
 								<!--student details-->
-								<div class="col-md-3">
-									<div class="form-group">
-									<label>Student ID</label>
-									<input class="form-control" name="txtstdid" id="txtstdid">
-								</div></div>							
+								
 								<div class="col-md-3">
 									<div class="form-group">
 									<label>First Name</label>
@@ -84,10 +80,10 @@
 										<label>Gender</label>
 										<div class="radio">
 											<label>
-												<input type="radio" name="txtgndr" value="MALE" id="txtmle">Male
+												<input type="radio" name="txtmle" value="MALE" id="txtmle">Male
 											</label>&nbsp &nbsp &nbsp
 											<label>
-												<input type="radio" name="txtgndr" value="FEMALE" id="txtfmle">Female
+												<input type="radio" name="txtfmle" value="FEMALE" id="txtfmle">Female
 											</label>
 										</div><br>
 									</div>
@@ -104,13 +100,25 @@
 									<label>Blood Group</label>
 									<input class="form-control" name="txtbgrp" id="txtbgrp">
 								</div>
+
+								<div class="col-md-3">
+									<div class="form-group">
+									<label>Contact No.</label>
+									<input class="form-control" name="txtcntct" id="txtcntct">
+								</div></div>
+
+								<div class="col-md-3">
+									<div class="form-group">
+									<label>Email Address</label>
+									<input class="form-control" name="txtemail" id="txtemail">
+								</div></div>
 								<div class="form-group col-md-3">
 										<label>Status</label>
 										<select class="form-control" name="txtstts" id="txtstts">
 											<option>select</option>
 											<option>0</option>
 											<option>1</option>
-										</select><br>
+										</select>
 									</div>
 										<div class="col-md-3">
 									<div class="form-group">
@@ -149,6 +157,7 @@
 						
 						</div>
 					<div id="address" class="tab-pane fade">
+						
 							<div class="form-group col-sm-6">
 									<label>Address</label>
 									<textarea class="form-control" rows="3"></textarea>
@@ -205,9 +214,9 @@
 										<select class="form-control" name="ctgry">
 											<option>Select</option>
 											<option>No Discount</option>
-											<option>Referential</option>
+											<option>Reference</option>
 											<option>Categorical</option>
-											<option>Other</option>
+											<option>Siblings</option>
 										</select>
 									</div>
 									<div class="form-group col-sm-6">
@@ -220,10 +229,10 @@
 								<button type="submit" class="btn btn-success">Update</button>
 								<button type="cancel" class="btn btn-danger">Cancel</button>
 						</div>
+					</form>
 					</div>
 				</div>
-</form>
-</div>
+
 
 							
 
@@ -233,7 +242,7 @@
 
 
 
-	
+		</div>
 		
 			
 			<div class="col-sm-12">

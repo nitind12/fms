@@ -22,8 +22,10 @@ class receipt extends CI_Controller {
 	{
 		$this->load->model('fee_receipt_model', 'frm');
 		$data['class_in_session'] = $this->frm->getclass('2018-19');
-		$this->load->model('fee_receipt_model', 'frm');
 		$data['students'] = $this->frm->getstudent();
+		$data['discount'] = $this->frm->getdiscount();
+		$data['fee'] = $this->frm->getfee();
+		$data['invoice'] = $this->frm->getinvoice();
 		$this->load->view('templates/header');
 		$this->load->view('templates/navheader');
 		$this->load->view('templates/receiptside');
