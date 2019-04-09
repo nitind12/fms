@@ -11,6 +11,12 @@
 		<div class="panel-body">
 			
 			<form role="form" name="frmSession" method="post" action="<?php echo site_url('fms/submitstudentdetails');?>">
+								<div class="form-group col-sm-3 ">
+									<label><em class="fa fa-key">&nbsp</em>Student ID
+									<input class="form-control" name="txtfrstnme">
+									</label>
+								</div>
+
 								<div class="form-group col-sm-3">
 										<label><em class="fa fa-user">&nbsp</em>Select Student</label>
 										<select class="form-control">
@@ -18,11 +24,18 @@
 										</select>
 									</div>
 								
-									<div class="form-group col-sm-3 ">
+								<div class="form-group col-sm-3 ">
 									<label><em class="fa fa-book">&nbsp</em>Class
 									<input class="form-control" name="txtfrstnme">
-								</label>
-							</div>
+									</label>
+								</div>
+
+								<div class="form-group col-sm-3 ">
+									<label><em class="fa fa-book">&nbsp</em>Section
+									<input class="form-control" name="txtfrstnme">
+									</label>
+								</div>
+
 								<div class="form-group col-sm-3">
 									<label>Reason To Drop Student</label>
 									<textarea class="form-control" rows="3"></textarea>
