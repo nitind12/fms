@@ -4,10 +4,10 @@ body, html {
 }
 .bg-image
 {
-	background-image:url("school-accounting-software.jpeg");
+	background-image:url("ep-blog9-main.png");
 	 /* Add the blur effect */
-  filter: blur(2px);
-  -webkit-filter: blur(2px);
+  /*filter: blur(0px);
+  -webkit-filter: blur(0px);/*
   
   /* Full height */
   height: 100%; 
@@ -37,4 +37,3 @@ body, html {
 
 .dotted{
   border-style: groove;
-}
