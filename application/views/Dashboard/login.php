@@ -6,7 +6,7 @@
 		<h1 align="center" class="page-header"><strong>WELCOME TO FEE MANAGEMENT SYSTEM</strong></h1>
 
 		<div class="row">
-		<div class="   col-md-5 col-md-offset-4 ">
+		<div class="   col-md-4 col-md-offset-4 ">
 			<div class="login-panel panel panel-default">
 				<div class="panel-heading">Log in</div>
 				<div class="panel-body">
