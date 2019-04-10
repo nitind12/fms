@@ -39,7 +39,7 @@
 					<li><a class="" href="#">
 						<span class="fa fa-arrow-right">&nbsp;</span> Static in class
 					</a></li>
-					<li><a class="" href="#">
+					<li><a class="" href="flexihead_students">
 						<span class="fa fa-arrow-right">&nbsp;</span> Flexihead-students
 					</a></li>
 					<li><a class="" href="dropstudent">

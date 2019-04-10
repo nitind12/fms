@@ -26,6 +26,7 @@ $(function(){
 				$('#txtmnme').val(obj['stud']['mothers_Name']);
 				$('#txtusrnme').val(obj['stud']['username']);
 				$('#txtctgry').val(obj['stud']['category']);
+				$('#txtcntct').val(obj['cont']['contact']);
 
 				
 				if(obj['stud']['gender'] == 'MALE'){
@@ -34,6 +35,7 @@ $(function(){
 				} else {
 					$('#txtfmle').attr('checked', true);
 				}
+
 
 				/*str = str + "<table class='table table-striped'>";
 				str = str + "<tr>";

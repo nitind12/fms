@@ -8,7 +8,7 @@
 		<div class="row">
 		<div class="   col-md-5 col-md-offset-4 ">
 			<div class="login-panel panel panel-default">
-				<div class="panel-heading">Log in</div>
+				<div class="panel-heading"><b>Log in</div></b>
 				<div class="panel-body">
 					<form role="form" action="<?php echo site_url('login/authenticate');?>" method="post">
 						<fieldset>
