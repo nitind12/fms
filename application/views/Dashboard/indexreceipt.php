@@ -9,6 +9,7 @@
 			</ol>
 		</div>
 		
+		<?php echo date("Y-m-d");?>
 		<div class="row">
 			<div class="col-lg-12">
 				<h1 class="page-header">Fee</h1>
@@ -48,15 +49,15 @@
 						<span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span>
 					</div>
 					<div class="panel-body">
-						<form class="form" action="" method="post" >
+						<form class="form" id="frmInvoice">
 							<fieldset>
 								<!-- Class input-->
 								<div class="form-group col-md-4">
 									<label>Class</label>
-										<select name="cmbClass" id="cmbClass">
+										<select name="cmbClass" id="cmbClass" required="required">
 											<option value="">Select Class</option>
 											<?php foreach ($class_in_session as $item) {?>
-												<option value="<?php echo $item->session_ID;?>"><?php echo $item->class_ID;?></option>
+												<option value="<?php echo $item->class_sess_ID;?>"><?php echo $item->class_sess_ID;?></option>
 											<?php } ?>
 										</select>
 										<!--<div style="clear: both;" id="printhere1"></div>-->
@@ -65,7 +66,7 @@
 								<!-- Year From input-->
 								<div class="form-group col-md-4">
 									<label>Year From</label>
-										<select name="cmbYearf" id="cmbYearf">
+										<select name="cmbYearf" id="cmbYearf" required="required">
 											<option value="">Select Year</option>
 											<?php for ($loop=date('Y');$loop>=2014; $loop--) {?>
 												<option value="<?php echo $loop;?>"><?php echo $loop;?></option>
@@ -76,17 +77,22 @@
 								<!--Year To input-->
 								<div class="form-group col-md-4">
 									<label>Month From</label>
-									<select name="cmbMonthf" id="cmbMonthf">
+									<select name="cmbMonthf" id="cmbMonthf" required="required">
 											<option value="">Select Month</option>
 											<?php for ($loop=1;$loop<=12; $loop++) {?>
-												<option value="<?php echo $this->my_lib->getMonths($loop);?>">"<?php echo $this->my_lib->getMonths($loop);?>"
+												<?php if($loop == 8){
+													$sel_ = " selected='selected'";
+												} else {
+													$sel_ = '';
+												} ?>
+												<option value="<?php echo $this->my_lib->getMonths($loop);?>"<?php echo $sel_;?>><?php echo $this->my_lib->getMonths($loop);?>
 												</option>
 											<?php } ?>
 										</select>
 								</div>
 								<div class="form-group col-md-4">
 									<label>Year To</label>
-										<select name="cmbYeart" id="cmbYeart">
+										<select name="cmbYeart" id="cmbYeart" required="required">
 											<option value="">Select Year</option>
 											<?php for ($loop=date('Y');$loop<=2019; $loop++) {?>
 												<option value="<?php echo $loop;?>"><?php echo $loop;?></option>
@@ -97,36 +103,38 @@
 								<!-- Month To body -->
 								<div class="form-group">
 									<label>Month To</label>
-									<select name="cmbMontht" id="cmbMontht">
+									<select name="cmbMontht" id="cmbMontht" required="required">
 											<option value="">Select Month</option>
 											<?php for ($loop=1;$loop<=12; $loop++) {?>
-												<option value="<?php echo $this->my_lib->getMonths($loop);?>">"<?php echo $this->my_lib->getMonths($loop);?>"
+												<option value="<?php echo $this->my_lib->getMonths($loop);?>"><?php echo $this->my_lib->getMonths($loop);?>
 												</option>
 											<?php } ?>
 										</select>
 								</div>										
-
-
-								<!-- Form actions -->
 								<div class="form-group">
 									<div class="col-md-12 widget-right">
-										<button type="submit" class="btn btn-default btn-md pull-right">Submit</button>
+										<input type="submit" class="btn btn-default btn-md pull-right" value="Submit">
 									</div>
 								</div>
-						<!--<?php
-									if(isset($_POST['submit']))
-									{
-									$class = $_POST['cmbClass'];
-									echo "your class:".$class;
-									$yearf = $_POST['cmbYearf'];
-									$monthf = $_POST['cmbMonthf'];
-									$yeart = $_POST['cmbYeart'];
-									$montht = $_POST['cmbMontht']; 
-									 // Storing Selected Value In Variable
-									}
-						?>--->
-						</fieldset>
+							</fieldset>
 						</form>
+
+						<!--<?php
+								foreach($students as $item)
+							{
+									foreach ($invoice as $item3)
+								{
+									if($item->student_ID == $item3->student_ID)
+									{										
+										$class=$item3->class_ID;
+										$yearf=$item3->year_From;
+										$monthf=$item3->month_From;
+										$yeart=$item3->year_To;
+										$montht=$item3->month_To;
+									}									
+								}
+							}
+						?>-->
 					</div>
 				</div>
 			</div>
@@ -176,23 +184,9 @@
 						</ul>
 						<span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span>
 					</div>
-					<div class="panel-body">
-					   	<?php
-					   		echo '<table class="table table-bordered table-hover table-responsive">';
-					      echo '<tr>';
-					      echo '<th>'."Reg.No".'</th>';
-					      echo '<th>'."Name".'</th>';
-					      echo '<th>'."Discount".'</th>';
-					      echo  '<th>'."Fix Fee".'</th>';
-					       echo '<th>'."Opted Fee".'</th>';
-					       echo '<th>'."Amount".'</th>';
-					       echo '<th>'."Total Fee".'</th>';
-					       echo '<th>'."Invoice".'</th>';
-					       echo '<th>'."Undo Invoice".'</th>';
-					       echo '<th>'."Dues".'</th>';
-					       echo '<th>'."Pay Fee".'</th>';
-					       echo '<th>'."Print Receipt".'</th>';
-						   echo '</tr>';
+					<div class="panel-body" id="invoicedatahere">
+					   	<!--<?php
+					   		
 					   		foreach($students as $item)
 					   			{
 					   				$did = '';
@@ -259,14 +253,18 @@
 											}	
 									echo '</td>';
 
-									echo '<td><span class="glyphicon glyphicon-lock"></span>'.'</td>';
-									/*foreach ($invoice as $item3)
+									echo '<td>';
+									$icon="glyphicon-lock";
+									foreach ($invoice as $item3)
 										{
-												if($item->student_ID == $item3->student_ID){
-													echo '<span class="glyphicon glyphicon-print"></span>';
-												}else  echo '<span class="glyphicon glyphicon-lock"></span>';
+												if($item->student_ID == $item3->student_ID)
+												{
+													$icon = "glyphicon-print";
+													break;
+												}
 										}
-									echo '</td>';*/
+									echo '<span class="glyphicon '.$icon.'"></span>';
+									echo '</td>';
 									echo '<td></td>';
 									echo '<td></td>';
 									echo '<td><button type="button" class="btn btn-danger">update'.'</td>';
@@ -276,7 +274,7 @@
 									echo '</tr>';
 								}
 							echo '</table>';
-						?>
+						?>-->
 					</div>
 				</div>
 			</div>			
@@ -286,177 +284,3 @@
 
 
 
-<!--<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
-		<div class="row">
-			
-		</div><!--/.row
-		
-		<div class="row">
-			<div class="col-lg-12">
-				<h1 class="page-header"></h1>
-			</div>
-		</div><!--/.row
-		<div class="row">
-					<div class="col-md-12">
-						<div class="panel panel-default">
-					<div class="panel-heading">
-						 Receipt Area
-						<ul class="pull-right panel-settings panel-button-tab-right">
-							<li class="dropdown"><a class="pull-right dropdown-toggle" data-toggle="dropdown" href="#">
-								<em class="fa fa-cogs"></em>
-							</a>
-								<ul class="dropdown-menu dropdown-menu-right">
-									<li>
-										<ul class="dropdown-settings">
-											<li><a href="#">
-												<em class="fa fa-cog"></em> Settings 1
-											</a></li>
-											<li class="divider"></li>
-											<li><a href="#">
-												<em class="fa fa-cog"></em> Settings 2
-											</a></li>
-											<li class="divider"></li>
-											<li><a href="#">
-												<em class="fa fa-cog"></em> Settings 3
-											</a></li>
-										</ul>
-									</li>
-								</ul>
-							</li>
-						</ul>
-						<span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span>
-					</div>
-					<div class="panel-body">
-						<table class="table table-bordered">
-					    <thead>
-					      <tr>
-					        <th>Dues</th>
-					        <th>Pay Fee</th>
-					        <th>Print Receipt</th>
-					      </tr>
-					    </thead>
-					    <tbody>
-					   	<tr>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   		
-					   	</tr>
-					   	<tr>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   	</tr>	
-					   	<tr>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   	</tr>	
-					   	<tr>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   	</tr>	
-					   	<tr>
-					   		<td></td>
-					   		<td></td>
-					   		<td></td>
-					   </tr>		
-					   <tr>
-						   	<td></td>
-						   	<td></td>
-						   	<td></td>
-						</tr>   	
-					   <tr>
-						   	<td></td>
-						   	<td></td>
-						   	<td></td>
-						</tr>   	
-					   <tr>
-						   	<td></td>
-						   	<td></td>
-						   	<td></td>
-						</tr>
-					  </table>
-					</div>
-				</div>
-			</div>
-		</div>			
-			
-		</div><!--/.row-->
-	</div>  
-</div>-->
-
-
-
-
-
-	<!--<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
-		<div class="row">
-			<ol class="breadcrumb">
-				<li><a href="#">
-					<em class="fa fa-home"></em>
-				</a></li>
-				<li class="active">Receipt</li>
-			</ol>
-		</div><!--/.row-->
-		
-		<!--<div class="row">
-			<div class="col-lg-12">
-				<h1 class="page-header"></h1>
-			</div>
-		</div><!--/.row-->
-		<!--<div class="row">
-					<div class="col-md-12">
-						<div class="panel panel-default">
-					<div class="panel-heading">
-						 Receipt Area
-						<ul class="pull-right panel-settings panel-button-tab-right">
-							<li class="dropdown"><a class="pull-right dropdown-toggle" data-toggle="dropdown" href="#">
-								<em class="fa fa-cogs"></em>
-							</a>
-								<ul class="dropdown-menu dropdown-menu-right">
-									<li>
-										<ul class="dropdown-settings">
-											<li><a href="#">
-												<em class="fa fa-cog"></em> Settings 1
-											</a></li>
-											<li class="divider"></li>
-											<li><a href="#">
-												<em class="fa fa-cog"></em> Settings 2
-											</a></li>
-											<li class="divider"></li>
-											<li><a href="#">
-												<em class="fa fa-cog"></em> Settings 3
-											</a></li>
-										</ul>
-									</li>
-								</ul>
-							</li>
-						</ul>
-						<span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span>
-					</div>
-					<div class="panel-body">
-					<div class="row row-no-gutters">
-  					
-					  <div class="col-xs-6 col-md-4">Date</div>
-					  <div class="col-xs-6 col-md-4">Receipt</div>
-					  <div class="col-xs-6 col-md-4">Receipt No.</div>
-					</div>
-
-					<div class="panel-body">            
-					  <table class="table table-striped">
-					  <div class="col-xs-6 col-md-4">Registration No.</div>
-					  <div class="panel-body">            
-					  <table class="table table-striped">
-					  <div class="col-xs-6 col-md-4">Name</div>
-					  <div class="panel-body">            
-					  <table class="table table-striped">
-					  <div class="col-xs-6 col-md-4">Class</div>
-					  <div class="panel-body">            
-					  <table class="table table-striped">
-					  <div class="col-xs-6 col-md-4">Session</div>-->
-
-
-
-					    

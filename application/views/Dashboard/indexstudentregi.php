@@ -17,12 +17,12 @@
 			<div class="panel-heading">Registration
 			</div>
 			<div class="panel-body">
-				<form name="form" method="post" action="">
+				<form role="form" name="frmSession" method="post" action="<?php echo site_url('studentregi/insert_record');?>">
 				<div class="form-group ">
 										<label>Select Student</label>
-										<select class="form-control" name="txtstts" id="cmbStudents">
+										<select class="form-control" name="txtstid" id="cmbStudents">
 											<option>Select</option>
-											<option>New..</option>
+											<option value="new">New..</option>
 											<?php foreach ($students as $item) { ?>
 											<option value="<?php echo $item->student_ID;?>"><?php echo $item->first_Name . " " . $item->last_Name; ?></option>
 											<?php } ?>
@@ -40,14 +40,14 @@
 								</div>
 								<div class="form-group">
 									<label>Date Of Admission </label>
-									<input class="form-control" type="date" name="txtdte">
+									<input class="form-control" type="date" name="txtdoa" id="txtdoa">
 								</div>	
 
 
 					<div>
 					<input class="btn btn-success" type="submit" value="Update">
 				</div>
-			</form>
+			
 
 		</div>
 	</div>
@@ -62,7 +62,6 @@
 			</ul>
 			<div class="tab-content">
 				<div id="personal" class="tab-pane fade active in">
-					<form role="form" name="frmSession" method="post" action="<?php echo site_url('studentregi/insert_record');?>">
 								<!--student details-->
 								
 								<div class="col-md-3">
@@ -160,7 +159,25 @@
 						
 							<div class="form-group col-sm-6">
 									<label>Address</label>
-									<textarea class="form-control" rows="3"></textarea>
+									<textarea class="form-control" id="txtaddr" name="txtaddr" rows="2"></textarea>
+								</div>
+								<div class="form-group col-md-3">
+									<label>Area</label>
+									<input class="form-control" name="txtarea" id="txtarea">
+								</div><div class="form-group col-md-3">
+									<label>City</label>
+									<input class="form-control"  name="txtcity" id="txtcity"><br>
+								</div>
+								<div class="form-group col-md-3">
+									<label>District</label>
+									<input class="form-control" name="txtdstrct" id="txtdstrct">
+								</div>
+								<div class="form-group col-md-3">
+									<label>State</label>
+									<input class="form-control" name="txtstate" id="txtstate">
+								</div><div class="form-group col-md-3">
+									<label>Pin Code</label>
+									<input class="form-control" name="txtpincode" id="txtpincode">
 								</div>
 						
 						<div class="col-sm-12">
@@ -173,15 +190,22 @@
 									</div>
 								</div>	
 					</div>
-					<div id="sibling" class="tab-pane fade">
-							<div class="form-group col-sm-6">
-									<label>If Yes then <br>Name</label>
-									<input class="form-control" name="txtnme">
+					<div id="sibling" class="tab-pane fade col-sm-6">
+						<label>If Yes Then <br>Select sibling name</label>
+										<select>
+											<option>Select</option>
+											<?php foreach ($students as $item) { ?>
+											<option value="<?php echo $item->student_ID;?>"><?php echo $item->first_Name . " " . $item->last_Name; ?></option>
+											<?php } ?>
+										</select>
+							<div class="form-group">
+									<label>No. of siblings</label>
+									<textarea class="form-control" id="txtsibling" name="txtsibling" rows="4"></textarea>
 									
 								</div>
 						
-						<div class="col-sm-12">
-								<button type="submit" class="btn btn-success">Update</button>
+						<div >
+								<button type="submit" class="btn btn-success col-sm-3">Update</button>
 								<button type="cancel" class="btn btn-danger">Cancel</button>
 							</div>
 					</div>

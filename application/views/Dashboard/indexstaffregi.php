@@ -20,11 +20,11 @@
 				<form name="form" method="post" action="<?php echo site_url('staffregi/insert_record')?>">
 				<div class="form-group ">
 										<label>Select Staff</label>
-										<select class="form-control" name="txtstts" id="cmbStudents">
+										<select class="form-control" name="txtsfid" id="cmbStaffs">
 											<option>Select</option>
-											<option>New..</option>
-											<?php foreach ($students as $item) { ?>
-											<option value="<?php echo $item->student_ID;?>"><?php echo $item->first_Name . " " . $item->last_Name; ?></option>
+											<option value="new">New..</option>
+											<?php foreach ($staff as $item) { ?>
+											<option value="<?php echo $item->staff_ID;?>"><?php echo $item->first_Name . " " . $item->last_Name; ?></option>
 											<?php } ?>
 										</select>
 										<div style="clear: both;" id="printhere"></div>
@@ -41,7 +41,7 @@
 								</div>
 								<div class="form-group">
 									<label>Date Of Registration </label>
-									<input class="form-control" type="date" name="txtdte">
+									<input class="form-control" type="date" id=#txtdte" name="txtdte">
 								</div>	
 
 
@@ -140,7 +140,25 @@
 						
 							<div class="form-group col-sm-6">
 									<label>Address</label>
-									<textarea class="form-control" rows="3"></textarea>
+									<textarea class="form-control" id="txtaddr" name="txtaddr" rows="2"></textarea>
+								</div>
+								<div class="form-group col-md-3">
+									<label>Area</label>
+									<input class="form-control" name="txtarea" id="txtarea">
+								</div><div class="form-group col-md-3">
+									<label>City</label>
+									<input class="form-control"  name="txtcity" id="txtcity"><br>
+								</div>
+								<div class="form-group col-md-3">
+									<label>District</label>
+									<input class="form-control" name="txtdstrct" id="txtdstrct">
+								</div>
+								<div class="form-group col-md-3">
+									<label>State</label>
+									<input class="form-control" name="txtstate" id="txtstate">
+								</div><div class="form-group col-md-3">
+									<label>Pin Code</label>
+									<input class="form-control" name="txtpincode" id="txtpincode">
 								</div>
 						
 						<div class="col-sm-12">

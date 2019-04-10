@@ -8,12 +8,14 @@ function __construct(){
 	}
 	
 	function index()
-	{
+	{	
+		$this->load->model('staff_model','sm');
+		$data['staff']=$this->sm->getStaffs();
 
 		$this->load->view('templates/header');
 		$this->load->view('templates/navheader');
 		$this->load->view('templates/registrationside');
-		$this->load->view('Dashboard/indexstaffregi');
+		$this->load->view('Dashboard/indexstaffregi',$data);
 		$this->load->view('templates/footer');
 	}
 
