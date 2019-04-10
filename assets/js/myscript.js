@@ -8,14 +8,9 @@ $(function(){
 			type: "GET",
 			url: url_,
 			success: function(data){
-				//alert(data);
-				var obj = JSON.parse(data);
-				var str = '';
-				
+				//alert(data);	
+				var obj=JSON.parse(data);			
 
-				$('#txtfrstnme').val(obj['stud']['first_Name'])
-
-				$('#txtstdid').val(obj['stud']['student_ID']);
 				$('#txtfrstnme').val(obj['stud']['first_Name']);
 				$('#txtlstnme').val(obj['stud']['last_Name']);
 				$('#txtfnme').val(obj['stud']['fathers_Name']);
@@ -26,7 +21,18 @@ $(function(){
 				$('#txtmnme').val(obj['stud']['mothers_Name']);
 				$('#txtusrnme').val(obj['stud']['username']);
 				$('#txtctgry').val(obj['stud']['category']);
-				$('#txtcntct').val(obj['cont']['contact']);
+				$('#txtcntct').val(obj['stud']['contact']);
+				$('#txtemail').val(obj['stud']['email']);
+				$('#txtaddr').val(obj['stud']['address']);
+				$('#txtarea').val(obj['stud']['area']);
+				$('#txtcity').val(obj['stud']['city']);
+				$('#txtstate').val(obj['stud']['state']);
+				$('#txtdstrct').val(obj['stud']['district']);
+				$('#txtpincode').val(obj['stud']['pincode']);
+				$('#txtsibling').val(obj['stud']['siblings']);
+
+
+
 
 				
 				if(obj['stud']['gender'] == 'MALE'){
