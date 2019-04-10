@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class static_class extends CI_Controller {
+class staticinclass extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -20,24 +20,12 @@ class static_class extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->model('fleximodel', 'frm');
-		$data['flexiblehead'] = $this->frm->flexiblehead_submit();
+		
 		$this->load->view('templates/header');
 		$this->load->view('templates/navheader');
 		$this->load->view('templates/masterside');
-		$this->load->view('Dashboard/index_static_class');
+		$this->load->view('Dashboard/index_static_in_class');
 		$this->load->view('templates/footer');
 	}
-	function getflexiblehead(){
-		$this->load->model('fleximodel', 'stm');
-		$data['flexi'] = $this->stm->flexiblehead_submit();
-		echo json_encode($data);
-	}
-	function insert_record(){
-		$data = $this->stm->flexiblehead_submit();
-
-		$this->session->set_flashdata('msg_', $data['msg']);
-
-		redirect('static_class');
-	}
+	
 }
