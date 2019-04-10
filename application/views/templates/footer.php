@@ -1,6 +1,8 @@
 <script src="<?php echo base_url('assets/js/jquery-1.11.1.min.js');?>"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/myscript.js');?>?version=3.4"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/mysript2.js');?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/myscript3.js');?>"></script>
+
 	<script src="<?php echo base_url('assets/js/bootstrap.min.js');?>"></script>
 	<script src="<?php echo base_url('assets/js/chart.min.js');?>"></script>
 	<script src="<?php echo base_url('assets/js/chart-data.js');?>"></script>
