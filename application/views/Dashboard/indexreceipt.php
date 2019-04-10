@@ -270,6 +270,8 @@
 									echo '<td></td>';
 									echo '<td></td>';
 									echo '<td><button type="button" class="btn btn-danger">update'.'</td>';
+									
+
 									echo '<td><em class="fa fa-credit-card"></em>'.'</td>';
 									echo '</tr>';
 								}
