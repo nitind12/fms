@@ -36,7 +36,7 @@
 					<li><a class="" href="flexiblehead">
 						<span class="fa fa-arrow-right">&nbsp;</span> Flexible heads
 					</a></li>
-					<li><a class="" href="#">
+					<li><a class="" href="staticinclass">
 						<span class="fa fa-arrow-right">&nbsp;</span> Static in class
 					</a></li>
 					<li><a class="" href="flexihead_students">
