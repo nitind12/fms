@@ -30,6 +30,7 @@ $(function(){
 				$('#txtdstrct').val(obj['stud']['district']);
 				$('#txtpincode').val(obj['stud']['pincode']);
 				$('#txtsibling').val(obj['stud']['siblings']);
+			
 
 
 

@@ -27,6 +27,8 @@ class staff_model extends CI_Model {
 		$state_=$this->input->post('txtstate');
 		$pincode_=$this->input->post('txtpincode');
 		$addr_=$this->input->post('txtaddr');
+		$email_=$this->input->post('txtemail');
+
 		
 
 
@@ -111,10 +113,11 @@ class staff_model extends CI_Model {
 		if($sfid!=''){
 			$this->db->where('a.staff_ID', $sfid);
 		}
-		$this->db->select('a.*, b.contact,c.address,c.area,c.pincode,c.district,c.city,c.state');
+		$this->db->select('a.*, b.contact,c.address,c.area,c.pincode,c.district,c.city,c.state,d.email');
 		$this->db->from('staff_details a');
 		$this->db->join('staff_contact_details b', 'a.staff_ID=b.staff_ID');
 		$this->db->join('staff_address_details c', 'a.staff_ID=c.staff_ID');
+		$this->db->join('staff_email_details d', 'a.staff_ID=d.staff_ID');
 		
 		$query = $this->db->get('');
 		if($sfid!=''){
