@@ -32,14 +32,6 @@ $(function(){
 				$('#txtsibling').val(obj['stud']['siblings']);
 				$('#txtdisc').val(obj['stud']['discount_offered']);
 				$('#disc').val(obj['stud']['discount_on']);
-
-				
-
-
-
-
-
-				
 				if(obj['stud']['gender'] == 'MALE'){
 				
 					$('#txtmle').attr('checked', true);
@@ -47,20 +39,6 @@ $(function(){
 					$('#txtfmle').attr('checked', true);
 				}
 
-
-				/*str = str + "<table class='table table-striped'>";
-				str = str + "<tr>";
-				str = str + "<th>Student Name</th>";
-				str = str + "</tr>";
-				for(i=0; i<obj.stud.length; i++){
-					str = str + "<tr>";
-					str = str + "<td>" + obj.stud[i]['first_Name'] + "</td>";
-					str = str + "</tr>";
-				}
-				str = str + "</table>";
-				$('#printhere').html(str);
-				*/
-				// /$('#txtfrstnme').val(obj.stud.first_Name);
 			}
 		});
 	});
