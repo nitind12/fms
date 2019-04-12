@@ -14,7 +14,7 @@
 								<!--student details-->
 								<div class="col-md-3">
 									<div class="form-group">
-									<label><em class="fa fa-key">&nbsp</em>Static Head ID
+									<label><em class="fa fa-key">&nbsp</em>Static Head Id
 									<input class="form-control"  name="txtstdid">
 								</div></div>
 								<div class="col-md-3">

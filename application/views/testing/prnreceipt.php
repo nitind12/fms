@@ -1,4 +1,4 @@
-<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main dotted">
+<div class="col-sm-2 col-sm-offset-3 col-lg-8 col-lg-offset-3 main dotted">
 
 		
 			<div class="row">
@@ -9,96 +9,113 @@
 				<li class="active">Invoice/Receipt</li>
 			</ol>
 		</div>
+					<h5><b><p class="text-left">Date:&nbsp 27-5-2019</p></b></h5>
 					<h4><b><p class="text-center">The Demo School, Haldwani</p></b></h4>
-					<h5><b><p class="text-left">Date:</p></b></h5>
-					<h5><b><p class="text-right">Receipt:</p></b></h5>
+					<h4><b><p class="text-center">Receipt</p></b></h4>
+					<h5><b><p class="text-right">Receipt No.:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</p></b></h5>
 
+				<?php
+				echo'<div class="col-md-5">';
+				
 
-				<div class="col-md-5">
-				<table class="table">
-				      <tr>
-				      	<td>Reg No.:</td>
-				      </tr>
-				      <tr>
-				      	<td>Name:</td>
-				      </tr>
-				      <tr>
-				      	<td>Class:</td>
-				      </tr>
-				      <tr>
-				      	<td>Session:</td>
-				      </tr>
-				      <tr>
-				      	<td>Father:</td>
-				      </tr>
+				echo'<table class="table">';
+				      echo'<tr>';
+				      	echo'<td>'."Reg No:".'</td>';
+				      	echo'<td>'.'</td>';
+				     echo'</tr>';
+				      echo'<tr>';
+				      	echo'<td>'."Name:".'</td>';
+				      	echo'<td>'.'</td>';
+				      echo'</tr>';
+				      echo'<tr>';
+				      	echo'<td>'."Class:".'</td>';
+				      	echo'<td>'.'</td>';
+				      echo'</tr>';
+				      echo'<tr>';
+				      	echo'<td>'."Session:".'</td>';
+				      	echo'<td>'.'</td>';
+				      echo'</tr>';
+				      echo'<tr>';
+				      	echo'<td>'."Father:".'</td>';
+				      	echo'<td>'.'</td>';
+				      echo'</tr>';
 				     
-				 </table>
+				 echo'</table>';
 
 			
 				
 
 
-				<table><u class="text-danger">Fee Details Below:</u>
-				</table>
-					<table class="table">
-						<tr >
-							<td>Actual Fee:</td>
-						</tr>
-						<tr >
-							<td>Previous Due:</td>
-						</tr>
-						<tr >
-							<td>Total Due:</td>
-						</tr>
-				</table>
+				echo'<table><b><u class="text-danger">Fee Details Below:</u></b>';
+				echo'</table>';
+					echo'<table class="table">';
+						echo'<tr class="active">';
+							echo'<td>'.'<b>'."Actual Fee:".'</b>'.'</td>';
+							echo'<td>'.'</td>';
+						echo'</tr>';
+						echo'<tr class="active" >';
+							echo'<td>'.'<b>'."Previous Due:".'</b>'.'</td>';
+							echo'<td>'.'</td>';
+						echo'</tr>';
+						echo'<tr class="active" >';
+							echo'<td>'.'<b>'."Total Due:".'</b>'.'</td>';
+							echo'<td>'.'</td>';
+						echo'</tr>';
+				echo'</table>';
 
-			</div>
+			echo'</div>';
 
-				<div class="col-md-5">
-					<table class="table">
-				      <tr>
-				      	<td>Total Due:</td>
-				      </tr>
-				      <tr>
-				      <td>Discount?</td>
-				      </tr>
-				      <tr >
-				      	<td>Fine?</td>
-				      </tr>
-				      <tr>
-				      	<td>Total:</td>
-				      </tr>
-				 </table>
+				echo'<div class="col-md-5">';
+					echo'<table class="table">';
+				     echo'<tr>';
+				      	echo'<td>'."Total Due:".'</td>';
+				      	echo'<td>'.'</td>';
+				      echo'</tr>';
+				      echo'<tr>';
+				      echo'<td>'."Discount?".'</td>';
+				      echo'<td>'.'</td>';
+				      echo'</tr>';
+				      echo'<tr>';
+				      	echo'<td>'."Fine?".'</td>';
+				      	echo'<td>'.'</td>';
+				      echo'</tr>';
+				      echo'<tr>';
+				      	echo'<td>'."Total:".'</td>';
+				      	echo'<td>'.'</td>';
+				      echo'</tr>';
+				      echo'<tr>';
+				 	 		echo'<td>'."Paid Amount:".'</td>';
+				 	 		echo'<td>'.'</td>';
+				 	 	echo'</tr>';
+				 echo'</table>';
 				 	
-				 	 <button type="button" class="btn btn-danger">Update</button>
-				 	 <table class="table table-danger">
-				 	 	<tr class="navbar-inverse text-muted">
-				 	 		<td >Paid Amount:</td>
-				 	 	</tr>
-				 	</table>
+				 	 echo'<button type="button" class="btn btn-danger">Update</button>';
+				 	 echo'<table class="table table-danger">';
+				 	 	
+				 	echo'</table>';
 				 	 
-						      <label>Payment Mode:</label>
-						      <select class="form-control">
-						        <option>Select</option>
-						        <option>Cash</option>
-						        <option>Cheque</option>
-						        <option>Demand Draft</option>
-						      </select><br><br>
-					</div>
-					<div class="col-md-6">    
-					<div class="divider"></div>  
-				 	 	<table><b class="text-danger">Any Remark?</b>
-							<div class="form-group">
+						      echo'<label>Payment Mode:</label>';
+						      echo'<select>';
+						        echo'<option>Cash</option>';
+						        echo'<option>Cheque</option>';
+						        echo'<option>Demand Draft</option>';
+						        echo'<option>Other</option>';
+						      echo'</select><br><br>';
+					echo'</div>';
+					echo'<div class="col-md-6">';    
+					echo'<div class="divider">'.'</div>';  
+				 	 	echo'<table><b class="text-danger">Any Remark?</b>';
+							echo'<div class="form-group">';
 							  
-							  <textarea class="form-control col-md-4" rows="5" ></textarea>
-							</div>
-						</table>
-					</div>
-				</div>
+							  echo'<textarea class="form-control col-md-4" rows="5" >'.'</textarea>';
+							echo'</div>';
+						echo'</table>';
+					echo'</div>';
+				echo'</div>';
 
 
-</div>
-
+echo'</div>';
+?>
 
 
 

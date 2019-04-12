@@ -12,12 +12,12 @@
 				<h1 class="page-header">Flexihead-Students</h1>
 			</div>
 			<ul class="pagination">
-				<li><a data-toggle="tab" href="#mfhead">Manage Flexible Heads</a></li>
+				<li class="active"><a data-toggle="tab" href="#mfhead">Manage Flexible Heads</a></li>
 				<li><a data-toggle="tab" href="#afhead">Associate Flexible Heads</a></li>
 				
 			</ul>
 			
-				<div id="mfhead" class="tab-pane fade active-in active-in ">
+				<div id="mfhead" class="tab-pane fade active in">
 								<div class="panel-heading">Add Flexible Heads<em class="caret"></em></div>
 								<div class="panel-body ">
 								<!--student details-->
@@ -48,7 +48,7 @@
 							
 							<div class="col-sm-12">
 									<button type="submit" class="btn btn-success">Add</button>
-                  <input type="add" value="Add" class="btn btn-success">
+                  
 								
 							</div>
 
