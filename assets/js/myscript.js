@@ -30,7 +30,11 @@ $(function(){
 				$('#txtdstrct').val(obj['stud']['district']);
 				$('#txtpincode').val(obj['stud']['pincode']);
 				$('#txtsibling').val(obj['stud']['siblings']);
-			
+				$('#txtdisc').val(obj['stud']['discount_offered']);
+				$('#disc').val(obj['stud']['discount_on']);
+
+				
+
 
 
 
@@ -60,6 +64,23 @@ $(function(){
 			}
 		});
 	});
+	$('#txtsb').change(function(){
+
+		var url_ = site_url_ + "/studentregi/getStudent/"+ $(this).val();
+		
+		$.ajax({
+			type: "GET",
+			url: url_,
+			success: function(data){
+				//alert(data);	
+				var obj=JSON.parse(data);			
+				$('#txtsibling').val(obj['stud']['student_ID']);
+			}
+		});
+	});
+
+	
+
 
 	$('#frmInvoice').submit(function(){
 		$('#invoicedatahere').html("Loading...");

@@ -192,7 +192,7 @@
 					</div>
 					<div id="sibling" class="tab-pane fade col-sm-6">
 						<label>If Yes Then <br>Select sibling name</label>
-										<select>
+										<select id="txtsb" name="txtsb" class="form-control"> 
 											<option>Select</option>
 											<?php foreach ($students as $item) { ?>
 											<option value="<?php echo $item->student_ID;?>"><?php echo $item->first_Name . " " . $item->last_Name; ?></option>
@@ -235,7 +235,7 @@
 					<div id="discount" class="tab-pane fade">
 							<div class="form-group col-md-3" >
 										<label>Discount offered(if any?)</label>
-										<select class="form-control" name="ctgry">
+										<select class="form-control" name="txtdisc" id="txtdisc">
 											<option>Select</option>
 											<option>No Discount</option>
 											<option>Reference</option>
@@ -245,7 +245,7 @@
 									</div>
 									<div class="form-group col-sm-6">
 									<label>Discount On</label>
-									<textarea class="form-control" rows="3"></textarea>
+									<textarea name="disc" id="disc" class="form-control" rows="3"></textarea>
 								</div>
 
 							
