@@ -92,9 +92,9 @@ class student_model extends CI_Model {
 
 			$data5= array(
 				'student_ID'=>$sidold,
-				'sibling'=>$sib_,
+				'siblings'=>$sib_,
 			);
-			$this->db->where('student_ID',$sidOld);
+			$this->db->where('student_ID',$sidold);
 			$this->db->update('siblings',$data5);
 
 			$bool_ = array(
@@ -164,12 +164,13 @@ class student_model extends CI_Model {
 		if($stdid!=''){
 			$this->db->where('a.student_ID', $stdid);
 		}
-		$this->db->select('a.*, b.contact, c.email,c.date,d.address,d.area,d.city,d.pincode,d.state,d.district,e.siblings');
+		$this->db->select('a.*, b.contact, c.email,c.date,d.address,d.area,d.city,d.pincode,d.state,d.district,e.siblings,f.discount_offered,f.discount_on');
 		$this->db->from('student_details a');
 		$this->db->join('student_contact_details b', 'a.student_ID=b.student_ID');
 		$this->db->join('student_email_details c', 'a.student_ID=c.student_ID');
 		$this->db->join('student_address_details d' , 'a.student_ID=d.student_ID');
 		$this->db->join('siblings e', 'a.student_ID=e.student_ID');
+		$this->db->join('discount f', 'a.student_ID=f.student_ID');
 		$query = $this->db->get('');
 		if($stdid!=''){
 			return $query->row();
