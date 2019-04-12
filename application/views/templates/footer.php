@@ -1,5 +1,5 @@
 <script src="<?php echo base_url('assets/js/jquery-1.11.1.min.js');?>"></script>
-<script type="text/javascript" src="<?php echo base_url('assets/js/myscript.js');?>?version=4.1"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/invoice.js');?>?version=4.8"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/myscript2.js');?>"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/myscript.js');?>?version=4.0"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/mysript2.js');?>"></script>
