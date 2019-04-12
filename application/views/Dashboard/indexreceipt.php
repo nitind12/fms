@@ -69,7 +69,12 @@
 										<select name="cmbYearf" id="cmbYearf" required="required">
 											<option value="">Select Year</option>
 											<?php for ($loop=date('Y');$loop>=2014; $loop--) {?>
-												<option value="<?php echo $loop;?>"><?php echo $loop;?></option>
+												<?php if($loop == 2018){
+													$sel_ = " selected='selected'";
+												} else {
+													$sel_ = '';
+												} ?>
+												<option value="<?php echo $loop;?>"<?php echo $sel_;?>><?php echo $loop;?></option>
 											<?php } ?>
 										</select>
 								</div>
@@ -95,7 +100,12 @@
 										<select name="cmbYeart" id="cmbYeart" required="required">
 											<option value="">Select Year</option>
 											<?php for ($loop=date('Y');$loop<=2019; $loop++) {?>
-												<option value="<?php echo $loop;?>"><?php echo $loop;?></option>
+												<?php if($loop == 2019){
+													$sel_ = " selected='selected'";
+												} else {
+													$sel_ = '';
+												} ?>
+												<option value="<?php echo $loop;?>"<?php echo $sel_;?>><?php echo $loop;?></option>
 											<?php } ?>
 										</select>
 								</div>
@@ -106,7 +116,12 @@
 									<select name="cmbMontht" id="cmbMontht" required="required">
 											<option value="">Select Month</option>
 											<?php for ($loop=1;$loop<=12; $loop++) {?>
-												<option value="<?php echo $this->my_lib->getMonths($loop);?>"><?php echo $this->my_lib->getMonths($loop);?>
+												<?php if($loop == 8){
+													$sel_ = " selected='selected'";
+												} else {
+													$sel_ = '';
+												} ?>
+												<option value="<?php echo $this->my_lib->getMonths($loop);?>"<?php echo $sel_;?>><?php echo $this->my_lib->getMonths($loop);?>
 												</option>
 											<?php } ?>
 										</select>

@@ -20,7 +20,7 @@ $(function(){
 				$('#txtusrnme').val(obj['staf']['username']);
 				$('#txtctgry').val(obj['staf']['category']);
 				$('#txtcntct').val(obj['staf']['contact']);
-				//$('#txtemail').val(obj['staf']['email']);
+				$('#txtemail').val(obj['staf']['email']);
 				$('#txtaddr').val(obj['staf']['address']);
 				$('#txtarea').val(obj['staf']['area']);
 				$('#txtcity').val(obj['staf']['city']);
