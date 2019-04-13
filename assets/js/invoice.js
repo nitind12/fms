@@ -174,7 +174,7 @@ $('#frmInvoice').submit(function(){
 												
 									}
 							}
-							str = str + "<td>"+total_fee+"</td>";
+							
 
 						
 								str = str + "<td></td>";
