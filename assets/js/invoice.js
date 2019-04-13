@@ -153,6 +153,28 @@ $('#frmInvoice').submit(function(){
 									}
 							} 
 							str = str + "<td>"+dues+"</td>";
+							
+							f_amount='';
+							s_amount='';
+							total_fee='';	
+							for (f=0; f<obj.fee.length; f++)	
+							{
+										
+									if(obj.students[s]['student_ID'] == obj.fee[f]['student_ID'])
+									{
+													f_amount = obj.fee[f]['flexible_head_Amount'];
+													s_amount = obj.fee[f]['static_head_Amount'];
+													if(d_amount == ''){
+														s_amount = parseInt(s_amount) - '';
+													}else s_amount = parseInt(s_amount) - parseInt(d_amount);
+													if(f_amount == ''){
+															total_fee=s_amount;
+													}else {total_fee = parseInt(s_amount) + parseInt(f_amount);}
+												
+									}
+							}
+							str = str + "<td>"+total_fee+"</td>";
+
 						
 								str = str + "<td></td>";
 								str = str + '<td><a href="prnreceipt"> <span class="fa fa-print printreceipt"  ></span></a></td>';
