@@ -141,8 +141,19 @@ $('#frmInvoice').submit(function(){
 							    	}
 							    }
 								str = str + '<td><span class="glyphicon ' + icon + '"></span></td>';
+								
 								str = str + "<td></td>";
-								str = str + "<td></td>";
+
+								due_Amount='';
+								for (f=0; f<obj.fee.length; f++)	
+							{
+									if(obj.students[s]['student_ID'] == obj.fee[f]['student_ID'])
+									{
+										dues = obj.fee[f]['due_Amount'];
+									}
+							} 
+							str = str + "<td>"+dues+"</td>";
+						
 								str = str + "<td></td>";
 								str = str + '<td><a href="prnreceipt"> <span class="fa fa-print printreceipt"  ></span></a></td>';
 					//	}		
