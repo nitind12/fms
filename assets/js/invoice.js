@@ -43,6 +43,7 @@ $('#frmInvoice').submit(function(){
 							d_amount='';
 							static_amount='';
 							flexible_amount='';
+							dues='';
 							str = str + "<td>"+obj.students[s]['student_ID']+"</td>";
 							str = str + "<td>"+obj.students[s]['first_Name']+' '+obj.students[s]['last_Name']+"</td>"; 						
 							
@@ -145,7 +146,7 @@ $('#frmInvoice').submit(function(){
 								str = str + "<td></td>";
 
 
-								dues='';
+								
 								for (f=0; f<obj.fee.length; f++)	
 							{
 									if(obj.students[s]['student_ID'] == obj.fee[f]['student_ID'])
