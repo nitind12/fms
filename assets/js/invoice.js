@@ -178,7 +178,7 @@ $('#frmInvoice').submit(function(){
 							
 
 						
-								str = str + "<td></td>";
+								str = str + "<td>"+total_fee+"</td>";
 								str = str + '<td><a href="prnreceipt"> <span class="fa fa-print printreceipt"  ></span></a></td>';
 					//	}		
 
