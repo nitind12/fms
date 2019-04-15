@@ -132,11 +132,15 @@ $('#frmInvoice').submit(function(){
 
 						
 								icon="glyphicon-lock";
+								invid = 'x';
+								printid = 'x'; 
 								for(i=0; i<obj.invoice.length; i++)
 								{	
 									if(obj.students[s]['student_ID'] == obj.invoice[i]['student_ID'])
 									{
 													icon = "glyphicon-print";
+													invid = 'invid_'+obj.invoice[i]['invoice_ID'];
+													printid = 'print_'+obj.invoice[i]['invoice_ID'];
 													break;
 							    	}
 							    }
@@ -149,13 +153,18 @@ $('#frmInvoice').submit(function(){
 							{
 									if(obj.students[s]['student_ID'] == obj.fee[f]['student_ID'])
 									{
+										
 										dues = obj.fee[f]['due_Amount'];
 									}
 							} 
 							str = str + "<td>"+dues+"</td>";
-						
-								str = str + "<td></td>";
-								str = str + '<td><a href="prnreceipt"> <span class="fa fa-print printreceipt"  ></span></a></td>';
+							if(invid == 'x'){
+								str = str + '<td></td>';
+								str = str + '<td></td>';
+							} else {
+								str = str + '<td> <span class="fa fa-play payhere" id="'+invid+'"  ></span></td>';
+								str = str + '<td> <span class="fa fa-print printreceipt" id="'+printid+'"></span></td>';
+							}
 					//	}		
 
 					   /* else

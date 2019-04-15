@@ -51,8 +51,13 @@ $(function(){
 			url: url_,
 			success: function(data){
 				//alert(data);	
-				var obj=JSON.parse(data);			
-				$('#txtsibling').val(obj['stud']['student_ID']);
+				var obj=JSON.parse(data);	
+				var data_ = $('#txtsibling').val();	
+				if(data_ != ''){
+					$('#txtsibling').val(data_ + ", " + obj['stud']['student_ID']);
+				} else {
+					$('#txtsibling').val(obj['stud']['student_ID']);
+				}	
 			}
 		});
 	});
