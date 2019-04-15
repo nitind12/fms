@@ -30,6 +30,9 @@ class student_model extends CI_Model {
 		$sidold = $this->input->post('txtstid');
 		$doa_ = $this->input->post('txtdoa');
 		$sib_ = $this->input->post('txtsibling');
+		$dis_ = $this->input->post('disc');
+		$txtdisc_ = $this->input->post('txtdisc');
+
 
 
 
@@ -97,6 +100,14 @@ class student_model extends CI_Model {
 			$this->db->where('student_ID',$sidold);
 			$this->db->update('siblings',$data5);
 
+			$data6= array(
+				'student_ID' =>$sidold,
+				'discount_offered' => $txtdisc_,
+				'discount_on' => $dis_,
+			);
+			$this->db->where('student_ID',$sidold);
+			$this->db->update('discount',$data6);
+
 			$bool_ = array(
 				'res' => false,
 				'msg' => '<b class="text-success">Record successfully updated!!</b>'
@@ -150,6 +161,18 @@ class student_model extends CI_Model {
 			);
 			$this->db->insert('student_address_details',$data4);
 
+			$data5= array(
+				'student_ID'=>$sid,
+				'siblings'=>$sib_,
+			);
+			$this->db->insert('siblings',$data5);
+
+			$data6= array(
+				'student_ID' => $sid,
+				'discount_offered' => $txtdisc_,
+				'discount_on' => $dis_,
+			);
+			$this->db->insert('discount',$data6);
 
 
 			$bool_ = array(
@@ -164,7 +187,7 @@ class student_model extends CI_Model {
 		if($stdid!=''){
 			$this->db->where('a.student_ID', $stdid);
 		}
-		$this->db->select('a.*, b.contact, c.email,c.date,d.address,d.area,d.city,d.pincode,d.state,d.district,e.siblings,f.discount_offered,f.discount_on');
+		$this->db->select('a.*,b.contact,c.email,c.date,d.address,d.area,d.city,d.pincode,d.state,d.district,e.siblings,f.discount_offered,f.discount_on');
 		$this->db->from('student_details a');
 		$this->db->join('student_contact_details b', 'a.student_ID=b.student_ID');
 		$this->db->join('student_email_details c', 'a.student_ID=c.student_ID');

@@ -20,9 +20,9 @@ class staff_model extends CI_Model {
 		$dsgntn_=$this->input->post('txtdsgntn');
 		$cntct_=$this->input->post('txtcntct');
 		$sfid=$this->input->post('txtsfid');
-		$doa_=$this->input->post('txtdte');
+		$doa_=$this->input->post('txtdoa');
 		$area_=$this->input->post('txtarea');
-		$city_=$this->input->post('txtcity');
+		$city_=$this->input->post('txtcity'); 
 		$dstrct_=$this->input->post('txtdstrct');
 		$state_=$this->input->post('txtstate');
 		$pincode_=$this->input->post('txtpincode');
@@ -65,6 +65,27 @@ class staff_model extends CI_Model {
 			$this->db->where('staff_ID',$sfid);
 			$this->db->update('staff_contact_details',$data2);
 
+			$data3= array(
+				'staff_ID' =>$sfid,
+				'email' => $email_,
+				'date' =>$doa_,
+			);
+			$this->db->where('staff_ID',$sfid);
+			$this->db->update('staff_email_details',$data3);
+
+			$data4= array(
+				'staff_Id'=> $sfid,
+				'address'=> $addr_,
+				'area'=> $area_,
+				'district'=> $dstrct_,
+				'city'=> $city_,
+				'state'=> $state_,
+				'pincode'=> $pincode_,
+			);
+			$this->db->where('staff_ID',$sfid);
+			$this->db->update('staff_address_details',$data4);
+
+
 
 
 			$bool_ = array(
@@ -93,14 +114,29 @@ class staff_model extends CI_Model {
 			$data2=array(
 				'staff_ID' => $sid,
 				'contact'=> $cntct_,
+				'date' =>$doa_,
 			);
 			$this->db->insert('staff_contact_details',$data2);
+
+			$data3= array(
+				'staff_ID' =>$sid,
+				'email' => $email_,
+				'date' =>$doa_,
+			);
+			$this->db->insert('staff_email_details',$data3);
+
+			$data4= array(
+				'staff_Id'=> $sid,
+				'address'=> $addr_,
+				'area'=> $area_,
+				'district'=> $dstrct_,
+				'city'=> $city_,
+				'state'=> $state_,
+				'pincode'=> $pincode_,
+			);
+			$this->db->insert('staff_address_details',$data4);
 			
 			
-
-			
-
-
 			$bool_ = array(
 				'res' => true,
 				'msg' => '<b class="text-success">Record successfully inserted...</b>'
@@ -113,7 +149,7 @@ class staff_model extends CI_Model {
 		if($sfid!=''){
 			$this->db->where('a.staff_ID', $sfid);
 		}
-		$this->db->select('a.*, b.contact,c.address,c.area,c.pincode,c.district,c.city,c.state,d.email');
+		$this->db->select('a.*, b.contact,b.date,c.address,c.area,c.pincode,c.district,c.city,c.state,d.email,');
 		$this->db->from('staff_details a');
 		$this->db->join('staff_contact_details b', 'a.staff_ID=b.staff_ID');
 		$this->db->join('staff_address_details c', 'a.staff_ID=c.staff_ID');

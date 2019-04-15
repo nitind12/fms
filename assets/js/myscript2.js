@@ -28,7 +28,7 @@ $(function(){
 				$('#txtdstrct').val(obj['staf']['district']);
 				$('#txtpincode').val(obj['staf']['pincode']);
 				$('#txtdsgntn').val(obj['staf']['designation']);
-				$('#txtdte').val(obj['staf']['date']);
+				$('#txtdoa').val(obj['staf']['date']); 
 
 
 

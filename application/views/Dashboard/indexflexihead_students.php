@@ -65,7 +65,7 @@
             
             <div class="widget-content nopadding">
                 <div class="">View Flexible Head<em class="caret"></em></div>
-                <div style="clear: both;" id= "printhere"></div>
+                <div style="clear: both;" id= "printheres"></div>
                 <div id="flexi"></div>
             </div>
         </div>

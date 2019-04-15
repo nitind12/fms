@@ -1,6 +1,6 @@
 $(function(){
 	$('#frm').add(function(){
-		$('#printhere').html("loading...");
+		$('#printheres').html("loading...");
 
 		var url_ = site_url_ + "/flexihead_students/getflexihead/" ;
 		var data_=$(this).serialize();
@@ -29,7 +29,7 @@ $(function(){
 					str = str + "</tr>";
 				}
 				str = str + "</table>";
-				$('#printhere').html(str);
+				$('#printheres').html(str);
 			}
 		});
 		    return false;
