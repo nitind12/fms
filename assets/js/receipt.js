@@ -21,6 +21,10 @@ $(function(){
 
 				str = str + '<table class="table table-bordered table-hover table-responsive">';
 				str = str + '<tr>';
+				str = str + '</tr>';
+				str = str + '<tr>'
+				str = str + '<td>Fee Receipt</td>';
+				str = str + '</tr>';
 				str = str + '<td>The Demo School</td>';
 				str = str + '</tr>';
 				str = str + '</table>';
