@@ -35,6 +35,8 @@ $(function(){
 				str = str + '<td>'+obj.students['fathers_Name']+'</td>';
 				str = str + '</tr>';
 				str = str + '</table>';
+
+
 				str = str + '<table class="table table-bordered table-hover table-responsive">';
 				str = str + '<tr>';
 				str = str + '<td>Fee Details Below:</td>';
@@ -58,7 +60,29 @@ $(function(){
 				str = str + '<tr>';
 				str = str + '<td>Paid Amount:</td>';
 				str = str + '</tr>';
+				str = str + '</table>';
+
+
 				
+
+
+				
+				str = str + '<table class="table table-bordered table-hover table-responsive">';
+				str = str + '<label>Payment Mode:</label>';
+				str = str + '<select>';
+				str = str + '<option>Cash</option>';
+				str = str + '<option>Cheque</option>';
+				str = str +'<option>Demand Draft</option>';
+				str = str + '<option>Other</option>';
+				str = str + '</select>';
+				str = str + '</table>';
+				str = str + '<button type="button" class="btn btn-danger">Update</button>';
+				
+				
+				
+				/*str = str + '<table class="table table-bordered table-hover table-responsive">';
+				str = str + '<textarea class="form-control col-md-4" rows="5" >'.'</textarea>';	
+				str = str + '</table>';	*/	
 
 
 
