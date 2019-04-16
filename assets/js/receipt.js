@@ -15,6 +15,19 @@ $(function(){
 				var str = '';
 				str = str + '<table class="table table-bordered table-hover table-responsive">';
 				str = str + '<tr>';
+				str = str + '<td>Date:</td>';
+				str = str + '</tr>';
+				str = str + '</table>';
+
+				str = str + '<table class="table table-bordered table-hover table-responsive">';
+				str = str + '<tr>';
+				str = str + '<td>The Demo School</td>';
+				str = str + '</tr>';
+				str = str + '</table>';
+				
+				
+				str = str + '<table class="table table-bordered table-hover table-responsive">';
+				str = str + '<tr>';
 				str = str + '<td>Reg. No.:</td>';
 				str = str + '<td>'+obj.students['student_ID']+'</td>';
 				str = str + '</tr>';
@@ -62,21 +75,22 @@ $(function(){
 				str = str + '</tr>';
 				str = str + '</table>';
 
-
-				
-
-
 				
 				str = str + '<table class="table table-bordered table-hover table-responsive">';
 				str = str + '<label>Payment Mode:</label>';
 				str = str + '<select>';
 				str = str + '<option>Cash</option>';
 				str = str + '<option>Cheque</option>';
-				str = str +'<option>Demand Draft</option>';
+				str = str + '<option>Demand Draft</option>';
 				str = str + '<option>Other</option>';
 				str = str + '</select>';
 				str = str + '</table>';
 				str = str + '<button type="button" class="btn btn-danger">Update</button>';
+
+
+				
+				
+						
 				
 				
 				
