@@ -21,7 +21,13 @@ function insert_record(){
 		$data = $this->sm->submission();
 
 		$this->session->set_flashdata('msg_', $data['msg']);
-
 		redirect('sessions');
+
 	}
+	function getsession(){
+		$this->load->model('session_model', 'sm');
+		$data['sess'] = $this->sm->getsessions();
+		echo json_encode($data);
+	}
+    
 }
