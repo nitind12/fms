@@ -45,6 +45,25 @@ $(function(){
 				str = str + '</tr>';
 				str = str + '<td>Total Due:</td>';
 				str = str + '</tr>';
+				str = str + '<table class="table table-bordered table-hover table-responsive">';
+				str = str + '<tr>';
+				str = str + '<td>Discount?</td>';
+				str = str + '</tr>';
+				str = str + '<tr>';
+				str = str + '<td>Fine?</td>';
+				str = str + '</tr>';
+				str = str + '<tr>';
+				str = str + '<td>Total:</td>';
+				str = str + '</tr>';
+				str = str + '<tr>';
+				str = str + '<td>Paid Amount:</td>';
+				str = str + '</tr>';
+				
+
+
+
+
+
 
 
 				$('#invoicedatahere').html(str);
