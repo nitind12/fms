@@ -128,7 +128,7 @@
 								</div>										
 								<div class="form-group">
 									<div class="col-md-12 widget-right">
-										<input type="submit" class="btn btn-default btn-md pull-right" value="Submit">
+										<input type="submit" class="btn btn-primary btn-md pull-right" value="Submit">
 									</div>
 								</div>
 							</fieldset>
