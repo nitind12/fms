@@ -1,7 +1,7 @@
 $(function(){
 	$('body').on('click','.payhere',function(){
  
-		var page=$(this).id();
+		
 
 		var str = this.id;
 		var arr = str.split("_");
@@ -16,23 +16,16 @@ $(function(){
 				//$('#invoicedatahere').html(data)
 				var obj = JSON.parse(data);
 				var str = '';
-				str = str + '<table class="table table-bordered table-hover table-responsive">';
-				str = str + '<tr>';
-				str = str + '<td>Date:</td>';
-				str = str + '</tr>';
-				str = str + '</table>';
+				str= str + '<div class="col-sm-2 col-sm-offset-3 col-lg-8 col-lg-offset-3 main dotted">'; 
+				str = str + '<h5><b><p class="text-left">Date:22/5/2019</p></b></h5>' ;
+				str = str + '<h6><b><p class="text-center">The Demo School</p></b></h6>'; 
 
-				str = str + '<table class="table table-bordered table-hover table-responsive">';
-				str = str + '<tr>';
-				str = str + '</tr>';
-				str = str + '<tr>'
-				str = str + '<td>Fee Receipt</td>';
-				str = str + '</tr>';
-				str = str + '<td>The Demo School</td>';
-				str = str + '</tr>';
-				str = str + '</table>';
+				str = str + '<h5><b><p class="text-right">Receipt no.:  &nbsp&nbsp&nbsp</p></b></h5>'; 
 				
+
 				
+				str = str +'<div class="row">';
+				str = str +'<div class="col-sm-6">';		
 				str = str + '<table class="table table-bordered table-hover table-responsive">';
 				str = str + '<tr>';
 				str = str + '<td>Reg. No.:</td>';
@@ -55,12 +48,15 @@ $(function(){
 				str = str + '<td>'+obj.students['fathers_Name']+'</td>';
 				str = str + '</tr>';
 				str = str + '</table>';
+				str=str+'</div></div>';
 
-
+				str= str+'<div class="row">';
+				str= str+'<div class="col-sm-6">';		
 				str = str + '<table class="table table-bordered table-hover table-responsive">';
 				str = str + '<tr>';
-				str = str + '<td>Fee Details Below:</td>';
+				str = str + '<table><b><u class="text-danger">Fee Details Below:</u></b>'
 				str = str + '</tr>';
+				str = str + '<table class="table table-bordered table-hover table-responsive">';
 				str = str + '<td>Actual Fee:</td>';
 				str = str + '<tr>';
 				str = str + '<td>Previous Due:</td>';
@@ -81,7 +77,7 @@ $(function(){
 				str = str + '<td>Paid Amount:</td>';
 				str = str + '</tr>';
 				str = str + '</table>';
-
+				str=str+'</div></div>';
 				
 				str = str + '<table class="table table-bordered table-hover table-responsive">';
 				str = str + '<label>Payment Mode:</label>';
