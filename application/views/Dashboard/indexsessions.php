@@ -10,7 +10,7 @@
 		
 		<div class="panel-heading">Session</div>
 		<div class="panel-body">
-			<form class="form form-vertical" action="<?php echo site_url('sessions/insert_record');?>" method="post">
+			<form class="form form-vertical" action="<?php echo site_url('sessions/insert_record');?>" method="post" id="frm1">
 						 
 				<fieldset>
 								<!--student details-->
@@ -49,7 +49,9 @@
 									<div class="form-group col-sm-12"> 
 									<button type="submit" class="btn btn-primary">Submit</button>
 									<button type="reset" class="btn btn-default">Reset</button>
+
 								</div>
+
 
 								
 									<div class="form-group">
@@ -57,6 +59,8 @@
 									<br><br>	<?php echo $this->session->flashdata('msg_'); ?>
 									</div>
 								</div>
+
+								<div id="prnthere" style="clear:both"></div>
 							
 							</form>	
 					</div>

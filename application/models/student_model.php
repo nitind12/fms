@@ -28,7 +28,7 @@ class student_model extends CI_Model {
 		$pincode_=$this->input->post('txtpincode');
 		$addr_=$this->input->post('txtaddr');
 		$sidold = $this->input->post('txtstid');
-		$doa_ = $this->input->post('txtdoa');
+		$doa_ = $this->input->post('txtdoa'); 
 		$sib_ = $this->input->post('txtsibling');
 		$dis_ = $this->input->post('disc');
 		$txtdisc_ = $this->input->post('txtdisc');
@@ -187,14 +187,17 @@ class student_model extends CI_Model {
 		if($stdid!=''){
 			$this->db->where('a.student_ID', $stdid);
 		}
-		$this->db->select('a.*,b.contact,c.email,c.date,d.address,d.area,d.city,d.pincode,d.state,d.district,e.siblings,f.discount_offered,f.discount_on');
+		$this->db->select('a.*,b.contact,c.email,c.date,d.address,d.area,d.city,d.pincode,d.state,d.district,e.siblings,f.discount_offered,f.discount_on,h.course, h.course_ID');
 		$this->db->from('student_details a');
 		$this->db->join('student_contact_details b', 'a.student_ID=b.student_ID');
 		$this->db->join('student_email_details c', 'a.student_ID=c.student_ID');
 		$this->db->join('student_address_details d' , 'a.student_ID=d.student_ID');
 		$this->db->join('siblings e', 'a.student_ID=e.student_ID');
 		$this->db->join('discount f', 'a.student_ID=f.student_ID');
-		$query = $this->db->get('');
+		$this->db->join('student_academic_details g', 'a.student_ID=g.student_ID');
+		$this->db->join('course_details h', 'g.course_ID=h.course_ID');
+		$query = $this->db->get();
+		//echo $this->db->last_query();
 		if($stdid!=''){
 			return $query->row();
 		} else {

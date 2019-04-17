@@ -24,4 +24,12 @@ function insert_record(){
 
 		redirect('sessions');
 	}
+
+	function getsession()
+	{
+		$this->load->model('session_model', 'sm');
+		$data['sess'] = $this->sm->getsessions();
+		echo json_encode($data);
+
+	}
 }

@@ -1,6 +1,6 @@
 $(function(){
 	$('body').on('click','.payhere',function(){
-		var page=this.id;
+		var page=$(this).id();
 
 
 	});

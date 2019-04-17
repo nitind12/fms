@@ -30,13 +30,17 @@ $(function(){
 				$('#txtdstrct').val(obj['stud']['district']);
 				$('#txtpincode').val(obj['stud']['pincode']);
 				$('#txtsibling').val(obj['stud']['siblings']);
+				$('#txtdoa').val(obj['stud']['date']);	
 				$('#txtdisc').val(obj['stud']['discount_offered']);
 				$('#disc').val(obj['stud']['discount_on']);
+				$('#txtcourse').val(obj['stud']['course_ID']);
+
+
 				if(obj['stud']['gender'] == 'MALE'){
 				
-					$('#txtmle').attr('checked', true);
+					$('#txtmle').prop('checked', true);
 				} else {
-					$('#txtfmle').attr('checked', true);
+					$('#txtfmle').prop('checked', true);
 				}
 
 			}
@@ -61,6 +65,27 @@ $(function(){
 			}
 		});
 	});
+
+		$('#txtdisc').change(function(){
+
+		var url_ = site_url_ + "/studentregi/getStudent/"+ $(this).val();
+		
+		$.ajax({
+			type: "GET",		
+			url: url_,
+			success: function(data){
+				//alert(data);	
+				var obj=JSON.parse(data);	
+				var data_ = $('#disc').val();	
+				if(data_ != ''){
+					$('#disc').val(data_ + ", " + obj['stud']['discount_offered']);
+				} else {
+					$('#disc').val(obj['stud']['discount_offered']);
+				}	
+			}
+		});
+	});
+
 });
 
 	
