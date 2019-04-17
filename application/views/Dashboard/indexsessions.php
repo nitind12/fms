@@ -10,7 +10,7 @@
 		
 		<div class="panel-heading">Session</div>
 		<div class="panel-body">
-			<form class="form form-vertical" action="<?php echo site_url('sessions/insert_record');?>" method="post">
+			<form class="form form-vertical" action="<?php echo site_url('sessions/insert_record');?>" method="post" id="frm1">
 						 
 				<fieldset>
 								<!--student details-->
@@ -61,6 +61,8 @@
 									<div id ="prnthere" style="clear:both"></div>
 
 								</div>
+
+								<div id="prnthere" style="clear:both"></div>
 							
 							</form>	
 					</div>

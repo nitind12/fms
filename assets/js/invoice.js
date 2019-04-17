@@ -162,7 +162,7 @@ $('#frmInvoice').submit(function(){
 								str = str + '<td></td>';
 								str = str + '<td></td>';
 							} else {
-								str = str + '<td> <span class="fa fa-play payhere" id="'+invid+'"  ></span></td>';
+								str = str + '<td> <span class="fa fa-play payhere" id="'+obj.students[s]['student_ID']+"_"+invid+'"  ></span></td>';
 								str = str + '<td> <span class="fa fa-print printreceipt" id="'+printid+'"></span></td>';
 							}
 					//	}		

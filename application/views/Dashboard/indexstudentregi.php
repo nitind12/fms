@@ -31,7 +31,7 @@
 								</div>
 								<div class="form-group">
 										<label>Course</label>
-										<select class="form-control" name="txtstts">
+										<select class="form-control" name="txtcourse" id="txtcourse">
 											<option>Select Course</option>
 											<?php foreach ($course as $item) { ?>
 											<option value="<?php echo $item->course_ID;?>"><?php echo $item->course; ?></option>
@@ -79,10 +79,10 @@
 										<label>Gender</label>
 										<div class="radio">
 											<label>
-												<input type="radio" name="txtmle" value="MALE" id="txtmle">Male
+												<input type="radio" name="txtGender" value="MALE" id="txtmle">Male
 											</label>&nbsp &nbsp &nbsp
 											<label>
-												<input type="radio" name="txtfmle" value="FEMALE" id="txtfmle">Female
+												<input type="radio" name="txtGender" value="FEMALE" id="txtfmle">Female
 											</label>
 										</div><br>
 									</div>

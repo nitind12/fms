@@ -42,7 +42,7 @@
 								<div class="form-group">
 									<label>Date Of Registration </label>
 									<input class="form-control" type="date" id="txtdoa" name="txtdoa">
-								</div>	
+								</div>	 
 
 
 					<div>

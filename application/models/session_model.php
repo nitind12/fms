@@ -72,7 +72,13 @@ class session_model extends CI_Model {
 
 	function getsessions(){
 		$this->db->select('session_ID,session_Start,session_End,date');
+
+		$query=$this->db->get('session_master');
+		return $query->result();
+
+
 		$query= $this->db->get('session_master');
 		return $query->result();
+
 	}
 }
