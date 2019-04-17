@@ -25,7 +25,7 @@
 									<label>Session Start</label>
 									<select class="form-control" name="txtsstart" id="txtsstart">
 											<option>Select</option>
-											<?php for ($loop=date('Y');$loop>=2014; $loop--) {?>
+											<?php for ($loop=2025;$loop>=2014; $loop--) {?>
 												<option value="<?php echo $loop;?>"><?php echo $loop;?></option>
 											<?php } ?>
 										</select>
@@ -37,7 +37,7 @@
 									<label>Session End</label>
 									<select class="form-control" name="txtsend" id="txtsend">
 											<option>Select</option>
-											<?php for($loop=2025;$loop>=2017;$loop--){?>
+											<?php for($loop=2030;$loop>=2017;$loop--){?>
 											<option><?php echo $loop; ?></option>
 											<?php } ?>
 										</select>
@@ -58,6 +58,8 @@
 									<div class="col-md-12 widget-left" id="msghere" style="font-size: 10px; color: #ff0000">
 									<br><br>	<?php echo $this->session->flashdata('msg_'); ?>
 									</div>
+									<div id ="prnthere" style="clear:both"></div>
+
 								</div>
 
 								<div id="prnthere" style="clear:both"></div>
