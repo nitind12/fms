@@ -18,9 +18,9 @@ $(function(){
 				var str = '';
 				str= str + '<div class=" col-sm-offset-3 col-lg-8 col-lg-offset-3 main dotted">'; 
 				str = str + '<h5><b><p class="text-left">Date:22/5/2019</p></b></h5>' ;
-				str = str + '<h6><b><p class="text-center">The Demo School</p></b></h6>'; 
+				str = str + '<h4><b><p class="text-center">The Demo School</p></b></h4>'; 
 
-				str = str + '<h5><b><p class="text-right">Receipt no.:  &nbsp&nbsp&nbsp</p></b></h5>'; 
+				str = str + '<h5><b><p class="text-right">Receipt no.:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</p></b></h5>'; 
 				
 				str = str + '<div class="row"';
 				str = str + '<div class="col-md-6">';
@@ -94,24 +94,17 @@ $(function(){
 				str = str + '<button type="button" class="btn btn-danger">Update</button>';
 
 				str = str + '<table class="table table-bordered table-hover table-responsive">';
-				str = str + '<div class="col-md-6">';    
-				str = str + '<div class="divider">'.'</div>';  
-				str = str + '<table><b class="text-danger">Any Remark?</b>';
+				str = str + '<tr>';
+				str = str + '<table><b><usr class="text-danger">Any Remark?</u></b>'
+				str = str + '</tr>';
 				str = str + '<div class="form-group">';
-											  
-				str = str + '<textarea class="form-control col-md-4" rows="5" >'.'</textarea>';
+ 				str = str + '<label for="comment"></label>';
+  				str = str + '<textarea class="form-control" rows="5" id="comment"></textarea>';
 				str = str + '</div>';
-				str = str + '</table>';
-				str = str + '</div>';
-				str = str + '</table>';
+
 				
-				str = str + '<table class="table table-bordered table-hover table-responsive">';
-				str = str + '<button type="button" class="btn btn-primary">Submit Fee</button>';
-				str = str + '</div></div>';
+				str = str + '</tr>';
 				str = str + '</table>';
-						
-				
-				
 				
 				
 
