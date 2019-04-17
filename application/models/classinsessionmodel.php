@@ -25,15 +25,14 @@ class classinsessionmodel extends CI_Model {
 				'class_sess_ID' => $csid,
 			);
 			$this->db->insert('class_in_session', $data);
-            $sid= $this->db->insert_id();
             $data2= array(
-            	'class_sess_ID' =>$sid,
+            	'class_sess_ID' =>$csid,
                 'session_ID'=>$sid_,
            );
                 $this->db->insert('session_master',$data2);
 
                 $data3=array(
-                	'class_sess_ID' =>$sid,
+                	'class_sess_ID' =>$csid,
                 	'class_ID'=>$clss,
 
                 );
