@@ -20,6 +20,14 @@ function __construct(){
 		$this->load->view('templates/footer');
 	}
 
+
+	function getclassinsession()
+	{
+		$this->load->model('classinsessionmodel', 'csm');
+		$data['csess'] = $this->csm->getclassinsessions();
+		echo json_encode($data);
+	}
+
 	function insert_record(){
 		$data = $this->csm->submission();
 
