@@ -8,7 +8,7 @@ class classinsessionmodel extends CI_Model {
 
 	function submission(){
 		$csid = $this->input->post('txtcsid');
-		$sid = $this->input->post('txtsid');
+		$sid_ = $this->input->post('txtsid');
 		$clss = $this->input->post('txtclass');
 
 		$this->db->where('class_sess_ID', $csid);
@@ -23,10 +23,21 @@ class classinsessionmodel extends CI_Model {
 
 			$data = array(
 				'class_sess_ID' => $csid,
-				'session_ID'=> $sid,
-				'class' => $clss
 			);
 			$this->db->insert('class_in_session', $data);
+            $sid= $this->db->insert_id();
+            $data2= array(
+            	'class_sess_ID' =>$sid,
+                'session_ID'=>$sid_,
+           );
+                $this->db->insert('session_master',$data2);
+
+                $data3=array(
+                	'class_sess_ID' =>$sid,
+                	'class_ID'=>$clss,
+
+                );
+                	$this->db->insert('class',$data3);
 
 			$bool_ = array(
 				'res' => true,
@@ -35,5 +46,12 @@ class classinsessionmodel extends CI_Model {
 		}
 
 	return $bool_;
+}
+
+	function getclassinsessions(){
+		$this->db->select('class_sess_ID,session_ID,class_ID');
+		$query= $this->db->get('class_in_session');
+		return $query->result();
+	
 	}
 }

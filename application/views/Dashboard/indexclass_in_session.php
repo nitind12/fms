@@ -27,7 +27,7 @@
 							</div>
 								<div class="col-md-3">
 									<div class="form-group col-md-3">
-									<label>class</label>
+									<label>class_ID</label>
 									<input type="text" name="txtclass" id="txtclass">
 									</div>
 							</div>
@@ -40,6 +40,7 @@
 										<br><br><?php echo $this->session->flashdata('msg_'); ?>
 									</div>
 								</div>
+								<div style="clear:both" id="prhere"></div>
 							</fieldset>
 							</form>	
 

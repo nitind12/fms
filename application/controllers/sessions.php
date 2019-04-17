@@ -17,17 +17,27 @@ class sessions extends CI_Controller {
 		$this->load->view('templates/footer');
 	}
 
-function insert_record(){
+function insert_record()
+	{
 		$data = $this->sm->submission();
 
 		$this->session->set_flashdata('msg_', $data['msg']);
 		redirect('sessions');
 
 	}
-	function getsession(){
+	function getsession()
+	{
 		$this->load->model('session_model', 'sm');
 		$data['sess'] = $this->sm->getsessions();
 		echo json_encode($data);
+	}
+	function insert_data()
+	{
+		$data = $this->sm->classsubmission();
+
+		$this->session->set_flashdata('msg_', $data['msg']);
+		redirect('sessions');
+
 	}
     
 }
