@@ -66,7 +66,7 @@ $(function(){
 				str = str + '<td>Total Due:</td>';
 				str = str + '</tr>';
 
-
+				
 				str = str + '<table class="table table-bordered table-hover table-responsive">';
 				str = str + '<tr>';
 				str = str + '<td>Discount?</td>';
@@ -90,6 +90,7 @@ $(function(){
 				str = str + '<option>Demand Draft</option>';
 				str = str + '<option>Other</option>';
 				str = str + '</select>';
+				
 				str = str + '</table>';
 				str = str + '<button type="button" class="btn btn-danger">Update</button>';
 
@@ -101,12 +102,23 @@ $(function(){
  				str = str + '<label for="comment"></label>';
   				str = str + '<textarea class="form-control" rows="5" id="comment"></textarea>';
 				str = str + '</div>';
-
-				
 				str = str + '</tr>';
 				str = str + '</table>';
+				str = str + '<button type="button" class="btn btn-primary">Submit Fee</button>';
 				
-				
+				str = str + '<table class="table table-bordered table-hover table-responsive">';
+				str = str + '<tr>';
+				str = str + '<td><b>Address: The Demo School,Haldwani,Uttrakhand</b>';
+				str = str + '</td>';
+				str = str + '<tr>';
+				str = str + '<td><b>Contact:</b>';
+				str = str + '</td>';
+				str = str + '</tr>';
+				str = str + '<tr>';
+				str = str + '<td><b>Email:</b>';
+				str = str + '</td>'; 
+				str = str + '</tr>';
+				str = str + '</table>';
 
 
 
