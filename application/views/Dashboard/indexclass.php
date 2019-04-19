@@ -10,35 +10,40 @@
 		<div class="panel-heading">Class</div>
 		<div class="panel-body">
 			
-			<form role="form" name="frmSession" method="post" action="<?php echo site_url('fms/submitstudentdetails');?>">
+			<form role="form" name="frmSession" method="post" action="<?php echo site_url('classes/insert_record');?>">
 								<!--student details-->
-								<div class="col-md-3">
-									<div class="form-group">
-									<label><em class="fa fa-key">&nbsp</em>Class ID
-									<input class="form-control"  name="txtstdid">
-								</div></div>
-								<div class="col-md-3">
-									<div class="form-group">
-									<label><em class="fa fa-book">&nbsp</em>Course
-									<input class="form-control" name="txtfrstnme">
-								</div></div>
+								<div class="form-group">
+										<label>Course</label>
+										<select class="form-control" name="textcourse" id="textcourse">
+											<option>Select Course</option>
+											<?php foreach ($course as $item) { ?>
+											<option value="<?php echo $item->course_ID;?>"><?php echo $item->course; ?></option>
+											<?php } ?>
+										</select>
+								</div>
 								<div class="col-md-3">
 									<div class="form-group">
 									<label><em class="fa fa-book">&nbsp</em>Semester</label>
-									<input class="form-control" name="txtlstnme">
+									<input class="form-control" name="txtsemester" id="txtsemester">
 								</div></div>
 								
 								<div class="col-md-3">
 									<div class="form-group">
 									<label><em class="fa fa-book">&nbsp</em>Section</label>
-									<input class="form-control" name="txtlstnme">
+									<input class="form-control" name="txtsection" id="txtsection">
 								</div></div>
 
-							</form>
-							<form class="col-sm-12">
+							
+							<div class="col-sm-12">
 									<button type="submit" class="btn btn-primary">Submit</button>
 									<button type="reset" class="btn btn-default">Reset</button>
 								</div>
+								<div class="form-group">
+									<div class="col-md-12 widget-left" id="msghere" style="font-size: 10px; color: #ff0000">
+									<br><br>	<?php echo $this->session->flashdata('msg_'); ?>
+									</div>
+								</div>
+		
 							</form>
 
 
