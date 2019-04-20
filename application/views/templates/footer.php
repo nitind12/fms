@@ -5,6 +5,17 @@
 <script type="text/javascript" src="<?php echo base_url('assets/js/myscript3.js');?>?version=1.2"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/myscript.js');?>?version=6.4"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/receipt.js');?>?version=2.8"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/invoice.js');?>?version=8.4"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/invoiceprint.js');?>?version=1.9"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/myscript2.js');?>?version=1.1"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/myscript3.js');?>?version=1.2"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/myscript.js');?>?version=6.4"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/receipt.js');?>?version=1.8"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/invoice.js');?>?version=8.2"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/myscript2.js');?>?version=1.1"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/myscript3.js');?>?version=1.2"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/myscript.js');?>?version=6.4"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/receipt.js');?>?version=2.4"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/session.js');?>?version=1.7"></script>
 
 
