@@ -1,7 +1,7 @@
 $(function(){
-	$('body').on('click','.print',function(){
-		//alert(this.id);
-		var str = this.id;
+	$('body').on('click','print',function(){
+		alert(this.id);
+		/*var str = this.id;
 		var arr = str.split("_");
 		var stdid = arr[0];
 		var invid = arr[2];
@@ -23,9 +23,9 @@ $(function(){
 				str = str + '<td></td>';
 				//str = str + '<td>'+obj.invoice['invoice_ID']+'</td>';
 				str = str + '</tr>';
-				str = str + '</table>';*/
+				str = str + '</table>';
 				$('#invoicedatahere').html(str);
 			}
-	});
+	});*/
 });
 });

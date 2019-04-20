@@ -149,7 +149,7 @@ $('#frmInvoice').submit(function(){
 								}
 								 else
 								 {
-									str = str + '<td> <span class="fa fa-play print" id="'+obj.students[s]['student_ID']+"_"+invid+'"  ></span></td>';
+									str = str + '<td> <span class="fa fa-print print" id="'+obj.students[s]['student_ID']+"_"+invid+'"  ></span></td>';
 									
 								}
 								str = str + "<td></td>";
