@@ -144,10 +144,13 @@ $('#frmInvoice').submit(function(){
 													break;
 							    	}
 							    }
-								str = str + '<td><span class="glyphicon ' + icon + '"></span></td>';
-								
-								str = str + "<td></td>";
 
+								if(invid == 'x'){    
+								str = str + '<td><span class="glyphicon ' + icon + '"></span></td>';
+								}
+								else {str = str + '<td><span class="fa fa-print printinvoice" id="'+obj.students[s]['student_ID']+"_"+invid+'"  ></span></td>';
+								}
+								str= str +"<td></td>";
 								dues='';
 								for (f=0; f<obj.fee.length; f++)	
 							{
@@ -193,4 +196,34 @@ $('#frmInvoice').submit(function(){
 		});
 	return false;
 	});
+
+	$('body').on('click','.printinvoice',function(){
+ 
+		//alert(this.id);
+
+		var str = this.id;
+		var arr = str.split("_");
+		var stdid = arr[0];
+		var invid = arr[2];
+		var url_ = site_url_ + "/receipt/get_invoice_data/"+invid+"/"+stdid;
+		$.ajax({
+			type: "GET",
+			url: url_,
+			success: function(data){
+				//alert(data);
+				//$('#invoicedatahere').html(data)
+				var obj = JSON.parse(data);
+				var str = '';
+				
+				
+				/*str= str + '<>';
+				str = str + '<tr>';
+				str = str + '<th>INVOICE</th>';
+				str = str + '</tr>';
+				str = str + '</table>';*/
+				$('#invoicedatahere').html(str);
+			
+			}
+	});
+});
 });
