@@ -12,7 +12,7 @@
 			
 			<form role="form" name="frmSession" method="post" action="<?php echo site_url('classes/insert_record');?>">
 								<!--student details-->
-								<div class="form-group">
+								<div class="form-group col-md-3">
 										<label>Course</label>
 										<select class="form-control" name="textcourse" id="textcourse">
 											<option>Select Course</option>
