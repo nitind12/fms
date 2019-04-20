@@ -144,10 +144,15 @@ $('#frmInvoice').submit(function(){
 													break;
 							    	}
 							    }
-								str = str + '<td><span class="glyphicon ' + icon + '"></span></td>';
-								
+							    if(invid == 'x'){
+									str = str + '<td><span class="glyphicon ' + icon + '"></span></td>';
+								}
+								 else
+								 {
+									str = str + '<td> <span class="fa fa-play print" id="'+obj.students[s]['student_ID']+"_"+invid+'"  ></span></td>';
+									
+								}
 								str = str + "<td></td>";
-
 								dues='';
 								for (f=0; f<obj.fee.length; f++)	
 							{
