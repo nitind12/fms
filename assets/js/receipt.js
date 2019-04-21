@@ -92,14 +92,14 @@ $(function(){
 				str = str + '<td width="200px">Total Due <span style="float: right; padding: 8px 0px; font-size: 11px" class="fa fa-plus"></span>';
 				str = str + '</td>';
 				due_Amount=obj.students['due_Amount'];
-				str = str + '<td>Rs.&nbsp&nbsp'+due_Amount+'</td>';
+				str = str + '<td>Rs.&nbsp&nbsp'+due_Amount+'/-</td>';
 				str = str + '</tr>';
 
 				str = str + '<tr>';
 				str = str + '<td style="color: #909000">Discount? <span style="float: right; padding: 8px 0px; font-size: 11px" class="fa fa-minus"></span><div style="float: left; font-size: 8px; color: #0000ff; clear: both"></div>';
 				str = str + '</td>';
 				str = str + '<td>';
-				str = str + '<label class="receipt_label">: Rs.</label><span class="receipt_content"><input type="text" id="_discount_" name="_discount_" value="0" style="width: 100px; padding: 0px; background: #f0f000; border:#000000 solid 0px">/-</span>';
+				str = str + '<label class="receipt_label">: Rs.</label><span class="receipt_content"><input type="text" id="_discount_" name="_discount_" value="" style="width: 100px; padding: 0px; background: #f0f000; border:#000000 solid 0px">/-</span>';
 				str = str + '</td>';
 				str = str + '</tr>';
 
@@ -107,7 +107,7 @@ $(function(){
 				str = str + '<td style="color: #909000">Fine? <span style="float: right; padding: 8px 0px; font-size: 11px" class="fa fa-plus"></span>';
 				str = str + '</td>';
 				str = str + '<td>';
-				str = str + '<label class="receipt_label">: Rs.</label><span class="receipt_content"><input type="text" id="_fine_" name="_fine_" value="0" style="width: 100px; padding: 0px; background: #f0f000; border:#000000 solid 0px">/-</span>';
+				str = str + '<label class="receipt_label">: Rs.</label><span class="receipt_content"><input type="text" id="_fine_" name="_fine_" value="" style="width: 100px; padding: 0px; background: #f0f000; border:#000000 solid 0px">/-</span>';
 				str = str + '</td>';
 				str = str + '</tr>';
 
