@@ -245,9 +245,8 @@ $('#frmInvoice').submit(function(){
 									str = str +	'<table border="0" class="myfont table_" style="border:#009900 solid 0px; font-size: 12px; font-weight: bold">';						
 										str = str + '<tbody>';
 											str = str + '<tr>';
-												str = str +'<th>Invoice Id:<th>';
-												str = str + '<td>'+obj.students['invoice_ID']+'</td>';
-												str = str + '<td></td>';
+												str = str +'<td>Invoice Id:'+obj.students['invoice_ID']+'</td';
+												str = str + '<td>'+'</td>';
 												str = str +	'<td align="right">Date: 20/04/2019</td>';
 											str = str + '</tr>';
 										str = str +	'</tbody>';

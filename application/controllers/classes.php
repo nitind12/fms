@@ -10,7 +10,7 @@ function __construct(){
 
 	public function index()
 	{
-		$this->load->model('student_model','stm')
+		$this->load->model('student_model','stm');
 		$data['course'] = $this->stm->getCourse();
 
 		$this->load->view('templates/header');
