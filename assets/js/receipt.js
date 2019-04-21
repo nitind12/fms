@@ -27,8 +27,9 @@ $(function(){
 				str = str + '</tr></table>';
 				
 				var str = '';
-				str= str + '<div class=" col-sm-offset-3 col-lg-8 col-lg-offset-3 main dotted">'; 
-				str= str + '<table><tr>';
+
+				str = str + '<table style="width: 800px; font-size: 13px; font-family: verdana; border:2; solid 1px; background: #ffffff" class="table print_me">';
+				str= str + '<tr>';
 				str = str + '<td align="left" style="width: 150px;font-size: 13px; padding: 0px 8px 0px 0px; vertical-align: middle"><b>Date: 27/2/2019</b></span></td>'; 
 				str = str + '<td align="center" style="width: 500px;padding: 0px 0px 0px 8px; vertical-align: middle"><h4 align="center"><b>The Demo School</b><br>Receipt</h4></td>';
 				str = str + '<td align="right" style="width: 150px;font-size: 13px; padding: 0px 8px 0px 0px; vertical-align: middle"><b>Receipt No.</b></td>'; 
@@ -119,7 +120,8 @@ $(function(){
 				str = str + '<table class="table table-bordered table-hover table-responsive">';
 				str = str + '<tr>';
 				str = str + '<td width="200px" style="background: #406373; color: #ffffff">Paid Amount </td>';
- 				str = str + '<td width="160px" style="background: #406373; color: #ffffff"><label class="receipt_label">: Rs. </label><span class="receipt_content"><input type="text" id="paid_amount" name="paid_amount" placeholder="" value="" style="width: 100px; padding: 0px; border:#f0f0f0 solid 1px; color: #0000ff; font-weight: bold">/-</span></td>';
+				str = str + '<td width="160px" style="background: #406373; color: #ffffff"><label class="receipt_label">: Rs. </label><span class="receipt_content"><input type="text" id="paid_amount" name="paid_amount" placeholder="" value="" style="width: 100px; padding: 0px; border:#f0f0f0 solid 1px; color: #0000ff; font-weight: bold"></span></td>';
+ 		
  				str = str + '</tr>';
 
 				/*str = str + '<div class="form-group">';
@@ -158,7 +160,7 @@ $(function(){
 				str = str + '<table class="table table-bordered table-hover table-responsive">';
 
 				str = str + '<tr><td colspan="3" style="font-size: 12px; text-align: center"><b>Address</b>: Haldwani<br><b>Mob.</b>: 90129 72556 - <b>Email.</b>: ttchld@gmail.com</td>';
-				
+				str = str + '</table>';
 
 
 
