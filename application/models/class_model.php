@@ -7,7 +7,7 @@ class class_model extends CI_Model {
 	}
 
 	function submission(){
-		$
+		
 		$Course_ = $this->input->post('textcourse');
 		$Semster_=$this->input->post('txtSemester');
 		$Section_=$this->input->post('txtSection');
@@ -35,19 +35,18 @@ class class_model extends CI_Model {
 				'msg' => '<b class="text-success">Record successfully inserted...</b>'
 			);
 		}
+	return $bool_;
+
+	}
+		
 		function getclasses(){
 			$this->db->select('course,sem,section');
 			$query= $this->db->get('class');
 			return $query->result();
 		}
-		function getcourse(){
+		function getCourse(){
 			$this->db->select('course_ID,course');
 			$query= $this->db->get('course_details');
 			return $query->result();
 		}
-
-	return $bool_;
-	}
-
-	
 	}
