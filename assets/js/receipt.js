@@ -98,22 +98,28 @@ $(function(){
 				str = str + '<tr>';
 				str = str + '<td style="color: #909000">Discount? <span style="float: right; padding: 8px 0px; font-size: 11px" class="fa fa-minus"></span><div style="float: left; font-size: 8px; color: #0000ff; clear: both"></div>';
 				str = str + '</td>';
-				str = str + '<td>';
-				str = str + '<label class="receipt_label">: Rs.</label><span class="receipt_content"><input type="text" id="_discount_" name="_discount_" value="" style="width: 100px; padding: 0px; background: #f0f000; border:#000000 solid 0px">/-</span>';
-				str = str + '</td>';
+				discount_Amount=obj.discount['discount_Amount'];
+				/*fine='';*/
+				//str = str + '<td>Rs.&nbsp&nbsp'+discount_Amount+'</td>';
+				str = str + '<td>'
+				str = str + '<label class="receipt_label">: Rs.</label><span class="receipt_content">' +discount_Amount+'</td>';
+				//<input type="text" id="_discount_" name="_discount_" value="" style="width: 100px; padding: 0px; background: #f0f000; border:#000000 solid 0px">/-</span>';
+				
 				str = str + '</tr>';
 
 				str = str + '<tr>';
 				str = str + '<td style="color: #909000">Fine? <span style="float: right; padding: 8px 0px; font-size: 11px" class="fa fa-plus"></span>';
 				str = str + '</td>';
 				str = str + '<td>';
-				str = str + '<label class="receipt_label">: Rs.</label><span class="receipt_content"><input type="text" id="_fine_" name="_fine_" value="" style="width: 100px; padding: 0px; background: #f0f000; border:#000000 solid 0px">/-</span>';
+				str = str + '<label class="receipt_label">: Rs.</label><span class="receipt_content"><input type="text" id="fine" value= "" name="_fine_" value="" style="width: 100px; padding: 0px; background: #f0f000; border:#000000 solid 0px">/-</span>';
 				str = str + '</td>';
 				str = str + '</tr>';
 
 				str = str + '<tr style="font-weight: bold">';
 				str = str + '<td>Total</td>';
 				str = str + '<td>';
+				/*total_Amount = parseInt(due_Amount)-parseInt(discount_Amount)+parseInt(fine);*/				
+			
 				str = str + '<label class="receipt_label">: Rs. </label><span class="receipt_content"><span class="total_amnt" id="total_amnt_display"></span><input type="hidden" id="total_amnt" name="total_amnt" value="1000" style="width: 100px; padding: 0px; border:#000000 solid 0px; font-weight: bold">/-</span>';
 				str = str + '</td>';
 				str = str + '</tr>';
@@ -168,4 +174,58 @@ $(function(){
 			}
 	});
 });
+	$('body').on('click','#update_total', function(){
+		alert ($("#fine").val());
+	});
+
+
+
+
+$('body').on('click','.printreceipt',function(){
+ 
+		//alert(this.id);
+
+		var str = this.id;
+		var arr = str.split("_");
+		var stdid = arr[0];
+		var invid = arr[2];
+		var url_ = site_url_ + "/receipt/get_invoice_data/"+invid+"/"+stdid;
+		$.ajax({
+			type: "GET",
+			url: url_,
+			success: function(data){
+				//alert(data);
+				//$('#invoicedatahere').html(data)
+				var obj = JSON.parse(data);
+				var str = '';
+				str= str + ''
+				str = str + '<table border="0" class="myfont table_" cellpadding="10">';
+				str = str + '<tbody>';
+				str = str + '<tr>';
+				str = str + '<td>';
+				str = str + '<table border="0" class="myfont table_" style="border:#009900 solid 0px">';
+				str = str + '<tbody>';
+				str = str + '<tr>';
+				str = str + '<td>';
+				str = str + '<table border="0" cellpadding="0" cellspacing="0" class="table_" style="border:#009900 solid 0px">';
+				str = str + '<tbody>';
+				str = str + '<tr class="feeHeader">';
+				str = str + '<td width="100"><img src="https://school.teamfreelancers.com/assets_/default-demo/logo/4.jpg?ver=1.4" width="100">';
+				str = str + '</td>';
+				str = str + '<td width="500"><span class="header_text"><b>The Demo School, Haldwani</b><br><span style="font-weight: 100">Fee Receipt <br><span style="font-size: 13px; font-weight: bold">2019, April</span></span></span>';
+				str = str + '</td>';
+				str = str + '<td width="100">';
+				str = str + '</td>';
+				str = str + '</tr>';
+				str = str + '</tbody>';
+				str = str + '</table>';
+				str =str  + '</td>';
+				str = str + '</tr>';
+
+				$('#invoicedatahere').html(str);
+
+			}
+		});
+	});
 });
+				
