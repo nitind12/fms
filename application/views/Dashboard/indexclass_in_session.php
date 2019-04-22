@@ -6,43 +6,26 @@
 				</a></li>
 				<li class="active">Master</li>
 			</ol>
-		</div><!--/.row-->
-		<div class="pannel-heading">Classes In Session</div>
-		<div class="pannel-body">
-
 		</div>
-				<form name="frmSession" method="post" action="<?php echo site_url('class_in_session/insert_record');?>">
-								<!--student details-->
-								<div class="col-md-3">
-									<div class="form-group">
-									<label>class_session_ID</label>
-									<input type="text" name="txtcsid" id="txtcsid">
-								</div>
-							</div>
-								<div class="col-md-3">
-									<div class="form-group">
-									<label>session_ID</label>
-									<input type="text" name="txtsid" id="txtsid">
-								</div>
-							</div>
-								<div class="col-md-3">
-									<div class="form-group col-md-3">
-									<label>class_ID</label>
-									<input type="text" name="txtclass" id="txtclass">
-									</div>
-							</div>
-									<div class="col-sm-12">
-									<button type="submit" class="btn btn-primary">Submit</button>
-									<button type="reset" class="btn btn-default">Reset</button>
-								</div>
-								<div class="form-group">
-									<div class="col-md-12 widget-left" id="msghere" style="font-size: 10px; color: #ff0000">
-										<br><br><?php echo $this->session->flashdata('msg_'); ?>
-									</div>
-								</div>
-								<div style="clear:both" id="prhere"></div>
-							</fieldset>
-							</form>	
+		<h2><div class="page-header">Class In Session</div></h2>
+		<div >
+        <table class="table table-bordered table-striped with-check">
+
+				<tr>
+					<td>Total Class</td>
+					<td>Classes in new session</td>
+					<td>Used Classes</td>
+				</tr>
+				<tr>
+					<td><div id="prhere" style="clear:both"></div></td>
+					<td><div id="prhrt" style="clear:both"></div></td>
+					<td class="disabled"></td>
+
+			</table>
+		</div>
+		<div>
+		<input type="submit" class="btn btn-primary" Value="SUBMIT CLASSES TO SESSION 2018-19">
+		</div>
 
 						
 				

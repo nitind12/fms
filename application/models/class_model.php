@@ -9,10 +9,11 @@ class class_model extends CI_Model {
 	function submission(){
 		
 		$Course_ = $this->input->post('textcourse');
-		$Semster_=$this->input->post('txtSemester');
+		$Semester_=$this->input->post('txtSemester');
 		$Section_=$this->input->post('txtSection');
 
-		$this->db->where('class_ID', $clss_Id_);
+		$sid = $this->db->insert_id();
+		$this->db->where('class_ID', $sid);
 		$query = $this->db->get('class');
 
 		if($query->num_rows()!=0){
@@ -23,9 +24,9 @@ class class_model extends CI_Model {
 		} else {
 
 			$data = array(
-				'Course' => $Course_,
-				'Semester' => $Semester_,
-				'Section'=> $Section_
+				'course' => $Course_,
+				'sem' => $Semester_,
+				'section'=> $Section_
 			);
 			$this->db->insert('class', $data);
 		
