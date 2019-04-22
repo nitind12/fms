@@ -242,7 +242,7 @@ $('body').on('click','.printreceipt',function(){
 				str = str + '<td align="left" class="space_td">Receipt No.: 114</td>';
 				str = str + '<td align="center" class="space_td"><div style="width:150px; background: #f0f0f0; border-radius: 5px">Office Copy</div>';
 				str = str + '</td>';
-				str = str + '<td align="right" class="space_td">Date: 22/04/2019</td>';
+				str = str + '<td align="right" class="space_td">Date: 27/04/2019</td>';
 				str = str + '</tr>';
 				str = str + '</tbody>';
 				str = str + '</table>';
@@ -263,25 +263,22 @@ $('body').on('click','.printreceipt',function(){
 				str = str + '<tbody>';
 				str = str + '<tr>';
 				str = str + '<td class="label_" width="100">Reg. no.</td>';
-				str = str + '<td>';
-				str = str + '</td>';
+				str = str + '<td>'+obj.students['student_ID']+ '</td>';
 				str = str + '</tr>';
 				str = str + '<tr>';
 				str = str + '<td class="label_">Name</td>';
-				str = str + '<td>';
-				str = str + '</td>';
+				str = str + '<td>'+obj.students['first_Name']+' '+obj.students['last_Name']+'</td>';
+				
 				str = str + '</tr>';
 
 
 				str = str + '<tr>';
 				str = str + '<td class="label_">Father</td>';
-				str = str + '<td>';
-				str = str + '</td>';
+				str = str + '<td>'+obj.students['fathers_Name']+'</td>';
 				str = str + '</tr>';
 				str = str + '<tr>';
 				str = str + '<td class="label_">Class</td>';
-				str = str + '<td>';
-				str = str + '</td>';
+				str = str + '<td>'+obj.students['class_sess_ID']+'</td>';
 				str = str + '</tr>';
 				str = str + '<tr>';
 				str = str + '<td class="label_">Invoice No.</td>';
