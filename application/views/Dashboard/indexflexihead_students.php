@@ -21,7 +21,7 @@
 								<div class="panel-heading">Add Flexible Heads<em class="caret"></em></div>
 								<div class="panel-body ">
 								<!--student details-->
-                        <form class="form form-vertical" name="frm" action="<?php echo site_url('flexihead_students/insert_record');?>" method="post">
+                        <form class="form form-vertical" name="frm" action="<?php echo site_url('flexihead_students/insert_record');?>" method="post" id="frm">
 
 
 								<div class="col-md-3">
@@ -88,6 +88,8 @@
                   <tbody id="flexibleHeads_for_associating_Students">
                   </tbody>
                 </table>
+         <div id="afh" style="clear: both";></div>
+
             
           <div class="widget-title"> <br></br>
             <h4>Classes in Session 2018-19</h4>
@@ -104,6 +106,9 @@
                 
               </tbody>
             </table>
+         <div id="afh" style="clear: both";></div>
+                
+
        </div>
       <div class="control-group">
         <div class="widget-box">
