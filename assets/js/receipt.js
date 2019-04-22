@@ -202,7 +202,7 @@ $('body').on('click','.printreceipt',function(){
 				var obj = JSON.parse(data);
 				var str = '';
 				str= str + ''
-				str = str + '<table border="0" class="myfont table_" cellpadding="10">';
+				str = str + '<table  align ="center" style="width: 800px; font-size: 13px; font-family: verdana; border:#808080 solid 1px; background: #ffffff" class="table print_me">';
 				str = str + '<tbody>';
 				str = str + '<tr>';
 				str = str + '<td>';
@@ -223,7 +223,150 @@ $('body').on('click','.printreceipt',function(){
 				str = str + '</tbody>';
 				str = str + '</table>';
 				str =str  + '</td>';
+
+
 				str = str + '</tr>';
+				str = str + '<tr>';
+				str = str + '<td>';
+				str = str + '<table border="0" cellpadding="0" cellspacing="0" class="table_" style="border:#009900 solid 0px">';
+				str = str + '<tbody>';
+				str = str + '<tr>';
+				str = str + '<td class="myline_" colspan="4">';
+				str = str + '</td>';
+				str = str + '</tr>';
+				str = str + '<tr>';
+				str = str + '<td colspan="4">';
+				str = str + '<table border="0" cellpadding="0" cellspacing="0" class="table_" style="border:#009900 solid 0px">';
+				str = str + '<tbody>';
+				str = str + '<tr>';
+				str = str + '<td align="left" class="space_td">Receipt No.: 114</td>';
+				str = str + '<td align="center" class="space_td"><div style="width:150px; background: #f0f0f0; border-radius: 5px">Office Copy</div>';
+				str = str + '</td>';
+				str = str + '<td align="right" class="space_td">Date: 22/04/2019</td>';
+				str = str + '</tr>';
+				str = str + '</tbody>';
+				str = str + '</table>';
+				str = str + '</td>';
+				str = str + '</tr>';
+
+				str = str + '<tr>';
+				str = str + '<td class="myline_" colspan="4">';
+				str = str + '</td>';
+				str = str + '</tr>';
+				str = str + '<tr>';
+				str = str + '<td style="height: 10px">';
+				str = str + '</td>';
+				str = str + '</tr>';
+				str = str + '<tr class="myfont">';
+				str = str + '<td colspan="2" width="50%" valign="top">';
+				str = str + '<table border="0" class="myfont" cellpadding="5">';
+				str = str + '<tbody>';
+				str = str + '<tr>';
+				str = str + '<td class="label_" width="100">Reg. no.</td>';
+				str = str + '<td>';
+				str = str + '</td>';
+				str = str + '</tr>';
+				str = str + '<tr>';
+				str = str + '<td class="label_">Name</td>';
+				str = str + '<td>';
+				str = str + '</td>';
+				str = str + '</tr>';
+
+
+				str = str + '<tr>';
+				str = str + '<td class="label_">Father</td>';
+				str = str + '<td>';
+				str = str + '</td>';
+				str = str + '</tr>';
+				str = str + '<tr>';
+				str = str + '<td class="label_">Class</td>';
+				str = str + '<td>';
+				str = str + '</td>';
+				str = str + '</tr>';
+				str = str + '<tr>';
+				str = str + '<td class="label_">Invoice No.</td>';
+				str = str + '<td>';
+				str = str + '</td>';
+				str = str + '</tr>';
+				str = str + '</tbody>';
+				str = str + '</table>';
+				str = str + '</td>';
+								
+
+				str = str + '<td colspan="2" width="50%" valign="top">';
+				str = str + '<table border="0" class="myfont" cellpadding="5">';
+				str = str + '<tbody>';
+				str = str + '<tr valign="top">';
+				str = str + '<td class="label_" width="130">Submission Date</td>';
+				str = str + '<td>';
+				str = str + '</td>';
+				str = str + '</tr>';
+				str = str + '<tr valign="top">';
+				str = str + '<td class="label_" width="130">Heads</td>';
+				str = str + '<td>';
+				str = str + ' </td>';
+				str = str + '</tr>';
+				str = str + '<tr valign="top">';
+				str = str + '<td class="label_">Mode </td>';
+				str = str + '<td class="content"></td>';
+				str = str + '</tr>';
+				
+				str = str + '<tr valign="top">';
+				str = str + '<td class="label_">Total Paid</td>';
+				str = str + '<td><b>Rs. </b>/- &nbsp';
+				str = str + '</td>';
+				str = str + '</tr>';
+				str = str + '</tbody>';
+				str = str + '</table>';
+
+				str = str + '<tr>';
+				str = str + '<td class="myline_" colspan="4">';
+				str = str + '</td>';
+				str = str + '</tr>';
+				str = str + '<tr>';
+				str = str + '<td colspan="4" style="height: 10px">';
+				str = str + '</td>';
+				str = str + '</tr>';
+
+
+				str = str + '<tr>';
+				str = str + '<td colspan="4">';
+				str = str + '<table border="0" cellpadding="5" class="table_" style="border:#009900 solid 0px">';
+				str = str + '<tbody>';
+				str = str + '<tr>';
+				str = str + '<td colspan="2" class="address_contact" width="50%"><b>Address</b><br> Haldwani, Haldwani, UTTARAKHAND (INDIA)<br><b>Contact</b>: 90129 72556<br<b>Email</b>: ttchld@gmail.com<br>';
+				str = str + '</td>';
+				str = str + '<td colspan="2" width="50%" align="right" valign="bottom" style="font-size: 12px">Authorized Signatory</td>';
+				str = str + '</tr>';
+				str = str + '</tbody>';
+				str = str + '</table>';
+				str = str + '</td>';
+				str = str + '</tr>';
+
+
+				str = str + '<tr>';
+				str = str + '<td class="myline_" colspan="4">';
+				str = str + '</td>';
+				str = str + '</tr>';
+				str = str + '<tr>';
+				str = str + '<td colspan="4" class="optionalNote">*Optional fee is not compulsory for student. Those student enrolled for additional facilities are required to submit the same<br>';
+				str = str + '</td>';
+				str = str + '</tr>';
+				str = str + '</tbody>';
+				str = str + '</table>';
+				str = str + '</td>';
+				str = str + '</tr>';
+				str = str + '</tbody>';
+				str = str + '</table>';
+				str = str + '</td>';
+				str = str + '</tr>';
+				str = str + '</tbody>';
+				str = str + '</table>';
+				str = str + '</td>';
+				str = str + '</tr>';
+
+							
+				
 
 				$('#invoicedatahere').html(str);
 
