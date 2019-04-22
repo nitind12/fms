@@ -116,6 +116,7 @@ $(function(){
 				str = str + '<td>';
 				str = str + '<label class="receipt_label">: Rs. </label><span class="receipt_content"><span class="total_amnt" id="total_amnt_display"></span><input type="hidden" id="total_amnt" name="total_amnt" value="1000" style="width: 100px; padding: 0px; border:#000000 solid 0px; font-weight: bold">/-</span>';
 				str = str + '</td>';
+				/*t_amount = parseInt(total_amount) - parseInt(discount) + parseInt(fine);*/
 				str = str + '</tr>';
 
 				str = str + '<tr>';
