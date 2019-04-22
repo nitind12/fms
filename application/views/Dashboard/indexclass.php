@@ -12,30 +12,30 @@
 			
 			<form role="form" name="frmSession" method="post" action="<?php echo site_url('classes/insert_record');?>">
 								<!--student details-->
-								<div class="form-group">
+								<div class="form-group col-md-3">
 										<label>Course</label>
 										<select class="form-control" name="textcourse" id="textcourse">
 											<option>Select Course</option>
 											<?php foreach ($course as $item) { ?>
-											<option value="<?php echo $item->course_ID;?>"><?php echo $item->course; ?></option>
+											<option value="<?php echo $item->course;?>"><?php echo $item->course; ?></option>
 											<?php } ?>
 										</select>
 								</div>
 								<div class="col-md-3">
 									<div class="form-group">
 									<label><em class="fa fa-book">&nbsp</em>Semester</label>
-									<input class="form-control" name="txtsemester" id="txtsemester">
+									<input class="form-control" name="txtSemester" id="txtSemester">
 								</div></div>
 								
 								<div class="col-md-3">
 									<div class="form-group">
 									<label><em class="fa fa-book">&nbsp</em>Section</label>
-									<input class="form-control" name="txtsection" id="txtsection">
+									<input class="form-control" name="txtSection" id="txtSection">
 								</div></div>
 
 							
 							<div class="col-sm-12">
-									<button type="submit" class="btn btn-primary">Submit</button>
+									<button type="submit" class="btn btn-primary">Add Class</button>
 									<button type="reset" class="btn btn-default">Reset</button>
 								</div>
 								<div class="form-group">

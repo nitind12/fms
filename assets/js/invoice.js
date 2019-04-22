@@ -166,7 +166,7 @@ $('#frmInvoice').submit(function(){
 								str = str + '<td></td>';
 							} else {
 								str = str + '<td> <span class="fa fa-play payhere" id="'+obj.students[s]['student_ID']+"_"+invid+'"  ></span></td>';
-								str = str + '<td> <span class="fa fa-print printreceipt" id="'+printid+'"></span></td>';
+								str = str + '<td> <span class="fa fa-print printreceipt" id="'+obj.students[s]['student_ID']+"_"+invid+'"></span></td>';
 							}
 					//	}		
 
@@ -246,7 +246,7 @@ $('#frmInvoice').submit(function(){
 										str = str + '<tbody>';
 											str = str + '<tr>';
 												str = str +'<td>Invoice Id:'+obj.students['invoice_ID']+'</td';
-												str = str + '<td>'+'</td>';
+												str = str + '<td></td>';
 												str = str +	'<td align="right">Date: 20/04/2019</td>';
 											str = str + '</tr>';
 										str = str +	'</tbody>';
