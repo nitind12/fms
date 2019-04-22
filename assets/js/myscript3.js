@@ -25,7 +25,12 @@ $(function(){
 					str = str + "<td>" + obj.flex[i]['New_Flexible_Head'] + "</td>";
 					str = str + "<td>" + obj.flex[i]['Amount'] + "</td>";
 					str = str + "<td>" + obj.flex[i]['How_Many_Times'] + "</td>";
-					str = str + "<td>" + "" + "</td>";
+					str = str + '<td>';
+				//	str = str + '<i class= "icon-pencil"></i>';
+					str = str + '<span class="fa fa-remove"></span>';
+					str = str + '<i class="icon-pencil"></i>';
+
+					str = str +  '</td>';
 					str = str + "</tr>";
 				}
 				str = str + "</table>";

@@ -93,7 +93,7 @@
             
             </table>
           </div>
-          </div>
+          
           <div class="widget-content nopadding" style="overflow: auto; height: 350px">
             <table class="table table-bordered table-striped with-check">
               <thead>
@@ -150,12 +150,16 @@
         <h5>Classes in Session 2018-19</h5>
       </div>
       <div class="widget-content nopadding" style="overflow: hidden;">
+
         <table class="table table-bordered table-striped with-check">
           <thead>
             <tr>
-              <th><i class="icon-resize-vertical"></i></th>
               <th style="text-align: left">Select Class</th>
-            </tr>
+           </tr>
+           <tr>
+           <th> <div id="csk" style="clear: both";></div></th>
+            
+           </tr>
           </thead>
           <tbody id="classes_to_View_Students_status">
             
@@ -192,6 +196,7 @@
                     </tbody>
                 </table>
             </div>
+</div>
 </div>
 
     
