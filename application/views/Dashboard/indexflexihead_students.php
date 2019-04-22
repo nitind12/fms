@@ -79,20 +79,20 @@
                <div class="panel-body ">
                                 
                 <table class="table table-bordered table-striped with-check">
-                  <thead>
+                  
                     <tr>
-                      <th><i class="icon-resize-vertical"></i></th>
                       <th style="text-align: left">Select Flexible Head</th>
-                    </tr>
-                  </thead>
-                  <tbody id="flexibleHeads_for_associating_Students">
-                  </tbody>
-                </table>
-         <div id="afh" style="clear: both";></div>
+                   <th style="text-align: left">Classes in Session 2018-19</th>
 
+                    </tr>
+                <tr>
+        <th> <div id="afh" style="clear: both";></div></th>
+
+           <th> <div id="csk" style="clear: both";></div></th>
+            </tr>
             
-          <div class="widget-title"> <br></br>
-            <h4>Classes in Session 2018-19</h4>
+            </table>
+          </div>
           </div>
           <div class="widget-content nopadding" style="overflow: auto; height: 350px">
             <table class="table table-bordered table-striped with-check">

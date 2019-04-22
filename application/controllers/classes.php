@@ -13,13 +13,11 @@ function __construct(){
 		$this->load->model('class_model','cm');
 		$data['course'] = $this->cm->getCourse();
 
-		$this->load->model('student_model','stm');
-		$data['course'] = $this->stm->getCourse();
 
 		$this->load->view('templates/header');
 		$this->load->view('templates/navheader');
 		$this->load->view('templates/masterside');
-		$this->load->view('Dashboard/indexclass');
+		$this->load->view('Dashboard/indexclass', $data);
 		$this->load->view('templates/footer');
 	}
 

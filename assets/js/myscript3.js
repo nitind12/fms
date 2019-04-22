@@ -65,5 +65,39 @@ $(function(){
 			}
 		});
 		    return false;
+	});
 	
-});
+$(function(){
+	
+		$('#csk').html("loading...");
+
+		var url_ = site_url_ + "/classes/getclass/" ;
+		var data_=$(this).serialize();
+		
+		$.ajax({
+			type: "GET",
+			url: url_,
+			data:data_,
+			success: function(data){
+				//alert(data);
+				var obj = JSON.parse(data);
+				var str = '';
+				str = str + '<table class="table table-bordered">';
+				str = str + "<tr>";
+				str = str + "<th>#</th>";
+				str = str + "<th>Class</th>";
+				str = str + "</tr>";
+				for(i=0; i<obj.clss.length; i++){
+					str = str + "<tr>";
+					str = str + "<td><input type='radio' name='clss'></td>";
+					str = str + "<td>" + obj.clss[i]['course'] + ' ' + obj.clss[i]['sem'] + ' ' + obj.clss[i]['section'] + "</td>";
+					str = str + "</tr>";
+				}
+				 
+				str = str + "</table>";
+				$('#csk').html(str);
+			}
+		});
+		    return false;
+	});
+
