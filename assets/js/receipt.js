@@ -102,26 +102,26 @@ $(function(){
 				/*fine='';*/
 				//str = str + '<td>Rs.&nbsp&nbsp'+discount_Amount+'</td>';
 				str = str + '<td>'
-				str = str + '<label class="receipt_label">: Rs.</label><span class="receipt_content">' +discount_Amount+'</td>';
+				str = str + '<label class="receipt_label">: Rs.</label><span class="receipt_content">' +discount_Amount+'/-</td>';
 				//<input type="text" id="_discount_" name="_discount_" value="" style="width: 100px; padding: 0px; background: #f0f000; border:#000000 solid 0px">/-</span>';
 				
 				str = str + '</tr>';
-
+				fine='';
 				str = str + '<tr>';
 				str = str + '<td style="color: #909000">Fine? <span style="float: right; padding: 8px 0px; font-size: 11px" class="fa fa-plus"></span>';
 				str = str + '</td>';
 				str = str + '<td>';
-				str = str + '<label class="receipt_label">: Rs.</label><span class="receipt_content"><input type="text" id="fine" value= "" name="_fine_" value="" style="width: 100px; padding: 0px; background: #f0f000; border:#000000 solid 0px">/-</span>';
+				str = str + '<label class="receipt_label">: Rs.</label><span class="receipt_content"><input type="text" id="fine" value "" name="_fine_" value="" style="width: 100px; padding: 0px; background: #f0f000; border:#000000 solid 0px">/-</span>';
 				str = str + '</td>';
 				str = str + '</tr>';
 
 				str = str + '<tr style="font-weight: bold">';
 				str = str + '<td>Total</td>';
 				str = str + '<td>';
-				/*total_Amount = parseInt(due_Amount)-parseInt(discount_Amount)+parseInt(fine);*/				
+				total_Amount = parseInt(due_Amount)-parseInt(discount_Amount)+parseInt(fine);				
 			
-				str = str + '<label class="receipt_label">: Rs. </label><span class="receipt_content"><span class="total_amnt" id="total_amnt_display"></span><input type="hidden" id="total_amnt" name="total_amnt" value="1000" style="width: 100px; padding: 0px; border:#000000 solid 0px; font-weight: bold">/-</span>';
-				str = str + '</td>';
+				str = str + '<label class="receipt_label">: Rs. </label><span class="receipt_content"><span class="total_amnt" id="total_amnt_display"></span><input type="hidden" id="total_amnt" name="total_amnt" value="1000" style="width: 100px; padding: 0px; border:#000000 solid 0px; font-weight: bold">/-</span>'+total_Amount+'</td>';
+				
 				str = str + '</tr>';
 
 				str = str + '<tr>';
@@ -175,7 +175,7 @@ $(function(){
 	});
 });
 	$('body').on('click','#update_total', function(){
-		alert ($("#fine").val());
+		fine= $("#fine").val();
 	});
 
 
