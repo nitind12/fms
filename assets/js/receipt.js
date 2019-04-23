@@ -310,11 +310,11 @@ $('body').on('click','.printreceipt',function(){
 				str = str + '</tr>';
 				str = str + '<tr valign="top">';
 				str = str + '<td class="label_" width="130">Heads</td>';
-				str = str + '<td>';
-				str = str + ' </td>';
+				str = str + '<td>Admission </td>';
 				str = str + '</tr>';
 				str = str + '<tr valign="top">';
-				str = str + '<td class="label_">Mode </td>';
+				str = str + '<td class="label_">Mode </td>'; 
+				str = str +	'<td>'+obj.students['fee_Mode']+'</td>';
 				str = str + '<td class="content"></td>';
 				str = str + '</tr>';
 				
