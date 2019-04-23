@@ -115,7 +115,7 @@ $(function(){
 				discount_Amount=obj.discount['discount_Amount'];
 				str = str + '<td>'
 				str = str + '<label class="receipt_label">: Rs.</label><span class="receipt_content">' +discount_Amount+'/-</td>';
-				str = str + '<input type="hidden" id="_discount_" name="_discount_" value="0" style="width: 100px; padding: 0px; background: #f0f000; border:#000000 solid 0px">';
+				str = str + '<input type="hidden" id="_discount_" name="_discount_" value="10" style="width: 100px; padding: 0px; background: #f0f000; border:#000000 solid 0px">';
 				
 				str = str + '</tr>';
 				
@@ -306,8 +306,7 @@ $('body').on('click','.printreceipt',function(){
 				str = str + '<tbody>';
 				str = str + '<tr valign="top">';
 				str = str + '<td class="label_" width="130">Submission Date</td>';
-				str = str + '<td>';
-				str = str + '</td>';
+				str = str + '<td>27/4/2019</td>';
 				str = str + '</tr>';
 				str = str + '<tr valign="top">';
 				str = str + '<td class="label_" width="130">Heads</td>';
