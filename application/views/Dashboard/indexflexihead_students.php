@@ -77,100 +77,94 @@
 
     
     <div id="afhead" class="tab-pane fade active-in active-in ">
-               <div class="panel-heading">Flexible Heads<em class="caret"></em></div>
-               <div class="panel-body ">
-                                
-                <table class="table table-bordered table-striped with-check">
-                  
-                    <tr>
-                      <th style="text-align: left">Select Flexible Head</th>
-                   <th style="text-align: left">Classes in Session 2018-19</th>
-                  <th style="text-align: left">Select Classe(s)</th>
-                   
+             <div class="panel-heading"> <h3>Flexible Heads</h3></div>
+            <table class="table table-bordered with-check" >
+             <tr>
+               <th>                   
+                   <table class="table table-bordered table-striped with-check">
+                       <tr>
+                          <th style="text-align: left">Select Flexible Head</th>
+                       </tr>
+                          <th> <div id="afh" style="clear: both; overflow: hidden;";></div></th>
+                          </tr>
+                   </table>
+               </th>
+               <th>
+                   <table class="table table-bordered table-striped with-check">
+                     <tr>
+                         <th style="text-align: left">Classes in Session 2018-19</th>
+                      </tr>
+                        <th> <div id="csk" style="clear: both";></div></th>
 
+                      </tr>
+                    </table>
+               </th>
+               <th>
+                   <table class="table table-bordered table-striped with-check">
+                      <tr>
+                       <th style="text-align: left">Select Classe(s)</th>
                     </tr>
-                <tr>
-        <th> <div id="afh" style="clear: both; overflow: hidden;";></div></th>
-
-           <th> <div id="csk" style="clear: both";></div></th>
-           <th><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> <div class="controls">
-                <input type="button" value="Add Fee to selected Student(s)" class="btn btn-success span9" id="associate_flexible_head_with_Students">
-                <input type="reset" value="X" class="btn btn-danger cancel_sassociate_flexible_head_with_Student span3" style="float: right">
-            </div></th>
-            </tr>
-            
+                    <tr>
+                       <th><br><br><br><br><br><br><br><br><br><br><br><br><br><br> <div class="controls">
+                            <input type="button" value="Add Fee to selected Student(s)" class="btn btn-success span9" id="associate_flexible_head_with_Students">
+                              <input type="reset" value="X" class="btn btn-danger cancel_sassociate_flexible_head_with_Student span3" style="float: right"> </div>
+                        </th>
+                    </tr>
+                  </table>
+                </th>
+              </tr>
             </table>
-          </div>
           
-          <div class="widget-content nopadding" style="overflow: auto; height: 350px">
-           
-                
+<h4><strong>View Associated Flexible Heads</strong></h4>
+  
+        <table class="table table-bordered with-check">
+          <tr>
+            <th>
+              <table class="table table-bordered table-striped with-check">
+                <tr>
+                  <th>Classes in Session 2018-19</th>
+               </tr>
+               <tr>
+                   <th style="text-align: left">Select Class</th>
+               </tr>
+               <tr>
+                   <th><div id="prhrt" style="clear: both"></div></th>
+              </tr>
+            
+              </table>
+            </th>
+             <th>
+              <table class="table table-striped with-check">
+             <tr>
+             <th>  Associated Heads for the Selected Class</th>
+            </tr>
+             <tr>
+                 <th></th>
+              </tr>
+             </table>
+           </th>
 
-       </div>
-      <div class="control-group">
-        <div class="widget-box">
-          <div class="widget-title">
-            <div style="float: left; padding: 5px; border:#C0C0C0 solid 1px; width: 20px;height: 25px; text-align: center">
-              <input type="checkbox" id="classes_associates_students_for_flexibleHeads_check_boxes" />
-            </div>
-            <h5 id="name_of_class_for_students"></h5>
-            <div style="clear: both"></div>
-          </div>
-          <div class="widget-content nopadding" style="overflow: auto; height: 300px">
-           
-<br />
-<h4>View Associated Flexible Heads</h4>
-    <div class="controls span12">
-      <div class="controls span4">
-    <div class="widget-box">
-      <div class="widget-title"> 
-        <h5>Classes in Session 2018-19</h5>
-      </div>
-      <div class="widget-content nopadding" style="overflow: hidden;">
+          <th>
+      
 
-        <table class="table table-bordered table-striped with-check">
+             <table class="table table-striped with-check" >
+             <tr colspan="3">
+              <th>Student with there Flexible Heads</th>  
+            </tr>
             <tr>
-              <th style="text-align: left">Select Class</th>
-           </tr>
-           <tr>
-           <th><div id="csk" style="clear: both";></div></th>
-            
-           </tr>
-            
-        </table>
-      </div>
-    </div>
-</div>
-</div>
-<div class="controls span8">
-  <div class="widget-box">
-    <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
-        <h5>Associated Heads for the Selected Class</h5>
-    </div>
-    <input type="hidden" value="NA" id="AssociatedClass_to_FlexiHead">
-    <div class="widget-content" style="overflow: hidden" id="AssociatedHeads_against_selectedClass">
-        &nbsp;
-    </div>
-  </div>
-            <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
-                <h5>Students with there Felxible Heads</h5>
-                <h5 style="float: right;"><a href="" class="icon-print"></a></h5>
-            </div>
-            <div class="widget-content nopadding">
-                <table class="table table-bordered" id="print_associated_flex_with_students" style="text-align: left">
-                    <thead>
-                        <tr>
-                        <th style="text-align: left">Registration No</th>
-                        <th style="text-align: left">Name</th>
-                        <th style="text-align: left">Flexible Heads</th>
-                        </tr>
-                    </thead>
-                    <tbody id="student_associated_flexibleheads_classwise">
-                    </tbody>
-                </table>
-            </div>
-</div>
-</div>
+                       <th>   <div id="rgn" style="clear:both"></div></th>
+            </tr>
+          </table>
+        </th>
+        </tr>
+      </table>
+
+          </div>
+
+
+
+
+
 
     
     	
