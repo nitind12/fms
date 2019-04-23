@@ -16,12 +16,13 @@
 		<div class="panel panel-container">
 			<div class="row">
 				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
+					<a href="totalstudents">
 					<div class="panel panel-teal panel-widget border-right" style="background-color:aqua;margin-top:-18px;margin-left:17px;margin-bottom:-22px;">
 						<div class="row no-padding"><i class="fa fa-user fa-3x"></i>
 							<div class="large">10</div>
 							<div class="text-muted"><h4>Student</h4></div>
 						</div>
-					</div>
+					</div></a>
 				</div>
 				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
 					<div class="panel panel-blue panel-widget border-right" style="background-color:yellow;margin-bottom:-23px;margin-top:-18px;">
