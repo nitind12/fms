@@ -72,6 +72,7 @@ $(function(){
 				str = str + '<td style="background: #f0f0f0; color: #900000">Rs.&nbsp&nbsp'+obj.students['actual_due_Amount']+'/-</td>';
 				str = str + '</tr>';
 
+
 				str = str + '<tr style="background: #f0f0f0; color: #900000">';
 				str = str + '<td>Total Due: </td>';
 				str = str + '<td style="background: #f0f0f0; color: #900000"><b>Rs.&nbsp&nbsp</b>'+obj.students['due_Amount']+'/-</td>';
@@ -85,28 +86,39 @@ $(function(){
 				discount_Amount='';
 				fine='';
 				total='';
+				
+				
 				str = str + '<td>';
 				str = str + '<table class="table" style="border-bottom: #000000 solid 1px; border:#ff0000 solid 0px; width: 360px; float: right">';
 				str = str + '<tbody>';
 				str = str + '<tr>';
-				str = str + '<td width="200px">Total Due <span style="float: right; padding: 8px 0px; font-size: 11px" class="fa fa-plus"></span>';
-				str = str + '</td>';
+				str = str + '<td width = "200px">Total Due</td>';
 				due_Amount=obj.students['due_Amount'];
-				str = str + '<td>Rs.&nbsp&nbsp'+due_Amount+'/-</td>';
+				str = str + '<td width="160px"><label class="receipt_label">: Rs.</label><input type="hidden" id="due_amnt_input" name="due_amnt_input" value="1000" style="width: 100px; padding: 0px; border:#f0f0f0 solid 1px">'+due_Amount+'/-</td>';
+				
+				
+				str = str + '</td>';
+				
+				
+				
 				str = str + '</tr>';
+			
+
+				
+				
+
+
 
 				str = str + '<tr>';
 				str = str + '<td style="color: #909000">Discount? <span style="float: right; padding: 8px 0px; font-size: 11px" class="fa fa-minus"></span><div style="float: left; font-size: 8px; color: #0000ff; clear: both"></div>';
 				str = str + '</td>';
 				discount_Amount=obj.discount['discount_Amount'];
-				/*fine='';*/
-				//str = str + '<td>Rs.&nbsp&nbsp'+discount_Amount+'</td>';
 				str = str + '<td>'
 				str = str + '<label class="receipt_label">: Rs.</label><span class="receipt_content">' +discount_Amount+'/-</td>';
-				//<input type="text" id="_discount_" name="_discount_" value="" style="width: 100px; padding: 0px; background: #f0f000; border:#000000 solid 0px">/-</span>';
+				str = str + '<input type="hidden" id="_discount_" name="_discount_" value="10" style="width: 100px; padding: 0px; background: #f0f000; border:#000000 solid 0px">';
 				
 				str = str + '</tr>';
-				fine='';
+				
 				str = str + '<tr>';
 				str = str + '<td style="color: #909000">Fine? <span style="float: right; padding: 8px 0px; font-size: 11px" class="fa fa-plus"></span>';
 				str = str + '</td>';
@@ -121,9 +133,9 @@ $(function(){
 				str = str + '<label class="receipt_label">: Rs. </label><span class="receipt_content"><span class="total_amnt" id="total_amnt_display"></span><input type="hidden" id="total_amnt" name="total_amnt" value="1000" style="width: 100px; padding: 0px; border:#000000 solid 0px; font-weight: bold">/-</span>';
 				str = str + '</td>';
 				/*t_amount = parseInt(total_amount) - parseInt(discount) + parseInt(fine);*/
-				total_Amount = parseInt(due_Amount)-parseInt(discount_Amount)+parseInt(fine);				
 			
-				str = str + '<label class="receipt_label">: Rs. </label><span class="receipt_content"><span class="total_amnt" id="total_amnt_display"></span><input type="hidden" id="total_amnt" name="total_amnt" value="1000" style="width: 100px; padding: 0px; border:#000000 solid 0px; font-weight: bold">/-</span>'+total_Amount+'</td>';
+				str = str + '<label class="receipt_label">: Rs. </label><span class="receipt_content"><span class="total_amnt" id="total_amnt_display"></span><input type="hidden" id="total_amnt" name="total_amnt" value="1000" style="width: 100px; padding: 0px; border:#000000 solid 0px; font-weight: bold">/-</span>'
+
 				
 				str = str + '</tr>';
 
@@ -178,7 +190,7 @@ $(function(){
 	});
 });
 	$('body').on('click','#update_total', function(){
-		fine= $("#fine").val();
+		alert($("#fine").val());
 	});
 
 
@@ -294,16 +306,15 @@ $('body').on('click','.printreceipt',function(){
 				str = str + '<tbody>';
 				str = str + '<tr valign="top">';
 				str = str + '<td class="label_" width="130">Submission Date</td>';
-				str = str + '<td>';
-				str = str + '</td>';
+				str = str + '<td>27/4/2019</td>';
 				str = str + '</tr>';
 				str = str + '<tr valign="top">';
 				str = str + '<td class="label_" width="130">Heads</td>';
-				str = str + '<td>';
-				str = str + ' </td>';
+				str = str + '<td>Admission </td>';
 				str = str + '</tr>';
 				str = str + '<tr valign="top">';
-				str = str + '<td class="label_">Mode </td>';
+				str = str + '<td class="label_">Mode </td>'; 
+				str = str +	'<td>'+obj.students['fee_Mode']+'</td>';
 				str = str + '<td class="content"></td>';
 				str = str + '</tr>';
 				
