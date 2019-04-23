@@ -282,8 +282,7 @@ $('body').on('click','.printreceipt',function(){
 				str = str + '</tr>';
 				str = str + '<tr>';
 				str = str + '<td class="label_">Invoice No.</td>';
-				str = str + '<td>';
-				str = str + '</td>';
+				str = str + '<td>'+obj.students['invoice_ID']+'</td>';
 				str = str + '</tr>';
 				str = str + '</tbody>';
 				str = str + '</table>';
