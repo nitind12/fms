@@ -83,30 +83,25 @@
                     <tr>
                       <th style="text-align: left">Select Flexible Head</th>
                    <th style="text-align: left">Classes in Session 2018-19</th>
+                  <th style="text-align: left">Select Classe(s)</th>
+                   
 
                     </tr>
                 <tr>
-        <th> <div id="afh" style="clear: both";></div></th>
+        <th> <div id="afh" style="clear: both; overflow: hidden;";></div></th>
 
            <th> <div id="csk" style="clear: both";></div></th>
+           <th><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> <div class="controls">
+                <input type="button" value="Add Fee to selected Student(s)" class="btn btn-success span9" id="associate_flexible_head_with_Students">
+                <input type="reset" value="X" class="btn btn-danger cancel_sassociate_flexible_head_with_Student span3" style="float: right">
+            </div></th>
             </tr>
             
             </table>
           </div>
           
           <div class="widget-content nopadding" style="overflow: auto; height: 350px">
-            <table class="table table-bordered table-striped with-check">
-              <thead>
-                <tr>
-                  <th><i class="icon-resize-vertical"></i></th>
-                  <th style="text-align: left">Select Class</th>
-                </tr>
-              </thead>
-              <tbody id="classes_to_find_students">
-                
-              </tbody>
-            </table>
-         <div id="afh" style="clear: both";></div>
+           
                 
 
        </div>
@@ -120,27 +115,7 @@
             <div style="clear: both"></div>
           </div>
           <div class="widget-content nopadding" style="overflow: auto; height: 300px">
-            <table class="table table-bordered table-striped with-check">
-              <thead>
-                <tr>
-                  <th><i class="icon-resize-vertical"></i></th>
-                  <th style="text-align: left">Select Classe(s)</th>
-                </tr>
-              </thead>
-              <tbody id="students_for_selected_class">
-                
-              </tbody>
-            </table>
-          </div>
-      </div>
-     </div>
-     <div class="control-group">
-            <div class="controls">
-                <input type="button" value="Add Fee to selected Student(s)" class="btn btn-success span9" id="associate_flexible_head_with_Students">
-                <input type="reset" value="X" class="btn btn-danger cancel_sassociate_flexible_head_with_Student span3" style="float: right">
-            </div>
-        </div>
-
+           
 <br />
 <h4>View Associated Flexible Heads</h4>
     <div class="controls span12">
@@ -152,18 +127,14 @@
       <div class="widget-content nopadding" style="overflow: hidden;">
 
         <table class="table table-bordered table-striped with-check">
-          <thead>
             <tr>
               <th style="text-align: left">Select Class</th>
            </tr>
            <tr>
-           <th> <div id="csk" style="clear: both";></div></th>
+           <th><div id="csk" style="clear: both";></div></th>
             
            </tr>
-          </thead>
-          <tbody id="classes_to_View_Students_status">
             
-          </tbody>
         </table>
       </div>
     </div>
