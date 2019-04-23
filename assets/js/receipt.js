@@ -134,8 +134,6 @@ $(function(){
 				str = str + '</td>';
 				/*t_amount = parseInt(total_amount) - parseInt(discount) + parseInt(fine);*/
 			
-				str = str + '<label class="receipt_label">: Rs. </label><span class="receipt_content"><span class="total_amnt" id="total_amnt_display"></span><input type="hidden" id="total_amnt" name="total_amnt" value="1000" style="width: 100px; padding: 0px; border:#000000 solid 0px; font-weight: bold">/-</span>'
-
 				
 				str = str + '</tr>';
 
@@ -152,8 +150,7 @@ $(function(){
 				str = str + '</tr>';
 
 				str = str + '<tr>';
-				str = str + '<td style="font-size: 13px; color: #0000ff; padding:8px 0px 0px 8px">Payment Mode </td><td>: <select name="cmbPaymentMode" id="cmbPaymentMode" style="color: #0000ff; font-size: 13px; width: 100px"><option value="cash">Cash</option><option value="cheque">Cheque</option><option value="DD">Demand Draft</option></select><br><div style="border-radius: 5px; background: #505050; color: #ffffff; padding: 0px 3px; width: 100%; float: left; display: none; border: #ff0000 solid 0px" id="_noncashdetail"><div style="float: left"><b id="_ccdd_no" style="font-size: 9px"></b> No.<br><input type="text" style="width: 75px; padding: 0px" name="txtCCDDNumber" id="txtCCDDNumber">&nbsp;</div><div style="float: right"><b id="_ccdd_dt" style="font-size: 9px"></b> Date<br><input type="text" style="width: 75px; padding: 0px" name="txtCCDDDate" id="txtCCDDDate"></div></div>';
-				str = str + '</td>';
+				str = str + '<tr><td style="font-size: 13px; color: #0000ff; padding:8px 0px 0px 8px">Payment Mode </td><td>: <select name="cmbPaymentMode" id="cmbPaymentMode" style="color: #0000ff; font-size: 13px; width: 100px"><option value="cash">Cash</option><option value="cheque">Cheque</option><option value="DD">Demand Draft</option></select><br><div style="border-radius: 5px; background: #505050; color: #ffffff; padding: 0px 3px; width: 100%; float: left; display: none; border: #ff0000 solid 0px" id="_noncashdetail"><div style="float: left"><b id="_ccdd_no" style="font-size: 9px"></b> No.<br><input type="text" style="width: 75px; padding: 0px" name="txtCCDDNumber" id="txtCCDDNumber">&nbsp;</div><div style="float: right"><b id="_ccdd_dt" style="font-size: 9px"></b> Date<br><input type="text" style="width: 75px; padding: 0px" name="txtCCDDDate" id="txtCCDDDate"></div></div></td></tr>';				str = str + '</td>';
 				str = str + '</tr>';
 				str = str + '</tbody>';
 				str = str + '</table>';
@@ -251,10 +248,11 @@ $('body').on('click','.printreceipt',function(){
 				str = str + '<table border="0" cellpadding="0" cellspacing="0" class="table_" style="border:#009900 solid 0px">';
 				str = str + '<tbody>';
 				str = str + '<tr>';
-				str = str + '<td align="left" class="space_td">Receipt No.: 114</td>';
+				str = str + '<td align="left" class="space_td">Receipt No.:</td>';
+				str = str + '<td>'+ obj.discount['receipt_ID']+'</td>';
 				str = str + '<td align="center" class="space_td"><div style="width:150px; background: #f0f0f0; border-radius: 5px">Office Copy</div>';
 				str = str + '</td>';
-				str = str + '<td align="right" class="space_td">Date: 27/04/2019</td>';
+				str = str + '<td align="right" class="space_td">Date:'+obj.curr_date+'</td>';
 				str = str + '</tr>';
 				str = str + '</tbody>';
 				str = str + '</table>';
@@ -306,7 +304,7 @@ $('body').on('click','.printreceipt',function(){
 				str = str + '<tbody>';
 				str = str + '<tr valign="top">';
 				str = str + '<td class="label_" width="130">Submission Date</td>';
-				str = str + '<td>27/4/2019</td>';
+				str = str + '<td>'+obj.discount['date']+'</td>';
 				str = str + '</tr>';
 				str = str + '<tr valign="top">';
 				str = str + '<td class="label_" width="130">Heads</td>';
@@ -314,7 +312,7 @@ $('body').on('click','.printreceipt',function(){
 				str = str + '</tr>';
 				str = str + '<tr valign="top">';
 				str = str + '<td class="label_">Mode </td>'; 
-				str = str +	'<td>'+obj.students['fee_Mode']+'</td>';
+				str = str +	'<td>'+obj.discount['fee_Mode']+'</td>';
 				str = str + '<td class="content"></td>';
 				str = str + '</tr>';
 				
