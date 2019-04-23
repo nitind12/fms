@@ -150,7 +150,10 @@ $(function(){
 				str = str + '</tr>';
 
 				str = str + '<tr>';
-				str = str + '<tr><td style="font-size: 13px; color: #0000ff; padding:8px 0px 0px 8px">Payment Mode </td><td>: <select name="cmbPaymentMode" id="cmbPaymentMode" style="color: #0000ff; font-size: 13px; width: 100px"><option value="cash">Cash</option><option value="cheque">Cheque</option><option value="DD">Demand Draft</option></select><br><div style="border-radius: 5px; background: #505050; color: #ffffff; padding: 0px 3px; width: 100%; float: left; display: none; border: #ff0000 solid 0px" id="_noncashdetail"><div style="float: left"><b id="_ccdd_no" style="font-size: 9px"></b> No.<br><input type="text" style="width: 75px; padding: 0px" name="txtCCDDNumber" id="txtCCDDNumber">&nbsp;</div><div style="float: right"><b id="_ccdd_dt" style="font-size: 9px"></b> Date<br><input type="text" style="width: 75px; padding: 0px" name="txtCCDDDate" id="txtCCDDDate"></div></div></td></tr>';				str = str + '</td>';
+				str = str + '<td style="font-size: 13px; color: #0000ff; padding:8px 0px 0px 8px">Payment Mode </td>';
+				str = str + '<td>';
+			    str = str + '<select name="cmbPaymentMode" id="cmbPaymentMode" style="color: #0000ff; font-size: 13px; width: 100px"><option value="cash">Cash</option><option value="cheque">Cheque</option><option value="DD">Demand Draft</option></select>';
+				str = str + '</td>';
 				str = str + '</tr>';
 				str = str + '</tbody>';
 				str = str + '</table>';
@@ -224,7 +227,7 @@ $('body').on('click','.printreceipt',function(){
 				str = str + '<tr class="feeHeader">';
 				str = str + '<td width="100"><img src="https://school.teamfreelancers.com/assets_/default-demo/logo/4.jpg?ver=1.4" width="100">';
 				str = str + '</td>';
-				str = str + '<td width="500"><span class="header_text"><b>The Demo School, Haldwani</b><br><span style="font-weight: 100">Fee Receipt <br><span style="font-size: 13px; font-weight: bold">2019, April</span></span></span>';
+				str = str + '<td width="500" align="center" style="width: 500px;padding: 0px 0px 0px 8px; vertical-align: middle"><span class="header_text"><b>The Demo School, Haldwani</b><br><span style="font-weight: 100">Fee Receipt <br><span style="font-size: 13px; font-weight: bold">2019, April</span></span></span>';
 				str = str + '</td>';
 				str = str + '<td width="100">';
 				str = str + '</td>';
@@ -250,7 +253,7 @@ $('body').on('click','.printreceipt',function(){
 				str = str + '<tr>';
 				str = str + '<td align="left" class="space_td">Receipt No.:</td>';
 				str = str + '<td>'+ obj.discount['receipt_ID']+'</td>';
-				str = str + '<td align="center" class="space_td"><div style="width:150px; background: #f0f0f0; border-radius: 5px">Office Copy</div>';
+				str = str + '<td align="center" style="width: 500px;padding: 0px 0px 0px 8px; vertical-align: middle" class="space_td"><div style="width:150px; background: #f0f0f0; border-radius: 5px">Office Copy</div>';
 				str = str + '</td>';
 				str = str + '<td align="right" class="space_td">Date:'+obj.curr_date+'</td>';
 				str = str + '</tr>';
@@ -269,7 +272,7 @@ $('body').on('click','.printreceipt',function(){
 				str = str + '</tr>';
 				str = str + '<tr class="myfont">';
 				str = str + '<td colspan="2" width="50%" valign="top">';
-				str = str + '<table border="0" class="myfont" cellpadding="5">';
+				str = str + '<table class="table" style="border:#ff0000 solid 0px; width: 360px;"   cellpadding="5">';
 				str = str + '<tbody>';
 				str = str + '<tr>';
 				str = str + '<td class="label_" width="100">Reg. no.</td>';
@@ -300,7 +303,7 @@ $('body').on('click','.printreceipt',function(){
 								
 
 				str = str + '<td colspan="2" width="50%" valign="top">';
-				str = str + '<table border="0" class="myfont" cellpadding="5">';
+				str = str + '<table class="table" style="border:#ff0000 solid 0px; width: 360px;"  cellpadding="5">';
 				str = str + '<tbody>';
 				str = str + '<tr valign="top">';
 				str = str + '<td class="label_" width="130">Submission Date</td>';
@@ -339,7 +342,7 @@ $('body').on('click','.printreceipt',function(){
 				str = str + '<table border="0" cellpadding="5" class="table_" style="border:#009900 solid 0px">';
 				str = str + '<tbody>';
 				str = str + '<tr>';
-				str = str + '<td colspan="2" class="address_contact" width="50%"><b>Address</b><br> Haldwani, Haldwani, UTTARAKHAND (INDIA)<br><b>Contact</b>: 90129 72556<br<b>Email</b>: ttchld@gmail.com<br>';
+				str = str + '<td colspan="2" colspan="2" style="font-size: 12px; text-align: center" class="address_contact" width="50%"><b>Address</b><br> Haldwani, Haldwani, UTTARAKHAND (INDIA)<br><b>Contact</b>: 90129 72556<br<b>Email</b>: ttchld@gmail.com<br>';
 				str = str + '</td>';
 				str = str + '<td colspan="2" width="50%" align="right" valign="bottom" style="font-size: 12px">Authorized Signatory</td>';
 				str = str + '</tr>';
@@ -354,7 +357,7 @@ $('body').on('click','.printreceipt',function(){
 				str = str + '</td>';
 				str = str + '</tr>';
 				str = str + '<tr>';
-				str = str + '<td colspan="4" class="optionalNote">*Optional fee is not compulsory for student. Those student enrolled for additional facilities are required to submit the same<br>';
+				str = str + '<td colspan="4" colspan="2" style="font-size: 12px; text-align: center" class="optionalNote">*Optional fee is not compulsory for student. Those student enrolled for additional facilities are required to submit the same<br>';
 				str = str + '</td>';
 				str = str + '</tr>';
 				str = str + '</tbody>';
