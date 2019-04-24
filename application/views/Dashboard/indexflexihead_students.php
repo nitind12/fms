@@ -14,8 +14,7 @@
 			<ul class="pagination">
 				<li class="active"><a data-toggle="tab" href="#mfhead">Manage Flexible Heads</a></li>
 				<li><a data-toggle="tab" href="#afhead">Associate Flexible Heads</a></li>
-				
-			</ul>
+				</ul>
 			
 				<div id="mfhead" class="tab-pane fade active in">
 								<div class="panel-heading">Add Flexible Heads<em class="caret"></em></div>
@@ -67,7 +66,11 @@
             
             <div class="widget-content nopadding">
                 <div class="">View Flexible Head<em class="caret"></em></div>
-                <div style="clear: both;" id= "printheres"></div>
+                <table>
+                  <tr><th><div style="clear: both;" id= "printheres"></div></th>
+                      <th> <div style="clear: both;" id= "printheres1"></div></th>
+                    </tr>
+                  </table>
                 <div id="flexi"></div>
             </div>
         </div>
@@ -114,8 +117,10 @@
                 </th>
               </tr>
             </table>
-          
-<h4><strong>View Associated Flexible Heads</strong></h4>
+
+
+                       <br><br> 
+          <h4><strong>View Associated Flexible Heads</strong></h4>
   
         <table class="table table-bordered with-check">
           <tr>
@@ -161,14 +166,6 @@
 
           </div>
 
-
-
-
-
-
-    
-    	
-			
-			<div class="col-sm-12">
+       <div class="col-sm-12">
 				<p class="back-link">BCA final Year Project by <a href="#">FMS team</a></p>
 			</div>

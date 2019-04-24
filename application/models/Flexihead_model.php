@@ -11,13 +11,24 @@ class Flexihead_model extends CI_Model {
 		$ffhamt_ = $this->input->post('txtffhamt');
 		$hmt_ = $this->input->post('txthmt');
 
-		$this->db->where('New_Flexible_Head', $ffh_);
+		$fidold=$this->db->insert_id();
+
+		$this->db->where('New_Flexible_Head', $ffh);
 		$query = $this->db->get('manage_flexible_head');
 
 		if($query->num_rows()!=0){
+			$data = array(
+				'New_Flexible_Head' => $ffh_,
+				'Amount'=> $ffhamt_,
+				'How_Many_Times'=>$hmt_,
+			);
+			$this->db->where('fhead_ID',$fidold);
+			$this->db->update('manage_flexible_head', $data);
+
+
 			$bool_ = array(
 				'res' => false,
-				'msg' => '<b class="text-danger">This name is already exists. Please try again !!</b>'
+				'msg' => '<b class="text-success">Record successfully updated...</b>'
 			);
 		} else {
 
