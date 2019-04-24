@@ -48,8 +48,8 @@ class classinsessionmodel extends CI_Model {
 }
 
 	function getclassinsessions(){
-		$this->db->select('class_sess_ID,session_ID,class_ID');
-		$query= $this->db->get('class_in_session');
+		$this->db->select('course,sem,section');
+		$query= $this->db->get('class');
 		return $query->result();
 	
 	}

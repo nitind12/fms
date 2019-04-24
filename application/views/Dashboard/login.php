@@ -1,4 +1,4 @@
-body>
+<body>
 		<div class="bg-image"></div>
 		
 		

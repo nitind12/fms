@@ -1,5 +1,5 @@
 $(function(){
-	$('#txtcourse').change(function(){
+	$('#textcourse').change(function(){
 		$('#print').html("loading...");
 
 		var url_ = site_url_ + "/classes/getclass/" ;

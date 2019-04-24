@@ -4,9 +4,11 @@
 				<li><a href="#">
 					<em class="fa fa-home"></em>Home
 				</a></li>
-				<li class="active">Reports</li>
+				<li class="active">Total Classes</li>
 			</ol>
+			
 		</div><!--/.row-->
+		<div id="ttlclsses" style="clear: both"></div>
 		
 		
 				
