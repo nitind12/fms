@@ -4,11 +4,11 @@
 				<li><a href="#">
 					<em class="fa fa-home"></em>Home
 				</a></li>
-				<li class="active">Total Students</li>
+				<li class="active">Total Classes</li>
 			</ol>
 			
 		</div><!--/.row-->
-		<div id="ttlstdnts" style="clear: both"></div>
+		<div id="ttlclsses" style="clear: both"></div>
 		
 		
 				
