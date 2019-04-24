@@ -41,4 +41,16 @@ class flexmodel extends CI_Model {
 
 	return $bool_;
 	}
+
+function getflexibleheads(){
+		$this->db->select('flexible_head_ID,fee_Head,usename,amount,date');
+
+		$query=$this->db->get('fee_flexible_head');
+		return $query->result();
+
+
+		$query= $this->db->get('fee_flexible_head');
+		return $query->result();
+
+	}
 }

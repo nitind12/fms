@@ -26,7 +26,7 @@
 				</div>
 				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
 					<div class="panel panel-blue panel-widget border-right" style="background-color:yellow;margin-bottom:-23px;margin-top:-18px;">
-						<div class="row no-padding"><i class="fa fa-comments fa-3x"></i>
+						<div class="row no-padding"><i class="fa fa-pencil fa-3x"></i>
 							<div class="large">12</div>
 							<div class="text-muted"><h4>Comments</h4></div>
 						</div>
