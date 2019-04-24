@@ -41,9 +41,12 @@ class Fee_receipt_model extends CI_Model {
 		return $query->result();
 	}
 	function getfee(){
-		$this->db->from('fee_invoice a');
-		$this->db->join('fee_flexible_head b','a.flexible_head_ID=b.flexible_head_ID');
-		$query = $this->db->get();
+		$this->db->select('student_ID,invoice_ID,static_head_ID,flexible_head_ID,static_head_Amount,flexible_head_Amount,due_Amount');
+		$query=$this->db->get('fee_invoice');
+		
+		//$this->db->from('fee_invoice a');
+		//$this->db->join('fee_flexible_head b','a.flexible_head_ID=b.flexible_head_ID');
+		//$query = $this->db->get();
 		//echo $this->db->last_query(); die();
 		return $query->result();
 	}
@@ -94,5 +97,13 @@ class Fee_receipt_model extends CI_Model {
 		//echo $this->db->last_query(); die();
 		return $query->row();
 	}
-
+	/*function getstudentdiscountInvoice($invid, $stdid){
+		$this->db->from('discount_details a');
+		$this->db->join(' fee_invoice b','a.discount_ID=b.discount_ID');
+		$this->db->where('b.student_ID', $stdid);
+		$this->db->where('b.invoice_ID', $invid);
+		$query = $this->db->get();
+		//echo $this->db->last_query(); die();
+		return $query->row();
+	}*/
 }
