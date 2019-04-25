@@ -40,9 +40,10 @@ $(function(){
 				//alert(data);
 				var obj = JSON.parse(data);
 				var str = '';
-				str = str + '<table>';
+				str = str + '<table class="table table-bordered">';
 				for(i=0; i<obj.csess.length; i++){
 					str = str + "<tr>";
+					str= str + '<td><input type="radio" name="clss"></td>';
 					str = str + "<td>" + obj.csess[i]['course'] + ' ' + obj.csess[i]['sem'] + ' ' + obj.csess[i]['section'] + "</td>";
 					
 					str = str + "</tr>";

@@ -29,5 +29,8 @@ function __construct(){
 		redirect('flexihead_students');
 	}
 
-	
+	function delete_record(){
+		$data = $this->fm->deletion();
+		redirect('flexihead_students');
+	}
 }

@@ -31,7 +31,7 @@ $(function(){
 					str = str + '<td>';
 				//	str = str + '<i class= "icon-pencil"></i>';
 					str = str + '<span class=" fa fa-pencil print"></span></a>';
-					str = str + "/" +'<span class="fa fa-remove"></span></a>';
+					str = str + "/" +'<span class="fa fa-remove del"></span></a>';
 					str = str +  '</td>';
 					str = str + "</tr>";
 				}
@@ -210,3 +210,19 @@ $('body').on('click','.print',function(){
 		});
 		    return false;
 	});
+
+$('body').on('click','.del',function(){
+	var url_ = site_url_ + "/flexihead_students/getflexihead/" ;
+		
+			$.ajax({
+			type: "GET",
+			url: url_,
+		//	data:data_,
+			success: function(data){
+				alert("hi");
+				var obj = JSON.parse(data);
+				var str = '';
+				
+			}
+		});
+		});

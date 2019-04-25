@@ -26,6 +26,12 @@ class studentregi extends CI_Controller {
 		echo json_encode($data);
 	}
 
+	function getStudents($crsid=''){
+		$this->load->model('student_model', 'stm');
+		$data['stud'] = $this->stm->getStudentsCoursewise($crsid);
+		echo json_encode($data);
+	}
+
 
 function insert_record(){
 		$data = $this->stm->submission();

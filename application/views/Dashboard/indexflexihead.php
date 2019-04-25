@@ -10,7 +10,7 @@
 		<div class="panel-heading">Flexible Heads</div>
 		<div class="panel-body">
 			<form role="form" name="frmSession" method="post" action="<?php echo site_url('flexiblehead/insert_record');?>">
-								<!--student details-->
+								
 								
 								<div class="col-md-3">
 									<div class="form-group">
@@ -32,6 +32,8 @@
 									<label><em class="fa fa-money">&nbsp</em>Amount</label>
 									<input class="form-control" name="txtamnt">
 								</div></div>
+
+
 							<div class="col-sm-12">
 									<button type="submit" class="btn btn-primary">Submit</button>
 									<button type="reset" class="btn btn-default">Reset</button>

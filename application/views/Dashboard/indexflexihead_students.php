@@ -15,9 +15,10 @@
 				<li class="active"><a data-toggle="tab" href="#mfhead">Manage Flexible Heads</a></li>
 				<li><a data-toggle="tab" href="#afhead">Associate Flexible Heads</a></li>
 				</ul>
-			
-				<div id="mfhead" class="tab-pane fade active in">
-								<div class="panel-heading">Add Flexible Heads<em class="caret"></em></div>
+	       <div class="tab-content">		
+				<div id="mfhead" class="tab-pane fade in active">
+
+								<div class="panel-heading">Add Flexible Heads</div>
 								<div class="panel-body ">
 								<!--student details-->
                         <form class="form form-vertical" name="frm" action="<?php echo site_url('flexihead_students/insert_record');?>" method="post" id="frm">
@@ -42,15 +43,8 @@
 											<option>As Per Selected Months</option>
 										</select><br>
 									</div>
-
-                    
-								
-								
-							
-							<div class="col-sm-12">
-									<button type="submit" class="btn btn-success">Add</button>
-                  
-								
+              		<div class="col-sm-12">
+									<button type="submit" class="btn btn-success">Add</button>		
 							</div>
 
 							<div class="form-group">
@@ -67,8 +61,8 @@
             <div class="widget-content nopadding">
                 <div class="">View Flexible Head<em class="caret"></em></div>
                 <table>
-                  <tr><th><div style="clear: both;" id= "printheres"></div></th>
-                      <th> <div style="clear: both;" id= "printheres1"></div></th>
+                  <tr><th><div class="myscroll" style="clear: both;" id= "printheres"></div></th>
+                      <th> <div class="myscroll" style="clear: both;" id= "printheres1"></div></th>
                     </tr>
                   </table>
                 <div id="flexi"></div>
@@ -79,7 +73,8 @@
 
 
     
-    <div id="afhead" class="tab-pane fade active-in active-in ">
+    <div id="afhead" class="tab-pane fade">
+
              <div class="panel-heading"> <h3>Flexible Heads</h3></div>
             <table class="table table-bordered with-check" >
              <tr>
@@ -88,7 +83,7 @@
                        <tr>
                           <th style="text-align: left">Select Flexible Head</th>
                        </tr>
-                          <th> <div id="afh" style="clear: both; overflow: hidden;";></div></th>
+                          <th> <div class="myscroll" id="afh" style="clear: both; overflow: hidden;";></div></th>
                           </tr>
                    </table>
                </th>
@@ -97,7 +92,7 @@
                      <tr>
                          <th style="text-align: left">Classes in Session 2018-19</th>
                       </tr>
-                        <th> <div id="csk" style="clear: both";></div></th>
+                        <th> <div class="myscroll" id="csk" style="clear: both";></div></th>
 
                       </tr>
                     </table>
@@ -133,7 +128,7 @@
                    <th style="text-align: left">Select Class</th>
                </tr>
                <tr>
-                   <th><div id="prhrt" style="clear: both"></div></th>
+                   <th><div class="myscroll" id="prhrt" style="clear: both"></div></th>
               </tr>
             
               </table>
@@ -157,7 +152,7 @@
               <th>Student with there Flexible Heads</th>  
             </tr>
             <tr>
-                       <th>   <div id="rgn" style="clear:both"></div></th>
+                       <th>   <div class="myscroll" id="rgn" style="clear:both"></div></th>
             </tr>
           </table>
         </th>
@@ -165,6 +160,7 @@
       </table>
 
           </div>
+        </div>
 
        <div class="col-sm-12">
 				<p class="back-link">BCA final Year Project by <a href="#">FMS team</a></p>

@@ -41,8 +41,12 @@ class class_model extends CI_Model {
 	}
 		
 		function getclasses(){
-			$this->db->select('course,sem,section');
+			$this->db->distinct('course');
+			$this->db->select('b.course_ID, a.course,a.sem,a.section');
+			$this->db->from('class a');
+			$this->db->join('course_details b', 'a.course=b.course');
 			$query= $this->db->get('class');
+
 			return $query->result();
 		}
 		function getCourse(){
