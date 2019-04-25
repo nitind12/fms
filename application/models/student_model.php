@@ -204,6 +204,15 @@ class student_model extends CI_Model {
 			return $query->result();
 		}
 	}
+
+	function getStudentsCoursewise($crsid){
+		$this->db->where('course_ID', $crsid);
+		$this->db->from('student_details a');
+		$this->db->join('student_academic_details b', 'a.student_ID=b.student_ID');
+
+		$query=$this->db->get();
+		return $query->result();
+	}
 	function getCourse(){
 		$this->db->select('course_ID, course');
 		$query = $this->db->get('course_details');
