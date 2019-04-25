@@ -70,14 +70,23 @@
 				 Reports<span class="caret" data-toggle="collapse" href="#reports" class="icon pull-right"></span>
 				</a>
 				<ul class="children collapse" id="reports">
-					<li><a class="" href="dreports">
-						<span class="fa fa-arrow-right">&nbsp;</span> Daily Reports
+					<li><a class="" href="#">
+						<span class="fa fa-arrow-right">&nbsp;</span> <small>Today's Payments</small>
 					</a></li>
-					<li><a class="" href="breports">
-						<span class="fa fa-arrow-right">&nbsp;</span> Balance Reports
+					<li><a class="" href="#">
+						<span class="fa fa-arrow-right">&nbsp;</span> <small>Total Payments</small>
 					</a></li>
-					<li><a class="" href="reports">
-						<span class="fa fa-arrow-right">&nbsp;</span> Delete Fees Backup
+					<li><a class="" href="#">
+						<span class="fa fa-arrow-right">&nbsp;</span><small> All invoices Class wise</small>
+					</a></li>
+					<li><a class="" href="#">
+						<span class="fa fa-arrow-right">&nbsp;</span> <small> All Students class Wise</small>
+					</a></li>
+					<li><a class="" href="#">
+						<span class="fa fa-arrow-right">&nbsp;</span>	<small> All Classes Session wise</small>
+					</a></li>
+					<li><a class="" href="#">
+						<span class="fa fa-arrow-right">&nbsp;</span> <small>Total Dues this Month</small>
 					</a></li>
 				</ul>
 			</li>
