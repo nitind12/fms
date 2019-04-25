@@ -1,21 +1,22 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class flexmodel extends CI_Model {
+class static_model extends CI_Model {
 	function __construct(){
 		parent::__construct();
 	}
 
 	function submission(){
-		$fhead_ = $this->input->post('txtfhead');
-		$usrnme_ = $this->input->post('txtuser');
+		$shead_ = $this->input->post('txtshead');
+		$usrnme_ = $this->input->post('txtusr');
 		$dte_ = $this->input->post('txtdte');
 		$amnt_ = $this->input->post('txtamnt');
+		$dbap_ = $this->input->post('txtdap');
 
-		$fid=$this->db->insert_id();
+		$sid=$this->db->insert_id();
 
-		$this->db->where('flexible_head_ID', $fid);
-		$query = $this->db->get('fee_flexible_head');
+		$this->db->where('static_head_ID', $sid);
+		$query = $this->db->get('fee_static_head');
 
 		if($query->num_rows()!=0){
 			$bool_ = array(
@@ -25,13 +26,14 @@ class flexmodel extends CI_Model {
 		} else {
 
 			$data = array(
-				'fee_Head' => $fhead_,
+				'fee_Head' => $shead_,
 				'amount' => $amnt_,
 				'username' => $usrnme_,
 				'date' => $dte_,
+				'discount_Applicable' => $dbap_,
 
 			);
-			$this->db->insert('fee_flexible_head', $data);
+			$this->db->insert('fee_static_head', $data);
 
 			$bool_ = array(
 				'res' => true,
@@ -42,15 +44,16 @@ class flexmodel extends CI_Model {
 	return $bool_;
 	}
 
-function getflexibleheads(){
-		$this->db->select('flexible_head_ID,fee_Head,usename,amount,date');
+function getstaticheads(){
+		$this->db->select('fee_Head,username,amount,date,discount_Applicable');
 
-		$query=$this->db->get('fee_flexible_head');
+		$query=$this->db->get('fee_static_head');
 		return $query->result();
 
 
-		$query= $this->db->get('fee_flexible_head');
+		$query= $this->db->get('fee_static_head');
 		return $query->result();
 
 	}
 }
+

@@ -25,8 +25,8 @@
 					</div></a>
 				</div>
 				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
-					<div class="panel panel-blue panel-widget border-right" style="background-color:yellow;margin-bottom:-23px;margin-top:-18px;">
 						<a href="totalclasses">
+					<div class="panel panel-teal panel-widget border-right" style="background-color:lime;margin-top:-18px;margin-left:17px;margin-bottom:-22px;">
 						<div class="row no-padding"><i class="fa fa-university fa-3x"></i>
 							<div class="large">12</div>
 							<div class="text-muted"><h4>Classes</h4></div>

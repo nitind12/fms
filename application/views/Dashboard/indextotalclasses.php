@@ -8,12 +8,38 @@
 			</ol>
 			
 		</div><!--/.row-->
-		<div id="ttlclsses" style="clear: both"></div>
-		
-		
+		<div >
+			<table  class="table table-bordered table-striped">
+				<tr>
+					<th>
+						
+						<table  class="table table-bordered">
+						<tr>
+							<th>Classes </th>
+						</tr>
+						<tr>
+							<td><div  id="ttlclss" style="clear:both;"></div></td>
+						</tr>
+					</table>
+			
+				</th>
 				
-								
-		
+				<th>
+					<table class="table table-bordered">
+						<tr>
+							<th>Student(s) in class</th>
+						</tr>
+						<tr>
+							<td><div id="tlstd" class="myscroll"></div></td>
+						</tr>
+					</table>
+				</th>
+				<th></th>
+			</tr>
+
+		</table>
+				</div>
+
 			
 			<div class="col-sm-12">
 				<p class="back-link">BCA final Year Project by <a href="#">FMS team</a></p>
