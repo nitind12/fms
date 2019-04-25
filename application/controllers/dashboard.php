@@ -11,10 +11,14 @@ class Dashboard extends CI_Controller {
 	}
 	public function index()
 	{
+		
+		$this->load->model('My_model', 'mm');
+		$data['number'] = $this->mm->totalStudents();
+		
 		$this->load->view('templates/header');
 		$this->load->view('templates/navheader');
 		$this->load->view('templates/sidebar');
-		$this->load->view('Dashboard/indexdash');
+		$this->load->view('Dashboard/indexdash',$data);
 		$this->load->view('templates/footer');
 	}
 }

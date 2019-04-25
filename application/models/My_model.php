@@ -45,6 +45,7 @@ class My_model extends CI_Model {
 		$this->db->select('COUNT(student_ID) AS TOTAL_');
 		$query = $this->db->get('student_details');
 		return $query->row();
+		
 	}
 	
 }
