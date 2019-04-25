@@ -61,8 +61,8 @@
             <div class="widget-content nopadding">
                 <div class="">View Flexible Head<em class="caret"></em></div>
                 <table>
-                  <tr><th><div style="clear: both;" id= "printheres"></div></th>
-                      <th> <div style="clear: both;" id= "printheres1"></div></th>
+                  <tr><th><div class="myscroll" style="clear: both;" id= "printheres"></div></th>
+                      <th> <div class="myscroll" style="clear: both;" id= "printheres1"></div></th>
                     </tr>
                   </table>
                 <div id="flexi"></div>
@@ -83,7 +83,7 @@
                        <tr>
                           <th style="text-align: left">Select Flexible Head</th>
                        </tr>
-                          <th> <div id="afh" style="clear: both; overflow: hidden;";></div></th>
+                          <th> <div class="myscroll" id="afh" style="clear: both; overflow: hidden;";></div></th>
                           </tr>
                    </table>
                </th>
@@ -92,7 +92,7 @@
                      <tr>
                          <th style="text-align: left">Classes in Session 2018-19</th>
                       </tr>
-                        <th> <div id="csk" style="clear: both";></div></th>
+                        <th> <div class="myscroll" id="csk" style="clear: both";></div></th>
 
                       </tr>
                     </table>
@@ -128,7 +128,7 @@
                    <th style="text-align: left">Select Class</th>
                </tr>
                <tr>
-                   <th><div id="prhrt" style="clear: both"></div></th>
+                   <th><div class="myscroll" id="prhrt" style="clear: both"></div></th>
               </tr>
             
               </table>
@@ -152,7 +152,7 @@
               <th>Student with there Flexible Heads</th>  
             </tr>
             <tr>
-                       <th>   <div id="rgn" style="clear:both"></div></th>
+                       <th>   <div class="myscroll" id="rgn" style="clear:both"></div></th>
             </tr>
           </table>
         </th>
