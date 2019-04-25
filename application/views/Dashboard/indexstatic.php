@@ -10,39 +10,47 @@
 		<div class="panel-heading">Static Heads</div>
 		<div class="panel-body">
 			
-			<form role="form" name="frmSession" method="post" action="<?php echo site_url('fms/submitstudentdetails');?>">
-								<!--student details-->
-								<div class="col-md-3">
-									<div class="form-group">
-									<label><em class="fa fa-key">&nbsp</em>Static Head Id
-									<input class="form-control"  name="txtstdid">
-								</div></div>
+			<form role="form" name="frmSession" method="post" action="<?php echo site_url('statichead/insert_record');?>">
+						
 								<div class="col-md-3">
 									<div class="form-group">
 									<label><em class="fa fa-book">&nbsp</em>Fee Head
-									<input class="form-control" name="txtfrstnme">
+									<input class="form-control" name="txtshead">
 								</div></div>
 								<div class="col-md-3">
 									<div class="form-group">
 									<label><em class="fa fa-user">&nbsp</em>Username</label>
-									<input class="form-control" name="txtlstnme">
+									<input class="form-control" name="txtusr">
 								</div></div>
 								<div class="form-group col-md-3">
-									<label>Date</label>
+									<label><em class="fa fa-calendar">&nbsp</em>Date</label>
 									<input class="form-control" type="date" name="txtdte">
 								</div>
 								
 								<div class="col-md-3">
 									<div class="form-group">
 									<label><em class="fa fa-money">&nbsp</em>Amount</label>
-									<input class="form-control" name="txtlstnme">
+									<input class="form-control" name="txtamnt">
 								</div></div>
 
-							</form>
-							<form class="col-sm-12">
+								<div class="form-group col-sm-3">
+										<label><em class="fa fa-credit-card">&nbsp</em>Discount Applicable</label>
+										<select class="form-control" name="txtdap">
+											<option>No</option>
+											<option>Yes</option>	
+										</select>
+								</div>
+
+							<div class="col-sm-12">
 									<button type="submit" class="btn btn-primary">Submit</button>
 									<button type="reset" class="btn btn-default">Reset</button>
 								</div>
+
+								<div class="form-group">
+									<div class="col-md-12 widget-left" id="msghere" style="font-size: 10px; color: #ff0000">
+									<br><br>	<?php echo $this->session->flashdata('msg_'); ?>
+									</div>
+								</div>	
 							</form>
 
 
