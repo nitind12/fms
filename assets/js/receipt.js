@@ -207,6 +207,11 @@ $(function(){
 		$("#receipt_label").html(":Rs. " + totalAmt);
 	});
 
+	$('body').on('click','#submit_print', function(){
+		alert("Fee submitted");
+
+	});
+
 
 
 $('body').on('click','.printreceipt',function(){
