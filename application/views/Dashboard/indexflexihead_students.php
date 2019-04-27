@@ -61,8 +61,8 @@
             <div class="widget-content nopadding">
                 <div class="">View Flexible Head<em class="caret"></em></div>
                 <table>
-                  <tr><th><div class="myscroll" style="clear: both;" id= "printheres"></div></th>
-                      <th> <div class="myscroll" style="clear: both;" id= "printheres1"></div></th>
+                  <tr><th><div style="clear: both;" id= "printheres"></div></th>
+                      <th> <div style="clear: both;" id= "printheres1"></div> <div style="clear: both;" id= "ptrn"></div>  </th>
                     </tr>
                   </table>
                 <div id="flexi"></div>
@@ -128,7 +128,7 @@
                    <th style="text-align: left">Select Class</th>
                </tr>
                <tr>
-                   <th><div class="myscroll" id="prhrt" style="clear: both"></div></th>
+                   <th><div  id="prhrt" style="clear: both"></div></th>
               </tr>
             
               </table>
@@ -138,17 +138,12 @@
              <tr>
              <th>  Associated Heads for the Selected Class</th>
             </tr>
-             <tr>
-                 <th></th>
-              </tr>
-             </table>
-           </th>
+            <tr>
+              <th><br><br></th>
+            </tr>
 
-          <th>
-      
-
-             <table class="table table-striped with-check" >
-             <tr colspan="3">
+           <tr>
+             
               <th>Student with there Flexible Heads</th>  
             </tr>
             <tr>

@@ -219,10 +219,14 @@ $('body').on('click','.del',function(){
 			url: url_,
 		//	data:data_,
 			success: function(data){
-				alert("hi");
+				
 				var obj = JSON.parse(data);
 				var str = '';
-				
+				str = str + '<form action="http://localhost/fms/index.php/flexihead_students/delete_record" method="post">';
+				str = str + '<input class="btn btn-danger" type="submit" value="delete">';
+				str = str + '<input class="btn btn-success" type="cancel" value="cancel">';
+				str = str + '</form>';
+				$('#ptrn').html(str);
 			}
 		});
 		});
