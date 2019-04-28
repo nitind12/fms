@@ -143,20 +143,23 @@ $(function(){
 				str = str + '</td>';
 				str = str + '</tr>';
 
+				
 				str = str + '<tr>';
 				str = str + '<td style="font-size: 13px; color: #0000ff; padding:8px 0px 0px 8px">Payment Mode </td>';
 				str = str + '<td>';
-			    str = str + '<select name="cmbPaymentMode" id="cmbPaymentMode" style="color: #0000ff; font-size: 13px; width: 100px">';
-			    str= str + '<option value="cash">Cash</option><option><div class="pagination"><a data-toggle="tab" href="#chno">Cheque</a></div></option><option value="DD">Demand Draft</option></select>';
-			    str = str + '<br>';
-			    str = str + '<div class="tab-content">';
-			    str = str + '<div id ="chno" class="tab-pane fade">';
+			    str = str + '<select name="PaymentMode" id="PaymentMode" style="color: #0000ff; font-size: 13px; width: 100px">';
+			    str= str + '<option value="cash" >Cash</option><option value="cheque">Cheque</option><option value="DD">Demand Draft</option></select>';
+			    
 
-			    str = str + '<label>Cheque no</label';
-			  	str = str + '<input type="text" style="width: 75px; padding: 0px" name="txtCCDDNumber" id="txtCCDDNumber">';
-			    str = str + '<label>Cheque Date</label';
-			  	str = str + '<input type="text" style="width: 75px; padding: 0px" name="txtCCDDNumber" id="txtCCDDNumber">';
+			    str = str + '<div class="tab-pane" id="chno" style="display: block">';
+			    str = str + '<div style:left">';
+			    str = str + '<label>Cheque no</label>';
+			  	str = str + '<input type="text" value="x" style="width: 75px; padding: 0px" name="txtnum" id="txtnum"';
 			  	str = str + '</div>';
+			  	str = str + '<div style:right">';
+			    str = str + '<label>Cheque Date</label>';
+			  	str = str + '<input type="text" value="x" style="width: 75px; padding: 0px" name="txtnum" id="txtnum">';
+			  	str = str + '</div>'; 
 			  	str = str + '</div>';
 				str = str + '</tr>';
 				str = str + '</tbody>';
@@ -177,7 +180,7 @@ $(function(){
 				str = str + '<td colspan="2" style="font-size: 10px"><sup>*</sup>Fee Heads: , ADMISSION</td>';
 				str = str + '</tr>';
 				str = str + '<tr>';
-				str = str + '<td colspan="2"><div class="col-sm-5" style="visibility:visible;font-size: 10px; text-align: right" id="submit_print"><input type="button" value="Submit Fee" class="btn btn-primary" id="cmbReceiptButton"></div>';
+				str = str + '<td colspan="2"><div class="col-sm-5" style="visibility:visible;font-size: 10px; text-align: right" id="submit_print"><input type="button" value="Submit Fee" class="btn btn-primary" id="'+obj.students[s]['student_ID']+"_"+id+'" id="cmbReceiptButton"></div>';
 				str = str + '</td>';
 				str = str + '</tr>';
 				str = str + '</tbody>';
@@ -195,8 +198,8 @@ $(function(){
 				$('#invoicedatahere').html(str);
 			
 			}
+		});
 	});
-});
 	$('body').on('click','#update_total', function(){
 		tfine=$("#fine").val();
 		totalDue= $("#due_amnt_input").val();
@@ -205,6 +208,11 @@ $(function(){
 		totalAmt=parseInt(totalDue)+parseInt(tfine) - parseInt(discount);
 		
 		$("#receipt_label").html(":Rs. " + totalAmt);
+	});
+
+	$('body').on('click','#paymentMode',function(){
+		alert('hello')
+		$('#chno').css('display', 'block');
 	});
 
 
@@ -566,5 +574,28 @@ $('body').on('click','.printreceipt',function(){
 			}
 		});
 	});
-});
-				
+$('body').on('click','.btn-primary',function(){
+	 
+			//alert(this.id);
+			var str = this.id;
+			var url_ = site_url_ + "/receipt/generateReceipt/"+str;
+			var data_ = $('#frmInvoice').serialize();
+			
+		$.ajax
+		({
+			type: "GET",
+			url: url_,
+			data: data_,
+			success: function(data)
+			{
+				alert(data);
+				//$('#invoicedatahere').html(data)
+				var obj = JSON.parse(data);
+			},
+			error: function(xhr, status, error){
+				alert(xhr.responseText);
+			}
+		});
+		
+	});
+});				
