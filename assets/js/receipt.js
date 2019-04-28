@@ -1,4 +1,3 @@
-$(function(){
 	$('body').on('click','.payhere',function(){
  
 		
@@ -213,6 +212,9 @@ $(function(){
 	$('body').on('click','#paymentMode',function(){
 		alert('hello')
 		$('#chno').css('display', 'block');
+	$('body').on('click','#submit_print', function(){
+		alert("Fee submitted");
+
 	});
 
 
