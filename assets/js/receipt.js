@@ -264,7 +264,7 @@ $('body').on('click','.printreceipt',function(){
 				str =str  + '</td>';
 
 
-				str = str + '</tr>';
+				/*str = str + '</tr>';
 				str = str + '<tr>';
 				str = str + '<td>';
 				str = str + '<table border="0" cellpadding="0" cellspacing="0" class="table_" style="border:#009900 solid 0px">';
@@ -289,7 +289,7 @@ $('body').on('click','.printreceipt',function(){
 				str = str + '</td>';
 				str = str + '</tr>';
 
-				str = str + '<tr>';
+				/*str = str + '<tr>';
 				str = str + '<td class="myline_" colspan="4">';
 				str = str + '</td>';
 				str = str + '</tr>';
@@ -564,7 +564,7 @@ $('body').on('click','.printreceipt',function(){
 				str = str + '</tbody>';
 				str = str + '</table>';
 				str = str + '</td>';
-				str = str + '</tr>';
+				str = str + '</tr>';*/
 				
 
 
