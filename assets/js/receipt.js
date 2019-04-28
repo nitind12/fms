@@ -179,7 +179,7 @@
 				str = str + '<td colspan="2" style="font-size: 10px"><sup>*</sup>Fee Heads: , ADMISSION</td>';
 				str = str + '</tr>';
 				str = str + '<tr>';
-				str = str + '<td colspan="2"><div class="col-sm-5" style="visibility:visible;font-size: 10px; text-align: right" id="submit_print"><input type="button" value="Submit Fee" class="btn btn-primary" id="'+obj.students[s]['student_ID']+"_"+id+'" id="cmbReceiptButton"></div>';
+				str = str + '<td colspan="2"><div class="col-sm-5" style="visibility:visible;font-size: 10px; text-align: right" id="submit_print"><input type="button" value="Submit Fee" class="btn btn-primary"  id="cmbReceiptButton"></div>';
 				str = str + '</td>';
 				str = str + '</tr>';
 				str = str + '</tbody>';
@@ -212,9 +212,7 @@
 	$('body').on('click','#paymentMode',function(){
 		alert('hello')
 		$('#chno').css('display', 'block');
-	$('body').on('click','#submit_print', function(){
-		alert("Fee submitted");
-
+	
 	});
 
 
@@ -576,28 +574,3 @@ $('body').on('click','.printreceipt',function(){
 			}
 		});
 	});
-$('body').on('click','.btn-primary',function(){
-	 
-			//alert(this.id);
-			var str = this.id;
-			var url_ = site_url_ + "/receipt/generateReceipt/"+str;
-			var data_ = $('#frmInvoice').serialize();
-			
-		$.ajax
-		({
-			type: "GET",
-			url: url_,
-			data: data_,
-			success: function(data)
-			{
-				alert(data);
-				//$('#invoicedatahere').html(data)
-				var obj = JSON.parse(data);
-			},
-			error: function(xhr, status, error){
-				alert(xhr.responseText);
-			}
-		});
-		
-	});
-});				
