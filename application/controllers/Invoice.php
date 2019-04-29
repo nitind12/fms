@@ -6,6 +6,9 @@ class Invoice extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 	$this->load->model('fee_invoice_model', 'fim');
+		if(! $this->session->userdata('user_')){
+			redirect('login');
+		}
 	}
 
 	function generateInvoice($sid){

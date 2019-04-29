@@ -6,6 +6,9 @@ class totalclasses extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->model('student_model','stm');
+			if(! $this->session->userdata('user_')){
+			redirect('login');
+		}
 	}
 	public function index()
 	{

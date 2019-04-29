@@ -5,6 +5,9 @@ class dropstudent extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->model('drop_student_model', 'dm');
+			if(! $this->session->userdata('user_')){
+			redirect('login');
+		}
 	}
 
 

@@ -6,6 +6,9 @@ class sessions extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->model('session_model', 'sm');
+			if(! $this->session->userdata('user_')){
+			redirect('login');
+		}
 	}
 	public function index()
 	{
