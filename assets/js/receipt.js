@@ -15,7 +15,7 @@
 				//$('#invoicedatahere').html(data)
 				var obj = JSON.parse(data);
 				var str = '';
-				str = str + '<form name="frm" action="http://localhost/fms/index.php//insert_record" method="post">';
+				str = str + '<form name="frm" id="frmSubmtInvoice">';
 				str = str + '<table  align ="center" style="width: 800px; font-size: 13px; font-family: verdana; border:#808080 solid 1px; background: #ffffff" class="table print_me">';
 				str = str + '<tbody>'
 				str = str + '<tr height="100">';
@@ -37,6 +37,8 @@
 				str = str + '<tr>';
 				str = str + '<td width="100">Reg. No. </td>';
 				str = str + '<td>'+obj.students['student_ID']+'</td>';
+				str = str + '<input type="hidden" id="_student_'+obj.students['student_ID']+'" name="stdid_" value="'+obj.students['student_ID']+'">';
+				str = str + '<input type="hidden" id="_invoice_'+obj.students['invoice_ID']+'"" name="invoiceid_" value="'+obj.students['invoice_ID']+'">';
 				str = str + '</tr>';
 				str = str + '<tr>';
 				str = str + '<td>Name:</td>'
@@ -103,7 +105,7 @@
 				str = str + '<tr>';
 				str = str + '<td style="color: #909000">Discount? <span style="float: right; padding: 8px 0px; font-size: 11px" class="fa fa-minus"></span><div style="float: left; font-size: 8px; color: #0000ff; clear: both"></div>';
 				str = str + '</td>';
-				discount_Amount=obj.discount['discount_Amount'];
+				//discount_Amount=obj.discount['discount_Amount'];
 				str = str + '<td>'
 				str = str + '<label class="receipt_label">: Rs.</label><span class="receipt_content">' +discount_Amount+'/-</td>';
 				str = str + '<input type="hidden" id="_discount_" name="_discount_" value="'+discount_Amount+'" style="width: 100px; padding: 0px; background: #f0f000; border:#000000 solid 0px">';
@@ -153,11 +155,11 @@
 			    str = str + '<div class="tab-pane" id="chno" style="display: block">';
 			    str = str + '<div style:left">';
 			    str = str + '<label>Cheque no</label>';
-			  	str = str + '<input type="text" value="x" style="width: 75px; padding: 0px" name="txtnum" id="txtnum"';
+			  	str = str + '<input type="text"  style="width: 75px; padding: 0px" name="txtno" id="txtnum"';
 			  	str = str + '</div>';
 			  	str = str + '<div style:right">';
 			    str = str + '<label>Cheque Date</label>';
-			  	str = str + '<input type="text" value="x" style="width: 75px; padding: 0px" name="txtnum" id="txtnum">';
+			  	str = str + '<input type="text"  style="width: 75px; padding: 0px" name="txtdate" id="txtnum">';
 			  	str = str + '</div>'; 
 			  	str = str + '</div>';
 				str = str + '</tr>';
@@ -179,7 +181,10 @@
 				str = str + '<td colspan="2" style="font-size: 10px"><sup>*</sup>Fee Heads: , ADMISSION</td>';
 				str = str + '</tr>';
 				str = str + '<tr>';
-				str = str + '<td colspan="2"><div class="col-sm-5" style="visibility:visible;font-size: 10px; text-align: right" id="submit_print"><input type="button" value="Submit Fee" class="btn btn-primary"  id="cmbReceiptButton"></div>';
+				str = str + '<td colspan="2"><div class="col-sm-5" style="visibility:visible;font-size: 10px; text-align: right" ><input type="button"  value="Submit Fee" id="invoice_submit" class="btn btn-primary submit_button"></</div>';
+				str = str + '<div class="col-sm-12 hide_button style="margin-top: 10px">';
+	            str = str + '<button class="btn btn-danger print_button id="print_submit" onclick="window.print();">Print</button>';
+	     	   	str = str + '</div>';
 				str = str + '</td>';
 				str = str + '</tr>';
 				str = str + '</tbody>';
@@ -214,6 +219,39 @@
 		$('#chno').css('display', 'block');
 	
 	});
+	$('body').on('click','#print_submit',function(){
+
+		$('#print_submit').hide();
+	
+	});
+	$('body').on('click','#invoice_submit',function(){
+	 
+			var url_ = site_url_ + "/receipt/generatereceipt/";
+			var data_ = $('#frmSubmtInvoice').serialize();
+			alert(data_);	
+		$.ajax
+		({
+			type: "POST",
+			url: url_,
+			data: data_,
+			success: function(data)
+			{
+				//$('#invoicedatahere').html(data)
+				var obj = JSON.parse(data);
+				if(obj.resultant['res'] == true){
+					$('#invoice_submit').removeClass('submit_button');
+					$('#print_submit').addClass('print_button');
+			}
+			/*error: function(xhr, status, error){
+				alert(xhr.responseText);
+			}*/
+		}
+		});
+	});
+		
+	
+
+
 
 
 
@@ -264,7 +302,7 @@ $('body').on('click','.printreceipt',function(){
 				str =str  + '</td>';
 
 
-				str = str + '</tr>';
+				/*str = str + '</tr>';
 				str = str + '<tr>';
 				str = str + '<td>';
 				str = str + '<table border="0" cellpadding="0" cellspacing="0" class="table_" style="border:#009900 solid 0px">';
@@ -289,9 +327,9 @@ $('body').on('click','.printreceipt',function(){
 				str = str + '</tbody>';
 				str = str + '</table>';
 				str = str + '</td>';
-				/*str = str + '</tr>';
+				str = str + '</tr>';
 
-				/*str = str + '<tr>';
+				str = str + '<tr>';
 				str = str + '<td class="myline_" colspan="4">';
 				str = str + '</td>';
 				str = str + '</tr>';
@@ -305,26 +343,31 @@ $('body').on('click','.printreceipt',function(){
 				str = str + '<tbody>';
 				str = str + '<tr>';
 				str = str + '<td class="label_" width="100">Reg. no.</td>';
-				str = str + '<td>'+obj.students['student_ID']+ '</td>';
+				str = str + '<td>';
+				str = str + '</td>';
 				str = str + '</tr>';
 				str = str + '<tr>';
 				str = str + '<td class="label_">Name</td>';
-				str = str + '<td>'+obj.students['first_Name']+' '+obj.students['last_Name']+'</td>';
+				str = str + '<td>';
+				str =str +  '</td>';
 				
 				str = str + '</tr>';
 
 
 				str = str + '<tr>';
 				str = str + '<td class="label_">Father</td>';
-				str = str + '<td>'+obj.students['fathers_Name']+'</td>';
+				str = str + '<td>';
+				str = str + '</td>';
 				str = str + '</tr>';
 				str = str + '<tr>';
 				str = str + '<td class="label_">Class</td>';
-				str = str + '<td>'+obj.students['class_sess_ID']+'</td>';
+				str = str + '<td>';
+				str = str + '</td>';
 				str = str + '</tr>';
 				str = str + '<tr>';
 				str = str + '<td class="label_">Invoice No.</td>';
-				str = str + '<td>'+obj.students['invoice_ID']+'</td>';
+				str = str + '<td>';
+				str = str + '</td>';
 				str = str + '</tr>';
 				str = str + '</tbody>';
 				str = str + '</table>';
@@ -336,7 +379,8 @@ $('body').on('click','.printreceipt',function(){
 				str = str + '<tbody>';
 				str = str + '<tr valign="top">';
 				str = str + '<td class="label_" width="130">Submission Date</td>';
-				str = str + '<td>'+obj.discount['date']+'</td>';
+				str = str + '<td>';
+				str = str + '</td>';
 				str = str + '</tr>';
 				str = str + '<tr valign="top">';
 				str = str + '<td class="label_" width="130">Heads</td>';
@@ -344,7 +388,8 @@ $('body').on('click','.printreceipt',function(){
 				str = str + '</tr>';
 				str = str + '<tr valign="top">';
 				str = str + '<td class="label_">Mode </td>'; 
-				str = str +	'<td>'+obj.discount['fee_Mode']+'</td>';
+				str = str +	'<td>';
+				str = str + '</td>';
 				str = str + '<td class="content"></td>';
 				str = str + '</tr>';
 				
@@ -444,10 +489,11 @@ $('body').on('click','.printreceipt',function(){
 				str = str + '<tbody>';
 				str = str + '<tr>';
 				str = str + '<td align="left" class="space_td">Receipt No.:</td>';
-				str = str + '<td>'+ obj.discount['receipt_ID']+'</td>';
+				str = str + '<td>';
+				str = str = '</td>';
 				str = str + '<td align="center" style="width: 500px;padding: 0px 0px 0px 8px; vertical-align: middle" class="space_td"><div style="width:150px; background: #f0f0f0; border-radius: 5px">Student Copy</div>';
 				str = str + '</td>';
-				str = str + '<td align="right" class="space_td">Date:'+obj.curr_date+'</td>';
+				str = str + '<td align="right" class="space_td">Date:</td>';
 				str = str + '</tr>';
 				str = str + '</tbody>';
 				str = str + '</table>';
@@ -468,26 +514,31 @@ $('body').on('click','.printreceipt',function(){
 				str = str + '<tbody>';
 				str = str + '<tr>';
 				str = str + '<td class="label_" width="100">Reg. no.</td>';
-				str = str + '<td>'+obj.students['student_ID']+ '</td>';
+				str = str + '<td>';
+				str = str + '</td>';
 				str = str + '</tr>';
 				str = str + '<tr>';
 				str = str + '<td class="label_">Name</td>';
-				str = str + '<td>'+obj.students['first_Name']+' '+obj.students['last_Name']+'</td>';
+				str = str + '<td>';
+				str = str + '</td>';
 				
 				str = str + '</tr>';
 
 
 				str = str + '<tr>';
 				str = str + '<td class="label_">Father</td>';
-				str = str + '<td>'+obj.students['fathers_Name']+'</td>';
+				str = str + '<td>';
+				str = str + '</td>';
 				str = str + '</tr>';
 				str = str + '<tr>';
 				str = str + '<td class="label_">Class</td>';
-				str = str + '<td>'+obj.students['class_sess_ID']+'</td>';
+				str = str + '<td>';
+				str = str + '</td>';
 				str = str + '</tr>';
 				str = str + '<tr>';
 				str = str + '<td class="label_">Invoice No.</td>';
-				str = str + '<td>'+obj.students['invoice_ID']+'</td>';
+				str = str + '<td>';
+				str = str + '</td>';
 				str = str + '</tr>';
 				str = str + '</tbody>';
 				str = str + '</table>';
@@ -499,7 +550,8 @@ $('body').on('click','.printreceipt',function(){
 				str = str + '<tbody>';
 				str = str + '<tr valign="top">';
 				str = str + '<td class="label_" width="130">Submission Date</td>';
-				str = str + '<td>'+obj.discount['date']+'</td>';
+				str = str + '<td>';
+				str + str + '</td>';
 				str = str + '</tr>';
 				str = str + '<tr valign="top">';
 				str = str + '<td class="label_" width="130">Heads</td>';
@@ -507,7 +559,8 @@ $('body').on('click','.printreceipt',function(){
 				str = str + '</tr>';
 				str = str + '<tr valign="top">';
 				str = str + '<td class="label_">Mode </td>'; 
-				str = str +	'<td>'+obj.discount['fee_Mode']+'</td>';
+				str = str +	'<td>';
+				str = str + '</td>';
 				str = str + '<td class="content"></td>';
 				str = str + '</tr>';
 				
@@ -554,7 +607,7 @@ $('body').on('click','.printreceipt',function(){
 				str = str + '<tr>';
 				str = str + '<td colspan="4" colspan="2" style="font-size: 12px; text-align: center" class="optionalNote">*Optional fee is not compulsory for student. Those student enrolled for additional facilities are required to submit the same<br>';
 				str = str + '</td>';
-				str = str + '</tr>';
+				//str = str + '</tr>';
 				str = str + '</tbody>';
 				str = str + '</table>';
 				str = str + '</td>';

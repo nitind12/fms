@@ -38,6 +38,7 @@ class Fee_receipt_model extends CI_Model {
 	function getdiscount(){
 		$this->db->from('student_register_discount a');
 		$this->db->join('discount_details b', 'a.discount_ID=b.discount_ID');
+		//$this->db->where('student_ID', $sid);
 		$query = $this->db->get();
 		//echo $this->db->last_query(); die();
 		return $query->result();
@@ -105,6 +106,22 @@ class Fee_receipt_model extends CI_Model {
 		//echo $this->db->last_query(); die();
 		return $query->row();
 	}
+	function getstudentInvoice($invid){
+		$this->db->select('invoice_ID,actual_Amount');
+		$this->db->where('invoice_ID', $invid);
+		$query = $this->db->get('fee_invoice');
+		//echo $this->db->last_query(); die();
+		return $query->row();
+	}
+	function getdiscount1($sid){
+		$this->db->from('student_register_discount a');
+		$this->db->join('discount_details b', 'a.discount_ID=b.discount_ID');
+		$this->db->where('a.student_ID', $sid);
+		//$this->db->where('student_ID', $sid);
+		$query = $this->db->get();
+		//echo $this->db->last_query(); die();
+		return $query->result();
+	}
 	/*function getstudentdiscountInvoice($invid, $stdid){
 		$this->db->from('discount_details a');
 		$this->db->join(' fee_invoice b','a.discount_ID=b.discount_ID');
@@ -114,41 +131,66 @@ class Fee_receipt_model extends CI_Model {
 		//echo $this->db->last_query(); die();
 		return $query->row();
 	}*/
-	function getreceiptdata(){
-		$data['invoice'] = $this->getstudentInvoicedata();
+	function generatereceipt(){
+		$invoice_ID = $this->input->post('invoiceid_');
+		$s_ID = $this->input->post('stdid_');
+		$paid_amount = $this->input->post('paid_amount');
+		$fine = $this->input->post('_fine_');
+		$mode = $this->input->post('PaymentMode');
+		$c_no = $this->input->post('txtno');
+		$c_date = $this->input->post('txtdate');
+		$desc = $this->input->post('txtDesc');
+		$invoice = $this->getstudentInvoice($invoice_ID);
 		
+		
+			$actual_amount=$invoice->actual_Amount;
+		
+		$data['discount'] = $this->getdiscount($s_ID);
+				$d_id='';
+				$d_amount=0;
+				foreach ($data['discount'] as $item)
+				{
+					if($d_id == '')
+					{
+						$d_id=$item->discount_ID;
+					}
+					else
+					{
+			 		$d_id=$d_id.','.$item->discount_ID;
+			 		}
+			 		if($d_amount == 0)
+					{
+						$d_amount=$item->discount_Amount;
+					}
+					else
+					{
+			 			$d_amount=$d_amount + $item->discount_Amount;
+			 		}
+				}
 
 		$data_ = array(
-			'invoice_ID'=>1,
-			'student_ID'=>1000,
-			'discount_ID'=>10,
+			'invoice_ID'=>$invoice_ID,
+			'student_ID'=>$s_ID,
+			'discount_ID'=>$d_id,
 			'discount_Status'=>1,
-			'discount_Amount'=>	100,
-			'description'=>1,
-			'actual_paid_Amount'=>100,
-			'paid'=>100,
-			'fine'=>50,
+			'discount_Amount'=>	$d_amount,
+			'description'=>$desc,
+			'actual_paid_Amount'=>$actual_amount,
+			'paid'=>$paid_amount,
+			'fine'=>$fine,
 			'type_ID'=>11,
-			'fee_Mode'=>cash,
-			'bank_Name'=>BOB,
-			'cheque_No'=>123,
-			'cheque_Date'=>2019-4-10,
+			'fee_Mode'=>$mode,
+			'bank_Name'=>'BOB',
+			'cheque_No'=>$c_no,
+			'cheque_Date'=>$c_date,
 			'date_of_Entry'=>2019-4-12,
-			'session_ID'=>1000,
-			'username'=>fms,
+			'session_ID'=>2018-19,
+			'username'=>'fms',
 			'date'=>2019-4-12,		
 		);
 		print_r($data_);
 		$bool=$this->db->insert('fee_receipt', $data_);
 	return $bool;
-	
-
-
-
-
-
-
-
 	}
 
 }

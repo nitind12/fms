@@ -537,6 +537,7 @@ str = str +'</table>'
 				str = str + '<th>INVOICE</th>';
 				str = str + '</tr>';
 				str = str + '</table>';*/
+				str = str+ '<a href="prnreceipt"></a>';
 				$('#invoicedatahere').html(str);
 			
 			}
@@ -566,10 +567,10 @@ str = str +'</table>'
 					var newid = str+"_invid_"+obj.resultant['newinvid'];
 					$('#'+str).attr('id', newid);
 				}
-			},
-			error: function(xhr, status, error){
-				alert(xhr.responseText);
 			}
+			/*error: function(xhr, status, error){
+				alert(xhr.responseText);
+			}*/
 		});
 		
 	});
