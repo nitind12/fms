@@ -27,9 +27,11 @@ class Fee_receipt_model extends CI_Model {
 		//echo $this->db->last_query(); die();
 		return $query->result();
 	}
-	function getstudent(){
-		$this->db->select('student_ID,first_Name,last_Name');
-		$query=$this->db->get('student_details');
+	function getstudent($cssid){
+		$this->db->from('student_details a');
+		$this->db->join('student_in_session b', 'a.student_ID=b.student_ID');
+		$this->db->where('class_sess_ID', $cssid);
+		$query=$this->db->get();
 		//echo $this->db->last_query(); die();
 		return $query->result();
 	}
@@ -40,13 +42,19 @@ class Fee_receipt_model extends CI_Model {
 		//echo $this->db->last_query(); die();
 		return $query->result();
 	}
-	function getfee(){
-		$this->db->select('student_ID,invoice_ID,static_head_ID,flexible_head_ID,static_head_Amount,flexible_head_Amount,due_Amount');
-		$query=$this->db->get('fee_invoice');
-		
-		//$this->db->from('fee_invoice a');
-		//$this->db->join('fee_flexible_head b','a.flexible_head_ID=b.flexible_head_ID');
-		//$query = $this->db->get();
+	function getstaticfee($cssid){
+		$this->db->from('fee_static_head a');
+		$this->db->join('static_fee_associate_class b', 'a.static_head_ID=b.static_head_ID');
+		$this->db->where('b.class_sess_ID', $cssid);
+		$query = $this->db->get();
+		//echo $this->db->last_query(); die();
+		return $query->result();
+	}
+	function getflexiblefee(){
+		$this->db->from('fee_flexible_head a');
+		$this->db->join('flexible_fee_associate_class b', 'a.flexible_head_ID=b.flexible_head_ID');
+		//$this->db->where('b.student_ID', $sid);
+		$query = $this->db->get();
 		//echo $this->db->last_query(); die();
 		return $query->result();
 	}
@@ -106,4 +114,41 @@ class Fee_receipt_model extends CI_Model {
 		//echo $this->db->last_query(); die();
 		return $query->row();
 	}*/
+	function getreceiptdata(){
+		$data['invoice'] = $this->getstudentInvoicedata();
+		
+
+		$data_ = array(
+			'invoice_ID'=>1,
+			'student_ID'=>1000,
+			'discount_ID'=>10,
+			'discount_Status'=>1,
+			'discount_Amount'=>	100,
+			'description'=>1,
+			'actual_paid_Amount'=>100,
+			'paid'=>100,
+			'fine'=>50,
+			'type_ID'=>11,
+			'fee_Mode'=>cash,
+			'bank_Name'=>BOB,
+			'cheque_No'=>123,
+			'cheque_Date'=>2019-4-10,
+			'date_of_Entry'=>2019-4-12,
+			'session_ID'=>1000,
+			'username'=>fms,
+			'date'=>2019-4-12,		
+		);
+		print_r($data_);
+		$bool=$this->db->insert('fee_receipt', $data_);
+	return $bool;
+	
+
+
+
+
+
+
+
+	}
+
 }

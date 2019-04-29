@@ -62,11 +62,11 @@ $('#frmInvoice').submit(function(){
 							
 												
 
-							for (f=0; f<obj.fee.length; f++)	
+							for (f=0; f<obj.static.length; f++)	
 							{
-									if(obj.students[s]['student_ID'] == obj.fee[f]['student_ID'])
+									if(obj.students[s]['class_sess_ID'] == obj.static[f]['class_sess_ID'])
 									{
-										var i = obj.fee[f]['static_head_Amount'];
+										var i = obj.static[f]['amount'];
 										var arr1 = i.split(',');
 										for(f1=0; f1<arr1.length; f1++)
 										{
@@ -82,11 +82,11 @@ $('#frmInvoice').submit(function(){
 
 
 								
-							for (f=0; f<obj.fee.length; f++)	
+							for (f=0; f<obj.flexible.length; f++)	
 							{
-									if(obj.students[s]['student_ID'] == obj.fee[f]['student_ID'])
+									if(obj.students[s]['student_ID'] == obj.flexible[f]['student_ID'])
 									{
-										var j = obj.fee[f]['flexible_head_ID'];
+										var j = obj.flexible[f]['fee_Head'];
 										var arr2 = j.split(',');
 										for(f2=0; f2<arr2.length; f2++)
 										{
@@ -101,11 +101,11 @@ $('#frmInvoice').submit(function(){
 					
 
 						
-							for (f=0; f<obj.fee.length; f++)	
+							for (f=0; f<obj.flexible.length; f++)	
 							{
-									if(obj.students[s]['student_ID'] == obj.fee[f]['student_ID'])
+									if(obj.students[s]['student_ID'] == obj.flexible[f]['student_ID'])
 									{
-										var k = obj.fee[f]['flexible_head_Amount'];
+										var k = obj.flexible[f]['amount'];
 										var arr3 = k.split(',');
 										for(f3=0; f3<arr3.length; f3++)
 										{
@@ -136,11 +136,15 @@ $('#frmInvoice').submit(function(){
 							f_amount='';
 							s_amount='';
 							total_fee='';	
-							for (f=0; f<obj.fee.length; f++)	
+							for (s1=0; s1<obj.static.length; s1++)
 							{
+								for (f=0; f<obj.flexible.length; f++)
+								{
 										
-									if(obj.students[s]['student_ID'] == obj.fee[f]['student_ID'])
+									if(obj.students[s]['class_sess_ID'] == obj.static[s1]['class_sess_ID'])
 									{
+										if(obj.students[s]['student_ID'] == obj.flexible[f]['student_ID'])
+										{	
 													f_amount = flexible_amount;
 													s_amount = static_amount;
 													if(d_amount == ''){
@@ -149,8 +153,10 @@ $('#frmInvoice').submit(function(){
 													if(f_amount == ''){
 															total_fee=s_amount;
 													}else {total_fee = parseInt(s_amount) + parseInt(f_amount);}
+										}
 												
 									}
+								}
 							}
 							str = str + "<td>"+total_fee+"</td>";
 
@@ -176,12 +182,12 @@ $('#frmInvoice').submit(function(){
 								}
 								str= str +"<td></td>";
 								dues='';
-								for (f=0; f<obj.fee.length; f++)	
+								for (f=0; f<obj.invoice.length; f++)	
 							{
-									if(obj.students[s]['student_ID'] == obj.fee[f]['student_ID'])
+									if(obj.students[s]['student_ID'] == obj.invoice[f]['student_ID'])
 									{
 										
-										dues = obj.fee[f]['due_Amount'];
+										dues = obj.invoice[f]['due_Amount'];
 									}
 							} 
 							str = str + "<td>"+dues+"</td>";
@@ -550,9 +556,16 @@ str = str +'</table>'
 			data: data_,
 			success: function(data)
 			{
-				alert(data);
 				//$('#invoicedatahere').html(data)
 				var obj = JSON.parse(data);
+				if(obj.resultant['res'] == true){
+					$('#'+str).removeClass('fa-lock');
+					$('#'+str).addClass('fa-print');
+					$('#'+str).removeClass('invoicelock');
+					$('#'+str).addClass('printinvoice');
+					var newid = str+"_invid_"+obj.resultant['newinvid'];
+					$('#'+str).attr('id', newid);
+				}
 			},
 			error: function(xhr, status, error){
 				alert(xhr.responseText);

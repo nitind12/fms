@@ -1,0 +1,4 @@
+@media print{.print_invoice{
+	display:none;
+	}
+}
