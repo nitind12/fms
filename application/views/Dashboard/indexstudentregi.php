@@ -34,7 +34,7 @@
 										<select class="form-control" name="txtcourse" id="txtcourse">
 											<option>Select Course</option>
 											<?php foreach ($course as $item) { ?>
-											<option value="<?php echo $item->course_ID;?>"><?php echo $item->course; ?></option>
+											<option value="<?php echo $item->course_ID;?>"><?php echo $item->course ." ". $item->sem_ID . " " . $item->section; ?></option>
 											<?php } ?>
 										</select>
 								</div>

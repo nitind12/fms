@@ -79,7 +79,7 @@
 					<li><a class="" href="#">
 						<span class="fa fa-arrow-right">&nbsp;</span><small> All invoices Class wise</small>
 					</a></li>
-					<li><a class="" href="#">
+					<li><a class="" href="totalclasses">
 						<span class="fa fa-arrow-right">&nbsp;</span> <small> All Students class Wise</small>
 					</a></li>
 					<li><a class="" href="#">

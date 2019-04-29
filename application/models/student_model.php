@@ -187,7 +187,7 @@ class student_model extends CI_Model {
 		if($stdid!=''){
 			$this->db->where('a.student_ID', $stdid);
 		}
-		$this->db->select('a.*,b.contact,c.email,c.date,d.address,d.area,d.city,d.pincode,d.state,d.district,e.siblings,f.discount_offered,f.discount_on,h.course, h.course_ID');
+		//$this->db->select('a.*,b.contact,c.email,c.date,d.address,d.area,d.city,d.pincode,d.state,d.district,e.siblings,f.discount_offered,f.discount_on,h.course, h.course_ID,j.sem_ID,j.section');
 		$this->db->from('student_details a');
 		$this->db->join('student_contact_details b', 'a.student_ID=b.student_ID');
 		$this->db->join('student_email_details c', 'a.student_ID=c.student_ID');
@@ -196,6 +196,8 @@ class student_model extends CI_Model {
 		$this->db->join('discount f', 'a.student_ID=f.student_ID');
 		$this->db->join('student_academic_details g', 'a.student_ID=g.student_ID');
 		$this->db->join('course_details h', 'g.course_ID=h.course_ID');
+		$this->db->join('student_in_session i', 'g.student_ID=i.student_ID');
+		$this->db->join('class j','j.class_ID=i.class_ID');
 		$query = $this->db->get();
 		//echo $this->db->last_query();
 		if($stdid!=''){

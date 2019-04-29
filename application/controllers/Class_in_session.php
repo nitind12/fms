@@ -6,6 +6,9 @@ class class_in_session extends CI_Controller {
 function __construct(){
 	parent::__construct();
 	$this->load->model('classinsessionmodel','csm');
+		if(! $this->session->userdata('user_')){
+			redirect('login');
+		}
 
 }
 

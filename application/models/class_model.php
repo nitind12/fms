@@ -42,9 +42,21 @@ class class_model extends CI_Model {
 		
 		function getclasses(){
 			//$this->db->distinct('course');
-			//$this->db->select('b.course_ID, a.course,a.sem,a.section');
+			//$this->db->select('b.course,a.course_ID,a.sem_ID,a.section');
 			$this->db->from('class a');
 			$this->db->join('course_details b', 'a.course_ID=b.course_ID');
+			$query= $this->db->get();
+
+			return $query->result();
+		}
+
+		function getClassesStudentwise(){
+			$this->db->select('a.*, b.course, count(c.student_ID) as totalStudents');
+			$this->db->from('class a');
+			$this->db->join('course_details b', 'a.course_ID=b.course_ID');
+			$this->db->join('student_in_session c', 'a.class_ID=c.class_ID');
+			$this->db->group_by('c.class_ID');
+
 			$query= $this->db->get();
 
 			return $query->result();

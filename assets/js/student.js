@@ -32,13 +32,45 @@ $('#ttlstdnts').html("loading...");
 					str = str + '<td><img src="http://localhost/fms/assets/female.png" style="width:20px" alt="Female" title="Female"></td>';
 
 				}
-					str = str + "<td>" + obj.stud[i]['course'] +"</td>";
+					str = str + "<td>" + obj.stud[i]['course'] + ' ' + obj.stud[i]['sem_ID'] + ' ' + obj.stud[i]['section'] + "</td>";
 					str = str + "<td>" + obj.stud[i]['date'] + "</td>";
 					str = str + "</tr>";
 				}
 				 
 				str = str + "</table>";
 				$('#ttlstdnts').html(str);
+			}
+		});
+		    return false;
+	});
+$(function(){
+		$('#ttlclss').html("loading...");
+
+		var url_ = site_url_ + "/classes/getclass/" ;
+		var data_=$(this).serialize();
+		
+		$.ajax({
+			type: "GET",
+			url: url_,
+			data:data_,
+			success: function(data){
+				//alert(data);
+				var obj = JSON.parse(data);
+				var str = '';
+				str = str + '<table class="table table-bordered">';
+				str = str + "<tr>";
+				str = str + "<th> Class</th>";
+
+				str = str + "</tr>";
+				for(i=0; i<obj.clssTotal.length; i++){
+					str = str + "<tr>";
+					str = str + '<td>';
+					str = str  + obj.clssTotal[i]['course'] + ' ' + obj.clssTotal[i]['sem_ID'] + ' ' + obj.clssTotal[i]['section'] + "</td>";
+
+					str = str + "</tr>";
+				}
+				str = str + "</table>";
+				$('#ttlclss').html(str);
 			}
 		});
 		    return false;
@@ -60,18 +92,19 @@ $(function(){
 				var str = '';
 				str = str + '<table class="table table-bordered">';
 				str = str + "<tr>";
-				str = str + "<th>Select Class</th>";
+				str = str + "<th>Class</th>";
+				str = str + "<th>Total Students</th>";
 
 				str = str + "</tr>";
 				for(i=0; i<obj.clss.length; i++){
 					str = str + "<tr>";
-					str = str + '<td class="scrl here" id="'+obj.clss[i]['class_ID']+'">';
-					str = str  + obj.clss[i]['course'] + ' ' + obj.clss[i]['sem_ID'] + ' ' + obj.clss[i]['section'] + "</td>";
+					str = str + "<td>" + obj.clss[i]['course'] + ' ' + obj.clss[i]['sem_ID'] + ' ' + obj.clss[i]['section'] + "</td>";
+					str = str + '<td class="scrl here" id="'+obj.clss[i]['class_ID']+'">'+obj.clss[i]['totalStudents']+'</td>';
 
 					str = str + "</tr>";
 				}
 				str = str + "</table>";
-				$('#ttlclss').html(str);
+				$('#ttlclss1').html(str);
 			}
 		});
 		    return false;

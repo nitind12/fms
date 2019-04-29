@@ -5,6 +5,9 @@ class flexihead_students extends CI_Controller {
 function __construct(){
 		parent::__construct();
 		$this->load->model('Flexihead_model', 'fm');
+			if(! $this->session->userdata('user_')){
+			redirect('login');
+		}
 	}
 
 	

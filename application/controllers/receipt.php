@@ -6,6 +6,9 @@ class receipt extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->model('fee_receipt_model', 'frm');
+			if(! $this->session->userdata('user_')){
+			redirect('login');
+		}
 	}
 	 function index()
 	{

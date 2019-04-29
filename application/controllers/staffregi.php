@@ -5,6 +5,9 @@ class staffregi extends CI_Controller {
 function __construct(){
 		parent::__construct();
 		$this->load->model('staff_model', 'sm');
+			if(! $this->session->userdata('user_')){
+			redirect('login');
+		}
 	}
 	
 	function index()

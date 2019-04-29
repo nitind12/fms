@@ -20,3 +20,5 @@
 	<script src="<?php echo base_url('assets/js/respond.min.js');?>"></script>
 	![endif]-->
 </head>
+<body>
+	<div style="width: 100%; height: 100%; display: block; background: #808080; position: absolute; z-index: 99999; text-align: center;" id="loadingWall"><h1><img src="<?php echo base_url('assets/bgLoad.gif');?>"></h1></div>

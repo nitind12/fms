@@ -23,12 +23,26 @@
 					</table>
 			
 				</th>
-				
+
+				<th>
+						
+						<table  class="table table-bordered">
+						<tr>
+							<th>Classes </th>
+						</tr>
+						<tr>
+							<td><div  id="ttlclss1" style="clear:both;"></div></td>
+						</tr>
+					</table>
+			
+				</th>
+
 				<th>
 					<table class="table table-bordered">
 						<tr>
 							<th>Student(s) in class</th>
 						</tr>
+						
 						<tr>
 							<td><div id="tlstd" class="myscroll"></div></td>
 						</tr>

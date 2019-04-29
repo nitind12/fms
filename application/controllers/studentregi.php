@@ -5,14 +5,17 @@ class studentregi extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->model('student_model', 'stm');
+			if(! $this->session->userdata('user_')){
+			redirect('login');
+		}
 	}
 	
 	public function index()
 	{
 		$this->load->model('student_model', 'stm');
 		$data['students'] = $this->stm->getStudents();
-		$this->load->model('student_model', 'stm');
-		$data['course'] = $this->stm->getCourse();
+		$this->load->model('class_model', 'cm');
+		$data['course'] = $this->cm->getclasses();
 
 		$this->load->view('templates/header');
 		$this->load->view('templates/navheader');

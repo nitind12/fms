@@ -1,4 +1,5 @@
 $(function(){
+	
 	$('#cmbStudents').change(function(){
 		$('#printhere').html("");
 
