@@ -13,9 +13,10 @@ class receipt extends CI_Controller {
 
 		//$data['invoice'] = $this->frm->getinvoice();
 		//$data['getdata'] = $this->frm->put_value($cls,$yrf,$monf,$yrt,$mont);
-		$data['students'] = $this->frm->getstudent();
+		$data['students'] = $this->frm->getstudent('BCA2018-19_I');
 		$data['discount'] = $this->frm->getdiscount();
-		$data['fee'] = $this->frm->getfee();
+		$data['static'] = $this->frm->getstaticfee('BCA2018-19_I');
+		$data['flexible'] = $this->frm->getflexiblefee();
 		$data['invoice'] = $this->frm->getinvoice();
 		$this->load->view('templates/header');
 		$this->load->view('templates/navheader');
@@ -26,9 +27,10 @@ class receipt extends CI_Controller {
 	function get_data(){
 		//echo $this->input->get('cmbClass');die();
 		$data['class_in_session'] = $this->frm->getclass('2018-19');
-		$data['students'] = $this->frm->getstudent();
+		$data['students'] = $this->frm->getstudent('BCA2018-19_I');
 		$data['discount'] = $this->frm->getdiscount();
-		$data['fee'] = $this->frm->getfee();
+		$data['static'] = $this->frm->getstaticfee('BCA2018-19_I');
+		$data['flexible'] = $this->frm->getflexiblefee();
 		$data['invoice'] = $this->frm->getinvoice();
 		echo json_encode($data);
 	}

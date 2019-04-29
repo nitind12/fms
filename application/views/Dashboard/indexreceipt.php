@@ -69,7 +69,7 @@
 										<select name="cmbYearf" id="cmbYearf" required="required">
 											<option value="">Select Year</option>
 											<?php for ($loop=date('Y');$loop>=2014; $loop--) {?>
-												<?php if($loop == 2018){
+												<?php if($loop == 2019){
 													$sel_ = " selected='selected'";
 												} else {
 													$sel_ = '';
@@ -85,7 +85,7 @@
 									<select name="cmbMonthf" id="cmbMonthf" required="required">
 											<option value="">Select Month</option>
 											<?php for ($loop=1;$loop<=12; $loop++) {?>
-												<?php if($loop == 8){
+												<?php if($loop == 4){
 													$sel_ = " selected='selected'";
 												} else {
 													$sel_ = '';
@@ -116,7 +116,7 @@
 									<select name="cmbMontht" id="cmbMontht" required="required">
 											<option value="">Select Month</option>
 											<?php for ($loop=1;$loop<=12; $loop++) {?>
-												<?php if($loop == 8){
+												<?php if($loop == 5){
 													$sel_ = " selected='selected'";
 												} else {
 													$sel_ = '';

@@ -87,6 +87,7 @@ class Fee_invoice_model extends CI_Model {
 				}
 
 			}
+
 		$data['discount'] = $this->get_discount_studentwise($sid);
 			$d_amount=0;
 			foreach ($data['discount'] as $item3)
@@ -109,28 +110,32 @@ class Fee_invoice_model extends CI_Model {
 		
 
 		$data_ = array(
-			`invoice_ID`=>6,
-			`session_ID`=>$session, 
-			`class_sess_ID`=>$cls, 
-			`year_From`=>$yrf, 
-			`month_From`=>$monf, 
-			`year_To`=>$yrt, 
-			`month_To`=>$mont, 
-			`no_of_Month`=>1, 
-			`description`=>'x', 
-			`student_ID`=>$sid, 
-			`static_head_ID`=>$s_heads,
-			`static_head_Amount`=>$s_amount, 
-			`flexible_head_ID`=>$f_heads, 
-			`flexible_head_Amount`=>$f_amount, 
-			`actual_Amount`=>$total_amount, 
-			`applicable_discount_Amount`=>$app_discount, 
-			`actual_due_Amount`=>0, 
-			`previous_due_Amount`=>0,
-			`due_Amount`=>0
+			'invoice_ID'=>null,
+			'session_ID'=>$session, 
+			'class_sess_ID'=>$cls, 
+			'year_From'=>$yrf, 
+			'month_From'=>$monf, 
+			'year_To'=>$yrt, 
+			'month_To'=>$mont, 
+			'no_of_Month'=>1, 
+			'description'=>'x', 
+			'student_ID'=>$sid, 
+			'static_head_ID'=>$s_heads,
+			'static_head_Amount'=>$s_amount, 
+			'flexible_head_ID'=>$f_heads, 
+			'flexible_head_Amount'=>$f_amount, 
+			'actual_Amount'=>$total_amount, 
+			'applicable_discount_Amount'=>$app_discount, 
+			'actual_due_Amount'=>0, 
+			'previous_due_Amount'=>0,
+			'due_Amount'=>0
 		);
-		print_r($data_);
-		$bool=$this->db->insert('fee_invoice', $data_);
+		$res=$this->db->insert('fee_invoice', $data_);
+		if($res == true){
+			$bool = array('res'=>$res, 'newinvid'=>$this->db->insert_id());
+		} else {
+			$bool = array('res'=>$res, 'newinvid'=>'x');
+		}
 	return $bool;
 	}
 }
