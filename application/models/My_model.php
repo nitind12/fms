@@ -45,6 +45,14 @@ class My_model extends CI_Model {
 		$this->db->select('COUNT(student_ID) AS TOTAL_');
 		$query = $this->db->get('student_details');
 		return $query->row();
+		
+	}
+	
+	function totalClasses(){
+		$this->db->select('COUNT(class_ID) AS total');
+		$query = $this->db->get('class');
+		return $query->row();
+		
 	}
 	
 }

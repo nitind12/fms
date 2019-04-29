@@ -1,4 +1,3 @@
-$(function(){
 	$('body').on('click','.payhere',function(){
  
 		
@@ -143,20 +142,23 @@ $(function(){
 				str = str + '</td>';
 				str = str + '</tr>';
 
+				
 				str = str + '<tr>';
 				str = str + '<td style="font-size: 13px; color: #0000ff; padding:8px 0px 0px 8px">Payment Mode </td>';
 				str = str + '<td>';
-			    str = str + '<select name="cmbPaymentMode" id="cmbPaymentMode" style="color: #0000ff; font-size: 13px; width: 100px">';
-			    str= str + '<option value="cash">Cash</option><option><div class="pagination"><a data-toggle="tab" href="#chno">Cheque</a></div></option><option value="DD">Demand Draft</option></select>';
-			    str = str + '<br>';
-			    str = str + '<div class="tab-content">';
-			    str = str + '<div id ="chno" class="tab-pane fade">';
+			    str = str + '<select name="PaymentMode" id="PaymentMode" style="color: #0000ff; font-size: 13px; width: 100px">';
+			    str= str + '<option value="cash" >Cash</option><option value="cheque">Cheque</option><option value="DD">Demand Draft</option></select>';
+			    
 
-			    str = str + '<label>Cheque no</label';
-			  	str = str + '<input type="text" style="width: 75px; padding: 0px" name="txtCCDDNumber" id="txtCCDDNumber">';
-			    str = str + '<label>Cheque Date</label';
-			  	str = str + '<input type="text" style="width: 75px; padding: 0px" name="txtCCDDNumber" id="txtCCDDNumber">';
+			    str = str + '<div class="tab-pane" id="chno" style="display: block">';
+			    str = str + '<div style:left">';
+			    str = str + '<label>Cheque no</label>';
+			  	str = str + '<input type="text" value="x" style="width: 75px; padding: 0px" name="txtnum" id="txtnum"';
 			  	str = str + '</div>';
+			  	str = str + '<div style:right">';
+			    str = str + '<label>Cheque Date</label>';
+			  	str = str + '<input type="text" value="x" style="width: 75px; padding: 0px" name="txtnum" id="txtnum">';
+			  	str = str + '</div>'; 
 			  	str = str + '</div>';
 				str = str + '</tr>';
 				str = str + '</tbody>';
@@ -177,7 +179,7 @@ $(function(){
 				str = str + '<td colspan="2" style="font-size: 10px"><sup>*</sup>Fee Heads: , ADMISSION</td>';
 				str = str + '</tr>';
 				str = str + '<tr>';
-				str = str + '<td colspan="2"><div class="col-sm-5" style="visibility:visible;font-size: 10px; text-align: right" id="submit_print"><input type="button" value="Submit Fee" class="btn btn-primary" id="cmbReceiptButton"></div>';
+				str = str + '<td colspan="2"><div class="col-sm-5" style="visibility:visible;font-size: 10px; text-align: right" id="submit_print"><input type="button" value="Submit Fee" class="btn btn-primary"  id="cmbReceiptButton"></div>';
 				str = str + '</td>';
 				str = str + '</tr>';
 				str = str + '</tbody>';
@@ -195,8 +197,8 @@ $(function(){
 				$('#invoicedatahere').html(str);
 			
 			}
+		});
 	});
-});
 	$('body').on('click','#update_total', function(){
 		tfine=$("#fine").val();
 		totalDue= $("#due_amnt_input").val();
@@ -205,6 +207,12 @@ $(function(){
 		totalAmt=parseInt(totalDue)+parseInt(tfine) - parseInt(discount);
 		
 		$("#receipt_label").html(":Rs. " + totalAmt);
+	});
+
+	$('body').on('click','#paymentMode',function(){
+		alert('hello')
+		$('#chno').css('display', 'block');
+	
 	});
 
 
@@ -271,17 +279,19 @@ $('body').on('click','.printreceipt',function(){
 				str = str + '<tbody>';
 				str = str + '<tr>';
 				str = str + '<td align="left" class="space_td">Receipt No.:</td>';
-				str = str + '<td>'+ obj.discount['receipt_ID']+'</td>';
+				str = str + '<td>'
+				str = str + '</td>';
 				str = str + '<td align="center" style="width: 500px;padding: 0px 0px 0px 8px; vertical-align: middle" class="space_td"><div style="width:150px; background: #f0f0f0; border-radius: 5px">Office Copy</div>';
 				str = str + '</td>';
-				str = str + '<td align="right" class="space_td">Date:'+obj.curr_date+'</td>';
+				str = str + '<td align="right" class="space_td">Date:';
+				str = str + '</td>';
 				str = str + '</tr>';
 				str = str + '</tbody>';
 				str = str + '</table>';
 				str = str + '</td>';
-				str = str + '</tr>';
+				/*str = str + '</tr>';
 
-				str = str + '<tr>';
+				/*str = str + '<tr>';
 				str = str + '<td class="myline_" colspan="4">';
 				str = str + '</td>';
 				str = str + '</tr>';
@@ -556,7 +566,7 @@ $('body').on('click','.printreceipt',function(){
 				str = str + '</tbody>';
 				str = str + '</table>';
 				str = str + '</td>';
-				str = str + '</tr>';
+				str = str + '</tr>';*/
 				
 
 
@@ -566,5 +576,3 @@ $('body').on('click','.printreceipt',function(){
 			}
 		});
 	});
-});
-				

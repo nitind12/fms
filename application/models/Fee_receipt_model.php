@@ -114,4 +114,41 @@ class Fee_receipt_model extends CI_Model {
 		//echo $this->db->last_query(); die();
 		return $query->row();
 	}*/
+	function getreceiptdata(){
+		$data['invoice'] = $this->getstudentInvoicedata();
+		
+
+		$data_ = array(
+			'invoice_ID'=>1,
+			'student_ID'=>1000,
+			'discount_ID'=>10,
+			'discount_Status'=>1,
+			'discount_Amount'=>	100,
+			'description'=>1,
+			'actual_paid_Amount'=>100,
+			'paid'=>100,
+			'fine'=>50,
+			'type_ID'=>11,
+			'fee_Mode'=>cash,
+			'bank_Name'=>BOB,
+			'cheque_No'=>123,
+			'cheque_Date'=>2019-4-10,
+			'date_of_Entry'=>2019-4-12,
+			'session_ID'=>1000,
+			'username'=>fms,
+			'date'=>2019-4-12,		
+		);
+		print_r($data_);
+		$bool=$this->db->insert('fee_receipt', $data_);
+	return $bool;
+	
+
+
+
+
+
+
+
+	}
+
 }

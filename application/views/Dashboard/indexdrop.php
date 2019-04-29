@@ -10,31 +10,34 @@
 		<div class="panel-heading">Drop Student</div>
 		<div class="panel-body">
 			
-			<form role="form" name="frmSession" method="post" action="<?php echo site_url('fms/submitstudentdetails');?>">
-								<div class="form-group col-sm-3 ">
-									<label><em class="fa fa-key">&nbsp</em>Student ID
-									<input class="form-control" name="txtfrstnme">
-									</label>
-								</div>
-
-								<div class="form-group col-sm-3">
-										<label><em class="fa fa-user">&nbsp</em>Select Student</label>
-										<select class="form-control">
-											<option>Select here</option>	
-										</select>
-									</div>
+			<form role="form" name="frmSession" method="post" action="<?php echo site_url('dropstudent/delete_record');?>">
 								
-								<div class="form-group col-sm-3 ">
-									<label><em class="fa fa-book">&nbsp</em>Class
-									<input class="form-control" name="txtfrstnme">
-									</label>
+
+									<div class="form-group col-sm-3">
+										<label>Course</label>
+										<select class="form-control" name="textcrse" id="txtcourse">
+											<option>Select Course</option>
+											<?php foreach ($class as $item) { ?>
+											<option value="<?php echo $item->course_ID;?>"><?php echo $item->course . " " . $item->sem . " " . $item->section; ?></option>
+											<?php } ?>
+										</select>
 								</div>
 
-								<div class="form-group col-sm-3 ">
-									<label><em class="fa fa-book">&nbsp</em>Section
-									<input class="form-control" name="txtfrstnme">
-									</label>
+								<div class="form-froup col-sm-3">
+									<label>Select Student</label>
+										<select class="form-control" name="textstudent" id="txtStudents">
+											<option>Select</option>
+											<?php foreach ($students as $item) { ?>
+											<option value="<?php echo $item->student_ID;?>"><?php echo $item->first_Name . " " . $item->last_Name; ?></option>
+											<?php } ?>
+										</select>
 								</div>
+
+
+
+								
+								
+
 
 								<div class="form-group col-sm-3">
 									<label>Reason To Drop Student</label>

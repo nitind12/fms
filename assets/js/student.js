@@ -65,8 +65,8 @@ $(function(){
 				str = str + "</tr>";
 				for(i=0; i<obj.clss.length; i++){
 					str = str + "<tr>";
-					str = str + '<td class="scrl here" id="'+obj.clss[i]['course_ID']+'">';
-					str = str  + obj.clss[i]['course'] + ' ' + obj.clss[i]['sem'] + ' ' + obj.clss[i]['section'] + "</td>";
+					str = str + '<td class="scrl here" id="'+obj.clss[i]['class_ID']+'">';
+					str = str  + obj.clss[i]['course'] + ' ' + obj.clss[i]['sem_ID'] + ' ' + obj.clss[i]['section'] + "</td>";
 
 					str = str + "</tr>";
 				}
@@ -79,6 +79,8 @@ $(function(){
 
 $('body').on('click','.here',function(){
 			var crsid = this.id;
+			//var arr =str.split("_");
+
 			var url_ = site_url_ + "/studentregi/getStudents/"+crsid;
 		
 			$.ajax({
