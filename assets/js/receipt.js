@@ -316,12 +316,14 @@ $('body').on('click','.printreceipt',function(){
 				str = str + '<td colspan="4">';
 				str = str + '<table border="0" cellpadding="0" cellspacing="0" class="table_" style="border:#009900 solid 0px">';
 				str = str + '<tbody>';
+				
 				str = str + '<tr>';
 				str = str + '<td align="left" class="space_td">Receipt No.:</td>';
 				str = str + '<td>'
 				str = str + '</td>';
 				str = str + '<td align="center" style="width: 500px;padding: 0px 0px 0px 8px; vertical-align: middle" class="space_td"><div style="width:150px; background: #f0f0f0; border-radius: 5px">Office Copy</div>';
 				str = str + '</td>';
+
 				str = str + '<td align="right" class="space_td">Date:';
 				str = str + '</td>';
 				str = str + '</tr>';
@@ -395,7 +397,7 @@ $('body').on('click','.printreceipt',function(){
 				str = str + '</tr>';
 				
 				str = str + '<tr valign="top">';
-				str = str + '<td class="label_">Total Paid</td>';
+				str = str + '<td class="label_">Total Paid1213</td>';
 				str = str + '<td><b>Rs. </b>/- &nbsp';
 				str = str + '</td>';
 				str = str + '</tr>';
@@ -428,9 +430,10 @@ $('body').on('click','.printreceipt',function(){
 
 
 				str = str + '<tr>';
-				str = str + '<td class="myline_" colspan="4">';
-				str = str + '</td>';
+				str = str + '<div class="myline_" colspan="4"></div>';
+				
 				str = str + '</tr>';
+
 				str = str + '<tr>';
 				str = str + '<td colspan="4" colspan="2" style="font-size: 12px; text-align: center" class="optionalNote">*Optional fee is not compulsory for student. Those student enrolled for additional facilities are required to submit the same<br>';
 				str = str + '</td>';
