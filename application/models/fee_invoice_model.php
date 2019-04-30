@@ -34,6 +34,15 @@ class Fee_invoice_model extends CI_Model {
 		return $query->result();
 	}
 
+	/*function deleteInvoice($invid, $stdid){
+		$this->db->select('student_ID,invoice_ID');
+		$this->db->where('student_ID', $stdid);
+		$this->db->where('invoice_ID', $invid);
+		$query = $this->db->get('fee_invoice');
+		$this->db->delete('fee_invoice',);
+		//echo $this->db->last_query(); die();
+		//return $query->row();
+	}*/
 	function generateInvoice($sid){
 		$cls=$this->input->get('cmbClass');
 		$yrf=$this->input->get('cmbYearf');
@@ -44,6 +53,7 @@ class Fee_invoice_model extends CI_Model {
 		$data['static_heads'] = $this->get_static_head_classwise($cls);
 
 			$s_heads='';
+			$s_amount_head=0;
 			$s_amount=0;
 			foreach ($data['static_heads'] as $item1)
 			{
@@ -55,6 +65,13 @@ class Fee_invoice_model extends CI_Model {
 					$s_heads=$s_heads.','.$item1->fee_Head;
 				}
 
+				if($s_amount_head == 0)
+				{
+					$s_amount_head=$item1->amount;
+				}
+				else{
+					$s_amount_head=$s_amount_head.','.$item1->amount;
+				}
 				if($s_amount == 0)
 				{
 					$s_amount=$item1->amount;
@@ -62,9 +79,11 @@ class Fee_invoice_model extends CI_Model {
 				else{
 					$s_amount=$s_amount + $item1->amount;
 				}
+
 			}
 		$data['flexible_heads'] = $this->get_flexible_head_studentwise($sid);
 			$f_heads='';
+			$f_amount_head=0;
 			$f_amount=0;
 			foreach ($data['flexible_heads'] as $item2)
 			{
@@ -75,6 +94,14 @@ class Fee_invoice_model extends CI_Model {
 				else
 				{
 			 	$f_heads=$f_heads.','.$item2->fee_Head;
+				}
+				if($f_amount_head == 0)
+				{
+					$f_amount_head=$item2->amount;
+				}
+				else 
+				{
+					$f_amount_head=$f_amount_head.','.$item2->amount;
 				}
 
 				if($f_amount == 0)
@@ -89,16 +116,16 @@ class Fee_invoice_model extends CI_Model {
 			}
 
 		$data['discount'] = $this->get_discount_studentwise($sid);
-			$d_amount=0;
+			$d_amount='';
 			foreach ($data['discount'] as $item3)
 			{
-				if($d_amount == 0)
+				if($d_amount == '')
 				{
 					$d_amount = $item3->discount_Amount;
 				}
 				else 
 				{
-					$d_amount = $discount + $item3->discount_Amount;
+					$d_amount = $d_amount + $item3->discount_Amount;
 				}
 
 			}
@@ -106,7 +133,7 @@ class Fee_invoice_model extends CI_Model {
 			
 		$total_amount=0;
 		$total_amount=$s_amount+$f_amount;
-		$app_discount=$total_amount-$d_amount;
+		//$app_discount=$total_amount-$d_amount;
 		
 
 		$data_ = array(
@@ -121,11 +148,14 @@ class Fee_invoice_model extends CI_Model {
 			'description'=>'x', 
 			'student_ID'=>$sid, 
 			'static_head_ID'=>$s_heads,
-			'static_head_Amount'=>$s_amount, 
+			'static_head_Amount'=>$s_amount_head, 
 			'flexible_head_ID'=>$f_heads, 
-			'flexible_head_Amount'=>$f_amount, 
+			'flexible_head_Amount'=>$f_amount_head, 
 			'actual_Amount'=>$total_amount, 
-			'applicable_discount_Amount'=>$app_discount, 
+			'applicable_discount_Amount'=>$d_amount,
+			'actual_due_Amount'=>30,
+			'previous_due_Amount'=>0,
+			'due_Amount'=>0,
 		);
 		$res=$this->db->insert('fee_invoice', $data_);
 		if($res == true){
