@@ -427,9 +427,10 @@ $('body').on('click','.printreceipt',function(){
 
 
 				str = str + '<tr>';
-				str = str + '<td class="myline_" colspan="4">';
-				str = str + '</td>';
+				str = str + '<div class="myline_" colspan="4"></div>';
+				
 				str = str + '</tr>';
+
 				str = str + '<tr>';
 				str = str + '<td colspan="4" colspan="2" style="font-size: 12px; align="right"class="optionalNote">*Optional fee is not compulsory for student. Those student enrolled for additional facilities are required to submit the same<br>';
 				str = str + '</td>';
