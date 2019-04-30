@@ -183,7 +183,9 @@
 				str = str + '</tr>';
 				str = str + '<tr>';
 				str = str + '<td colspan="2"><div class="col-sm-5" style="visibility:visible;font-size: 10px; text-align: right" ><input type="button"  value="Submit Fee" id="invoice_submit" class="btn btn-primary submit_button"></</div>';
-				str = str + '<div class="col-sm-12 hide_button style="margin-top: 10px">';
+				//str = str + '<div class="col-sm-12 hide_button style="margin-top: 10px">';
+				str = str + '<div class="col-sm-5" style="visibility:visible;font-size: 10px; text-align: right" id="print_submit"><div style="float: right; color: #ff0000; padding: 0px 0px 0px 0px"><a href="https://school.teamfreelancers.com/index.php/fee/fee_print/121" class="btn btn-danger" target="_blank">Print Fee</a></div><div style="float: right; color: #ff0000; padding: 0px 10px 0px 0px">Fee Submitted Successfully</div></div>';
+
 	            str = str + '<button class="btn btn-danger print_button id="print_submit" onclick="window.print();">Print</button>';
 	     	   	str = str + '</div>';
 				str = str + '</td>';
@@ -291,7 +293,7 @@ $('body').on('click','.printreceipt',function(){
 				str = str + '<tbody>';
 				str = str + '<tr class="feeHeader">';
 
-				str = str + '<td width="100"><img src="https://school.teamfreelancers.com/assets_/default-demo/logo/4.jpg?ver=1.4" width="100">';
+				str = str + '<td width="100">';
 				str = str + '</td>';
 				str = str + '<td width="500" align="center" style="width: 500px;padding: 0px 0px 0px 8px; vertical-align: middle"><span class="header_text"><b>The Demo School, Haldwani</b><br><span style="font-weight: 100">Fee Receipt <br><span style="font-size: 13px; font-weight: bold">2019, April</span></span></span>';
 				str = str + '</td>';
@@ -303,7 +305,7 @@ $('body').on('click','.printreceipt',function(){
 				str =str  + '</td>';
 
 
-				/*str = str + '</tr>';
+				str = str + '</tr>';
 				str = str + '<tr>';
 				str = str + '<td>';
 				str = str + '<table border="0" cellpadding="0" cellspacing="0" class="table_" style="border:#009900 solid 0px">';
@@ -455,7 +457,7 @@ $('body').on('click','.printreceipt',function(){
 
 
 
-				str = str + '<table  align ="center" style="width: 800px; font-size: 13px; font-family: verdana; border:#808080 solid 1px; background: #ffffff" class="table print_me">';
+				/*str = str + '<table  align ="center" style="width: 800px; font-size: 13px; font-family: verdana; border:#808080 solid 1px; background: #ffffff" class="table print_me">';
 				str = str + '<tbody>';
 				str = str + '<tr>';
 				str = str + '<td>';
