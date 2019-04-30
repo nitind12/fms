@@ -145,7 +145,7 @@ class Fee_receipt_model extends CI_Model {
 		
 			$actual_amount=$invoice->actual_Amount;
 		
-		$data['discount'] = $this->getdiscount($s_ID);
+		$data['discount'] = $this->getdiscount1($s_ID);
 				$d_id='';
 				$d_amount=0;
 				foreach ($data['discount'] as $item)
@@ -167,7 +167,7 @@ class Fee_receipt_model extends CI_Model {
 			 			$d_amount=$d_amount + $item->discount_Amount;
 			 		}
 				}
-
+		$session='2018-19';
 		$data_ = array(
 			'invoice_ID'=>$invoice_ID,
 			'student_ID'=>$s_ID,
@@ -180,11 +180,11 @@ class Fee_receipt_model extends CI_Model {
 			'fine'=>$fine,
 			'type_ID'=>11,
 			'fee_Mode'=>$mode,
-			'bank_Name'=>'BOB',
+			'bank_Name'=>'SBI',
 			'cheque_No'=>$c_no,
 			'cheque_Date'=>$c_date,
 			'date_of_Entry'=>2019-4-12,
-			'session_ID'=>2018-19,
+			'session_ID'=>$session,
 			'username'=>'fms',
 			'date'=>2019-4-12,		
 		);
