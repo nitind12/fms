@@ -188,7 +188,7 @@ class Fee_receipt_model extends CI_Model {
 			'username'=>'fms',
 			'date'=>2019-4-12,		
 		);
-		print_r($data_);
+		//print_r($data_);
 		$bool=$this->db->insert('fee_receipt', $data_);
 	return $bool;
 	}
