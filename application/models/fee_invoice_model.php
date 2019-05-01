@@ -34,15 +34,19 @@ class Fee_invoice_model extends CI_Model {
 		return $query->result();
 	}
 
-	/*function deleteInvoice($invid, $stdid){
-		$this->db->select('student_ID,invoice_ID');
-		$this->db->where('student_ID', $stdid);
+	function deleteInvoice($invid){
 		$this->db->where('invoice_ID', $invid);
-		$query = $this->db->get('fee_invoice');
-		$this->db->delete('fee_invoice',);
+		$query = $this->db->delete('fee_invoice');
 		//echo $this->db->last_query(); die();
 		//return $query->row();
-	}*/
+	}
+	function getinvoicedata(){
+		$this->db->from('student_details a');
+		$this->db->join('fee_invoice b','a.student_ID=b.student_ID');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
 	function generateInvoice($sid){
 		$cls=$this->input->get('cmbClass');
 		$yrf=$this->input->get('cmbYearf');
