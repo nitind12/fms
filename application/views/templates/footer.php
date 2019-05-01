@@ -9,7 +9,6 @@
 <script type="text/javascript" src="<?php echo base_url('assets/js/class_in_session.js');?>?version=2.0"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/class.js');?>?version=1.9"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/student.js');?>?version=1.9"></script>
-<script type="text/javascript" src="<?php echo base_url('assets/js/student.js');?>?version=1.7"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/invoicedisplay.js');?>?version=1.1"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/receiptdisplay.js');?>?version=1.2"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/preceipt.js');?>?version=1.3"></script>

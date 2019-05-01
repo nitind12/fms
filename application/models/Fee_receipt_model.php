@@ -115,6 +115,13 @@ class Fee_receipt_model extends CI_Model {
 		//echo $this->db->last_query(); die();
 		return $query->row();
 	}
+	function getstudentreceipt(){
+		$this->db->from('student_details a');
+		$this->db->join(' fee_receipt b','a.student_ID=b.student_ID');
+		$query = $this->db->get();
+		//echo $this->db->last_query(); die();
+		return $query->row();
+	}
 	function getstudentInvoice($invid){
 		$this->db->select('invoice_ID,actual_Amount');
 		$this->db->where('invoice_ID', $invid);
