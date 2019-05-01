@@ -59,6 +59,15 @@ class Fee_receipt_model extends CI_Model {
 		//echo $this->db->last_query(); die();
 		return $query->result();
 	}
+	function getreceiptdata(){
+		$this->db->from('student_details a');
+		$this->db->join('fee_receipt b', 'a.student_ID=b.student_ID');
+		//$this->db->where('b.student_ID', $sid);
+		$query = $this->db->get();
+		//echo $this->db->last_query(); die();
+		return $query->result();
+	}
+
 	function getinvoice(){
 		$cls=$this->input->get('cmbClass');
 		$yrf=$this->input->get('cmbYearf');

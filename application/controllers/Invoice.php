@@ -16,9 +16,13 @@ class Invoice extends CI_Controller {
 		 //redirect('invoice');
 		echo json_encode($data);
 	}
-	/*function deleteInvoice($invid,$stdid){
-		$data['delete'] = $this->fim->deleteInvoice($invid,$stdid);
+	function deleteInvoice($invid){
+		$data['delete'] = $this->fim->deleteInvoice($invid);
 		echo json_encode($data);
-	}*/
+	}
+	function getinvoicedata(){
+		$data['invoicedata'] = $this->fim->getinvoicedata();
+		echo json_encode($data);
+	}
 
 }
