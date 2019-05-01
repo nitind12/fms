@@ -25,7 +25,7 @@ $(function(){
 					str = str + "<td>" + obj.flex[i]['flexible_head_ID'] + "</td>";
 					str = str + "<td>" + obj.flex[i]['fee_Head'] + "</td>";
 					str = str + "<td>" + obj.flex[i]['amount'] + "</td>";
-					str = str + "<td>" + obj.flex[i]['ussername'] + "</td>";
+					str = str + "<td>" + obj.flex[i]['username'] + "</td>";
 					str = str + "<td>" + obj.flex[i]['date'] + "</td>";
 
 					str = str + "<td>" + "" + "</td>";

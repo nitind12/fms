@@ -1,7 +1,5 @@
 $(function(){
-	$('#frm').add(function(){
 		$('#printheres').html("loading...");
-
 		var url_ = site_url_ + "/flexihead_students/getflexihead/" ;
 		var data_=$(this).serialize();
 		
@@ -10,12 +8,8 @@ $(function(){
 			url: url_,
 			data:data_,
 			success: function(data){
-				//alert(data);
-				var obj = JSON.parse(data);
+				var obj = JSON.parse(data);				
 				var str = '';
-				str = str + '<table clas="table table-bordered">';
-				str = str + "<tr><th>";
-
 				str = str + '<table class="table table-bordered">';
 				str = str + "<tr>";
 				str = str + "<th>Flexible Heads</th>";
@@ -32,19 +26,13 @@ $(function(){
 
 					str = str + '<td>';
 				//	str = str + '<i class= "icon-pencil"></i>';
-					str = str + '<span class=" fa fa-pencil print"></span></a>';
-					str = str + "/" +'<span class="fa fa-remove del" id="'+obj.flex[i]['fhead_ID']+'"></span></a>';
+					str = str + '<span class=" fa fa-pencil print"></span>';
+					str = str + "/" +'<span class="fa fa-remove del"></span>';
 					str = str +  '</td>';
 					str = str + "</tr>";
 				}
 				str = str + "</table>";
-				str = str + "</th>";
-				str = str + "<th>";
-				str = str + '<table class="table table-bordered">';
-				str = str + '<tr colspan="3"></tr>';
-				str = str + '</table>';
-				str = str + '</th></tr>';
-				str = str + '</table>';
+			
 
 				$('#printheres').html(str);
 			}
@@ -52,6 +40,7 @@ $(function(){
 		    return false;
 	});
 
+		$(function(){
 		$('#afh').html("loading...");
 
 		var url_ = site_url_ + "/flexihead_students/getflexihead/" ;

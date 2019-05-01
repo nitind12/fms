@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class prnreceipt extends CI_Controller {
+class preceipt extends CI_Controller {
 
 	public function index()
 	{
