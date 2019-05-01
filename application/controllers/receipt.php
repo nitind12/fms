@@ -50,6 +50,11 @@ class receipt extends CI_Controller {
 		$data['resultant'] = $this->frm->generatereceipt();
 		echo json_encode($data);
 	}
+	function getreceiptdata(){
+		$data['receiptdata'] = $this->frm->getreceiptdata();
+		echo json_encode($data);
+	}
+
 	
 	
 	
