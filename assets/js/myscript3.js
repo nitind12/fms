@@ -1,7 +1,8 @@
 $(function(){
 		$('#printheres').html("loading...");
+
 		var url_ = site_url_ + "/flexihead_students/getflexihead/" ;
-		var data_=$(this).serialize();
+		var data_ = $(this).serialize();
 		
 		$.ajax({
 			type: "GET",
@@ -22,12 +23,10 @@ $(function(){
 					str = str + "<td>" + obj.flex[i]['New_Flexible_Head'] + "</td>";
 					str = str + "<td>" + obj.flex[i]['Amount'] + "</td>";
 					str = str + "<td>" + obj.flex[i]['How_Many_Times'] + "</td>";
-					//str = str + "<td>" + obj.flex[i]['fhead_ID'] + "</td>";
-
+					
 					str = str + '<td>';
-				//	str = str + '<i class= "icon-pencil"></i>';
 					str = str + '<span class=" fa fa-pencil print"></span>';
-					str = str + "/" +'<span class="fa fa-remove del"></span>';
+					str = str + "/" +'<span class="fa fa-remove del" id="'+obj.flex['fhead_ID']+'"></span>';
 					str = str +  '</td>';
 					str = str + "</tr>";
 				}
@@ -36,11 +35,12 @@ $(function(){
 
 				$('#printheres').html(str);
 			}
-		});
+	 });
 		    return false;
-	});
+});
 
-		$(function(){
+
+	$(function(){
 		$('#afh').html("loading...");
 
 		var url_ = site_url_ + "/flexihead_students/getflexihead/" ;
@@ -97,7 +97,7 @@ $(function(){
 					str = str + "<tr>";
 					str = str + "<td><input type='radio' name='clss'></td>";
 					//str = str + '<td class="stdin" id="'+obj.class[i]['class_ID']+'">';
-					str = str  + obj.clss[i]['course'] + ' ' + obj.clss[i]['sem_ID'] + ' ' + obj.clss[i]['section'] + "</td>";
+					str = str + "<td>" + obj.clss[i]['course'] + ' ' + obj.clss[i]['sem_ID'] + ' ' + obj.clss[i]['section'] + "</td>";
 					str = str + "</tr>";
 				}
 				 
@@ -199,13 +199,13 @@ $('body').on('click','.print',function(){
                str + str + '</div>';
 				$('#printheres1').html(str);
        }
-		});
-		    return false;
 	});
+});
 
 $('body').on('click','.del',function(){
-	//alert(this.id);
-	var str=this.id;
+	alert(this.id);
+	/*var str=this.id;
+
 	var url_ = site_url_ + "/flexihead_students/deleteflexihead/"+str ;
 	var data_=$(this).serialize();
 		
@@ -216,14 +216,14 @@ $('body').on('click','.del',function(){
 			success: function(data){
 				
 				var obj = JSON.parse(data);
-				/*var str = '';
+				var str = '';
 				str = str + '<form action="http://localhost/fms/index.php/flexihead_students/delete_record" method="post">';
 				str = str + '<input class="btn btn-danger" type="submit" value="delete">';
 				str = str + '<input class="btn btn-success" type="cancel" value="cancel">';
 				str = str + '</form>';
-				$('#ptrn').html(str);*/
+				$('#ptrn').html(str);
 			}
-		});
+		});*/
 	});
  
 $('body').on('click','.stdin',function(){
@@ -248,7 +248,7 @@ $('body').on('click','.stdin',function(){
 			}
 				str = str + "</table>";
 				
-				$('#stdin').html(str);
+				$('#stdi').html(str);
 			}
 		});
 });

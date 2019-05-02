@@ -63,19 +63,19 @@ class Flexihead_model extends CI_Model {
 				$this->db->delete('manage_flexible_head',$data);
 		}
 
-	function getflexiheads($str){
+	function getflexiheads(){
 			$this->db->select('fhead_ID,New_Flexible_Head,Amount,How_Many_Times');
 			//$this->db->where('fhead_ID',$str);
 			//$this->db->delete('manage_flexible_head');
 			$query=$this->db->get('manage_flexible_head');
 			return $query->result();
 		}
-		function deleteflexiheads($str){
+		/*function deleteflexiheads($str){
 			//$this->db->select('fhead_ID,New_Flexible_Head,Amount,How_Many_Times');
 			$this->db->where('fhead_ID',$str);
 			$query=$this->db->delete('manage_flexible_head');
 			//$query=$this->db->get('manage_flexible_head');
 			//return $query->row();
-		}
+		}*/
 
 }
