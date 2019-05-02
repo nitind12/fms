@@ -1,7 +1,7 @@
 $(function(){
 		$('#prhere').html("loading...");
 
-		var url_ = site_url_ + "/Class_in_session/getclassinsession/" ;
+		var url_ = site_url_ + "/Classes/getclass/" ;
 		var data_=$(this).serialize();
 		
 		$.ajax({
@@ -13,9 +13,9 @@ $(function(){
 				var obj = JSON.parse(data);
 				var str = '';
 				str = str + '<table>';
-				for(i=0; i<obj.csess.length; i++){
+				for(i=0; i<obj.clss.length; i++){
 					str = str + "<tr>";
-					str = str + "<td>" + obj.csess[i]['course'] + ' ' + obj.csess[i]['sem'] + ' ' + obj.csess[i]['section'] + "</td>";
+					str = str + "<td>" + obj.clss[i]['course'] + ' ' + obj.clss[i]['sem_ID'] + ' ' + obj.clss[i]['section'] + "</td>";
 					
 					str = str + "</tr>";
 				}
@@ -29,7 +29,7 @@ $(function(){
 $(function(){
 		$('#prhrt').html("loading...");
 
-		var url_ = site_url_ + "/Class_in_session/getclassinsession/" ;
+		var url_ = site_url_ + "/classes/getclass/" ;
 		var data_=$(this).serialize();
 		
 		$.ajax({
@@ -41,10 +41,10 @@ $(function(){
 				var obj = JSON.parse(data);
 				var str = '';
 				str = str + '<table class="table table-bordered">';
-				for(i=0; i<obj.csess.length; i++){
+				for(i=0; i<obj.clss.length; i++){
 					str = str + "<tr>";
 					str= str + '<td><input type="radio" name="clss"></td>';
-					str = str + "<td>" + obj.csess[i]['course'] + ' ' + obj.csess[i]['sem'] + ' ' + obj.csess[i]['section'] + "</td>";
+					str = str + "<td>" + obj.clss[i]['course'] + ' ' + obj.clss[i]['sem_ID'] + ' ' + obj.clss[i]['section'] + "</td>";
 					
 					str = str + "</tr>";
 				}

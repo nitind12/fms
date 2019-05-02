@@ -95,7 +95,7 @@ $(function(){
 				str = str + "</tr>";
 				for(i=0; i<obj.clss.length; i++){
 					str = str + "<tr>";
-					str = str + "<td><input type='radio' name='clss'></td>";
+					str = str + '<td><input type="radio" name="clss" id="'+obj.clss[i]['class_ID']+'"  class="stdi"</td>';
 					//str = str + '<td class="stdin" id="'+obj.class[i]['class_ID']+'">';
 					str = str + "<td>" + obj.clss[i]['course'] + ' ' + obj.clss[i]['sem_ID'] + ' ' + obj.clss[i]['section'] + "</td>";
 					str = str + "</tr>";
@@ -226,9 +226,9 @@ $('body').on('click','.del',function(){
 		});*/
 	});
  
-$('body').on('click','.stdin',function(){
+$('body').on('click','.stdi',function(){
 	var crsid= this.id;
-	var url_= site_url_  + "/studentregi/getstudent/" + crsid;
+	var url_= site_url_  + "/studentregi/getStudents/" + crsid;
 		$.ajax({
 			type:"GET",
 			url : url_,
@@ -248,7 +248,7 @@ $('body').on('click','.stdin',function(){
 			}
 				str = str + "</table>";
 				
-				$('#stdi').html(str);
+				$('#studen').html(str);
 			}
 		});
 });

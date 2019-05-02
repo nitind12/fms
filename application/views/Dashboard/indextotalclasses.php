@@ -40,7 +40,7 @@
 				<th>
 					<table class="table table-bordered">
 						<tr>
-							<th>Student(s) in class</th>
+							<th>Student(s) in class </th>
 						</tr>
 						
 						<tr>
