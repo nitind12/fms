@@ -202,11 +202,13 @@ $('body').on('click','.stdi',function(){
 				var str = '';
 				str = str + '<table class="table table-bordered">';
 				str = str + '<tr>';
+				str = str + '<td>#</td>';
 				str = str + '<th>ID</th>';
 				str = str + '<th>Student Name</th>';
 				str = str + '</tr>';
 				for(i=0;i<obj.stud.length;i++){
 					str = str + '<tr>';
+					str = str + '<td><input type="checkbox"></td>';
 					str = str + "<td>" + obj.stud[i]['student_ID'] + "</td>";
 					str = str + "<td>" + obj.stud[i]['first_Name'] + ' ' + obj.stud[i]['last_Name'] + "</td>";
 					str = str + "</tr>";
