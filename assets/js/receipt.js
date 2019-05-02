@@ -4,8 +4,8 @@
 
 		var str = this.id;
 		var arr = str.split("_");
-		var stdid = arr[0];
-		var invid = arr[2];
+		var stdid = arr[1];
+		var invid = arr[3];
 		var url_ = site_url_ + "/receipt/get_invoice_data/"+invid+"/"+stdid;
 		$.ajax({
 			type: "GET",
@@ -21,7 +21,7 @@
 				str = str + '<tr height="100">';
 				str = str + '<td align="left" style="width: 150px; padding: 0px 0px 0px 8px; vertical-align: middle">Date: <u>'+obj.curr_date+'</u>';
 				str = str + '</td>';
-				str = str + '<td align="center" style="width: 500px;padding: 0px 0px 0px 8px; vertical-align: middle"><h4 align="center"><b>The Demo School</b><br>Receipt</h4>';
+				str = str + '<td align="center" style="width: 500px;padding: 0px 0px 0px 8px; vertical-align: middle"><h4 align="center"><b>Fee Management System </b><br>Receipt</h4>';
 				str = str + '</td>';
 				//str = str + '<td align="right" style="width: 150px;font-size: 13px; padding: 0px 8px 0px 0px; vertical-align: middle">Receipt No.: <span style=" padding: 0px;" id="receiptNo"></span>'+obj.discount['receipt_ID']+' </td>';
 				str = str + '</tr>';
@@ -29,7 +29,7 @@
 				str = str + '<tr>';
 				str = str + '<td colspan="3">';
 				str = str + '<table class="table">';
-				str = str + '<tbody>';
+				//str = str + '<tbody>';
 				str = str + '<tr>';
 				str = str + '<td>';
 				str = str + '<table class="table" style="border:#ff0000 solid 0px; width: 360px;">';

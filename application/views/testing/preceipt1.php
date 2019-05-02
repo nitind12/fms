@@ -7,7 +7,7 @@
 								<td width="100"><img src="https://school.teamfreelancers.com/assets_/default-demo/logo/4.jpg?ver=1.4" width="100"></td>
 								<td width="500">
 									<span class="header_text">
-									<b>The Demo School, Haldwani</b><br>
+									<b>Fee Managemen System, Haldwani</b><br>
 									<span style="font-weight: 100">Fee Receipt <br>
 									<span style="font-size: 13px; font-weight: bold">
 										2019, April									</span>
@@ -27,13 +27,22 @@
 								<td colspan="4">
 									<table border="0" cellpadding="0" cellspacing="0" class="table_" style="border:#009900 solid 0px">
 										<tbody><tr>
-											<td align="left" class="space_td">Receipt No.: 122</td>
+											<td align="left" class="space_td">
+												<!--<?php foreach($receipt as $item)
+													{
+														echo $item->student_ID;
+													}
+												?>-->
+
+											</td>
 											<td align="center" class="space_td">
 												<div style="width:150px; background: #f0f0f0; border-radius: 5px">
 																									Office Copy
 																								</div>
 											</td>
-											<td align="right" class="space_td">Date: 30/04/2019</td>
+											<td align="right" class="space_td">
+												<?php echo date("d-m-Y");?>
+											</td>
 										</tr>
 									</tbody></table>
 								</td>
@@ -48,48 +57,65 @@
 								<td colspan="2" width="50%" valign="top">
 									<table border="0" class="myfont" cellpadding="5">
 										<tbody><tr>
-											<td class="label_" width="100">Reg. no.</td>
-											<td class="content">2018071438</td>
-										</tr>
-										<tr>
-											<td class="label_">Name</td>
-											<td class="content">Aditya Singh xx</td>
-										</tr>
-										<tr>
-											<td class="label_">Father</td>
-											<td class="content">Devendra Singh</td>
-										</tr>
-										<tr>
-											<td class="label_">Class</td>
-											<td class="content">Nursery</td>
-										</tr>
-										<tr>
-											<td class="label_">Invoice No.</td>
-											<td class="content">251</td>
-										</tr>
-																			</tbody></table>
-								</td>
-								<td colspan="2" width="50%" valign="top">
-									<table border="0" class="myfont" cellpadding="5">
-																				<tbody><tr valign="top">
-											<td class="label_" width="130">Submission Date</td>
-											<td class="content">30/04/2019</td>
-										</tr>
-																				<tr valign="top">
-											<td class="label_" width="130">Heads</td>
-											<td class="content">Admission, </td>
-										</tr>
-										<tr valign="top">
-											<td class="label_">Mode </td>
-											<td class="content">cash</td>
-										</tr>
-											<tr valign="top">
-											<td class="label_">Total Paid</td>
-											<td class="content"><b>Rs. 0</b>/- &nbsp;
+											<?php 
+												foreach($receipt as $item)
+										{
+											echo '<td class="label_" width="100">Reg. no</td>';
+											echo '<td class="content">'
+											echo $item->student_ID;
+											echo '</td>';
+											echo '</tr>';
+											echo '<tr>';
+											echo '<td class="label_">Name</td>';
+											echo '<td class="content">';
+											echo '</td>';
+											echo '</tr>';
+											echo '<tr>';
+											echo '<td class="label_">Father</td>';
+											echo '<td class="content">';
+											echo '</td>';
+											echo '</tr>';
+											echo '<tr>';
+											echo '<td class="label_">Class</td>';
+											echo '<td class="content">';
+											echo '</td>';
+										echo '</tr>';
+										echo '<tr>';
+											echo '<td class="label_">';
+											echo '</td>';
+											echo '<td class="content">';
+											echo '</td>';
+										echo '</tr>';
+									echo '</tbody>';
+									echo '</table>';
+								echo '</td>';
+								echo '<td colspan="2" width="50%" valign="top">';
+									echo '<table border="0" class="myfont" cellpadding="5">';
+											echo '<tbody>';
+											echo '<tr valign="top">';
+											echo '<td class="label_" width="130">Submission Date</td>';
+											echo '<td class="content">30/04/2019</td>';
+										echo '</tr>';
+										echo  '<tr valign="top">';
+											echo '<td class="label_" width="130">Heads</td>';
+											echo '<td class="content">Admission, </td>';
+										echo '</tr>';
+										echo '<tr valign="top">';
+											echo '<td class="label_">Mode </td>';
+											echo '<td class="content">cash</td>';
+										echo '</tr>';
+											echo '<tr valign="top">';
+											echo '<td class="label_">Total Paid</td>';
+											echo '<td class="content"><b>Rs. 0</b>/- &nbsp;
 												(zero)
-											</td>
-										</tr>
-									</tbody></table>
+											</td>';
+										echo '</tr>';
+								
+									
+								echo '</tbody>';
+								echo '</table>';
+								}
+								?>
 								</td>
 							</tr>
 							<tr>

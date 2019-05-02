@@ -19,7 +19,7 @@ $(function(){
 				str = str + "</tr>";
 				for(i=0; i<obj.clssTotal.length; i++){
 					str = str + "<tr>";
-					str = str + '<td class="invc" id="'+obj.clssTotal['class_ID']+'">';
+					str = str + '<td class="invc" id="'+obj.clssTotal[i]['class_ID']+'">';
 					str = str  + obj.clssTotal[i]['course'] + ' ' + obj.clssTotal[i]['sem_ID'] + ' ' + obj.clssTotal[i]['section'] + "</td>";
 
 					str = str + "</tr>";
