@@ -40,7 +40,9 @@
 				<th>
 					<table class="table table-bordered">
 						<tr>
-							<th>Student(s) in class</th>
+							<th>Student(s) in Class <div id="clswse" style="clear:both; float-left;"></div> </th>
+							
+
 						</tr>
 						
 						<tr>

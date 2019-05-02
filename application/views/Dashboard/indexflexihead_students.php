@@ -61,11 +61,12 @@
             <div class="widget-content nopadding">
                 <div class="">View Flexible Head<em class="caret"></em></div>
                 <table>
-                  <tr><th><div style="clear: both;" id= "printheres"></div></th>
-                      <th> <div style="clear: both;" id= "printheres1"></div> <div style="clear: both;" id= "ptrn"></div>  </th>
-                    </tr>
-                  </table>
-                <div id="flexi"></div>
+                  <tr>
+                    <th><div style="clear: both;" id= "printheres"></div></th>
+                    <th> <div style="clear: both;" id= "printheres1"></div> <div style="clear: both;" id= "ptrn"></div>  </th>
+                 </tr>
+               </table>
+                
             </div>
         </div>
     </div>
@@ -83,7 +84,7 @@
                        <tr>
                           <th style="text-align: left">Select Flexible Head</th>
                        </tr>
-                          <th> <div class="myscroll" id="afh" style="clear: both; overflow: hidden;";></div></th>
+                          <th> <div  id="afh" style="clear: both; overflow: hidden;";></div></th>
                           </tr>
                    </table>
                </th>
@@ -104,7 +105,7 @@
                     </tr>
                     <tr>
                        <th>
-                       <div id="stdin" style="clear:both"></div>
+                       <div id="studen" style="clear:both"></div>
                         <div class="controls">
                             <input type="button" value="Add Fee to selected Student(s)" class="btn btn-success span9" id="associate_flexible_head_with_Students">
                               <input type="reset" value="X" class="btn btn-danger cancel_sassociate_flexible_head_with_Student span3" style="float: right"> </div>
