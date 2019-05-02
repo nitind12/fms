@@ -142,3 +142,28 @@ $('body').on('click','.here',function(){
 		});
 		    return false;
 	});
+
+$('body').on('click','.here',function(){
+			var crsid = this.id;
+			
+
+			var url_ = site_url_ + "/classes/getclass/"+crsid;
+			
+			$.ajax({
+			type: "GET",
+			url: url_,
+		//	data:data_,
+			success: function(data){
+				//alert(data);
+				var obj = JSON.parse(data);
+
+				var str = '';
+
+				str = str + obj.clss[crsid]['course'] + obj.clss[crsid]['sem_ID'] + obj.clss[crsid]['section'];
+
+				
+				$('#clswse').html(data);
+       }
+		});
+		    return false;
+	});

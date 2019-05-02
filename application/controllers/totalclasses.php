@@ -12,11 +12,10 @@ class totalclasses extends CI_Controller {
 	}
 	public function index()
 	{
-		$data['students']=$this->stm->getStudents();
 		$this->load->view('templates/header');
 		$this->load->view('templates/navheader');
 		$this->load->view('templates/sidebar');
-		$this->load->view('Dashboard/indextotalclasses',$data);
+		$this->load->view('Dashboard/indextotalclasses');
 		$this->load->view('templates/footer');
 	}
 	
