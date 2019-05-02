@@ -23,7 +23,8 @@
 				str = str + '</td>';
 				str = str + '<td align="center" style="width: 500px;padding: 0px 0px 0px 8px; vertical-align: middle"><h4 align="center"><b>Fee Management System </b><br>Receipt</h4>';
 				str = str + '</td>';
-				str = str + '<td align="right" style="width: 150px;font-size: 13px; padding: 0px 8px 0px 0px; vertical-align: middle">Receipt No.: <span style=" padding: 0px;" id="receiptNo"></span>'+obj.discount['receipt_ID']+' </td>';
+				str = str + '<td align="right" style="width: 150px;font-size: 13px; padding: 0px 8px 0px 0px; vertical-align: middle">Receipt No.: <span style=" padding: 0px;" id="receiptNo"></span>';
+				str = str + '</td>';
 				str = str + '</tr>';
 
 				str = str + '<tr>';

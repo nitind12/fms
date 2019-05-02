@@ -6,8 +6,8 @@
 			<table border="0" class="myfont table_" style="border:#009900 solid 0px">
 				<tbody>
 			<center>
-			 <div class="col-sm-12 hide_button" style="margin-top: 10px">
-             <button class="btn btn-danger print_button" onclick="window.print();">Print</button>
+			 <div class="col-sm-12 " style="margin-top: 10px">
+             <input type="button" value="Print" class="btn btn-danger" onclick="window.print();">
      	   	</div>
      	   	</center>
 	<tr>
