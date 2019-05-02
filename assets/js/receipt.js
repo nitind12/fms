@@ -23,13 +23,13 @@
 				str = str + '</td>';
 				str = str + '<td align="center" style="width: 500px;padding: 0px 0px 0px 8px; vertical-align: middle"><h4 align="center"><b>Fee Management System </b><br>Receipt</h4>';
 				str = str + '</td>';
-				//str = str + '<td align="right" style="width: 150px;font-size: 13px; padding: 0px 8px 0px 0px; vertical-align: middle">Receipt No.: <span style=" padding: 0px;" id="receiptNo"></span>'+obj.discount['receipt_ID']+' </td>';
+				str = str + '<td align="right" style="width: 150px;font-size: 13px; padding: 0px 8px 0px 0px; vertical-align: middle">Receipt No.: <span style=" padding: 0px;" id="receiptNo"></span>'+obj.discount['receipt_ID']+' </td>';
 				str = str + '</tr>';
 
 				str = str + '<tr>';
 				str = str + '<td colspan="3">';
 				str = str + '<table class="table">';
-				//str = str + '<tbody>';
+				str = str + '<tbody>';
 				str = str + '<tr>';
 				str = str + '<td>';
 				str = str + '<table class="table" style="border:#ff0000 solid 0px; width: 360px;">';
@@ -153,7 +153,7 @@
 			    str= str + '<option value="cash" >Cash</option><option value="cheque">Cheque</option><option value="DD">Demand Draft</option></select>';
 			    
 
-			    str = str + '<div class="tab-pane" id="chno" style="display: block">';
+			    str = str + '<div class="tab-pane fade" id="chno">';
 			    str = str + '<div style:left">';
 			    str = str + '<label>Cheque no</label>';
 			  	str = str + '<input type="text"  style="width: 75px; padding: 0px" name="txtno" id="txtnum"';
@@ -184,7 +184,7 @@
 				str = str + '<tr>';
 				str = str + '<td colspan="2"><div class="col-sm-5" style="visibility:visible;font-size: 10px; text-align: right" ><input type="button"  value="Submit Fee" id="invoice_submit" class="btn btn-primary submit_button"></div>';
 				//str = str + '<div class="col-sm-12 hide_button style="margin-top: 10px">';
-				str = str + '<div class="col-sm-5" style="visibility:visible;font-size: 10px; text-align: right" id="print_submit"><div style="float: right; color: #ff0000; padding: 0px 0px 0px 0px"><a href="'+site_url_+'/preceipt" class="btn btn-danger" target="_blank" id="printreceipt_button">Print Fee</a></div><div style="float: right; color: #ff0000; padding: 0px 10px 0px 0px" id="receipt_msg"></div>';
+				str = str + '<div class="col-sm-5" style="visibility:visible;font-size: 10px; text-align: right" id="print_submit"><div style="float: right; color: #ff0000; padding: 0px 0px 0px 0px"><a href="'+site_url_+'/preceipt/'+obj.students['invoice_ID']+'" class="btn btn-danger" target="_blank" id="printreceipt_button">Print Fee</a></div><div style="float: right; color: #ff0000; padding: 0px 10px 0px 0px" id="receipt_msg"></div>';
 
 	     	   	str = str + '</div>';
 				str = str + '</td>';
@@ -223,12 +223,16 @@
 		}
 		
 		$("#receipt_label").html(":Rs. " + totalAmt);
+		$('#total_amnt_in_words').html(convertNumberToWords(totalAmt));
 	});
 
-	$('body').on('click','#paymentMode',function(){
-		alert('hello')
-		$('#chno').css('display', 'block');
-	
+	$('body').on('change','#PaymentMode',function(){
+		alert(this.val());
+		if(this.val() == 'cash'){
+			$('#chno').addClass('fade');
+		} else {
+			$('#chno').removeClass('fade');
+		}
 	});
 	$('body').on('click','#invoice_submit',function(){
 
@@ -241,7 +245,7 @@
 	 
 			var url_ = site_url_ + "/receipt/generatereceipt/";
 			var data_ = $('#frmSubmtInvoice').serialize();
-			alert(data_);	
+			alert("Fee Submitted Successfully !");	
 		$.ajax
 		({
 			type: "POST",
@@ -251,9 +255,10 @@
 			{
 				//$('#invoicedatahere').html(data)
 				var obj = JSON.parse(data);
-				if(obj.resultant == true){
+				if(obj.resultant.bool == true){
 					$('#invoice_submit').hide();
 					$('#printreceipt_button').show();
+					$('#printreceipt_button').attr('href', site_url_+"/preceipt/print_/"+obj.resultant.recptid);
 			}
 			/*error: function(xhr, status, error){
 				alert(xhr.responseText);
@@ -263,6 +268,87 @@
 	});
 		
 	
+	function convertNumberToWords(amount) {
+    var words = new Array();
+    words[0] = '';
+    words[1] = 'One';
+    words[2] = 'Two';
+    words[3] = 'Three';
+    words[4] = 'Four';
+    words[5] = 'Five';
+    words[6] = 'Six';
+    words[7] = 'Seven';
+    words[8] = 'Eight';
+    words[9] = 'Nine';
+    words[10] = 'Ten';
+    words[11] = 'Eleven';
+    words[12] = 'Twelve';
+    words[13] = 'Thirteen';
+    words[14] = 'Fourteen';
+    words[15] = 'Fifteen';
+    words[16] = 'Sixteen';
+    words[17] = 'Seventeen';
+    words[18] = 'Eighteen';
+    words[19] = 'Nineteen';
+    words[20] = 'Twenty';
+    words[30] = 'Thirty';
+    words[40] = 'Forty';
+    words[50] = 'Fifty';
+    words[60] = 'Sixty';
+    words[70] = 'Seventy';
+    words[80] = 'Eighty';
+    words[90] = 'Ninety';
+    amount = amount.toString();
+    var atemp = amount.split(".");
+    var number = atemp[0].split(",").join("");
+    var n_length = number.length;
+    var words_string = "";
+    if (n_length <= 9) {
+        var n_array = new Array(0, 0, 0, 0, 0, 0, 0, 0, 0);
+        var received_n_array = new Array();
+        for (var i = 0; i < n_length; i++) {
+            received_n_array[i] = number.substr(i, 1);
+        }
+        for (var i = 9 - n_length, j = 0; i < 9; i++, j++) {
+            n_array[i] = received_n_array[j];
+        }
+        for (var i = 0, j = 1; i < 9; i++, j++) {
+            if (i == 0 || i == 2 || i == 4 || i == 7) {
+                if (n_array[i] == 1) {
+                    n_array[j] = 10 + parseInt(n_array[j]);
+                    n_array[i] = 0;
+                }
+            }
+        }
+        value = "";
+        for (var i = 0; i < 9; i++) {
+            if (i == 0 || i == 2 || i == 4 || i == 7) {
+                value = n_array[i] * 10;
+            } else {
+                value = n_array[i];
+            }
+            if (value != 0) {
+                words_string += words[value] + " ";
+            }
+            if ((i == 1 && value != 0) || (i == 0 && value != 0 && n_array[i + 1] == 0)) {
+                words_string += "Crores ";
+            }
+            if ((i == 3 && value != 0) || (i == 2 && value != 0 && n_array[i + 1] == 0)) {
+                words_string += "Lakhs ";
+            }
+            if ((i == 5 && value != 0) || (i == 4 && value != 0 && n_array[i + 1] == 0)) {
+                words_string += "Thousand ";
+            }
+            if (i == 6 && value != 0 && (n_array[i + 1] != 0 && n_array[i + 2] != 0)) {
+                words_string += "Hundred and ";
+            } else if (i == 6 && value != 0) {
+                words_string += "Hundred ";
+            }
+        }
+        words_string = words_string.split("  ").join(" ");
+    }
+    return words_string;
+}
 
 
 
