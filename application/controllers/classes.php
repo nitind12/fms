@@ -28,14 +28,10 @@ function __construct(){
 
 		redirect('classes');
 	}
-	function getclass($crsid=''){
+	function getclass(){
 		$this->load->model('class_model', 'cm');
-		if($crsid != ''){
-			$data['clss'] = $this->cm->getClassesStudentwise($crsid);
-		} else {
-			$data['clss'] = $this->cm->getClassesStudentwise();
-		}
-		$data['clssTotal'] = $this->cm->getclasses($crsid);
+		$data['clss'] = $this->cm->getClassesStudentwise();
+		$data['clssTotal'] = $this->cm->getclasses();
 		echo json_encode($data);
 	}
 }

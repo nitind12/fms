@@ -157,12 +157,11 @@ $('body').on('click','.here',function(){
 				//alert(data);
 				var obj = JSON.parse(data);
 
-				var str = '';
 
-				str = str + obj.clss[crsid]['course'] + obj.clss[crsid]['sem_ID'] + obj.clss[crsid]['section'];
+				var str = obj.clss[crsid]['course'] + obj.clss[crsid]['sem_ID'] + obj.clss[crsid]['section'];
 
 				
-				$('#clswse').html(data);
+				$('#clswse').html(str);
        }
 		});
 		    return false;
