@@ -43,7 +43,7 @@ $(function(){
 				str = str + '<table class="table table-bordered">';
 				for(i=0; i<obj.clss.length; i++){
 					str = str + "<tr>";
-					str= str + '<td><input type="radio" name="clss"></td>';
+					str= str + '<td><input type="radio" class="prn" id="'+obj.clss[i]['class_ID']+'" name="clss"></td>';
 					str = str + "<td>" + obj.clss[i]['course'] + ' ' + obj.clss[i]['sem_ID'] + ' ' + obj.clss[i]['section'] + "</td>";
 					
 					str = str + "</tr>";
