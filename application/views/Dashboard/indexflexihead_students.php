@@ -111,7 +111,7 @@
                        <th>
                        <div id="studen" style="clear:both"></div>
                         <div class="controls">
-                            <input type="button" value="Add Fee to selected Student(s)" class="btn btn-success span9" id="associate_flexible_head_with_Students">
+                            <input type="button" value="Add Fee to selected Student(s)" class="btn btn-success span9" id="associate" onclick="clickme();">
                               <input type="reset" value="X" class="btn btn-danger cancel_sassociate_flexible_head_with_Student span3" style="float: right"> </div>
                         </th>
                     </tr>
