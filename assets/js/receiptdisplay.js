@@ -61,7 +61,7 @@ $('body').on('click','.rec',function(){
 					str = str + obj.receiptdata[i]['receipt_ID'];
 					str = str + '</td>';
 					str = str + '<td>';
-					str = str + obj.receiptdata[i]['class_sess_ID'];
+					str = str + obj.receiptdata[i]['course'];
 					str = str + '</td>';
 					str = str + '<td>';
 					str = str + obj.receiptdata[i]['student_ID'];

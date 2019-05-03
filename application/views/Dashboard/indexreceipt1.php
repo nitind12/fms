@@ -27,7 +27,7 @@
 						
 						<table  class="table table-bordered">
 						<tr>
-							<th>Invoices in 2018-19 </th>
+							<th>Receipt(s) in 2018-19 </th>
 						</tr>
 						<tr>
 							<td><div  id="ttreceipt1" style="clear:both;"></div></td>

@@ -10,7 +10,7 @@ function __construct(){
 		}
 	}
 
-	
+	 
 	public function index()
 	{
 		$this->load->view('templates/header');
@@ -20,15 +20,15 @@ function __construct(){
 		$this->load->view('templates/footer');
 	}
 	function getflexihead(){
-		//$this->load->model('Flexihead_model', 'fm');
+		$this->load->model('Flexihead_model', 'fm');
 		$data['flex'] = $this->fm->getflexiheads();
 		echo json_encode($data);
 	}
-	function deleteflexihead($str){
+/*	function deleteflexihead($str){
 		//$this->load->model('Flexihead_model', 'fm');
 		$data['delete'] = $this->fm->deleteflexiheads($str);
 		echo json_encode($data);
-	}
+	}*/
 	function insert_record(){
 		$data = $this->fm->submission();
 
@@ -37,8 +37,8 @@ function __construct(){
 		redirect('flexihead_students');
 	}
 
-	function delete_record(){
-		$data = $this->fm->deletion();
-		redirect('flexihead_students');
+	function delete_record($fhid){
+		$data['delete'] = $this->fm->deletion($fhid);
+		echo json_encode($data);
 	}
 }

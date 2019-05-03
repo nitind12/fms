@@ -6,7 +6,7 @@ class drop_student_model extends CI_Model {
 		parent::__construct();
 	}
 
-	function deletion(){
+	function delete(){
 		$crse_ = $this->input->post('textcrse');
 		$stdnt = $this->input->post('textstudent');
 
