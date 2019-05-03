@@ -1,5 +1,4 @@
 $(function(){
-	$('#textcourse').change(function(){
 		$('#print').html("loading...");
 
 		var url_ = site_url_ + "/classes/getclass/" ;
@@ -15,18 +14,15 @@ $(function(){
 				var str = '';
 				str = str + '<table class="table table-bordered">';
 				str = str + "<tr>";
-				str = str + "<th>Course</th>";
-				str = str + "<th>Semester</th>";
-				str = str + "<th>Section</th>";
+				str = str + "<th>Class Name</th>";
+				str = str + "<th>Action</th>";
 
 				str = str + "</tr>";
-				for(i=0; i<obj.clss.length; i++){
+				for(i=0; i<obj.clssTotal.length; i++){
 					str = str + "<tr>";
-					str = str + "<td>" + obj.clss[i]['course'] + "</td>";
-					str = str + "<td>" + obj.clss[i]['semester'] + "</td>";
-					str = str + "<td>" + obj.clss[i]['section'] + "</td>";
+					str = str + "<td>" + obj.clssTotal[i]['course'] + ' ' + obj.clssTotal[i]['sem_ID'] + ' ' + obj.clssTotal[i]['section'] +"</td>";
+					str = str + "<td>" + "<span class='fa fa-pencil'></span>" + "|" + "<span class='fa fa-remove'></span>" +  "</td>";
 
-					str = str + "<td>" + "" + "</td>";
 					str = str + "</tr>";
 				}
 				str = str + "</table>";
@@ -35,4 +31,3 @@ $(function(){
 		});
 		    return false;
 	});
-});

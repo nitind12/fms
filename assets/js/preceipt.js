@@ -29,7 +29,7 @@ $('body').on('click','.printreceipt',function(){
 
 				str = str + '<td width="100">';
 				str = str + '</td>';
-				str = str + '<td width="500" align="center" style="width: 500px;padding: 0px 0px 0px 8px; vertical-align: middle"><span class="header_text"><b>The Demo School, Haldwani</b><br><span style="font-weight: 100">Fee Receipt <br><span style="font-size: 13px; font-weight: bold">2019, April</span></span></span>';
+				str = str + '<td width="500" align="center" style="width: 500px;padding: 0px 0px 0px 8px; vertical-align: middle"><span class="header_text"><b>The Demo School, Haldwani</b><br><span style="font-weight: 100">Fee Receipt <br><span style="font-size: 13px; font-weight: bold">2019, April</span>';
 				str = str + '</td>';
 				str = str + '<td width="100">';
 				str = str + '</td>';
@@ -55,6 +55,7 @@ $('body').on('click','.printreceipt',function(){
 				
 				str = str + '<tr>';
 				str = str + '<td align="left" class="space_td">Receipt No.:';
+				str = str + obj.discount['receipt_ID'];
 				str = str + '</td>';
 				str = str + '<td>'
 				str = str + '</td>';
@@ -62,6 +63,7 @@ $('body').on('click','.printreceipt',function(){
 				str = str + '</td>';
 
 				str = str + '<td align="right" class="space_td">Date:';
+				str = str + obj.curr_date;
 				str = str + '</td>';
 				str = str + '</tr>';
 				str = str + '</tbody>';

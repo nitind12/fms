@@ -10,7 +10,7 @@ function __construct(){
 		}
 	}
 
-	
+	 
 	public function index()
 	{
 		$this->load->view('templates/header');
@@ -37,8 +37,8 @@ function __construct(){
 		redirect('flexihead_students');
 	}
 
-	/*function delete_record(){
-		$data = $this->fm->deletion();
-		redirect('flexihead_students');
-	}*/
+	function delete_record($fhid){
+		$data['delete'] = $this->fm->deletion($fhid);
+		echo json_encode($data);
+	}
 }

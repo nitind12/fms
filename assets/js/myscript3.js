@@ -25,8 +25,8 @@ $(function(){
 					str = str + "<td>" + obj.flex[i]['How_Many_Times'] + "</td>";
 					
 					str = str + '<td>';
-					str = str + '<span class=" fa fa-pencil print"></span>';
-					str = str + "/" +'<span class="fa fa-remove del" id="'+obj.flex['fhead_ID']+'"></span>';
+					str = str + '<span class=" fa fa-pencil print" onclick="callEdit('+obj.flex[i]['fhead_ID']+');"></span>';
+					str = str + "/" +'<span class="fa fa-remove del" id="'+obj.flex[i]['fhead_ID']+'"></span>';
 					str = str +  '</td>';
 					str = str + "</tr>";
 				}
@@ -39,6 +39,9 @@ $(function(){
 		    return false;
 });
 
+function callEdit(id){
+	alert(id);
+}
 
 	$(function(){
 		$('#afh').html("loading...");
@@ -61,7 +64,7 @@ $(function(){
 				str = str + "</tr>";
 				for(i=0; i<obj.flex.length; i++){
 					str = str + "<tr>";
-					str = str + "<td><input type='radio' name='flex_head'></td>";
+					str = str + "<td><input type='radio' class='flexib' name='flex_head' id='"+obj.flex[i]['fhead_ID']+"'></td>";
 					str = str + "<td>" + obj.flex[i]['New_Flexible_Head'] + "</td>";
 					str = str + "</tr>";
 				}
@@ -95,7 +98,7 @@ $(function(){
 				str = str + "</tr>";
 				for(i=0; i<obj.clss.length; i++){
 					str = str + "<tr>";
-					str = str + '<td><input type="radio" name="clss" id="'+obj.clss[i]['class_ID']+'"  class="stdi"</td>';
+					str = str + '<td><input type="radio" name="clss" id="'+obj.clss[i]['class_ID']+'" value="id1" class="stdi"</td>';
 					//str = str + '<td class="stdin" id="'+obj.class[i]['class_ID']+'">';
 					str = str + "<td>" + obj.clss[i]['course'] + ' ' + obj.clss[i]['sem_ID'] + ' ' + obj.clss[i]['section'] + "</td>";
 					str = str + "</tr>";
@@ -168,27 +171,21 @@ $('body').on('click','.print',function(){
 });
 
 $('body').on('click','.del',function(){
-	alert(this.id);
-	/*var str=this.id;
-
-	var url_ = site_url_ + "/flexihead_students/deleteflexihead/"+str ;
-	var data_=$(this).serialize();
+	var fhid=this.id;
+	var url_ = site_url_ + "/flexihead_students/delete_record/"+fhid ;
 		
 			$.ajax({
 			type: "GET",
 			url: url_,
-			data:data_,
 			success: function(data){
+				alert('deleted');
+
+
+
 				
-				var obj = JSON.parse(data);
-				var str = '';
-				str = str + '<form action="http://localhost/fms/index.php/flexihead_students/delete_record" method="post">';
-				str = str + '<input class="btn btn-danger" type="submit" value="delete">';
-				str = str + '<input class="btn btn-success" type="cancel" value="cancel">';
-				str = str + '</form>';
-				$('#ptrn').html(str);
+			
 			}
-		});*/
+		});
 	});
  
 $('body').on('click','.stdi',function(){
@@ -208,7 +205,7 @@ $('body').on('click','.stdi',function(){
 				str = str + '</tr>';
 				for(i=0;i<obj.stud.length;i++){
 					str = str + '<tr>';
-					str = str + '<td><input type="checkbox"></td>';
+					str = str + '<td><input type="checkbox" id="'+obj.stud[i]['student_ID']+'"></td>';
 					str = str + "<td>" + obj.stud[i]['student_ID'] + "</td>";
 					str = str + "<td>" + obj.stud[i]['first_Name'] + ' ' + obj.stud[i]['last_Name'] + "</td>";
 					str = str + "</tr>";
@@ -219,3 +216,7 @@ $('body').on('click','.stdi',function(){
 			}
 		});
 });
+
+function clickme(){
+	alert(id1.id);
+}
