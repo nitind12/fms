@@ -19,23 +19,21 @@
 				<div id="mfhead" class="tab-pane fade in active">
 
 								<div class="panel-heading">Add Flexible Heads</div>
+          <table class="table table-bordered">
+            <tr>
+              <th>
 								<div class="panel-body ">
-								<!--student details-->
-                        <form class="form form-vertical" name="frm" action="<?php echo site_url('flexihead_students/insert_record');?>" method="post" id="frm">
-
-
-								<div class="col-md-3">
-									<div class="form-group">
-									<label>New Flexible Head</label>
-									<input class="form-control"name="txtffh" id="txtffh">
-								</div></div>
-								<div class="col-md-3">
-									<div class="form-group">
-									<label>Amount</label>
-									<input class="form-control" name="txtffhamt" id="txtffhamt">
-								</div>
-							</div>
-								<div class="form-group col-md-3">
+                  <form class="form form-vertical" name="frm" action="<?php echo site_url('flexihead_students/insert_record');?>" method="post" id="frm">
+									   <div class="form-group ">
+									     <label>New Flexible Head</label>
+									       <input class="form-control"name="txtffh" id="txtffh">
+							     	</div>
+								  	<div class="form-group">
+								    	<label>Amount</label>
+								      	<input class="form-control" name="txtffhamt" id="txtffhamt">
+							     	</div>
+					     		
+								<div class="form-group">
 										<label>How Many Times</label>
 										<select class="form-control" name="txthmt" id="txthmt">
 											<option>Select</option>
@@ -55,6 +53,9 @@
 						</form>
 
             </div>
+          </div>
+        </th>
+          <th>
 						 <div class="controls span6">
         <div class="widget-box">
             
@@ -70,6 +71,9 @@
             </div>
         </div>
     </div>
+  </th>
+  </tr>
+</table>
 </div>
 
 

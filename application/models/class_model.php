@@ -8,13 +8,13 @@ class class_model extends CI_Model {
 
 	function submission(){
 		
-		$Course_ = $this->input->post('textcourse');
+		$Course_ = $this->input->post('txtClss');
 		$Semester_=$this->input->post('txtSemester');
 		$Section_=$this->input->post('txtSection');
 
-		$sid = $this->db->insert_id();
-		$this->db->where('class_ID', $sid);
-		$query = $this->db->get('class');
+		$cid = $this->db->insert_id();
+		$this->db->where('course_ID', $cid);
+		$query = $this->db->get('course_details');
 
 		if($query->num_rows()!=0){
 			$bool_ = array(
@@ -24,11 +24,19 @@ class class_model extends CI_Model {
 		} else {
 
 			$data = array(
+				
 				'course' => $Course_,
-				'sem' => $Semester_,
-				'section'=> $Section_
 			);
-			$this->db->insert('class', $data);
+			$this->db->insert('course_details', $data);
+
+			$csid=$this->db->insert_id();
+
+			$data1=array(
+				'course_ID' => $csid,
+				'sem_ID'=> $Semester_,
+				'section' => $Section_,
+			);
+			$this->db->insert('class',$data1);
 		
 
 			$bool_ = array(

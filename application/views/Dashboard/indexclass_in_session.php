@@ -19,7 +19,7 @@
 				<tr>
 					<td><div id="prhere" style="clear:both"></div></td>
 					<td><div id="prhrt" style="clear:both"></div></td>
-					<td class="disabled"></td>
+					<td disabled="disabled"></td>
 
 			</table>
 		</div>
