@@ -64,7 +64,7 @@ function callEdit(id){
 				str = str + "</tr>";
 				for(i=0; i<obj.flex.length; i++){
 					str = str + "<tr>";
-					str = str + "<td><input type='radio' name='flex_head'></td>";
+					str = str + "<td><input type='radio' class='flexib' name='flex_head' id='"+obj.flex[i]['fhead_ID']+"'></td>";
 					str = str + "<td>" + obj.flex[i]['New_Flexible_Head'] + "</td>";
 					str = str + "</tr>";
 				}
@@ -98,7 +98,7 @@ $(function(){
 				str = str + "</tr>";
 				for(i=0; i<obj.clss.length; i++){
 					str = str + "<tr>";
-					str = str + '<td><input type="radio" name="clss" id="'+obj.clss[i]['class_ID']+'"  class="stdi"</td>';
+					str = str + '<td><input type="radio" name="clss" id="'+obj.clss[i]['class_ID']+'" value="id1" class="stdi"</td>';
 					//str = str + '<td class="stdin" id="'+obj.class[i]['class_ID']+'">';
 					str = str + "<td>" + obj.clss[i]['course'] + ' ' + obj.clss[i]['sem_ID'] + ' ' + obj.clss[i]['section'] + "</td>";
 					str = str + "</tr>";
@@ -172,15 +172,15 @@ $('body').on('click','.print',function(){
 
 $('body').on('click','.del',function(){
 	var fhid=this.id;
-	alert(fhid);
 	var url_ = site_url_ + "/flexihead_students/delete_record/"+fhid ;
 		
 			$.ajax({
 			type: "GET",
 			url: url_,
 			success: function(data){
-				alert('Deleted');
-				
+				alert('deleted');
+
+
 
 				
 			
@@ -205,7 +205,7 @@ $('body').on('click','.stdi',function(){
 				str = str + '</tr>';
 				for(i=0;i<obj.stud.length;i++){
 					str = str + '<tr>';
-					str = str + '<td><input type="checkbox"></td>';
+					str = str + '<td><input type="checkbox" id="'+obj.stud[i]['student_ID']+'"></td>';
 					str = str + "<td>" + obj.stud[i]['student_ID'] + "</td>";
 					str = str + "<td>" + obj.stud[i]['first_Name'] + ' ' + obj.stud[i]['last_Name'] + "</td>";
 					str = str + "</tr>";
@@ -216,3 +216,7 @@ $('body').on('click','.stdi',function(){
 			}
 		});
 });
+
+function clickme(){
+	alert(id1.id);
+}

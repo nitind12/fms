@@ -247,8 +247,9 @@ $('#frmInvoice').submit(function(){
 				//$('#invoicedatahere').html(data)
 				var obj = JSON.parse(data);
 				var str = '';
-				
-				
+		str = str + '<span class="@media">'
+		str = str + '</span>';
+		str =str + '<div id="printme" >';		
 		str = str + '<table border="0" align="center" class="myfont table_" style="border:black solid 1px" cellpadding="10">';
 			str = str + '<tbody>';str = str + '<center>';
 			str = str + '<center>';
@@ -532,16 +533,11 @@ $('#frmInvoice').submit(function(){
 				str = str + '<b>Note</b>'
 				str = str +'<h6> This Invoice is generated for 1 Year.<h6>';
 			str = str + '</td>';
-		str = str +'</tr>';
-	str = str +'</tbody>'
-str = str +'</table>'		
-				/*str= str + '<>';
-				str = str + '<tr>';
-				str = str + '<th>INVOICE</th>';
-				str = str + '</tr>';
-				str = str + '</table>';*/
-				str = str+ '<a href="prnreceipt"></a>';
-				$('#invoicedatahere').html(str);
+		str = str +'</tr>';*/
+	str = str +'</tbody>';
+str = str +'</table>';		
+str = str +'</div>';
+			$('#invoicedatahere').html(str);
 			
 			}
 	});
