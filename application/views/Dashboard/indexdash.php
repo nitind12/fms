@@ -51,7 +51,6 @@
 			<div class="row">
 				<div class="col-xs-6 col-md-2 col-lg-2 no-padding">
 					<a href="invoicedisplay">
-					<div class="panel panel-teal panel-widget border-right" style="background-color:aqua;margin-top:-18px;margin-left:17px;margin-bottom:-22px;"><a href="invoicedisplay">
 					<div class="panel panel-teal panel-widget border-right" style="background-color:aqua;margin-top:-18px;margin-left:17px;margin-bottom:-22px;">
 						<div class="row no-padding"><i class="fa fa-credit-card fa-3x"></i>
 							<div class="large">
