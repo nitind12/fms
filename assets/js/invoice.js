@@ -258,7 +258,7 @@ $('#frmInvoice').submit(function(){
      	   	str = str + '</center>';
 			str=str + '<tr>';
 
-
+			
 
 				str = str +	'<td>';
 					str = str +	'<table border="0" class="myfont table_" style="border:black solid 0px">';

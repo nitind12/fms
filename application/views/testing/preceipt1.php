@@ -10,7 +10,7 @@
             <button class="btn btn-danger print_button" onclick="window.print();">Print</button>
      	   	</div>
      	   	</center>
-     	   </br>
+     	   	<br>
 			<tr>
 					<td>
 						<table border="0"  align="center" cellpadding="0px" cellspacing="10px" class="table_" style="border:#009900 solid 0px">
@@ -154,8 +154,21 @@
 				</tr>
 			</tbody></table>
 			</td></tr></tbody></table>
+
+
 			 
-			 <table border="0"  align="center" cellpadding="0px" cellspacing="10px" class="table_" style="border:#009900 solid 0px">
+
+			 <div class="row">
+		<div class="col-sm-12 hide_button" style="margin-top: 10px">
+        </div>
+        <div style="clear: both; height: 10px"></div>
+					<table border="0" class="myfont table_" cellpadding="10"><tbody><tr><td>
+						<table  align ="center" style="width: 800px; font-size: 13px; font-family: verdana; border:#808080 solid 1px; background: #ffffff" class="table print_me">
+				<tbody>
+			
+			<tr>
+					<td>
+						<table border="0"  align="center" cellpadding="0px" cellspacing="10px" class="table_" style="border:#009900 solid 0px">
 							<tbody><tr class="feeHeader" align="center" >
 
 								<td width="100" align="center"><img src="https://school.teamfreelancers.com/assets_/default-demo/logo/4.jpg?ver=1.4" width="100"></td>
@@ -192,7 +205,7 @@
 											 </td>
 											<td align="center" style="width: 500px;padding: 0px 0px 0px 8px; vertical-align: middle"><h4 align="center"></h4>
 												<div style="width:150px; background: #f0f0f0; border-radius: 5px">
-											Office Copy
+											Student Copy
 											</div>
 											</td>
 											<td align="right" class="space_td">Date:<?php echo
