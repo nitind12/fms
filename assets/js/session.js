@@ -25,7 +25,12 @@ $(function(){
 					str = str + "<td>" + obj.sess[i]['session_ID'] + "</td>";
 					str = str + "<td>" + obj.sess[i]['session_Start'] + "</td>";
 					str = str + "<td>" + obj.sess[i]['session_End'] + "</td>";
-					str = str + "<td>" + "" + "</td>";
+						str = str + '<td>';
+					str = str + '<span class=" fa fa-pencil print"></span>';
+					str = str + "/" +'<span class="fa fa-remove del" id="'+obj.sess['Session_ID']+'"></span>';
+					str = str +  '</td>';
+				
+				
 					str = str + "</tr>";
 				}
 				str = str + "</table>";

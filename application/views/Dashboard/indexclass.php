@@ -7,36 +7,40 @@
 				<li class="active">Master</li>
 			</ol>
 		</div><!--/.row-->
-		<div class="panel-heading">Class</div>
+		<div class="panel-heading">New Class</div>
 		<div class="panel-body">
-			
-			<form role="form" name="frmSession" method="post" action="<?php echo site_url('classes/insert_record');?>">
-								<!--student details-->
-								<div class="form-group col-md-3">
-										<label>Course</label>
-										<select class="form-control" name="textcourse" id="textcourse">
-											<option>Select Course</option>
-											<?php foreach ($course as $item) { ?>
-											<option value="<?php echo $item->course;?>"><?php echo $item->course; ?></option>
-											<?php } ?>
-										</select>
+			<table class="table table-bordered">
+				<tr>
+					<th>
+						<form role="form" name="frmSession" method="post" action="<?php echo site_url('classes/insert_record');?>">
+								
+									<div class="form-group">
+									<label><em class="fa fa-book">&nbsp</em>Course</label>
+									<input class="form-control" name="txtClss" id="txtClss">
 								</div>
-								<div class="col-md-3">
 									<div class="form-group">
 									<label><em class="fa fa-book">&nbsp</em>Semester</label>
-									<input class="form-control" name="txtSemester" id="txtSemester">
-								</div></div>
+									<select class="form-control" name="txtSemester" id="txtSemester">
+										<option>Select</option>
+											<?php for ($loop=1;$loop<=6; $loop++) {?>
+												<option value="<?php echo $loop;?>"><?php echo $loop;?></option>
+											<?php } ?>
+									</select>
+								</div>
 								
-								<div class="col-md-3">
 									<div class="form-group">
 									<label><em class="fa fa-book">&nbsp</em>Section</label>
-									<input class="form-control" name="txtSection" id="txtSection">
-								</div></div>
+									<select class="form-control" name="txtSection" id="txtSection">
+									<option>Select</option>
+									<option>A</option>
+									<option>B</option>
+								</select>
+								</div>
 
 							
 							<div class="col-sm-12">
-									<button type="submit" class="btn btn-primary">Add Class</button>
-									<button type="reset" class="btn btn-default">Reset</button>
+									<button type="submit" class="btn btn-success">Add New Class</button>
+									<button type="reset" class="btn btn-primary">Reset</button>
 								</div>
 								<div class="form-group">
 									<div class="col-md-12 widget-left" id="msghere" style="font-size: 10px; color: #ff0000">
@@ -45,7 +49,21 @@
 								</div>
 		
 							</form>
+						</th>
 
+						<th>
+							<table class="table table-bordered table-striped with-check">
+								<tr>
+									<th>Existing Classes</th>
+								</tr>
+								<tr>
+									<th><div id="print" style="clear:both"></div></th>
+								</tr>
+							</table>
+
+						</th>
+					</tr>
+				</table>
 
 
 

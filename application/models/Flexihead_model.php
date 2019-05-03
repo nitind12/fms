@@ -47,24 +47,15 @@ class Flexihead_model extends CI_Model {
 	return $bool_;
 	}
 
-	function deletion(){
-		$ffh_ = $this->input->post('txtffh');
-		$ffhamt_ = $this->input->post('txtffhamt');
-		$hmt_ = $this->input->post('txthmt');
-		$fidold=$this->db->insert_id();
-
-		$data = array(
-				'New_Flexible_Head' => $ffh_,
-				'Amount'=> $ffhamt_,
-				'How_Many_Times'=>$hmt_,
-			);
-
-				$this->db->where('fhead_ID', $fidold);
-				$this->db->delete('manage_flexible_head',$data);
+	function deletion($fhid){
+		
+		$this->db->where('fhead_ID', $fhid);
+		$query=$this->db->delete('manage_flexible_head');
+		
 		}
 
 	function getflexiheads(){
-			$this->db->select('fhead_ID,New_Flexible_Head,Amount,How_Many_Times');
+			$this->db->select('*');
 			//$this->db->where('fhead_ID',$str);
 			//$this->db->delete('manage_flexible_head');
 			$query=$this->db->get('manage_flexible_head');

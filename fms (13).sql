@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 29, 2019 at 06:17 PM
+-- Generation Time: May 02, 2019 at 08:29 AM
 -- Server version: 5.6.11
 -- PHP Version: 5.5.3
 
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `class` (
   KEY `sem_ID` (`sem_ID`),
   KEY `course_ID_2` (`course_ID`),
   KEY `sem_ID_2` (`sem_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=25 ;
 
 --
 -- Dumping data for table `class`
@@ -57,7 +57,19 @@ INSERT INTO `class` (`class_ID`, `course_ID`, `sem_ID`, `section`) VALUES
 (9, 101, 5, 'A'),
 (10, 101, 5, 'B'),
 (11, 101, 6, 'A'),
-(12, 101, 6, 'B');
+(12, 101, 6, 'B'),
+(13, 102, 1, 'A'),
+(14, 102, 1, 'B'),
+(15, 102, 2, 'A'),
+(16, 102, 2, 'B'),
+(17, 102, 3, 'A'),
+(18, 102, 3, 'B'),
+(19, 102, 4, 'A'),
+(20, 102, 4, 'B'),
+(21, 102, 5, 'A'),
+(22, 102, 5, 'B'),
+(23, 102, 6, 'A'),
+(24, 102, 6, 'B');
 
 -- --------------------------------------------------------
 
@@ -274,7 +286,6 @@ CREATE TABLE IF NOT EXISTS `fee_invoice` (
 --
 
 INSERT INTO `fee_invoice` (`invoice_ID`, `session_ID`, `class_sess_ID`, `year_From`, `month_From`, `year_To`, `month_To`, `no_of_Month`, `description`, `student_ID`, `static_head_ID`, `static_head_Amount`, `flexible_head_ID`, `flexible_head_Amount`, `actual_Amount`, `applicable_discount_Amount`, `actual_due_Amount`, `previous_due_Amount`, `due_Amount`) VALUES
-(29, '2018-19', 'BCA2018-19_I', 2019, 'April', 2019, 'May', 1, 'x', 1000, '', '0', 'Bus,Karate', '1000', 1000, 600, 0, 0, 0),
 (30, '2018-19', 'BCA2018-19_I', 2019, 'April', 2019, 'May', 1, 'x', 1001, 'Registrati,Books', '1800', 'Bus', '600', 2400, 2200, 0, 0, 0),
 (31, '2018-19', 'BCA2018-19_I', 2019, 'April', 2019, 'May', 1, 'x', 1001, 'Registrati,Books', '1800', 'Bus', '600', 2400, 2200, 0, 0, 0),
 (32, '2018-19', 'BCA2018-19_I', 2019, 'April', 2019, 'May', 1, 'x', 1001, 'Registrati,Books', '1800', 'Bus', '600', 2400, 2200, 0, 0, 0),
@@ -317,7 +328,7 @@ CREATE TABLE IF NOT EXISTS `fee_receipt` (
   KEY `invoice_ID` (`invoice_ID`),
   KEY `invoice_ID_2` (`invoice_ID`),
   KEY `student_ID` (`student_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=25 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=28 ;
 
 --
 -- Dumping data for table `fee_receipt`
@@ -346,7 +357,10 @@ INSERT INTO `fee_receipt` (`receipt_ID`, `invoice_ID`, `student_ID`, `discount_I
 (21, 29, 1000, '10,10,11,11', 1, 1200, '', 1000, 0, 0, 11, 'cash', 'BOB', 0, '0000-00-00', '0000-00-00', '1999', 'fms', '0000-00-00'),
 (22, 29, 1000, '10,10,11,11', 1, 1200, '', 1000, 0, 0, 11, 'cash', 'BOB', 0, '0000-00-00', '0000-00-00', '1999', 'fms', '0000-00-00'),
 (23, 29, 1000, '10,10,11,11', 1, 1200, '', 1000, 0, 0, 11, 'cash', 'BOB', 0, '0000-00-00', '0000-00-00', '1999', 'fms', '0000-00-00'),
-(24, 29, 1000, '10,10,11,11', 1, 1200, '', 1000, 0, 0, 11, 'cash', 'BOB', 0, '0000-00-00', '0000-00-00', '1999', 'fms', '0000-00-00');
+(24, 29, 1000, '10,10,11,11', 1, 1200, '', 1000, 0, 0, 11, 'cash', 'BOB', 0, '0000-00-00', '0000-00-00', '1999', 'fms', '0000-00-00'),
+(25, 29, 1000, '10', 1, 400, '', 1000, 0, 0, 11, 'cash', 'SBI', 0, '0000-00-00', '0000-00-00', '2018-19', 'fms', '0000-00-00'),
+(26, 29, 1000, '10', 1, 400, '', 1000, 0, 0, 11, 'cash', 'SBI', 0, '0000-00-00', '0000-00-00', '2018-19', 'fms', '0000-00-00'),
+(27, 29, 1000, '10', 1, 400, '', 1000, 0, 0, 11, 'cash', 'SBI', 0, '0000-00-00', '0000-00-00', '2018-19', 'fms', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -450,6 +464,7 @@ CREATE TABLE IF NOT EXISTS `login_details` (
 --
 
 INSERT INTO `login_details` (`username`, `password`, `status_ID`, `date`, `status`) VALUES
+('charu', '123', 1, '2019-02-23', '1'),
 ('fms', '1234', 1, '2019-04-06', '1'),
 ('kanika', '1234', 1, '2019-04-06', '1'),
 ('manish', '1234', 1, '2019-04-06', '1');
@@ -501,8 +516,8 @@ CREATE TABLE IF NOT EXISTS `semester_details` (
 --
 
 INSERT INTO `semester_details` (`sem_ID`, `course_ID`, `sem`) VALUES
-(1, 101, 'First'),
-(2, 102, 'First');
+(1, 101, '1'),
+(2, 102, '2');
 
 -- --------------------------------------------------------
 
@@ -806,7 +821,7 @@ CREATE TABLE IF NOT EXISTS `student_academic_details` (
   KEY `course_ID` (`course_ID`),
   KEY `sem_ID` (`sem_ID`),
   KEY `student_ID` (`student_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=33 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=53 ;
 
 --
 -- Dumping data for table `student_academic_details`
@@ -819,7 +834,7 @@ INSERT INTO `student_academic_details` (`acad_ID`, `student_ID`, `course_ID`, `s
 (4, 1003, 101, 1, '2018', '1'),
 (5, 1004, 101, 1, '2018', '1'),
 (6, 1005, 101, 1, '2018', '1'),
-(7, 1006, 101, 1, '2018', '1'),
+(7, 1006, 102, 1, '2018', '1'),
 (8, 1007, 101, 1, '2018', '1'),
 (9, 1008, 101, 1, '2018', '1'),
 (10, 1009, 101, 1, '2018', '1'),
@@ -844,7 +859,27 @@ INSERT INTO `student_academic_details` (`acad_ID`, `student_ID`, `course_ID`, `s
 (29, 1028, 101, 1, '2018', '1'),
 (30, 1029, 101, 1, '2018', '1'),
 (31, 1030, 101, 1, '2018', '1'),
-(32, 1031, 101, 1, '2018', '1');
+(32, 1031, 101, 1, '2018', '1'),
+(33, 1032, 101, 1, '2018', '1'),
+(34, 1033, 101, 1, '2018', '1'),
+(35, 1034, 101, 1, '2018', '1'),
+(36, 1035, 101, 1, '2018', '1'),
+(37, 1036, 101, 1, '2018', '1'),
+(38, 1037, 101, 1, '2018', '1'),
+(39, 1038, 101, 1, '2018', '1'),
+(40, 1039, 101, 1, '2018', '1'),
+(41, 1040, 101, 1, '2018', '1'),
+(42, 1041, 101, 1, '2018', '1'),
+(43, 1042, 101, 1, '2018', '1'),
+(44, 1043, 101, 1, '2018', '1'),
+(45, 1044, 101, 1, '2018', '1'),
+(46, 1045, 101, 1, '2018', '1'),
+(47, 1046, 101, 1, '2018', '1'),
+(48, 1047, 101, 1, '2018', '1'),
+(49, 1048, 101, 1, '2018', '1'),
+(50, 1049, 101, 1, '2018', '1'),
+(51, 1050, 101, 1, '2018', '1'),
+(52, 1051, 101, 1, '2018', '1');
 
 -- --------------------------------------------------------
 
@@ -872,58 +907,58 @@ CREATE TABLE IF NOT EXISTS `student_address_details` (
 --
 
 INSERT INTO `student_address_details` (`address_ID`, `address`, `student_ID`, `area`, `district`, `city`, `state`, `pincode`, `date`, `status`) VALUES
-(1, 'near state bank of india', 1000, 'Kusumkhera', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-02-23', '1'),
-(2, 'Lamachaur', 1001, 'Lamachaur', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-23', '1'),
-(3, 'Near Jal Nigam Office,', 1002, 'Kathgodam', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-23', '1'),
-(4, 'Near Kathgodam Railway Station', 1003, 'Kathgodam', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-23', '1'),
-(5, 'Railway Bazar', 1004, 'Haldwani', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-23', '1'),
+(1, 'Near State Bank Of India', 1000, 'Kusumkhera', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-02-23', '1'),
+(2, 'Lamachaur', 1001, 'Lamachaur', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-01', '1'),
+(3, 'Near Jal Nigam Office,', 1002, 'Kathgodam', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-09', '1'),
+(4, 'Near Kathgodam Railway Station', 1003, 'Kathgodam', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-14', '1'),
+(5, 'Railway Bazar', 1004, 'Haldwani', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-07', '1'),
 (6, 'Bareilly Road', 1005, 'Halduchaur', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-23', '1'),
-(7, 'Near Roadways bus station', 1006, 'Haldwani', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-23', '1'),
+(7, 'Near Roadways bus station', 1006, 'Haldwani', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-03', '1'),
 (8, 'Near Mukhani chauraha', 1007, 'Haldwani', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-23', '1'),
-(9, 'Near Vishal Mega Mart', 1008, 'Kathgodam', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-23', '1'),
-(10, 'Gas Godam Road', 1009, 'Kusumkhera', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-23', '1'),
-(11, 'Near Char Dham Mandir', 1010, 'Fatehpur', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-23', '1'),
-(12, 'Near MBPG College', 1011, 'Kathgodam', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-23', '1'),
-(13, 'Near Kamaluaganja Chauraha', 1012, 'Kamaluaganja', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-23', '1'),
-(14, 'Kaladhungi Chauraha', 1013, 'Kaladhungi', 'Nainital', 'Haldwani', 'Uttarakhand', 263140, '2019-04-23', '1'),
+(9, 'Near V2', 1008, 'Kathgodam', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-30', '1'),
+(10, 'Gas Godam Road', 1009, 'Kusumkhera', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-25', '1'),
+(11, 'Near Char Dham Mandir', 1010, 'Fatehpur', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-14', '1'),
+(12, 'Near MBPG College', 1011, 'Kathgodam', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-19', '1'),
+(13, 'Near Kamaluaganja Chauraha', 1012, 'Kamaluaganja', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-29', '1'),
+(14, 'Kaladhungi Chauraha', 1013, 'Kaladhungi', 'Nainital', 'Haldwani', 'Uttarakhand', 263140, '2019-04-13', '1'),
 (15, 'Near Walkways Mall', 1014, 'Kathgodam', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-23', '1'),
 (16, 'Near Kosi Barrage', 1015, 'Ramnagar', 'Nainital', 'Ramnagar', 'Uttarakhand', 244715, '2019-04-23', '1'),
 (17, 'Near Jim Corbette Museum', 1016, 'Kaladhungi', 'Nainital', 'Haldwani', 'Uttarakhand', 263140, '2019-04-23', '1'),
-(18, 'Near HP Petrol Pump', 1017, 'Kaladhungi', 'Nainital', 'Haldwani', 'Uttarakhand', 263140, '2019-04-23', '1'),
-(19, 'Near Tiwari Sweets', 1018, 'Ramnagar', 'Nainital', 'Ramnagar', 'Uttarakhand', 244715, '2019-04-23', '1'),
+(18, 'Near HP Petrol Pump', 1017, 'Kaladhungi', 'Nainital', 'Haldwani', 'Uttarakhand', 263140, '2019-04-28', '1'),
+(19, 'Near Kundan Sweets', 1018, 'Ramnagar', 'Nainital', 'Ramnagar', 'Uttarakhand', 244715, '2019-04-16', '1'),
 (20, 'Ramnagar Main Market', 1019, 'Ramnagar', 'Nainital', 'Ramnagar', 'Uttarakhand', 244715, '2019-04-23', '1'),
-(21, 'Near Big Bazar', 1020, 'Kathgodam', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-23', '1'),
+(21, 'Near Big Bazar', 1020, 'Kathgodam', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-24', '1'),
 (22, 'RTO Office Road', 1021, 'Kusumkhera', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-23', '1'),
-(23, 'Near Jal Nigam Office,', 1022, 'Kathgodam', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-23', '1'),
-(24, 'Bareilly Road', 1023, 'Halduchaur', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-23', '1'),
+(23, 'Near Jal Nigam Office,', 1022, 'Kathgodam', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-24', '1'),
+(24, 'Bareilly Road', 1023, 'Halduchaur', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-08', '1'),
 (25, 'Near MIET Kumaun', 1024, 'Lamachaur', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-23', '1'),
-(26, 'Near DPS Haldwani', 1025, 'Lamachaur', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-23', '1'),
-(27, 'Bartan Bazar', 1026, 'Haldwani', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-23', '1'),
+(26, 'Near DPS Haldwani', 1025, 'Lamachaur', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-14', '1'),
+(27, 'Bartan Bazar', 1026, 'Haldwani', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-25', '1'),
 (28, 'Near Hanuman Mandir', 1027, 'Kusumkhera', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-23', '1'),
-(29, 'Near Vishal Mega Mart', 1028, 'Kathgodam', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-23', '1'),
-(30, 'Kashipur Road', 1029, 'Ramnagar', 'Nainital', 'Ramnagar', 'Uttarakhand', 244715, '2019-04-23', '1'),
+(29, 'Near Vishal Mega Mart', 1028, 'Kathgodam', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-17', '1'),
+(30, 'Kashipur Road', 1029, 'Ramnagar', 'Nainital', 'Ramnagar', 'Uttarakhand', 244715, '2019-04-11', '1'),
 (31, 'Near Walkways Mall', 1030, 'Kathgodam', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-23', '1'),
-(32, 'Near Corbette Falls', 1031, 'Kaladhungi', 'Nainital', 'Haldwani', 'Uttarakhand', 263140, '2019-04-23', '1'),
-(35, 'Near Hydel Gate', 1032, 'Kathgodam', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-23', '1'),
-(36, 'Near Hotel Devashish', 1033, 'Kathgodam', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-23', '1'),
-(37, 'Near Corbette Resort', 1034, 'Ramnagar', 'Nainital', 'Ramnagar', 'Uttarakhand', 244715, '2019-04-23', '1'),
-(38, 'Civil Lines', 1035, 'Rudrapur', 'U. S. Nagar', 'Rudrapur', 'Uttarakhand', 263153, '2019-04-23', '1'),
-(39, 'Amba Nagar, Lal Danth    ', 1036, 'Haldwani', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-23', '1'),
+(32, 'Near Corbette Falls', 1031, 'Kaladhungi', 'Nainital', 'Haldwani', 'Uttarakhand', 263140, '2019-04-14', '1'),
+(35, 'Near Hmt Gate', 1032, 'Kathgodam', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-07', '1'),
+(36, 'Near Brew And Bite', 1033, 'Bhotiyaparaw', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-01', '1'),
+(37, 'Near Corbette Resort', 1034, 'Ramnagar', 'Nainital', 'Ramnagar', 'Uttarakhand', 244715, '2019-04-24', '1'),
+(38, 'Pantnagar', 1035, 'Rudrapur', 'U. S. Nagar', 'Rudrapur', 'Uttarakhand', 263153, '2019-04-28', '1'),
+(39, 'Shakti vihar, Lal Danth    ', 1036, 'Haldwani', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-14', '1'),
 (40, 'Azad Nagar, Heera Nagar    ', 1037, 'Haldwani', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-23', '1'),
-(41, 'Barsati Road, Indira Nagar   ', 1038, 'Kathgodam', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-23', '1'),
+(41, 'Reshambag,Kathghariya', 1038, 'Kathgariya', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-09', '1'),
 (42, 'Near Sidcul', 1039, 'Rudrapur', 'U. S. Nagar', 'Rudrapur', 'Uttarakhand', 263153, '2019-04-23', '1'),
-(43, 'Alliance Colony', 1040, 'Rudrapur', 'US Nagar', 'Rudrapur', 'Uttarakhand', 263154, '2019-04-23', '1'),
+(43, 'Dev vihar', 1040, 'Unchapul', 'Nainital', 'Rudrapur', 'Uttarakhand', 263154, '2019-04-12', '1'),
 (44, 'Kashipur Road', 1041, 'Ramnagar', 'Nainital', 'Ramnagar', 'Uttarakhand', 244715, '2019-04-23', '1'),
 (45, 'Charayal Nayabad   ', 1042, 'Haldwani', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-23', '1'),
-(46, 'Beersheba Road, Subhash Nagar ', 1043, 'Kathgodam', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-23', '1'),
-(47, 'Near Vishal Mega Mart', 1044, 'Kathgodam', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-23', '1'),
-(48, 'Near Corbette Museum', 1045, 'Kaladhungi', 'Nainital', 'Haldwani', 'Uttarakhand', 263140, '2019-04-23', '1'),
-(49, 'Near Jal Nigam Office,', 1046, 'Kathgodam', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-23', '1'),
-(50, 'Near MBPG College', 1047, 'Kathgodam', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-23', '1'),
-(51, 'Railway Bazar', 1048, 'Haldwani', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-23', '1'),
-(52, 'Near Mukhani chauraha', 1049, 'Haldwani', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-23', '1'),
-(53, 'near state bank of india', 1051, 'Kusumkhera', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, NULL, NULL),
-(54, 'Kotabagh', 1053, 'Hari Nagar', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, NULL, NULL);
+(46, 'Near Beersheba,Nainital Road', 1043, 'Kathgodam', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-13', '1'),
+(47, 'Near Walkway', 1044, 'Kathgodam', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-10', '1'),
+(48, 'Bailparaw', 1045, 'Kaladhungi', 'Nainital', 'Ramnagar', 'Uttarakhand', 263140, '2019-04-13', '1'),
+(49, 'Paulgar', 1046, 'Kaladhungi', 'Nainital', 'Ramnagar', 'Uttarakhand', 263139, '2019-04-23', '1'),
+(50, 'Near Sushila Tiwari', 1047, 'Haldwani', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-14', '1'),
+(51, 'Parwati Vihar', 1048, 'Unchapaul', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-08', '1'),
+(52, 'Basant Vihar', 1049, 'Haldwani', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-04-23', '1'),
+(53, 'Near state bank of India', 1051, 'Kusumkhera', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-05-06', '1'),
+(54, 'Kotabagh', 1053, 'Ramanagar', 'Nainital', 'Haldwani', 'Uttarakhand', 263139, '2019-05-12', '1');
 
 -- --------------------------------------------------------
 
@@ -951,9 +986,9 @@ CREATE TABLE IF NOT EXISTS `student_contact_details` (
 INSERT INTO `student_contact_details` (`contact_ID`, `contact`, `student_ID`, `status`, `date`) VALUES
 (1, '9412929975', 1009, '1', '2019-02-23'),
 (2, '9412929973', 1000, '1', '2019-04-18'),
-(3, '6784377886', 1010, '1', '2019-04-16'),
+(3, '6784377886', 1010, '1', '2019-02-22'),
 (4, '9281233882', 1001, '1', '2019-02-23'),
-(5, '8765677886', 1002, '1', '2019-04-25'),
+(5, '8765677886', 1002, '1', '0000-00-00'),
 (6, '8765544665', 1003, '1', '2019-02-23'),
 (7, '6788977886', 1004, '1', '0000-00-00'),
 (8, '9888988776', 1005, '1', '2019-02-23'),
@@ -979,28 +1014,28 @@ INSERT INTO `student_contact_details` (`contact_ID`, `contact`, `student_ID`, `s
 (28, '9857645356', 1027, '1', '2019-04-23'),
 (29, '8754446001', 1028, '1', '2019-04-23'),
 (30, '7776786510', 1029, '1', '2019-04-23'),
-(31, '9563458001', 1030, '1', '2019-04-23'),
-(32, '9857640910', 1031, '1', '2019-04-23'),
-(33, '8765401009', 1032, '1', '2019-04-23'),
-(34, '7658430023', 1033, '1', '2019-04-23'),
-(35, '8765402011', 1034, '1', '2019-04-23'),
-(36, '9927234562', 1035, '1', '2019-04-23'),
-(37, '8976543001', 1036, '1', '2019-04-23'),
-(38, '8856756771', 1037, '1', '2019-04-23'),
-(39, '8765402222', 1038, '1', '2019-04-23'),
+(31, '9563458001', 1030, '1', '2019-04-02'),
+(32, '9857640910', 1031, '1', '2019-04-12'),
+(33, '8765401009', 1032, '1', '2019-04-03'),
+(34, '7658430023', 1033, '1', '2019-04-14'),
+(35, '8765402011', 1034, '1', '2019-04-17'),
+(36, '9927234562', 1035, '1', '2019-04-18'),
+(37, '8976543001', 1036, '1', '2019-04-15'),
+(38, '8856756771', 1037, '1', '2019-04-21'),
+(39, '8765402222', 1038, '1', '2019-04-29'),
 (40, '8876543001', 1039, '1', '2019-04-23'),
-(41, '8834545423', 1040, '1', '2019-04-23'),
-(42, '7098854320', 1041, '1', '2019-04-23'),
-(43, '7060028260', 1042, '1', '2019-04-23'),
-(44, '9887603468', 1043, '1', '2019-04-23'),
-(45, '6005603423', 1044, '1', '2019-04-23'),
-(46, '8006802343', 1045, '1', '2019-04-23'),
-(47, '7060034560', 1046, '1', '2019-04-23'),
-(48, '7890654400', 1047, '1', '2019-04-23'),
-(49, '8756778901', 1048, '1', '2019-04-23'),
-(50, '9934567801', 1049, '1', '2019-04-23'),
-(51, '9412929973', 1051, NULL, '2019-04-18'),
-(52, '9456895715', 1053, NULL, '0000-00-00');
+(41, '8834545423', 1040, '1', '2019-04-14'),
+(42, '7098854320', 1041, '1', '2019-04-09'),
+(43, '7060028260', 1042, '1', '2019-04-24'),
+(44, '9887603468', 1043, '1', '2019-04-13'),
+(45, '9005603423', 1044, '1', '2019-04-05'),
+(46, '8006802343', 1045, '1', '2019-04-11'),
+(47, '7060031560', 1046, '1', '2019-04-14'),
+(48, '7890654400', 1047, '1', '2019-04-20'),
+(49, '8756778901', 1048, '1', '2019-04-18'),
+(50, '9934567801', 1049, '1', '2019-04-07'),
+(51, '9412920973', 1051, '1', '2019-04-09'),
+(52, '9456895715', 1053, '1', '2019-05-02');
 
 -- --------------------------------------------------------
 
@@ -1101,14 +1136,14 @@ CREATE TABLE IF NOT EXISTS `student_email_details` (
   `status` decimal(2,0) DEFAULT NULL,
   PRIMARY KEY (`email_ID`),
   KEY `student_ID` (`student_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=60 ;
 
 --
 -- Dumping data for table `student_email_details`
 --
 
 INSERT INTO `student_email_details` (`email_ID`, `email`, `student_ID`, `date`, `status`) VALUES
-(1, 'akshat@gmail.com', 1000, '2019-04-18', '1'),
+(1, 'akshat99@gmail.com', 1000, '2019-04-18', '1'),
 (2, 'anand@gmail.com', 1001, '2019-04-16', '1'),
 (3, 'ayushman@gmial.com', 1002, '2019-04-25', '1'),
 (4, 'bhaskar@gmail.com', 1003, '2019-04-16', '1'),
@@ -1121,11 +1156,44 @@ INSERT INTO `student_email_details` (`email_ID`, `email`, `student_ID`, `date`, 
 (12, 'jhilmil@gmail.com', 1011, '2019-03-22', '1'),
 (13, 'kapil@gmail.com', 1012, '2019-03-22', '1'),
 (14, 'khusboo@gmail.com', 1013, '2019-03-22', '1'),
-(15, 'komalA@gmail.com', 1014, '2019-04-24', '1'),
-(16, 'lakshitaK@gmail.com', 1015, '2019-02-01', '1'),
-(17, 'Lovelesh@gmail.com', 1016, '2019-03-01', '1'),
-(18, 'akshat@gmail.com', 1051, '2019-04-18', NULL),
-(19, 'anil@gmail.com', 1053, '0000-00-00', NULL);
+(15, 'komal155@gmail.com', 1014, '2019-04-24', '1'),
+(16, 'lakshita11@gmail.com', 1015, '2019-02-01', '1'),
+(17, 'Lovelesh45@gmail.com', 1016, '2019-03-01', '1'),
+(20, 'bora98@gmail.com', 1017, '2019-03-14', '1'),
+(21, 'Himanshu123@gmail.co', 1018, '2019-05-26', '1'),
+(22, 'Vikram12@gmail.com', 1019, '2019-05-29', '1'),
+(23, 'Aditi@gmail.com', 1020, '2019-05-15', '1'),
+(24, 'Vikram09@gmail.com', 1021, '2019-05-08', '1'),
+(25, 'Disha50@gmail.com', 1022, '2019-05-01', '1'),
+(26, 'Loviee345@gmail.com', 1023, '2019-05-29', '1'),
+(27, 'Aaryan65@gmail.com', 1024, '2019-05-22', '1'),
+(28, 'Ravi49@gmail.com', 1025, '2019-05-14', '1'),
+(29, 'Prateek507@gmail.com', 1026, '2019-05-15', '1'),
+(30, 'Satyam549@gmail.com', 1027, '2019-05-09', '1'),
+(31, 'Neha199@gmail.com', 1028, '2019-05-14', '1'),
+(32, 'Vijay12@gmail.com', 1029, '2019-05-08', '1'),
+(33, 'Rikki234@gmail.com', 1030, '2019-05-15', '1'),
+(34, 'Rohit567@gmail.com', 1031, '2019-05-16', '1'),
+(35, 'Vikki29@gmail.com', 1032, '2019-05-08', '1'),
+(36, 'bunty@gmail.com', 1033, '2019-05-08', '1'),
+(37, 'raja12@gmail.com', 1034, '2019-05-21', '1'),
+(38, 'joshi99@gmail.com', 1035, '2019-03-14', '1'),
+(39, 'raja12@gmail.com', 1036, '2019-05-29', '1'),
+(45, 'Aaditya90@gmail.com', 1037, '2019-05-23', '1'),
+(46, 'Gaurav10@gmail.com', 1038, '2019-05-29', '1'),
+(47, 'Vikash10@gmail.com', 1039, '2019-05-15', '1'),
+(48, 'Atul12@gmail.com', 1040, '2019-05-16', '1'),
+(49, 'AmanBhatt143@gmail.c', 1041, '2019-05-30', '1'),
+(50, 'Shivani12@gmail.com', 1042, '2019-05-30', '1'),
+(51, 'Rohit199@gmail.com', 1043, '2019-05-08', '1'),
+(52, 'Neelam45@gmail.com', 1044, '2019-04-12', '1'),
+(53, 'Mihir987@gmail.com', 1045, '2019-05-28', '1'),
+(54, 'himanshu231@gmaol.co', 1046, '2019-04-17', '1'),
+(55, 'Govind98@gmail.com', 1047, '2019-05-27', '1'),
+(56, 'Deepak501@gmail.com', 1048, '2019-05-24', '1'),
+(57, 'Aayush500@gmail.com', 1049, '2019-05-30', '1'),
+(58, 'Anushka199@gmail.com', 1051, '2019-05-22', '1'),
+(59, 'Aashima89@gmail.com', 1053, '2019-05-14', '1');
 
 -- --------------------------------------------------------
 
@@ -1148,7 +1216,7 @@ CREATE TABLE IF NOT EXISTS `student_in_session` (
   KEY `username` (`username`),
   KEY `student_ID` (`student_ID`),
   KEY `class_ID` (`class_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=55 ;
 
 --
 -- Dumping data for table `student_in_session`
@@ -1159,12 +1227,54 @@ INSERT INTO `student_in_session` (`std_ID`, `student_ID`, `class_sess_ID`, `sess
 (2, 1001, 'BCA2018-19_I', '2018-19', 1, 'charu', '1', '2019-02-23'),
 (3, 1002, 'BCA2018-19_I', '2018-19', 1, 'charu', '1', '2019-04-09'),
 (4, 1003, 'BCA2018-19_I', '2018-19', 1, 'charu', '1', '2019-04-10'),
-(5, 1004, 'BCA2018-19_I', '2018-19', 1, 'charu', '1', '2019-04-05'),
-(6, 1005, 'BCA2018-19_I', '2018-19', 1, 'charu', '1', '2019-04-17'),
-(7, 1006, 'BCA2018-19_I', '2018-19', 1, 'charu', '1', '2019-04-15'),
-(8, 1007, 'BCA2018-19_I', '2018-19', 1, 'charu', '1', '2019-04-01'),
-(9, 1008, 'BCA2018-19_I', '2018-19', 1, 'charu', '1', '2019-04-15'),
-(10, 1009, 'BCA2018-19_I', '2018-19', 1, 'charu', '1', '2019-04-08');
+(5, 1004, 'BCA2018-19_II', '2018-19', 2, 'charu', '1', '2019-04-15'),
+(6, 1005, 'BCA2018-19_II', '2018-19', 2, 'charu', '1', '2019-04-01'),
+(7, 1006, 'BCA2018-19_II', '2018-19', 2, 'charu', '1', '2019-04-15'),
+(8, 1007, 'BCA2018-19_II', '2018-19', 2, 'charu', '1', '2019-04-08'),
+(9, 1008, 'BCA2018-19_III', '2018-19', 3, 'fms', '1', '2019-02-21'),
+(10, 1009, 'BCA2018-19_III', '2018-19', 3, 'manish', '1', '2019-04-03'),
+(11, 1010, 'BCA2018-19_III', '2018-19', 3, 'manish', '1', '2019-04-19'),
+(12, 1011, 'BCA2018-19_III', '2018-19', 3, 'manish', '1', '2019-04-08'),
+(13, 1012, 'BCA2018-19_IV', '2018-19', 4, 'charu', '1', '2019-04-18'),
+(14, 1013, 'BCA2018-19_IV', '2018-19', 4, 'charu', '1', '2019-04-23'),
+(15, 1014, 'BCA2018-19_IV', '2018-19', 4, 'manish', '1', '2019-02-19'),
+(16, 1015, 'BCA2018-19_IV', '2018-19', 4, 'fms', '1', '2019-04-22'),
+(17, 1016, 'BCA2018-19_V', '2018-19', 5, 'manish', '1', '2019-04-14'),
+(18, 1017, 'BCA2018-19_V', '2018-19', 5, 'fms', '1', '2019-04-18'),
+(19, 1018, 'BCA2018-19_V', '2018-19', 5, 'charu', '1', '2019-04-30'),
+(20, 1019, 'BCA2018-19_V', '2018-19', 5, 'manish', '1', '2019-04-10'),
+(21, 1020, 'BCA2018-19_VI', '2018-19', 6, 'manish', '1', '2019-04-01'),
+(22, 1021, 'BCA2018-19_VI', '2018-19', 6, 'charu', '1', '2019-04-15'),
+(23, 1022, 'BCA2018-19_VI', '2018-19', 6, 'manish', '1', '2019-04-16'),
+(24, 1023, 'BCA2018-19_VI', '2018-19', 6, 'manish', '1', '2019-04-19'),
+(27, 1024, 'BCA2018-19_VI', '2018-19', 7, 'fms', '1', '2019-04-21'),
+(28, 1025, 'BCA2018-19_VI', '2018-19', 7, 'charu', '1', '2019-04-16'),
+(29, 1026, 'BCA2018-19_VI', '2018-19', 7, 'manish', '1', '2019-04-11'),
+(30, 1027, 'BCA2018-19_VI', '2018-19', 7, 'manish', '1', '2019-04-12'),
+(31, 1028, 'BCA2018-19_VI', '2018-19', 8, 'charu', '1', '2019-04-18'),
+(32, 1029, 'BCA2018-19_VI', '2018-19', 8, 'fms', '1', '2019-04-29'),
+(33, 1030, 'BCA2018-19_VI', '2018-19', 8, 'charu', '1', '2019-04-01'),
+(34, 1031, 'BCA2018-19_VI', '2018-19', 8, 'charu', '1', '2019-04-14'),
+(35, 1032, 'BCA2018-19_VI', '2018-19', 9, 'charu', '1', '2019-04-10'),
+(36, 1033, 'BCA2018-19_VI', '2018-19', 9, 'charu', '1', '2019-04-26'),
+(37, 1034, 'BCA2018-19_VI', '2018-19', 9, 'fms', '1', '2019-05-07'),
+(38, 1035, 'BCA2018-19_VI', '2018-19', 9, 'fms', '1', '2019-05-15'),
+(39, 1036, 'BCA2018-19_VI', '2018-19', 10, 'charu', '1', '2019-03-14'),
+(40, 1037, 'BCA2018-19_VI', '2018-19', 10, 'charu', '1', '2019-05-15'),
+(41, 1038, 'BCA2018-19_VI', '2018-19', 10, 'charu', '1', '2019-03-14'),
+(42, 1039, 'BCA2018-19_VI', '2018-19', 10, 'fms', '1', '2019-05-08'),
+(43, 1040, 'BCA2018-19_VI', '2018-19', 11, 'manish', '1', '2019-05-21'),
+(44, 1041, 'BCA2018-19_VI', '2018-19', 11, 'fms', '1', '2019-03-11'),
+(45, 1042, 'BCA2018-19_VI', '2018-19', 11, 'manish', '1', '2019-05-09'),
+(46, 1043, 'BCA2018-19_VI', '2018-19', 11, 'manish', '1', '2019-05-05'),
+(47, 1044, 'BCA2018-19_VI', '2018-19', 12, 'manish', '1', '2019-05-13'),
+(48, 1045, 'BCA2018-19_VI', '2018-19', 12, 'manish', '1', '2019-05-04'),
+(49, 1046, 'BCA2018-19_VI', '2018-19', 12, 'fms', '1', '2019-05-15'),
+(50, 1047, 'BCA2018-19_VI', '2018-19', 12, 'charu', '1', '2019-05-07'),
+(51, 1048, 'BCA2018-19_I', '2018-19', 13, 'fms', '2', '2019-03-14'),
+(52, 1049, 'BCA2018-19_I', '2018-19', 13, 'fms', '2', '2019-05-11'),
+(53, 1051, 'BCA2018-19_I', '2018-19', 13, 'fms', '2', '2019-05-08'),
+(54, 1053, 'BCA2018-19_II', '2018-19', 13, 'fms', '2', '2019-03-14');
 
 -- --------------------------------------------------------
 
@@ -1335,6 +1445,15 @@ ALTER TABLE `student_details`
 --
 ALTER TABLE `student_email_details`
   ADD CONSTRAINT `student_email_details_ibfk_1` FOREIGN KEY (`student_ID`) REFERENCES `student_details` (`student_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `student_in_session`
+--
+ALTER TABLE `student_in_session`
+  ADD CONSTRAINT `student_in_session_ibfk_2` FOREIGN KEY (`class_sess_ID`) REFERENCES `class_in_session` (`class_sess_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `student_in_session_ibfk_3` FOREIGN KEY (`session_ID`) REFERENCES `session_master` (`session_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `student_in_session_ibfk_4` FOREIGN KEY (`username`) REFERENCES `login_details` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `student_in_session_ibfk_5` FOREIGN KEY (`student_ID`) REFERENCES `student_details` (`student_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `student_register_discount`

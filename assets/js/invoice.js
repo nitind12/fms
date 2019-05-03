@@ -195,7 +195,7 @@ $('#frmInvoice').submit(function(){
 							str = str + "<td>"+dues+"</td>";
 							if(invid == 'x'){
 								//str = str + '<td></td>';
-								str = str + '<td></td>';
+								str= str +'<td><span class="fa" id="payhere_'+obj.students[s]['student_ID']+'" ></span></td>';
 								str = str + '<td><span class="fa fa-print"></span></td>';
 							} else {
 								str = str + '<td> <span class="fa fa-play payhere" id="payhere_'+obj.students[s]['student_ID']+"_"+invid+'"  ></span></td>';
@@ -247,8 +247,9 @@ $('#frmInvoice').submit(function(){
 				//$('#invoicedatahere').html(data)
 				var obj = JSON.parse(data);
 				var str = '';
-				
-				
+		str = str + '<span class="@media">'
+		str = str + '</span>';
+		str =str + '<div id="printme" >';		
 		str = str + '<table border="0" align="center" class="myfont table_" style="border:black solid 1px" cellpadding="10">';
 			str = str + '<tbody>';str = str + '<center>';
 			str = str + '<center>';
@@ -258,7 +259,7 @@ $('#frmInvoice').submit(function(){
      	   	str = str + '</center>';
 			str=str + '<tr>';
 
-
+			
 
 				str = str +	'<td>';
 					str = str +	'<table border="0" class="myfont table_" style="border:black solid 0px">';
@@ -532,16 +533,11 @@ $('#frmInvoice').submit(function(){
 				str = str + '<b>Note</b>'
 				str = str +'<h6> This Invoice is generated for 1 Year.<h6>';
 			str = str + '</td>';
-		str = str +'</tr>';
-	str = str +'</tbody>'
-str = str +'</table>'		
-				/*str= str + '<>';
-				str = str + '<tr>';
-				str = str + '<th>INVOICE</th>';
-				str = str + '</tr>';
-				str = str + '</table>';*/
-				str = str+ '<a href="prnreceipt"></a>';
-				$('#invoicedatahere').html(str);
+		str = str +'</tr>';*/
+	str = str +'</tbody>';
+str = str +'</table>';		
+str = str +'</div>';
+			$('#invoicedatahere').html(str);
 			
 			}
 	});
@@ -551,6 +547,9 @@ str = str +'</table>'
 			//alert(this.id);
 
 			var str = this.id;
+			var arr = str.split("_");
+			var stdid = arr[0];
+			var invid = arr[2];
 			var url_ = site_url_ + "/invoice/generateInvoice/"+str;
 			var data_ = $('#frmInvoice').serialize();
 			
@@ -570,10 +569,10 @@ str = str +'</table>'
 					$('#'+str).addClass('printinvoice');
 					var newid = str+"_invid_"+obj.resultant['newinvid'];
 					$('#'+str).attr('id', newid);
-					id_ = 'undo_'+str;
+					id_ = 'undo_'+stdid;
 					$('#'+id_).addClass('fa-undo undo_invoice');
-					id_ = 'payhere_'+str;
-					$('#'+id_).addClass('fa-play payhere');
+					id1_ = 'payhere_'+invid;
+					$('#'+id1_).addClass('fa-play payhere');
 				}
 			}
 			/*error: function(xhr, status, error){

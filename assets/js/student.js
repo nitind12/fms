@@ -148,7 +148,7 @@ $('body').on('click','.here',function(){
 			
 
 			var url_ = site_url_ + "/classes/getclass/"+crsid;
-			
+ 			
 			$.ajax({
 			type: "GET",
 			url: url_,
@@ -156,10 +156,9 @@ $('body').on('click','.here',function(){
 			success: function(data){
 				//alert(data);
 				var obj = JSON.parse(data);
-
-
-				var str = obj.clss[crsid]['course'] + obj.clss[crsid]['sem_ID'] + obj.clss[crsid]['section'];
-
+				var str = " ";
+				str = str + "<span class='btn btn-success'><strong>" +obj.clss[crsid-1]['course'] + ' ' + obj.clss[crsid-1]['sem_ID'] + ' ' + obj.clss[crsid-1]['section'];
+				str = str + "</strong></span>";
 				
 				$('#clswse').html(str);
        }
