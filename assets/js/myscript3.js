@@ -25,7 +25,7 @@ $(function(){
 					str = str + "<td>" + obj.flex[i]['How_Many_Times'] + "</td>";
 					
 					str = str + '<td>';
-					str = str + '<span class=" fa fa-pencil print"></span>';
+					str = str + '<span class=" fa fa-pencil print" onclick="callEdit('+obj.flex[i]['fhead_ID']+');"></span>';
 					str = str + "/" +'<span class="fa fa-remove del" id="'+obj.flex[i]['fhead_ID']+'"></span>';
 					str = str +  '</td>';
 					str = str + "</tr>";
@@ -39,6 +39,9 @@ $(function(){
 		    return false;
 });
 
+function callEdit(id){
+	alert(id);
+}
 
 	$(function(){
 		$('#afh').html("loading...");
@@ -176,8 +179,8 @@ $('body').on('click','.del',function(){
 			type: "GET",
 			url: url_,
 			success: function(data){
-				var obj=JSON.parse(data);
-				$('#'+fhid).removeClass('fa fa-remove del');
+				alert('Deleted');
+				
 
 				
 			
