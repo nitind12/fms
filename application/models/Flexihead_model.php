@@ -50,7 +50,8 @@ class Flexihead_model extends CI_Model {
 	function deletion($fhid){
 		
 		$this->db->where('fhead_ID', $fhid);
-		$this->db->delete('manage_flexible_head',$data);
+		$query=$this->db->delete('manage_flexible_head');
+		
 		}
 
 	function getflexiheads(){
