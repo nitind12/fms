@@ -40,12 +40,22 @@ class Fee_invoice_model extends CI_Model {
 		//echo $this->db->last_query(); die();
 		//return $query->row();
 	}
-	function getinvoicedata(){
+	function getinvoicedata($str){
 		$this->db->from('student_details a');
 		$this->db->join('fee_invoice b','a.student_ID=b.student_ID');
+		$this->db->where('b.class_sess_ID', $str);
 		$query = $this->db->get();
 		return $query->result();
 	}
+	function get_duesdata(){
+		$this->db->select('invoice_ID ');
+		$this->db->from('fee_invoice');
+		$this->db->orderby('invoice_ID', desc);
+		$query = $this->db->get();
+		return $query->result();
+	}
+	
+
 
 	function generateInvoice($sid){
 		$cls=$this->input->get('cmbClass');
