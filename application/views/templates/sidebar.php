@@ -76,7 +76,7 @@
 					<li><a class="" href="#">
 						<span class="fa fa-arrow-right">&nbsp;</span> <small>Total Payments</small>
 					</a></li>
-					<li><a class="" href="#">
+					<li><a class="" href="invoicedisplay">
 						<span class="fa fa-arrow-right">&nbsp;</span><small> All invoices Class wise</small>
 					</a></li>
 					<li><a class="" href="totalclasses">

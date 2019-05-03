@@ -54,5 +54,10 @@ class My_model extends CI_Model {
 		return $query->row();
 		
 	}
+	function gettotalinvoice(){
+		$this->db->select('COUNT(invoice_ID) AS TOTAL_I');
+		$query = $this->db->get('fee_invoice');
+		return $query->row();
+	}
 	
 }
