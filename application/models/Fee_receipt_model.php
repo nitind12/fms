@@ -155,6 +155,23 @@ class Fee_receipt_model extends CI_Model {
 		//echo $this->db->last_query(); die();
 		return $query->result();
 	}
+	function getprnreceipt($invid){
+
+		$this->db->select('receipt_ID');
+		$this->db->from('fee_receipt');
+		$this->db->where('invoice_ID', $invid);
+		$this->db->order_by('receipt_ID','desc');
+		$this->db->limit(1,0);
+		$query = $this->db->get();
+		//echo $this->db->last_query(); die();
+		if($query->num_rows()!=0){
+			$k = $query->row();
+			$rid = $k->receipt_ID;
+		} else {
+			$rid='x';
+		}
+		return $rid;
+	}
 	/*function getstudentdiscountInvoice($invid, $stdid){
 		$this->db->from('discount_details a');
 		$this->db->join(' fee_invoice b','a.discount_ID=b.discount_ID');

@@ -1,4 +1,4 @@
-$('body').on('click','.printreceipt',function(){
+/*$('body').on('click','.printreceipt',function(){
  
 		//alert(this.id);
 
@@ -7,7 +7,7 @@ $('body').on('click','.printreceipt',function(){
 		var stdid = arr[0];
 		var invid = arr[2];
 		var url_ = site_url_ + "/receipt/get_invoice_data/"+invid+"/"+stdid;
-		$.ajax({
+		/*$.ajax({
 			type: "GET",
 			url: url_,
 			success: function(data){
@@ -362,7 +362,7 @@ $('body').on('click','.printreceipt',function(){
 				str = str + '</tbody>';
 				str = str + '</table>';
 				str = str + '</td>';
-				str = str + '</tr>';*/
+				str = str + '</tr>';
 				
 
 

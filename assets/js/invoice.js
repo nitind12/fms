@@ -200,7 +200,7 @@ $('#frmInvoice').submit(function(){
 								str = str + '<td><span class="fa fa-print"></span></td>';
 							} else {
 								str = str + '<td> <span class="fa fa-play payhere" id="payhere_'+obj.students[s]['student_ID']+"_"+invid+'"  ></span></td>';
-								str = str + '<td> <span class="fa fa-print printreceipt" id="'+printid+'"></span></td>';
+								str = str + '<td> <a href="'+site_url_+'/preceipt/print_/'+obj.students['invoice_ID']+'"  target="_blank" <span class="fa fa-print"></span></a></td>';
 							}
 					//	}		
 

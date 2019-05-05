@@ -3,10 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class preceipt extends CI_Controller {
 
-	function print_($recpid)
+	function print_($invid)
 	{
 		$this->load->model('fee_receipt_model', 'frm');
-		$data['receipt'] = $this->frm->getstudentreceipt($recpid);
+		$receiptid = $this->frm->getprnreceipt($invid);
+		$data['receipt'] = $this->frm->getprnreceipt($receiptid);
 		//$this->load->view('templates/header');
 		//$this->load->view('templates/navheader');
 		//$this->load->view('templates/receiptside');
