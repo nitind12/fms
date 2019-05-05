@@ -22,8 +22,8 @@
 				str = str + '</td>';
 				str = str + '<td align="center" style="width: 500px;padding: 0px 0px 0px 8px; vertical-align: middle"><h4 align="center"><b>The Demo School,Haldwani </b><br>Receipt</h4>';
 				str = str + '</td>'; 
-				receptID = parseInt(obj.discount['receipt_ID']) +1;
-				str = str + '<td align="right" style="width: 150px;font-size: 13px; padding: 0px 8px 0px 0px; vertical-align: middle">Receipt No.: <span style=" padding: 0px;" id="receiptNo">'+ receptID +'</span>';
+				//receptID = parseInt(obj.discount['receipt_ID']) +1;
+				//str = str + '<td align="right" style="width: 150px;font-size: 13px; padding: 0px 8px 0px 0px; vertical-align: middle">Receipt No.: <span style=" padding: 0px;" id="receiptNo">'+ receptID +'</span>';
 				
 				str = str + '</td>';
 				str = str + '</tr>';
@@ -38,8 +38,8 @@
 				str = str + '<tbody>';
 				str = str + '<tr>';
 				str = str + '<td width="100">Reg. No. </td>';
-				str = str + '<td>'+obj.students['student_ID']+'</td>';
-				str = str + '<input type="hidden" id="_student_'+obj.students['student_ID']+'" name="stdid_" value="'+obj.students['student_ID']+'">';
+				str = str + '<td>'+obj.students1['student_ID']+'</td>';
+				str = str + '<input type="hidden" id="_student_'+obj.students1['student_ID']+'" name="stdid_" value="'+obj.students1['student_ID']+'">';
 				str = str + '<input type="hidden" id="_invoice_'+obj.students['invoice_ID']+'"" name="invoiceid_" value="'+obj.students['invoice_ID']+'">';
 				str = str + '</tr>';
 				str = str + '<tr>';

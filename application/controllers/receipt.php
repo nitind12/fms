@@ -42,6 +42,8 @@ class receipt extends CI_Controller {
 	{
 		//echo $invid . " - " . $stdid;
 		$data['students'] = $this->frm->getstudentInvoiceData($invid, $stdid);
+		$data['students1'] = $this->frm->getstudentreceiptdata($invid, $stdid);
+
 		$data['discount'] = $this->frm->getstudentdiscount($invid, $stdid);
 		//$data['discount_invoice'] = $this->frm->getstudentdiscountInvoice($invid, $stdid);
 		$data['curr_date'] = date('d-m-Y');
@@ -51,8 +53,8 @@ class receipt extends CI_Controller {
 		$data['resultant'] = $this->frm->generatereceipt();
 		echo json_encode($data);
 	}
-	function getreceiptdata(){
-		$data['receiptdata'] = $this->frm->getreceiptdata();
+	function getreceiptdata($str){
+		$data['receiptdata'] = $this->frm->getreceiptdata($str);
 		echo json_encode($data);
 	}
 

@@ -59,13 +59,11 @@ class Fee_receipt_model extends CI_Model {
 		//echo $this->db->last_query(); die();
 		return $query->result();
 	}
-	function getreceiptdata(){
+	function getreceiptdata($str){
 		$this->db->from('student_details a');
 		$this->db->join('fee_receipt b', 'a.student_ID=b.student_ID');
 		$this->db->join('student_in_session c', 'a.student_ID=c.student_ID');
-		$this->db->join('class d', 'c.class_ID=d.class_ID');
-		$this->db->join('course_details e', 'd.course_ID=e.course_ID');
-		$this->db->group_by('d.class_ID');
+		$this->db->where('c.class_sess_ID',$str);
 		//$this->db->where('b.student_ID', $sid);
 		$query = $this->db->get();
 		//echo $this->db->last_query(); die();
@@ -101,7 +99,8 @@ class Fee_receipt_model extends CI_Model {
 		$query='select * from fee_invoice where class_ID='.$cls.' and year_From='.$yrf.' and month_From='.$monf.' and year_To='.$yrt.' month_To='.$mont.' ';
 		return $this->db->query($query)->result();
 	}*/
-	function getstudentInvoicedata($invid, $stdid){
+
+	function getstudentreceiptdata($stdid,$invid){
 		$this->db->from('student_details a');
 		$this->db->join('fee_invoice b','a.student_ID=b.student_ID');
 		$this->db->where('a.student_ID', $stdid);
@@ -110,7 +109,16 @@ class Fee_receipt_model extends CI_Model {
 		//echo $this->db->last_query(); die();
 		return $query->row();
 	}
-	function getstudentdiscount($invid, $stdid){
+
+	function getstudentInvoicedata($invid){
+		$this->db->from('student_details a');
+		$this->db->join('fee_invoice b','a.student_ID=b.student_ID');
+		$this->db->where('b.invoice_ID', $invid);
+		$query = $this->db->get();
+		//echo $this->db->last_query(); die();
+		return $query->result();
+	}
+	function getstudentdiscount($stdid,$invid){
 		$this->db->from('discount_details a');
 		$this->db->join(' fee_receipt b','a.discount_ID=b.discount_ID');
 		$this->db->where('b.student_ID', $stdid);

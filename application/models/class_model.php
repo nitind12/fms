@@ -75,6 +75,15 @@ class class_model extends CI_Model {
 			$query= $this->db->get('course_details');
 			return $query->result();
 		}
+		function getclass_sesswise(){
+			$this->db->from('class a');
+			$this->db->join('class_in_session b', 'a.class_ID=b.class_ID');
+
+			$query= $this->db->get();
+
+			return $query->result();
+		}
+
 	}
 
 	
