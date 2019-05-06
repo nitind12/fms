@@ -96,11 +96,11 @@ $(function(){
 				str = str + "<th>#</th>";
 				str = str + "<th>Class</th>";
 				str = str + "</tr>";
-				for(i=0; i<obj.clss.length; i++){
+				for(i=0; i<obj.clssTotal.length; i++){
 					str = str + "<tr>";
-					str = str + '<td><input type="radio" name="clss" id="'+obj.clss[i]['class_ID']+'" value="id1" class="stdi"</td>';
+					str = str + '<td><input type="radio" name="clss" id="'+obj.clssTotal[i]['class_ID']+'" value="id1" class="stdi"</td>';
 					//str = str + '<td class="stdin" id="'+obj.class[i]['class_ID']+'">';
-					str = str + "<td>" + obj.clss[i]['course'] + ' ' + obj.clss[i]['sem_ID'] + ' ' + obj.clss[i]['section'] + "</td>";
+					str = str + "<td>" + obj.clssTotal[i]['course'] + ' ' + obj.clssTotal[i]['sem_ID'] + ' ' + obj.clssTotal[i]['section'] + "</td>";
 					str = str + "</tr>";
 				}
 				 

@@ -75,6 +75,7 @@ class class_model extends CI_Model {
 			//$this->db->select('b.course,a.course_ID,a.sem_ID,a.section');
 			$this->db->from('class a');
 			$this->db->join('course_details b', 'a.course_ID=b.course_ID');
+			$this->db->join('student_in_session c', 'a.class_ID=c.class_ID');
 			$query= $this->db->get();
 
 			return $query->result();
