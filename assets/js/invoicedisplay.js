@@ -17,10 +17,11 @@ $(function(){
 				str = str + "<th> Class</th>";
 
 				str = str + "</tr>";
-				for(i=0; i<obj.clssTotal.length; i++){
+				for(i=0; i<obj.clss_sesswise.length; i++){
 					str = str + "<tr>";
-					str = str + '<td class="invc" id="'+obj.clssTotal[i]['class_sess_ID']+'">';
-					str = str  + obj.clssTotal[i]['course'] + ' ' + obj.clssTotal[i]['sem_ID'] + ' ' + obj.clssTotal[i]['section'] + "</td>";
+					str = str + '<td class="invc"  id="'+obj.clss_sesswise[i]['class_sess_ID']+'">';
+					str = str  + obj.clss_sesswise[i]['class_sess_ID']; 
+					str = str + "</td>";
 
 					str = str + "</tr>";
 				}
@@ -32,6 +33,7 @@ $(function(){
 });
 $('body').on('click','.invc',function(){
 		$('#ttinvoice1').html("loading...");
+		//alert(this.id);
 		str = this.id;
 		var url_ = site_url_ + "/invoice/getinvoicedata/"+str ;
 		var data_=$(this).serialize();

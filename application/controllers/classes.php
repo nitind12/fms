@@ -32,6 +32,7 @@ function __construct(){
 		$this->load->model('class_model', 'cm');
 		$data['clss'] = $this->cm->getClassesStudentwise();
 		$data['clssTotal'] = $this->cm->getclasses();
+		$data['clss_sesswise'] = $this->cm->getclass_sesswise();
 		/*$data['clss_invoice'] = $this->cm->getclass_invoice();*/
 		echo json_encode($data);
 	}

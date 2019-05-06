@@ -47,13 +47,16 @@ class Fee_invoice_model extends CI_Model {
 		$query = $this->db->get();
 		return $query->result();
 	}
-	function get_duesdata(){
+	/*function get_duesdata($stdid){
 		$this->db->select('invoice_ID ');
 		$this->db->from('fee_invoice');
-		$this->db->orderby('invoice_ID', desc);
+		$this->db->where('student_ID', $stdid);
+		$this->db->orderby('invoice_ID','desc');
+		$this->db->limit(1,0);
 		$query = $this->db->get();
 		return $query->result();
-	}
+	}*/
+
 	
 
 
@@ -143,7 +146,19 @@ class Fee_invoice_model extends CI_Model {
 				}
 
 			}
+		/*$data['dues'] = $this->get_duesdata($sid);
+			$dues=0;
+			foreach ($data['discount'] as $item4)
+			{
+				if($item4->dues_Amount !=0){
+					$dues=$item4->dues_Amount;
+				}
+			}*/
+					
+		
+
 		$session = '2018-19';
+		//$data['dues'] = $this->get_duesdata($invid);
 			
 		$total_amount=0;
 		$total_amount=$s_amount+$f_amount;
@@ -168,7 +183,7 @@ class Fee_invoice_model extends CI_Model {
 			'actual_Amount'=>$total_amount, 
 			'applicable_discount_Amount'=>$d_amount,
 			'actual_due_Amount'=>30,
-			'previous_due_Amount'=>0,
+			'previous_due_Amount'=>50,
 			'due_Amount'=>0,
 		);
 		$res=$this->db->insert('fee_invoice', $data_);

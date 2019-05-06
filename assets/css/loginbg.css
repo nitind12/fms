@@ -43,3 +43,11 @@ body, html {
   max-height: 200px;
   overflow: scroll;
 }
+@media print{#printme
+  {
+    bodyText{font-family:georgia,times,serif;}';
+  }
+.hide_button{
+  display: none;
+  }
+}

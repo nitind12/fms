@@ -16,6 +16,11 @@ class Dashboard extends CI_Controller {
 		$data['number'] = $this->mm->totalStudents();
 		$data['no'] = $this->mm->totalClasses();
 		$data['inv'] = $this->mm->gettotalinvoice();
+		$data['res'] = $this->mm->gettotalreceipt();
+		$data['amount'] = $this->mm->gettotalamount();
+		$data['due'] = $this->mm->gettotaldues();
+
+
 		
 		$this->load->view('templates/header');
 		$this->load->view('templates/navheader');

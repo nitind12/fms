@@ -59,5 +59,19 @@ class My_model extends CI_Model {
 		$query = $this->db->get('fee_invoice');
 		return $query->row();
 	}
-	
+	function gettotalreceipt(){
+		$this->db->select('COUNT(receipt_ID) AS TOTAL_R');
+		$query = $this->db->get('fee_receipt');
+		return $query->row();
+	}
+	function gettotalamount(){
+		$this->db->select('SUM(paid) AS TOTAL_AMOUNT');
+		$query = $this->db->get('fee_receipt');
+		return $query->row();
+	}
+	function gettotaldues(){
+		$this->db->select('SUM(due_Amount) AS TOTAL_DUE');
+		$query = $this->db->get('fee_invoice');
+		return $query->row();
+	}
 }
