@@ -35,4 +35,8 @@ function __construct(){
 		/*$data['clss_invoice'] = $this->cm->getclass_invoice();*/
 		echo json_encode($data);
 	}
+	function delete_record($cid){
+		$data['delete'] = $this->cm->deletion($cid);
+		echo json_encode($data);
+	}
 }

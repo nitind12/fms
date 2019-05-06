@@ -13,17 +13,17 @@ class Flexihead_model extends CI_Model {
 
 		$fidold=$this->db->insert_id();
 
-		$this->db->where('New_Flexible_Head', $ffh);
-		$query = $this->db->get('manage_flexible_head');
+		$this->db->where('fee_Head', $ffh);
+		$query = $this->db->get('fee_flexible_head');
 
 		if($query->num_rows()!=0){
 			$data = array(
-				'New_Flexible_Head' => $ffh_,
-				'Amount'=> $ffhamt_,
-				'How_Many_Times'=>$hmt_,
+				'fee_Head' => $ffh_,
+				'amount'=> $ffhamt_,
+				'how_many_Times'=>$hmt_,
 			);
-			$this->db->where('fhead_ID',$fidold);
-			$this->db->update('manage_flexible_head', $data);
+			$this->db->where('flexible_head_ID',$fidold);
+			$this->db->update('fee_flexible_head', $data);
 
 
 			$bool_ = array(
@@ -33,11 +33,11 @@ class Flexihead_model extends CI_Model {
 		} else {
 
 			$data = array(
-				'New_Flexible_Head' => $ffh_,
-				'Amount'=> $ffhamt_,
-				'How_Many_Times'=>$hmt_,
+				'Fee_Head' => $ffh_,
+				'amount'=> $ffhamt_,
+				'how_many_Times'=>$hmt_,
 			);
-			$this->db->insert('manage_flexible_head', $data);
+			$this->db->insert('fee_flexible_head', $data);
 
 			$bool_ = array(
 				'res' => true,
@@ -55,10 +55,9 @@ class Flexihead_model extends CI_Model {
 		}
 
 	function getflexiheads(){
-			$this->db->select('*');
-			//$this->db->where('fhead_ID',$str);
-			//$this->db->delete('manage_flexible_head');
-			$query=$this->db->get('manage_flexible_head');
+			$this->db->select('flexible_head_ID,fee_Head,amount,how_many_Times');
+			//$this->db->join('flexible_fee_associate_class b','a.flexible_head_ID = b.flexible_head_ID');
+			$query=$this->db->get('fee_flexible_head');
 			return $query->result();
 		}
 		/*function deleteflexiheads($str){

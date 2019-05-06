@@ -1,7 +1,7 @@
 $(function(){
 		$('#prhere').html("loading...");
 
-		var url_ = site_url_ + "/Classes/getclass/" ;
+		var url_ = site_url_ + "/classes/getclass/" ;
 		var data_=$(this).serialize();
 		
 		$.ajax({
@@ -13,9 +13,9 @@ $(function(){
 				var obj = JSON.parse(data);
 				var str = '';
 				str = str + '<table>';
-				for(i=0; i<obj.clss.length; i++){
+				for(i=0; i<obj.clssTotal.length; i++){
 					str = str + "<tr>";
-					str = str + "<td>" + obj.clss[i]['course'] + ' ' + obj.clss[i]['sem_ID'] + ' ' + obj.clss[i]['section'] + "</td>";
+					str = str + "<td>" + obj.clssTotal[i]['course'] + ' ' + obj.clssTotal[i]['sem_ID'] + ' ' + obj.clssTotal[i]['section'] + "</td>";
 					
 					str = str + "</tr>";
 				}
@@ -41,10 +41,10 @@ $(function(){
 				var obj = JSON.parse(data);
 				var str = '';
 				str = str + '<table class="table table-bordered">';
-				for(i=0; i<obj.clss.length; i++){
+				for(i=0; i<obj.clssTotal.length; i++){
 					str = str + "<tr>";
-					str= str + '<td><input type="radio" class="prn" id="'+obj.clss[i]['class_ID']+'" name="clss"></td>';
-					str = str + "<td>" + obj.clss[i]['course'] + ' ' + obj.clss[i]['sem_ID'] + ' ' + obj.clss[i]['section'] + "</td>";
+					str= str + '<class="prn" id="'+obj.clssTotal[i]['class_ID']+'" name="clss">';
+					str = str + "<td>" + obj.clssTotal[i]['course'] + ' ' + obj.clssTotal[i]['sem_ID'] + ' ' + obj.clssTotal[i]['section'] + "</td>";
 					
 					str = str + "</tr>";
 				}

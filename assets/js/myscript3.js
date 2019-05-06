@@ -20,13 +20,13 @@ $(function(){
 				str = str + "</tr>";
 				for(i=0; i<obj.flex.length; i++){
 					str = str + "<tr>";
-					str = str + "<td>" + obj.flex[i]['New_Flexible_Head'] + "</td>";
-					str = str + "<td>" + obj.flex[i]['Amount'] + "</td>";
-					str = str + "<td>" + obj.flex[i]['How_Many_Times'] + "</td>";
+					str = str + "<td>" + obj.flex[i]['fee_Head'] + "</td>";
+					str = str + "<td>" + obj.flex[i]['amount'] + "</td>";
+					str = str + "<td>" + obj.flex[i]['how_many_Times'] + "</td>";
 					
 					str = str + '<td>';
-					str = str + '<span class=" fa fa-pencil print" onclick="callEdit('+obj.flex[i]['fhead_ID']+');"></span>';
-					str = str + "/" +'<span class="fa fa-remove del" id="'+obj.flex[i]['fhead_ID']+'"></span>';
+					str = str + '<span class=" fa fa-pencil print" onclick="callEdit('+obj.flex[i]['flexible_head_ID']+');"></span>';
+					str = str + "/" +'<span class="fa fa-remove del" id="'+obj.flex[i]['flexible_head_ID']+'"></span>';
 					str = str +  '</td>';
 					str = str + "</tr>";
 				}
@@ -64,8 +64,8 @@ function callEdit(id){
 				str = str + "</tr>";
 				for(i=0; i<obj.flex.length; i++){
 					str = str + "<tr>";
-					str = str + "<td><input type='radio' class='flexib' name='flex_head' id='"+obj.flex[i]['fhead_ID']+"'></td>";
-					str = str + "<td>" + obj.flex[i]['New_Flexible_Head'] + "</td>";
+					str = str + "<td><input type='radio' class='flexib' name='flex_head' id='"+obj.flex[i]['flexible_head_ID']+"'></td>";
+					str = str + "<td>" + obj.flex[i]['fee_Head'] + "</td>";
 					str = str + "</tr>";
 				}
 				 

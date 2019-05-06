@@ -47,7 +47,29 @@ class class_model extends CI_Model {
 	return $bool_;
 
 	}
+		function deletion($cid){
 		
+		$this->db->where('class_ID', $cid);
+		$query=$this->db->delete('class');
+		
+		}
+
+	/*function getclasses(){
+			$this->db->select('*');
+			//$this->db->where('fhead_ID',$str);
+			//$this->db->delete('manage_flexible_head');
+			$query=$this->db->get('class');
+			return $query->result();
+		}*/
+		/*function deleteflexiheads($str){
+			//$this->db->select('fhead_ID,New_Flexible_Head,Amount,How_Many_Times');
+			$this->db->where('fhead_ID',$str);
+			$query=$this->db->delete('manage_flexible_head');
+			//$query=$this->db->get('manage_flexible_head');
+			//return $query->row();
+		}*/
+
+
 		function getclasses(){
 			//$this->db->distinct('course');
 			//$this->db->select('b.course,a.course_ID,a.sem_ID,a.section');
@@ -76,6 +98,4 @@ class class_model extends CI_Model {
 			return $query->result();
 		}
 	}
-
-	
 		
