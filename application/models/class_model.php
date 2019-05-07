@@ -71,18 +71,15 @@ class class_model extends CI_Model {
 
 
 		function getclasses(){
-			//$this->db->distinct('course');
-			//$this->db->select('b.course,a.course_ID,a.sem_ID,a.section');
 			$this->db->from('class a');
 			$this->db->join('course_details b', 'a.course_ID=b.course_ID');
-			$this->db->join('student_in_session c', 'a.class_ID=c.class_ID');
+			//$this->db->join('student_in_session c', 'a.class_ID=c.class_ID');
 			$query= $this->db->get();
-
 			return $query->result();
 		}
 
 		function getClassesStudentwise(){
-			$this->db->select('a.*, b.course, count(c.student_ID) as totalStudents');
+			//$this->db->select('a.*, b.course, count(c.student_ID) as totalStudents');
 			$this->db->from('class a');
 			$this->db->join('course_details b', 'a.course_ID=b.course_ID');
 			$this->db->join('student_in_session c', 'a.class_ID=c.class_ID');
@@ -93,6 +90,16 @@ class class_model extends CI_Model {
 
 			return $query->result();
 		}
+		function getclass_sess($str){
+			$this->db->from('class a');
+			$this->db->join('course_details b', 'a.course_ID=b.course_ID');
+			$this->db->join('class_in_session c', 'a.class_ID=c.class_ID');
+			$this->db->where('a.class_ID',$str);
+			$query= $this->db->get();
+			//echo  $query ;die();
+			return $query->result();
+		}
+
 		function getCourse(){
 			$this->db->select('course_ID,course');
 			$query= $this->db->get('course_details');
