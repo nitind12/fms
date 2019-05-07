@@ -266,7 +266,7 @@
 				if(obj.resultant.bool == true){
 					$('#invoice_submit').hide();
 					$('#printreceipt_button').show();
-					$('#printreceipt_button').attr('href', site_url_+"/preceipt/print_/"+obj.resultant.recptid);
+					//$('#printreceipt_button').attr('href', site_url_+"/preceipt/print_/"+obj.resultant.recptid);
 					$('#receiptNo').html(obj.resultant.recptid);
 				}
 			/*error: function(xhr, status, error){

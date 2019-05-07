@@ -193,7 +193,7 @@ $('#frmInvoice').submit(function(){
 										dues = obj.invoice[f]['due_Amount'];
 									}
 							}
-							str = str + "<td id="_'+obj.students[s]['student_ID']+'">"+dues+"</td>";
+							str = str + "<td>"+dues+"</td>";
 							if(invid == 'x'){
 								//str = str + '<td></td>';
 								str= str +'<td><span class="fa" id="payhere_'+obj.students[s]['student_ID']+'" ></span></td>';

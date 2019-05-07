@@ -38,8 +38,8 @@ function __construct(){
 		/*$data['clss_invoice'] = $this->cm->getclass_invoice();*/
 		echo json_encode($data);
 	}
-	function getclass_sess(){
-		$str = $this->input->post('str');
+	function getclass_sess($str){
+		//$str = $this->input->post('str');
 		$data['clss_sess'] = $this->cm->getclass_sess($str);
 		/*$data['clss_invoice'] = $this->cm->getclass_invoice();*/
 		echo json_encode($data);
