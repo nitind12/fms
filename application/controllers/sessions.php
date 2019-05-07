@@ -42,9 +42,9 @@ function insert_record()
 		redirect('sessions');
 
 	}
-    
-
-
-	
+	function delete_record($sid){
+		$data['delete'] = $this->sm->deletion($sid);
+		echo json_encode($data);
 	}
+ }
 

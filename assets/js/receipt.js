@@ -22,8 +22,9 @@
 				str = str + '</td>';
 				str = str + '<td align="center" style="width: 500px;padding: 0px 0px 0px 8px; vertical-align: middle"><h4 align="center"><b>The Demo School,Haldwani </b><br>Receipt</h4>';
 				str = str + '</td>'; 
-				receptID = parseInt(obj.discount['receipt_ID']) +1;
-				str = str + '<td align="right" style="width: 150px;font-size: 13px; padding: 0px 8px 0px 0px; vertical-align: middle">Receipt No.: <span style=" padding: 0px;" id="receiptNo">'+ receptID +'</span>';
+				//receptID = parseInt(obj.discount['receipt_ID']) +1;
+				//str = str + '<td align="right" style="width: 150px;font-size: 13px; padding: 0px 8px 0px 0px; vertical-align: middle">Receipt No.: <span style=" padding: 0px;" id="receiptNo">'+ receptID +'</span>';
+				str = str + '<td align="right" style="width: 150px;font-size: 13px; padding: 0px 8px 0px 0px; vertical-align: middle">Receipt No.: <span style=" padding: 0px;" id="receiptNo"></span>';
 				
 				str = str + '</td>';
 				str = str + '</tr>';
@@ -38,8 +39,8 @@
 				str = str + '<tbody>';
 				str = str + '<tr>';
 				str = str + '<td width="100">Reg. No. </td>';
-				str = str + '<td>'+obj.students['student_ID']+'</td>';
-				str = str + '<input type="hidden" id="_student_'+obj.students['student_ID']+'" name="stdid_" value="'+obj.students['student_ID']+'">';
+				str = str + '<td>'+obj.students1['student_ID']+'</td>';
+				str = str + '<input type="hidden" id="_student_'+obj.students1['student_ID']+'" name="stdid_" value="'+obj.students1['student_ID']+'">';
 				str = str + '<input type="hidden" id="_invoice_'+obj.students['invoice_ID']+'"" name="invoiceid_" value="'+obj.students['invoice_ID']+'">';
 				str = str + '</tr>';
 				str = str + '<tr>';
@@ -155,7 +156,7 @@
 			    str= str + '<option value="cash" >Cash</option><option value="cheque">Cheque</option><option value="DD">Demand Draft</option></select>';
 			    
 
-			    str = str + '<div class="tab-pane fade" id="chno">';
+			   /* str = str + '<div class="tab-pane fade" id="chno">';
 			    str = str + '<div style:left">';
 			    str = str + '<label>Cheque no</label>';
 			  	str = str + '<input type="text"  style="width: 75px; padding: 0px" name="txtno" id="txtnum"';
@@ -164,7 +165,13 @@
 			    str = str + '<label>Cheque Date</label>';
 			  	str = str + '<input type="text"  style="width: 75px; padding: 0px" name="txtdate" id="txtnum">';
 			  	str = str + '</div>'; 
-			  	str = str + '</div>';
+			  	str = str + '</div>';*/
+			  	//str = str + '<div style="border-radius: 5px; background: rgb(80, 80, 80); color: rgb(255, 255, 255); padding: 0px 3px; width: 100%; float: left; display: block; border: 0px solid rgb(255, 0, 0);" id="_noncashdetail"><div style="float: left"><b id="_ccdd_no" style="font-size: 9px">Cheque</b> No.<br><input type="text" style="width: 75px; padding: 0px" name="txtCCDDNumber" id="txtCCDDNumber">&nbsp;</div><div style="float: right"><b id="_ccdd_dt" style="font-size: 9px">Cheque</b> Date<br><input type="text" style="width: 75px; padding: 0px" name="txtCCDDDate" id="txtCCDDDate"></div></div>';
+			  	//str = str + '<div style="float: right"><b id="_ccdd_dt" style="font-size: 9px">';
+
+
+
+
 				str = str + '</tr>';
 				str = str + '</tbody>';
 				str = str + '</table>';
@@ -228,12 +235,12 @@
 		$('#total_amnt_in_words').html(convertNumberToWords(totalAmt));
 	});
 
-	$('body').on('change','#PaymentMode',function(){
+	$('body').on('click','#PaymentMode',function(){
 		alert(this.val());
 		if(this.val() == 'cash'){
-			$('#chno').addClass('fade');
+			$('#_ccdd_no').addClass('fade');
 		} else {
-			$('#chno').removeClass('fade');
+			$('# _noncashdetail').removeClass('fade');
 		}
 	});
 	$('body').on('click','#invoice_submit',function(){
@@ -261,6 +268,7 @@
 					$('#invoice_submit').hide();
 					$('#printreceipt_button').show();
 					$('#printreceipt_button').attr('href', site_url_+"/preceipt/print_/"+obj.resultant.recptid);
+					$('#receiptNo').html(obj.resultant.recptid);
 			}
 			/*error: function(xhr, status, error){
 				alert(xhr.responseText);

@@ -133,23 +133,6 @@
 								</div>
 							</fieldset>
 						</form>
-
-						<!--<?php
-								foreach($students as $item)
-							{
-									foreach ($invoice as $item3)
-								{
-									if($item->student_ID == $item3->student_ID)
-									{										
-										$class=$item3->class_ID;
-										$yearf=$item3->year_From;
-										$monthf=$item3->month_From;
-										$yeart=$item3->year_To;
-										$montht=$item3->month_To;
-									}									
-								}
-							}
-						?>-->
 					</div>
 				</div>
 			</div>
@@ -200,96 +183,6 @@
 						<span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span>
 					</div>
 					<div class="panel-body" id="invoicedatahere">
-					   	<!--<?php
-					   		
-					   		foreach($students as $item)
-					   			{
-					   				$did = '';
-					   				$fid= '';
-					   				$d_amount='';
-					   				echo '<tr>';
-									echo '<td>'.$item->student_ID.'</td>';
-									echo '<td>'.$item->first_Name . " " . $item->last_Name.'</td>';
-									echo '<td>';
-											foreach ($discount as $item1){
-												if($item->student_ID == $item1->student_ID){
-													if($did == ''){
-														$did = $item1->discount_Type;	
-													} else $did =  $did . ", " . $item1->discount_Type;
-												}
-											}
-											
-											echo $did;
-									echo '</td>';
-									echo '<td>';
-											foreach ($fee as $item2){
-												if($item->student_ID == $item2->student_ID){
-													echo $item2->static_head_Amount;
-												}
-											}
-									echo '</td>';
-									echo '<td>';
-											foreach ($fee as $item2){
-												if($item->student_ID == $item2->student_ID){
-													if($fid == ''){
-														$fid = $item2->fee_Head;	
-													} else $fid = $item2->fee_Head;
-												}
-											}
-												echo $fid;
-									echo '</td>';
-									echo '<td>';
-										foreach ($fee as $item2){
-												if($item->student_ID == $item2->student_ID){
-													echo $item2->flexible_head_Amount;
-												}
-											}
-									echo '</td>';
-									echo '<td>';
-									foreach ($discount as $item1){
-											if($item->student_ID == $item1->student_ID){
-												if($d_amount == ''){
-														$d_amount = $item1->discount_Amount;	
-													} else $d_amount =  $d_amount + $item1->discount_Amount;
-												}
-											}
-									foreach ($fee as $item2){
-												if($item->student_ID == $item2->student_ID){
-													$f_amount = $item2->flexible_head_Amount;
-													$s_amount = $item2->static_head_Amount;
-													if($d_amount == ''){
-														$s_amount = $s_amount - '';
-													}else $s_amount = $s_amount - $d_amount;
-													if($f_amount == ''){
-														echo $s_amount;
-													}else $total_fee = $s_amount + $f_amount;
-													    echo $total_fee;
-												}
-											}	
-									echo '</td>';
-
-									echo '<td>';
-									$icon="glyphicon-lock";
-									foreach ($invoice as $item3)
-										{
-												if($item->student_ID == $item3->student_ID)
-												{
-													$icon = "glyphicon-print";
-													break;
-												}
-										}
-									echo '<span class="glyphicon '.$icon.'"></span>';
-									echo '</td>';
-									echo '<td></td>';
-									echo '<td></td>';
-									echo '<td><button type="button" class="btn btn-danger">update'.'</td>';
-									
-
-									echo '<td><em class="fa fa-credit-card"></em>'.'</td>';
-									echo '</tr>';
-								}
-							echo '</table>';
-						?>-->
 					</div>
 				</div>
 			</div>			

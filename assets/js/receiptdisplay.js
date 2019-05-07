@@ -17,10 +17,11 @@ $(function(){
 				str = str + "<th> Class</th>";
 
 				str = str + "</tr>";
-				for(i=0; i<obj.clssTotal.length; i++){
+				for(i=0; i<obj.clss_sesswise.length; i++){
 					str = str + "<tr>";
-					str = str + '<td class="rec" id="'+obj.clssTotal['tudent_ID']+'">';
-					str = str  + obj.clssTotal[i]['course'] + ' ' + obj.clssTotal[i]['sem_ID'] + ' ' + obj.clssTotal[i]['section'] + "</td>";
+					str = str + '<td class="rec" id="'+obj.clss_sesswise[i]['class_sess_ID']+'">';
+					str = str  + obj.clss_sesswise[i]['class_sess_ID'];
+					str = str + "</td>";
 
 					str = str + "</tr>";
 				}
@@ -32,8 +33,9 @@ $(function(){
 });
 $('body').on('click','.rec',function(){
 		$('#ttreceipt1').html("loading...");
-
-		var url_ = site_url_ + "/receipt/getreceiptdata/" ;
+		//alert(this.id);
+		str=this.id;
+		var url_ = site_url_ + "/receipt/getreceiptdata/"+str ;
 		var data_=$(this).serialize();
 		
 		$.ajax({
@@ -61,7 +63,7 @@ $('body').on('click','.rec',function(){
 					str = str + obj.receiptdata[i]['receipt_ID'];
 					str = str + '</td>';
 					str = str + '<td>';
-					str = str + obj.receiptdata[i]['course'];
+					str = str + obj.receiptdata[i]['class_sess_ID'];
 					str = str + '</td>';
 					str = str + '<td>';
 					str = str + obj.receiptdata[i]['student_ID'];

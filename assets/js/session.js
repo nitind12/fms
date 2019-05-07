@@ -26,8 +26,7 @@ $(function(){
 					str = str + "<td>" + obj.sess[i]['session_Start'] + "</td>";
 					str = str + "<td>" + obj.sess[i]['session_End'] + "</td>";
 						str = str + '<td>';
-					str = str + '<span class=" fa fa-pencil print"></span>';
-					str = str + "/" +'<span class="fa fa-remove del" id="'+obj.sess['Session_ID']+'"></span>';
+					str = str +'<span class="fa fa-remove del" id="'+obj.sess[i]['session_ID']+'"></span>';
 					str = str +  '</td>';
 				
 				
@@ -37,6 +36,23 @@ $(function(){
 				$('#prnthere').html(str);
 			}
 		});
-		    return false;
-	});
 });
+});
+$('body').on('click','.del',function(){
+	var sid=this.id;
+	var url_ = site_url_ + "/sessions/delete_record/"+sid ;
+		
+			$.ajax({
+			type: "GET",
+			url: url_,
+			success: function(data){
+				alert('deleted');
+
+
+
+				
+			
+			}
+		});
+		});
+

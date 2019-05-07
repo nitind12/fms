@@ -58,7 +58,9 @@
 								</tr>
 								<tr>
 									<th><div id="print" style="clear:both"></div></th>
+									<th><div id="printhere" style="clear:both"></div></th>
 								</tr>
+
 							</table>
 
 						</th>

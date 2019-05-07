@@ -18,7 +18,7 @@
 										<select class="form-control" name="textcrse" id="txtcourse">
 											<option>Select Course</option>
 											<?php foreach ($class as $item) { ?>
-											<option value="<?php echo $item->course_ID;?>"><?php echo $item->course . " " . $item->sem . " " . $item->section; ?></option>
+											<option value="<?php echo $item->class_ID;?>"><?php echo $item->course . " " . $item->sem_ID . " " . $item->section; ?></option>
 											<?php } ?>
 										</select>
 								</div>

@@ -58,7 +58,7 @@
 								 echo $inv->TOTAL_I;
 								?>
 							</div>
-							<div class="text-muted"><h4>Invoices</h4></div>
+							<div><h4>Invoices</h4></div>
 						</div>
 					</div></a>
 				</div>
@@ -67,32 +67,52 @@
 					
 					<div class="panel panel-blue panel-widget border-right" style="background-color:#FFFF00;margin-bottom:-23px;margin-top:-18px;">
 						<div class="row no-padding"><i class="fa fa-check fa-3x"></i>
-							<div class="large">1211</div>
-							<div class="text-muted"><h4>Fee Receipts</h4></div>
+							<div class="large">
+								<?php
+								 echo $res->TOTAL_R;
+								?>
+							</div>
+							<div><h4>Fee Receipts</h4></div>
 						</div>
 					</div></a>
 				</div>
 				<div class="col-xs-6 col-md-2 col-lg-2 no-padding">
+
 					<div class="panel panel-orange panel-widget border-right" style="background-color:#ff3f34;margin-bottom:-23px;margin-top:-18px;">
-						<div class="row no-padding"><i class="fa fa-money fa-3x"></i>
+						<div class="row no-padding"><i class="fa fa-thumbs-up fa-3x"></i>
 							<div class="large">0</div>
-							<div class="text-muted"><h5>Todays Collection</h5></div>
+							<div><h4>Todays Collection</h4></div>
 						</div>
 					</div>
 				</div>
 				<div class="col-xs-6 col-md-2 col-lg-2 no-padding">
-					<div class="panel panel-red panel-widget border-right" style="background-color:#FEB4B1;margin-bottom:-23px;margin-top:-18px;">
-						<div class="row no-padding"><i class="fa fa-money fa-2x"></i>
-							<div class="large">30</div>
-							<div class="text-muted"><h5>Total Collection Rs.3,986,100</h5></div>
+					<a href="totaldisplay">
+					<div class="panel panel-red panel-widget border-right" style="background-color:#FEB4B1;margin-bottom:-23px;margin-top:
+					-18px;">
+						<div class="row no-padding"><i class="fa fa-thumbs-up fa-3x"></i>
+							<div class="large">
+								<?php
+								 $am= $amount->TOTAL_AMOUNT;
+								 $var='/-';
+								 echo $am+$var;
+								?>
+							</div>
+							<div><h4>Total Collection(in Rs.)</h4></div>
 						</div>
-					</div>
+					</div></a>
 				</div>
 				<div class="col-xs-6 col-md-4 col-lg-4 no-padding">
-					<div class="panel panel-red panel-widget " style="background-color:#eedfde;margin-bottom:-23px;margin-top:-18px;">
-						<div class="row no-padding"><i class="fa fa-question-circle fa-3x"></i>
-							<div class="large">30</div>
-							<div class="text-muted"><h5>Total Dues Rs.1,00,000</h5></div>
+					<div class="panel panel-red panel-widget border-right" style="background-color:#eedfde;margin-bottom:-23px;margin-top:
+					-18px;">
+						<div class="row no-padding"><i class="fa fa-thumbs-down fa-3x"></i>
+							<div class="large">
+								<?php
+								 $am1= $due->TOTAL_DUE;
+								 $var1='/-';
+								 echo $am1+$var1;
+								?>
+							</div>
+							<div><h4>Total Dues(in Rs.)</h4></div>
 						</div>
 					</div>
 				</div>
