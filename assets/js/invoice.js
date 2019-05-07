@@ -193,7 +193,7 @@ $('#frmInvoice').submit(function(){
 										dues = obj.invoice[f]['due_Amount'];
 									}
 							}
-							str = str + "<td>"+dues+"</td>";
+							str = str + "<td id="_'+obj.students[s]['student_ID']+'">"+dues+"</td>";
 							if(invid == 'x'){
 								//str = str + '<td></td>';
 								str= str +'<td><span class="fa" id="payhere_'+obj.students[s]['student_ID']+'" ></span></td>';
@@ -215,7 +215,7 @@ $('#frmInvoice').submit(function(){
 	return false;
 	});
 
-	$('body').on('click','.printinvoice',function(){
+	/*$('body').on('click','.printinvoice',function(){
  
 		//alert(this.id);
 
@@ -236,7 +236,7 @@ $('#frmInvoice').submit(function(){
 			}
 		});
 	return false;
-});
+});*/
 	$('body').on('click','.invoicelock',function(){
 	 
 			//alert(this.id);
@@ -245,8 +245,9 @@ $('#frmInvoice').submit(function(){
 			var arr = str.split("_");
 			var stdid = arr[0];
 			var invid = arr[2];
-			var url_ = site_url_ + "/invoice/generateInvoice/"+stdid;
+			var url_ = site_url_ + "/invoice/generateInvoice/"+str;
 			var data_ = $('#frmInvoice').serialize();
+			alert(data_);
 			
 		$.ajax
 		({
@@ -266,6 +267,7 @@ $('#frmInvoice').submit(function(){
 					$('#'+str).attr('id', newid);
 					id_ = 'undo_'+stdid;
 					$('#'+id_).addClass('fa-undo undo_invoice');
+					alert('hello');
 					/*id1_ = 'payhere_'+invid;
 					$('#'+id1_).addClass('fa-play payhere');*/
 				}
