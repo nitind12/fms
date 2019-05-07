@@ -29,10 +29,18 @@ function __construct(){
 		redirect('classes');
 	}
 	function getclass(){
-		$this->load->model('class_model', 'cm');
 		$data['clss'] = $this->cm->getClassesStudentwise();
 		$data['clssTotal'] = $this->cm->getclasses();
 		$data['clss_sesswise'] = $this->cm->getclass_sesswise();
+		//$data['clss_sess'] = $this->cm->getclass_sess($str);
+
+
+		/*$data['clss_invoice'] = $this->cm->getclass_invoice();*/
+		echo json_encode($data);
+	}
+	function getclass_sess(){
+		$str = $this->input->post('str');
+		$data['clss_sess'] = $this->cm->getclass_sess($str);
 		/*$data['clss_invoice'] = $this->cm->getclass_invoice();*/
 		echo json_encode($data);
 	}
