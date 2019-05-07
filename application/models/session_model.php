@@ -69,6 +69,28 @@ class session_model extends CI_Model {
 
 	return $bool_;
 	}
+	function deletion($sid){
+		
+		$this->db->where('session_ID', $sid);
+		$query=$this->db->delete('session_master');
+		
+		}
+
+	/*function getsessions(){
+			$this->db->select('*');
+			//$this->db->where('fhead_ID',$str);
+			//$this->db->delete('manage_flexible_head');
+			$query=$this->db->get('session_master');
+			return $query->result();
+		}*/
+		/*function deleteflexiheads($str){
+			//$this->db->select('fhead_ID,New_Flexible_Head,Amount,How_Many_Times');
+			$this->db->where('fhead_ID',$str);
+			$query=$this->db->delete('manage_flexible_head');
+			//$query=$this->db->get('manage_flexible_head');
+			//return $query->row();
+		}*/
+
 
 	function getsessions(){
 		$this->db->select('session_ID,session_Start,session_End,date');
