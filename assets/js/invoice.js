@@ -272,9 +272,6 @@ $('#frmInvoice').submit(function(){
 					$('#'+id1_).addClass('fa-play payhere');*/
 				}
 			}
-			/*error: function(xhr, status, error){
-				alert(xhr.responseText);
-			}*/
 		});
 		
 	});
