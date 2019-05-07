@@ -194,6 +194,7 @@
 				str = str + '<tr>';
 				str = str + '<td colspan="2"><div class="col-sm-5" style="visibility:visible;font-size: 10px; text-align: right" ><input type="button"  value="Submit Fee" id="invoice_submit" class="btn btn-primary submit_button"></div>';
 				//str = str + '<div class="col-sm-12 hide_button style="margin-top: 10px">';
+				//alert(obj.students['invoice_ID']);
 				str = str + '<div class="col-sm-5" style="visibility:visible;font-size: 10px; text-align: right" id="print_submit"><div style="float: right; color: #ff0000; padding: 0px 0px 0px 0px"><a href="'+site_url_+'/preceipt/print_/'+obj.students['invoice_ID']+'" class="btn btn-danger" target="_blank" id="printreceipt_button">Print Fee</a></div><div style="float: right; color: #ff0000; padding: 0px 10px 0px 0px" id="receipt_msg"></div>';
 
 	     	   	str = str + '</div>';
