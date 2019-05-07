@@ -7,7 +7,7 @@ class preceipt extends CI_Controller {
 	{
 		$this->load->model('fee_receipt_model', 'frm');
 		$receiptid = $this->frm->getprnreceipt($invid);
-		$data['receipt'] = $this->frm->getprnreceipt($receiptid);
+		$data['receipt'] = $this->frm->print_receipt($receiptid);
 		//$this->load->view('templates/header');
 		//$this->load->view('templates/navheader');
 		//$this->load->view('templates/receiptside');

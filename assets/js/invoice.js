@@ -180,7 +180,7 @@ $('#frmInvoice').submit(function(){
 								str= str +'<td><span class="fa" id="undo_'+obj.students[s]['student_ID']+'" ></span></td>';
 								}
 								else {//str = str + '<td><span class="fa fa-print printinvoice" id="'+obj.students[s]['student_ID']+"_"+invid+'"  ></span></td>';
-								str = str +'<td><a href="'+site_url_+"/invoiceprint/index/"+invid+'" target="_blank"><span class="fa fa-print"></span></a></td>';
+								str = str +'<td><a href="'+site_url_+"/invoiceprint/index/"+invid+'" target="_blank"><span class="fa fa-print printinvoice"></span></a></td>';
 								str= str +'<td><span class="fa fa-undo undo_invoice" id="undo_'+invid+'" ></span></td>';
 								}
 								
@@ -192,34 +192,18 @@ $('#frmInvoice').submit(function(){
 										
 										dues = obj.invoice[f]['due_Amount'];
 									}
-							} 
+							}
 							str = str + "<td>"+dues+"</td>";
 							if(invid == 'x'){
 								//str = str + '<td></td>';
 								str= str +'<td><span class="fa" id="payhere_'+obj.students[s]['student_ID']+'" ></span></td>';
 								str = str + '<td><span class="fa fa-print"></span></td>';
 							} else {
+								arr=invid.split("_");
 								str = str + '<td> <span class="fa fa-play payhere" id="payhere_'+obj.students[s]['student_ID']+"_"+invid+'"  ></span></td>';
-								str = str + '<td> <a href="'+site_url_+'/preceipt/print_/'+obj.students['invoice_ID']+'"  target="_blank" <span class="fa fa-print"></span></a></td>';
+								str = str + '<td> <a href="'+site_url_+'/preceipt/print_/'+arr[1]+'"  target="_blank" <span class="fa fa-print"></span></a></td>';
 							}
-					//	}		
-
-					   /* else
-					    {
-							str = str + "<td>"+obj.students[s]['student_ID']+"</td>";
-							str = str + "<td>"+obj.students[s]['first_Name']+' '+obj.students[s]['last_Name']+"</td>";
-							str = str + "<td></td>";
-							str = str + "<td></td>";
-							str = str + "<td></td>";
-							str = str + "<td></td>";
-							str = str + "<td></td>";
-							str = str + '<td><span class="glyphicon glyphicon-lock"></span></td>';
-							str = str + "<td></td>";
-							str = str + "<td></td>";
-							str = str + "<td></td>";
-							str = str + '<td><span class="fa fa-print"></span></td>';
-						}*/
-					//}
+	
 					
 					str = str + "</tr>";
 				}

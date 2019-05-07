@@ -74,4 +74,19 @@ class My_model extends CI_Model {
 		$query = $this->db->get('fee_invoice');
 		return $query->row();
 	}
+	function get_currentamount($str){
+		$this->db->select('date,paid');
+		$this->db->where('date',$str);
+		$this->db->select('SUM(paid) AS TOTAL_AMOUNT');
+		$query = $this->db->get('fee_receipt');
+		return $query->row();
+	}
+	function get_currentreceipt($str){
+		$this->db->from('student_in_session a');
+		$this->db->join('fee_receipt b','a.student_ID = b.student_ID');
+		$this->db->where('b.date',$str);
+		$query = $this->db->get();
+		return $query->result();
+	}
+
 }

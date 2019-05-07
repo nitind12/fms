@@ -42,11 +42,8 @@
 								<td colspan="4">
 									<table border="0" cellpadding="0" cellspacing="0" class="table_" style="border:#009900 solid 0px">
 										<tbody><tr>
-											<td align="left" class="space_td"><?php 
-											foreach ($receipt as $item1 )
-
-											{ ?>
-											Receipt No.:<?php	echo $item1->receipt_ID;?>
+											<td align="left" class="space_td">
+											Receipt No.:<?php	echo $receipt->receipt_ID;?>
 											 </td>
 											<td align="center" style="width: 500px;padding: 0px 0px 0px 8px; vertical-align: middle"><h4 align="center"></h4>
 												<div style="width:150px; background: #f0f0f0; border-radius: 5px">
@@ -113,7 +110,7 @@
 											<tr valign="top">
 											<td class="label_">Total Paid:&nbsp<?php echo $item1->paid;?>&nbsp&nbsp<b>Rs. </b>/-</td>
 											<td></td>
-											</td><?php }?>
+											</td>
 										</tr>
 									</tbody></table>
 								</td>

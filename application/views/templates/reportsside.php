@@ -70,10 +70,10 @@
 				 Reports<span class="caret" data-toggle="collapse" href="#reports" class="icon pull-right"></span>
 				</a>
 				<ul class="children collapse" id="reports">
-					<li><a class="" href="#">
+					<li><a class="" href="currenttotaldisplay">
 						<span class="fa fa-arrow-right">&nbsp;</span> <small>Today's Payments</small>
 					</a></li>
-					<li><a class="" href="#">
+					<li><a class="" href="totaldisplay">
 						<span class="fa fa-arrow-right">&nbsp;</span> <small>Total Payments</small>
 					</a></li>
 					<li><a class="" href="invoicedisplay">

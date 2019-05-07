@@ -100,7 +100,7 @@ class Fee_receipt_model extends CI_Model {
 		return $this->db->query($query)->result();
 	}*/
 
-	function getstudentreceiptdata($stdid,$invid){
+	function getstudentreceiptdata($invid,$stdid){
 		$this->db->from('student_details a');
 		$this->db->join('fee_invoice b','a.student_ID=b.student_ID');
 		$this->db->where('a.student_ID', $stdid);
@@ -172,6 +172,12 @@ class Fee_receipt_model extends CI_Model {
 		}
 		return $rid;
 	}
+
+	function print_receipt($recptid){
+		$this->db->where('receipt_ID', $recptid);
+		$query = $this->db->get('fee_receipt');
+		return $query->row();
+	}
 	/*function getstudentdiscountInvoice($invid, $stdid){
 		$this->db->from('discount_details a');
 		$this->db->join(' fee_invoice b','a.discount_ID=b.discount_ID');
@@ -187,8 +193,8 @@ class Fee_receipt_model extends CI_Model {
 		$paid_amount = $this->input->post('paid_amount');
 		$fine = $this->input->post('_fine_');
 		$mode = $this->input->post('PaymentMode');
-		$c_no = $this->input->post('txtno');
-		$c_date = $this->input->post('txtdate');
+		//$c_no = $this->input->post('txtno');
+		//$c_date = $this->input->post('txtdate');
 		$desc = $this->input->post('txtDesc');
 		$invoice = $this->getstudentInvoice($invoice_ID);
 		
@@ -231,8 +237,8 @@ class Fee_receipt_model extends CI_Model {
 			'type_ID'=>11,
 			'fee_Mode'=>$mode,
 			'bank_Name'=>'SBI',
-			'cheque_No'=>$c_no,
-			'cheque_Date'=>$c_date,
+			'cheque_No'=>123,
+			'cheque_Date'=>2019-4-12,
 			'date_of_Entry'=>2019-4-12,
 			'session_ID'=>$session,
 			'username'=>'fms',

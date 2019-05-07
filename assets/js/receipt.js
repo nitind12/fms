@@ -1,11 +1,12 @@
 
 	$('body').on('click','.payhere',function(){
  
+ 		//alert(this.id);
 		var str = this.id;
 		var arr = str.split("_");
 		var stdid = arr[1];
 		var invid = arr[3];
-		var url_ = site_url_ + "/receipt/get_invoice_data/"+invid+"/"+stdid;
+		var url_ = site_url_ + "/receipt/get_receipt_data/"+invid+"/"+stdid;
 		$.ajax({
 			type: "GET",
 			url: url_,
@@ -39,8 +40,8 @@
 				str = str + '<tbody>';
 				str = str + '<tr>';
 				str = str + '<td width="100">Reg. No. </td>';
-				str = str + '<td>'+obj.students1['student_ID']+'</td>';
-				str = str + '<input type="hidden" id="_student_'+obj.students1['student_ID']+'" name="stdid_" value="'+obj.students1['student_ID']+'">';
+				str = str + '<td>'+obj.students['student_ID']+'</td>';
+				str = str + '<input type="hidden" id="_student_'+obj.students['student_ID']+'" name="stdid_" value="'+obj.students['student_ID']+'">';
 				str = str + '<input type="hidden" id="_invoice_'+obj.students['invoice_ID']+'"" name="invoiceid_" value="'+obj.students['invoice_ID']+'">';
 				str = str + '</tr>';
 				str = str + '<tr>';
@@ -73,13 +74,13 @@
 
 				str = str + '<tr style="background: #f0f0f0; color: #900000">';
 				str = str + '<td>Previous Due: </td>';
-				str = str + '<td style="background: #f0f0f0; color: #900000">Rs.&nbsp&nbsp'+obj.students['actual_due_Amount']+'/-</td>';
+				str = str + '<td style="background: #f0f0f0; color: #900000">Rs.&nbsp&nbsp'+obj.students['previous_due_Amount']+'/-</td>';
 				str = str + '</tr>';
 
 
 				str = str + '<tr style="background: #f0f0f0; color: #900000">';
 				str = str + '<td>Total Due: </td>';
-				$total_due=parseInt(obj.students['actual_Amount']) + parseInt(obj.students['actual_due_Amount']);
+				$total_due=parseInt(obj.students['actual_Amount']) + parseInt(obj.students['previous_due_Amount']);
 				str = str + '<td style="background: #f0f0f0; color: #900000"><b>Rs.&nbsp&nbsp</b>'+$total_due+'/-</td>';
 				str = str + '</tr>';
 				str = str + '</tbody>';
@@ -156,7 +157,7 @@
 			    str= str + '<option value="cash" >Cash</option><option value="cheque">Cheque</option><option value="DD">Demand Draft</option></select>';
 			    
 
-			   /* str = str + '<div class="tab-pane fade" id="chno">';
+			    /*str = str + '<div class="tab-pane fade" id="chno">';
 			    str = str + '<div style:left">';
 			    str = str + '<label>Cheque no</label>';
 			  	str = str + '<input type="text"  style="width: 75px; padding: 0px" name="txtno" id="txtnum"';
@@ -193,7 +194,7 @@
 				str = str + '<tr>';
 				str = str + '<td colspan="2"><div class="col-sm-5" style="visibility:visible;font-size: 10px; text-align: right" ><input type="button"  value="Submit Fee" id="invoice_submit" class="btn btn-primary submit_button"></div>';
 				//str = str + '<div class="col-sm-12 hide_button style="margin-top: 10px">';
-				str = str + '<div class="col-sm-5" style="visibility:visible;font-size: 10px; text-align: right" id="print_submit"><div style="float: right; color: #ff0000; padding: 0px 0px 0px 0px"><a href="'+site_url_+'/preceipt/'+obj.students['invoice_ID']+'" class="btn btn-danger" target="_blank" id="printreceipt_button">Print Fee</a></div><div style="float: right; color: #ff0000; padding: 0px 10px 0px 0px" id="receipt_msg"></div>';
+				str = str + '<div class="col-sm-5" style="visibility:visible;font-size: 10px; text-align: right" id="print_submit"><div style="float: right; color: #ff0000; padding: 0px 0px 0px 0px"><a href="'+site_url_+'/preceipt/print_/'+obj.students['invoice_ID']+'" class="btn btn-danger" target="_blank" id="printreceipt_button">Print Fee</a></div><div style="float: right; color: #ff0000; padding: 0px 10px 0px 0px" id="receipt_msg"></div>';
 
 	     	   	str = str + '</div>';
 				str = str + '</td>';
@@ -215,6 +216,7 @@
 			
 			}
 		});
+		return false;
 	});
 	$('body').on('click','#update_total', function(){
 		tfine=$("#fine").val();
@@ -235,7 +237,9 @@
 		$('#total_amnt_in_words').html(convertNumberToWords(totalAmt));
 	});
 
-	$('body').on('click','#PaymentMode',function(){
+
+
+	/*$('body').on('click','#PaymentMode',function(){
 		alert(this.val());
 		if(this.val() == 'cash'){
 			$('#_ccdd_no').addClass('fade');
@@ -243,18 +247,12 @@
 			$('# _noncashdetail').removeClass('fade');
 		}
 	});
-	$('body').on('click','#invoice_submit',function(){
-
-		$('#invoice_submit').hide();
-			//$('#print_submit').hide();
-
-	
-	});
+	*/
 	$('body').on('click','#invoice_submit',function(){
 	 
 			var url_ = site_url_ + "/receipt/generatereceipt/";
 			var data_ = $('#frmSubmtInvoice').serialize();
-			alert("Fee Submitted Successfully !");	
+			//alert(data_);	
 		$.ajax
 		({
 			type: "POST",
@@ -269,12 +267,13 @@
 					$('#printreceipt_button').show();
 					$('#printreceipt_button').attr('href', site_url_+"/preceipt/print_/"+obj.resultant.recptid);
 					$('#receiptNo').html(obj.resultant.recptid);
-			}
+				}
 			/*error: function(xhr, status, error){
 				alert(xhr.responseText);
 			}*/
 		}
 		});
+		return false;
 	});
 		
 	

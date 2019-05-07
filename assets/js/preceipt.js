@@ -1,4 +1,4 @@
-/*$('body').on('click','.printreceipt',function(){
+$('body').on('click','.printreceipt',function(){
  
 		//alert(this.id);
 

@@ -77,13 +77,20 @@
 					</div></a>
 				</div>
 				<div class="col-xs-6 col-md-2 col-lg-2 no-padding">
+						<a href="currenttotaldisplay">
 
 					<div class="panel panel-orange panel-widget border-right" style="background-color:#ff3f34;margin-bottom:-23px;margin-top:-18px;">
 						<div class="row no-padding"><i class="fa fa-thumbs-up fa-3x"></i>
-							<div class="large">0</div>
+							<div class="large">
+							<?php
+								 $am= $currentamount->TOTAL_AMOUNT;
+								 $var='/-';
+								 echo $am+$var;
+								?>
+							</div>
 							<div><h4>Todays Collection</h4></div>
 						</div>
-					</div>
+					</div></a>
 				</div>
 				<div class="col-xs-6 col-md-2 col-lg-2 no-padding">
 					<a href="totaldisplay">

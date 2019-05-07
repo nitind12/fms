@@ -19,9 +19,9 @@ class Dashboard extends CI_Controller {
 		$data['res'] = $this->mm->gettotalreceipt();
 		$data['amount'] = $this->mm->gettotalamount();
 		$data['due'] = $this->mm->gettotaldues();
-
-
-		
+		$data['curr_date'] = date('Y-m-d');
+		$str=$data['curr_date'];
+		$data['currentamount'] = $this->mm->get_currentamount($str);
 		$this->load->view('templates/header');
 		$this->load->view('templates/navheader');
 		$this->load->view('templates/sidebar');
