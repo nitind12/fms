@@ -1,6 +1,6 @@
 <script src="<?php echo base_url('assets/js/jquery-1.11.1.min.js');?>"></script>
 
-<script type="text/javascript" src="<?php echo base_url('assets/js/invoice.js');?>?version=17.8"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/invoice.js');?>?version=18.6"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/myscript2.js');?>?version=1.1"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/myscript3.js');?>?version=5.0"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/myscript.js');?>?version=6.5"></script>

@@ -245,7 +245,7 @@ $('#frmInvoice').submit(function(){
 			var arr = str.split("_");
 			var stdid = arr[0];
 			var invid = arr[2];
-			var url_ = site_url_ + "/invoice/generateInvoice/"+str;
+			var url_ = site_url_ + "/invoice/generateInvoice/"+stdid;
 			var data_ = $('#frmInvoice').serialize();
 			
 		$.ajax
@@ -266,8 +266,8 @@ $('#frmInvoice').submit(function(){
 					$('#'+str).attr('id', newid);
 					id_ = 'undo_'+stdid;
 					$('#'+id_).addClass('fa-undo undo_invoice');
-					id1_ = 'payhere_'+invid;
-					$('#'+id1_).addClass('fa-play payhere');
+					/*id1_ = 'payhere_'+invid;
+					$('#'+id1_).addClass('fa-play payhere');*/
 				}
 			}
 			/*error: function(xhr, status, error){

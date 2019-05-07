@@ -47,7 +47,7 @@ class Fee_invoice_model extends CI_Model {
 		$query = $this->db->get();
 		return $query->result();
 	}
-	function get_duesdata($stdid){
+	/*function get_duesdata($stdid){
 		$this->db->select('due_Amount');
 		$this->db->from('fee_invoice');
 		$str = explode('_', $stdid);
@@ -55,9 +55,16 @@ class Fee_invoice_model extends CI_Model {
 		$this->db->order_by('invoice_ID','desc');
 		$this->db->limit(1,0);
 		$query = $this->db->get();
-		echo $this->db->last_query();
-		return $query->row();
-	}
+		if($query!=0)
+		{
+			foreach($query as $row)
+			{
+				$dues=$row->due_Amount;
+			}
+		}
+		//echo $this->db->last_query(); die();
+		return $dues; 
+	}*/
 
 	
 
@@ -148,7 +155,7 @@ class Fee_invoice_model extends CI_Model {
 				}
 
 			}
-		$prev_dues =0;
+			$prev_dues =0;
 			/*$dues=0;
 			foreach ($data['discount'] as $item4)
 			{
