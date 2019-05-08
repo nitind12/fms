@@ -24,6 +24,10 @@ function __construct(){
 		$data['flex'] = $this->fm->getflexiheads();
 		echo json_encode($data);
 	}
+	function getflexihead_data($str){
+		$data['flex_data'] = $this->fm->getflexiheads_data($str);
+		echo json_encode($data);
+	}
 /*	function deleteflexihead($str){
 		//$this->load->model('Flexihead_model', 'fm');
 		$data['delete'] = $this->fm->deleteflexiheads($str);

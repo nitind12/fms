@@ -11,10 +11,12 @@ class Invoice extends CI_Controller {
 		}
 	}
 
-	function generateInvoice($sid){
+	function generateInvoice($str){
+
 		$data['resultant'] = $this->fim->generateInvoice($sid);
 		 //redirect('invoice');
 		echo json_encode($data);
+		
 	}
 	function deleteInvoice($invid){
 		$data['delete'] = $this->fim->deleteInvoice($invid);

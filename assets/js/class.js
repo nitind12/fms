@@ -49,7 +49,7 @@ $('body').on('click','.prnt',function(){
 		//alert(this.id);
 		 cls=this.id;
 
-			var url_ = site_url_ + "/classes/getclass/" +cls ;
+			var url_ = site_url_ + "/classes/getclass_sess/" +cls ;
 			$.ajax({
 			type: "POST",
 			url: url_,
@@ -68,12 +68,12 @@ $('body').on('click','.prnt',function(){
                  	str=str+ '<label class="control-label" style="color: #cc3300">Course</label>';
                  	str=str+   '<div class="controls">';                      
                  		str=str+ '<input type="hidden" name="txtEditClass_ID" value="" autocomplete="off" required="required" class="span11" id="txtEditClass_ID"/>';
-          				 str=str+ '<input type="text" name="txtEditClass_" value="'+obj.clss[cls].course+'" autocomplete="off" required="required" class="span11" id="txtEditClass_"/>';
+          				 str=str+ '<input type="text" name="txtEditClass_" value="'+obj.clss_sess[0].course+'" autocomplete="off" required="required" class="span11" id="txtEditClass_"/>';
           		 	str = str + '</div>';
           		 	str=str+ '<label class="control-label" style="color: #cc3300">Semester</label>';
                  	str=str+   '<div class="controls">';                      
                  		str=str+ '<input type="hidden" name="txtEditClass_ID" value="" autocomplete="off" required="required" class="span11" id="txtEditClass_ID"/>';
-          				 str=str+ '<input type="text" name="txtEditClass_" value="'+obj.clss[cls].sem_ID+'" autocomplete="off" required="required" class="span11" id="txtEditClass_"/>';
+          				 str=str+ '<input type="text" name="txtEditClass_" value="'+obj.clss_sess[0].sem_ID+'" autocomplete="off" required="required" class="span11" id="txtEditClass_"/>';
           		 	str = str + '</div>';
           		 	str=str+ '<label class="control-label" style="color: #cc3300">Section</label>';
           		 	str = str + '<select class="form-control" name="txtSemester" id="txtSemester" >';
