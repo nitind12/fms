@@ -12,8 +12,6 @@ $(function(){
 				//alert(data);	
 				var obj=JSON.parse(data);	
 
-				if(obj['stud']['student_ID'] == ''){}		
-				else{
 					$('#txtfrstnme').val(obj['stud']['first_Name']);
 					$('#txtlstnme').val(obj['stud']['last_Name']);
 					$('#txtfnme').val(obj['stud']['fathers_Name']);
@@ -45,7 +43,6 @@ $(function(){
 				} else {
 					$('#txtfmle').prop('checked', true);
 				}
-			}
 
 			}
 		});
