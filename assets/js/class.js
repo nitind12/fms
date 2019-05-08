@@ -74,6 +74,7 @@ $('body').on('click','.prnt',function(){
                  	str=str+   '<div class="controls">';                      
                  		str=str+ '<input type="hidden" name="txtEditClass_ID" value="" autocomplete="off" required="required" class="span11" id="txtEditClass_ID"/>';
           				 str=str+ '<input type="text" name="txtEditClass_" value="'+obj.clss_sess[0].sem_ID+'" autocomplete="off" required="required" class="span11" id="txtEditClass_"/>';
+          				 str=str+ '<input type="text" name="txtEditClass_" value="'+obj.clss[cls-1].sem_ID+'" autocomplete="off" required="required" class="span11" id="txtEditClass_"/>';
           		 	str = str + '</div>';
           		 	str=str+ '<label class="control-label" style="color: #cc3300">Section</label>';
           		 	str = str + '<select class="form-control" name="txtSemester" id="txtSemester" >';
@@ -87,18 +88,25 @@ $('body').on('click','.prnt',function(){
           		 	str = str + '</div>';
 
           		 	str = str + '<div class="form-actions" align="right">';  
-                     str = str + '<input type="button" value="Update Class" class="btn btn-danger classUpdate" style="margin-top:10px;">';
-                    str = str + '<button type="reset" class="btn btn-primary classUpdateCancel" style="margin-top:10px;">Cancel</button>';                             
+                     str = str + '<input type="button" value="Update Class" class="btn btn-danger classUpdate" style="margin-top:10px;" onclick="clickupd('+obj.clss[cls].class_ID+')">';
+                    str = str + '<input type="reset" value="cancel" class="btn btn-primary classUpdateCancel" style="margin-top:10px;">';                             
+                   
                     str = str + '</div>';
           		 str = str + '</form>';
                  str=str+ '</div>';
              str=str+ '</div>';
             str = str + '</div';
 			$('#phrs').html(str);
+
+
 	
 	}
 
 	});
 
+
 });
-     
+ function clickupd(id){
+ 	alert(id);
+}
+ 
