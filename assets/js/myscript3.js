@@ -159,6 +159,9 @@ $('body').on('click','.print',function(){
                 str=str+' </div>';
                 str=str+ '<div class="control-group">';
                 str=str+ '<div class="controls">';
+
+                str=str+ '<br></br>';
+
                 str=str+ '<input type="submit" value="Update" class="btn btn-primary" id="update_flexible_head">'
                   str=str+ '<input type="reset" value="Cancel" class="btn btn-danger cancel_flexible_head_update">';
                   str = str + '</form>';
