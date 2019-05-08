@@ -25,7 +25,7 @@ $(function(){
 					str = str + "<td>" + obj.flex[i]['how_many_Times'] + "</td>";
 					
 					str = str + '<td>';
-					str = str + '<span class=" fa fa-pencil print" onclick="callEdit('+obj.flex[i]['flexible_head_ID']+');"></span>';
+					str = str + '<span class=" fa fa-pencil print" id="'+obj.flex[i]['flexible_head_ID']+'"></span>';
 					str = str + "/" +'<span class="fa fa-remove del" id="'+obj.flex[i]['flexible_head_ID']+'"></span>';
 					str = str +  '</td>';
 					str = str + "</tr>";
@@ -39,9 +39,9 @@ $(function(){
 		    return false;
 });
 
-function callEdit(id){
-	alert(id);
-}
+/*function callEdit(id){
+	//alert(id);
+}*/
 
 	$(function(){
 		$('#afh').html("loading...");
@@ -115,10 +115,12 @@ $(function(){
 
 
 $('body').on('click','.print',function(){
-			var url_ = site_url_ + "/flexihead_students/getflexihead/" ;
+	//alert(this.id);
+	var str=this.id;
+			var url_ = site_url_ + "/flexihead_students/getflexihead_data/"+str ;
 		
 			$.ajax({
-			type: "GET",
+			type: "POST",
 			url: url_,
 		//	data:data_,
 			success: function(data){
@@ -136,14 +138,14 @@ $('body').on('click','.print',function(){
               	str=str+ '<div class="control-group">';
                 str=str+ '<label class="control-label">Edit Flexible Head</label>';
                 str=str+ '<div class="controls">';
-                str=str+ '<input type="text" name="txtffh" value="" class="span12 text" autocomplete="off" required="required" id="" style="color: #0000DD">';
+                str=str+ '<input type="text" name="txtffh" value="'+obj.flex_data[0].fee_Head+'" class="span12 text" autocomplete="off" required="required" id="" style="color: #0000DD">';
                 str=str+ '<input type="hidden" name="txtFlexID_edit" value="1" class="span12 text" required="required" id="txtFlexID_edit">';
                 str=str+ '</div>';
                	str=str+ '</div>';
                 str=str+ '<div class="control-group">';
                 str=str+ '<label class="control-label">Amount</label>';
                	str=str+ '<div class="controls">';
-                str=str+'<input type="text" name="txtffhamt" value="" class="span12 text" autocomplete="off" required="required" id="txtFlexibleHeadAmt_edit">';
+                str=str+'<input type="text" name="txtffhamt" value=" '+obj.flex_data[0].amount+'" class="span12 text" autocomplete="off" required="required" id="txtFlexibleHeadAmt_edit" style="color: #0000DD" >';
                 str=str+ '</div>';
                 str=str+ '</div>';
                 str=str+ '<div class="control-group" data-select2-id="30">';
@@ -157,6 +159,9 @@ $('body').on('click','.print',function(){
                 str=str+' </div>';
                 str=str+ '<div class="control-group">';
                 str=str+ '<div class="controls">';
+
+                str=str+ '<br></br>';
+
                 str=str+ '<input type="submit" value="Update" class="btn btn-primary" id="update_flexible_head">'
                   str=str+ '<input type="reset" value="Cancel" class="btn btn-danger cancel_flexible_head_update">';
                   str = str + '</form>';

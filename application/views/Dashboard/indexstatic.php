@@ -36,8 +36,8 @@
 								<div class="form-group col-sm-3">
 										<label><em class="fa fa-credit-card">&nbsp</em>Discount Applicable</label>
 										<select class="form-control" name="txtdap">
-											<option>No</option>
-											<option>Yes</option>	
+											<option>1</option>
+											<option>0</option>	
 										</select>
 								</div>
 

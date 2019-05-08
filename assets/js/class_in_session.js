@@ -12,7 +12,7 @@ $(function(){
 				//alert(data);
 				var obj = JSON.parse(data);
 				var str = '';
-				str = str + '<table>';
+				str = str + '<table class="table">';
 				for(i=0; i<obj.clssTotal.length; i++){
 					str = str + "<tr>";
 					str = str + "<td>" + obj.clssTotal[i]['course'] + ' ' + obj.clssTotal[i]['sem_ID'] + ' ' + obj.clssTotal[i]['section'] + "</td>";
