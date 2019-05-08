@@ -68,8 +68,7 @@
 							<table>
 								<tr>
 									<th><div id="phrs" style="clear:both;">
-										hey there
-									</div></th>
+										</div></th>
 								</tr>
 							</table>
 						</th>

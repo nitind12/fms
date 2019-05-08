@@ -215,7 +215,7 @@ $('#frmInvoice').submit(function(){
 	return false;
 	});
 
-	$('body').on('click','.printinvoice',function(){
+	/*$('body').on('click','.printinvoice',function(){
  
 		//alert(this.id);
 
@@ -236,7 +236,7 @@ $('#frmInvoice').submit(function(){
 			}
 		});
 	return false;
-});
+});*/
 	$('body').on('click','.invoicelock',function(){
 	 
 			//alert(this.id);
@@ -245,8 +245,9 @@ $('#frmInvoice').submit(function(){
 			var arr = str.split("_");
 			var stdid = arr[0];
 			var invid = arr[2];
-			var url_ = site_url_ + "/invoice/generateInvoice/"+stdid;
+			var url_ = site_url_ + "/invoice/generateInvoice/"+str;
 			var data_ = $('#frmInvoice').serialize();
+			//alert(data_);
 			
 		$.ajax
 		({
@@ -262,17 +263,15 @@ $('#frmInvoice').submit(function(){
 					$('#'+str).addClass('fa-print');
 					$('#'+str).removeClass('invoicelock');
 					$('#'+str).addClass('printinvoice');
-					var newid = str+"_invid_"+obj.resultant['newinvid'];
-					$('#'+str).attr('id', newid);
-					id_ = 'undo_'+stdid;
-					$('#'+id_).addClass('fa-undo undo_invoice');
+					//var newid = str+"_invid_"+obj.resultant['newinvid'];
+					//$('#'+str).attr('id', newid);
+					//id_ = 'undo_'+stdid;
+					//$('#'+id_).addClass('fa-undo undo_invoice');
+					//alert('hello');
 					/*id1_ = 'payhere_'+invid;
 					$('#'+id1_).addClass('fa-play payhere');*/
 				}
 			}
-			/*error: function(xhr, status, error){
-				alert(xhr.responseText);
-			}*/
 		});
 		
 	});

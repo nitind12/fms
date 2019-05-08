@@ -48,6 +48,7 @@ $('body').on('click','.rec',function(){
 				var str = '';
 				str = str + '<table class="table table-bordered">';
 				str = str + "<tr>";
+				str = str + "<th>Print</th>";
 				str = str + "<th>Receipt ID</th>";
 				str = str + "<th>class</th>";
 				str = str + "<th>Reg.no</th>";
@@ -59,6 +60,9 @@ $('body').on('click','.rec',function(){
 				str = str + "</tr>";
 				for(i=0; i<obj.receiptdata.length; i++){
 					str = str + "<tr>";
+					str = str +'<td>';
+					str = str + '<a href="'+site_url_+"/preceipt/print_/"+obj.receiptdata[i]['invoice_ID']+'" target="_blank"><span class="fa fa-print"></span></a>';
+					str = str +'</td>';
 					str = str + '<td>';
 					str = str + obj.receiptdata[i]['receipt_ID'];
 					str = str + '</td>';

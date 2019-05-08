@@ -29,15 +29,27 @@ function __construct(){
 		redirect('classes');
 	}
 	function getclass(){
-		$this->load->model('class_model', 'cm');
 		$data['clss'] = $this->cm->getClassesStudentwise();
 		$data['clssTotal'] = $this->cm->getclasses();
 		$data['clss_sesswise'] = $this->cm->getclass_sesswise();
+		//$data['clss_sess'] = $this->cm->getclass_sess($str);
+
+
+		/*$data['clss_invoice'] = $this->cm->getclass_invoice();*/
+		echo json_encode($data);
+	}
+	function getclass_sess($str){
+		//$str = $this->input->post('str');
+		$data['clss_sess'] = $this->cm->getclass_sess($str);
 		/*$data['clss_invoice'] = $this->cm->getclass_invoice();*/
 		echo json_encode($data);
 	}
 	function delete_record($cid){
 		$data['delete'] = $this->cm->deletion($cid);
+		echo json_encode($data);
+	}
+	function update_record($clid){
+		$data['upd'] = $this->cm->updation($clid);
 		echo json_encode($data);
 	}
 }
