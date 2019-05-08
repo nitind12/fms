@@ -6,7 +6,7 @@
 <script type="text/javascript" src="<?php echo base_url('assets/js/myscript.js');?>?version=6.5"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/receipt.js');?>?version=12.8"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/session.js');?>?version=1.8"></script>
-<script type="text/javascript" src="<?php echo base_url('assets/js/class_in_session.js');?>?version=2.1"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/class_in_session.js');?>?version=2.2"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/class.js');?>?version=4.3"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/student.js');?>?version=1.9"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/invoicedisplay.js');?>?version=2.3"></script>
