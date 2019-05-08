@@ -1,13 +1,15 @@
 <script src="<?php echo base_url('assets/js/jquery-1.11.1.min.js');?>"></script>
 
 <script type="text/javascript" src="<?php echo base_url('assets/js/invoice.js');?>?version=18.6"></script>
-<script type="text/javascript" src="<?php echo base_url('assets/js/myscript2.js');?>?version=1.1"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/myscript2.js');?>?version=1.2"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/myscript3.js');?>?version=5.0"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/myscript.js');?>?version=6.5"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/receipt.js');?>?version=12.9"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/myscript.js');?>?version=6.6"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/receipt.js');?>?version=12.8"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/session.js');?>?version=1.8"></script>
-<script type="text/javascript" src="<?php echo base_url('assets/js/class_in_session.js');?>?version=2.1"></script>
-<script type="text/javascript" src="<?php echo base_url('assets/js/class.js');?>?version=4.3"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/class_in_session.js');?>?version=2.2"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/class.js');?>?version=4.5"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/student.js');?>?version=1.9"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/invoicedisplay.js');?>?version=2.3"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/receiptdisplay.js');?>?version=1.7"></script>
