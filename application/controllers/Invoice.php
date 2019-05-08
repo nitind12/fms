@@ -11,7 +11,7 @@ class Invoice extends CI_Controller {
 		}
 	}
 
-	function generateInvoice($str){
+	function generateInvoice($sid){
 
 		$data['resultant'] = $this->fim->generateInvoice($sid);
 		 //redirect('invoice');
