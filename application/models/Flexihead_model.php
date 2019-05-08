@@ -60,6 +60,14 @@ class Flexihead_model extends CI_Model {
 			$query=$this->db->get('fee_flexible_head');
 			return $query->result();
 		}
+		function getflexiheads_data($str){
+			//$this->db->select('flexible_head_ a');
+			//$this->db->join('flexible_fee_associate_class b','a.flexible_head_ID = b.flexible_head_ID');
+			$this->db->where('flexible_head_ID',$str);
+			$query=$this->db->get('fee_flexible_head');
+			return $query->result();
+		}
+
 		/*function deleteflexiheads($str){
 			//$this->db->select('fhead_ID,New_Flexible_Head,Amount,How_Many_Times');
 			$this->db->where('fhead_ID',$str);

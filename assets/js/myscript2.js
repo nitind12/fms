@@ -37,9 +37,9 @@ $(function(){
 				
 				if(obj['staf']['gender'] == 'MALE'){
 				
-					$('#txtmle').attr('checked', true);
+					$('#txtmle').prop('checked', true);
 				} else {
-					$('#txtfmle').attr('checked', true);
+					$('#txtfmle').prop('checked', true);
 				}
 
 

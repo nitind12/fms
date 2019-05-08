@@ -20,7 +20,7 @@
 					<div class="panel panel-teal panel-widget border-right" style="background-color:aqua;margin-top:-18px;margin-left:17px;margin-bottom:-22px;">
 						<div class="row no-padding"><i class="fa fa-user fa-3x"></i>
 							<div class="large"><?php echo $number->TOTAL_;?></div>
-							<div class="text-muted"><h4>Student</h4></div>
+							<div class="text-muted"><h4>Students</h4></div>
 						</div>
 					</div></a>
 				</div>
