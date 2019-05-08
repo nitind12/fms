@@ -48,4 +48,8 @@ function __construct(){
 		$data['delete'] = $this->cm->deletion($cid);
 		echo json_encode($data);
 	}
+	function update_record($clid){
+		$data['upd'] = $this->cm->updation($clid);
+		echo json_encode($data);
+	}
 }

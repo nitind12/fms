@@ -54,6 +54,11 @@ class class_model extends CI_Model {
 		
 		}
 
+		function updation($clid){
+			$this->db->where('class_ID',$clid);
+			$query=$this->db->update('class');
+		}
+
 	/*function getclasses(){
 			$this->db->select('*');
 			//$this->db->where('fhead_ID',$str);
