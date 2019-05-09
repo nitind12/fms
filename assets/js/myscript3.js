@@ -64,7 +64,7 @@ $(function(){
 				str = str + "</tr>";
 				for(i=0; i<obj.flex.length; i++){
 					str = str + "<tr>";
-					str = str + "<td><input type='radio' class='flexib' name='flex_head' id='"+obj.flex[i]['flexible_head_ID']+"'></td>";
+					str = str + '<td><input type="radio"  class="flex" name="flex_head" id="'+obj.flex[i]['flexible_head_ID']+'"></td>';
 					str = str + "<td>" + obj.flex[i]['fee_Head'] + "</td>";
 					str = str + "</tr>";
 				}
@@ -98,7 +98,7 @@ $(function(){
 				str = str + "</tr>";
 				for(i=0; i<obj.clssTotal.length; i++){
 					str = str + "<tr>";
-					str = str + '<td><input type="radio" name="clss" id="'+obj.clssTotal[i]['class_ID']+'" value="id1" class="stdi"</td>';
+					str = str + '<td><input type="radio" name="clss" id="'+obj.clssTotal[i]['class_ID']+'" value="id1" class="stdi"></td>';
 					//str = str + '<td class="stdin" id="'+obj.class[i]['class_ID']+'">';
 					str = str + "<td>" + obj.clssTotal[i]['course'] + ' ' + obj.clssTotal[i]['sem_ID'] + ' ' + obj.clssTotal[i]['section'] + "</td>";
 					str = str + "</tr>";
@@ -210,7 +210,7 @@ $('body').on('click','.stdi',function(){
 				str = str + '</tr>';
 				for(i=0;i<obj.stud.length;i++){
 					str = str + '<tr>';
-					str = str + '<td><input type="checkbox" id="'+obj.stud[i]['student_ID']+'"></td>';
+					str = str + '<td><input type="checkbox"  id="'+obj.stud[i]['student_ID']+'"></td>';
 					str = str + "<td>" + obj.stud[i]['student_ID'] + "</td>";
 					str = str + "<td>" + obj.stud[i]['first_Name'] + ' ' + obj.stud[i]['last_Name'] + "</td>";
 					str = str + "</tr>";

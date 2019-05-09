@@ -300,6 +300,7 @@ $('#frmInvoice').submit(function(){
 			var invid = arr[2];
 			var url_ = site_url_ + "/invoice/deleteInvoice/"+invid;
 			var data_ = $('#frmInvoice').serialize();
+			alert(data_);
 			
 		$.ajax
 		({

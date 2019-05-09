@@ -1,9 +1,11 @@
 $(function(){
+	
 		$('#prhere').html("loading...");
 
 		var url_ = site_url_ + "/classes/getclass/" ;
 		var data_=$(this).serialize();
 		
+
 		$.ajax({
 			type: "GET",
 			url: url_,
@@ -15,21 +17,21 @@ $(function(){
 				str = str + '<table class="table">';
 				for(i=0; i<obj.clssTotal.length; i++){
 					str = str + "<tr>";
-					str = str + "<td>" + obj.clssTotal[i]['course'] + ' ' + obj.clssTotal[i]['sem_ID'] + ' ' + obj.clssTotal[i]['section'] + "</td>";
-					
+					str = str + '<td><input type="checkbox" name="classes[]" value="'+obj.clssTotal[i]['class_ID']+'"  id="'+obj.clssTotal[i]['class_ID']+'"></td>';
+
+					str = str + "<td>" + obj.clssTotal[i]['course'] + ' ' + obj.clssTotal[i]['sem_ID'] + ' ' + obj.clssTotal[i]['section'];
+					str = str + "<input type='hidden' name='classes_in_text[]' value='"+obj.clssTotal[i]['course'] + ' ' + obj.clssTotal[i]['sem_ID'] + ' ' + obj.clssTotal[i]['section']+"'>"+"</td>"
 					str = str + "</tr>";
 				}
 				str = str + "</table>";
 				$('#prhere').html(str);
 			}
 		});
-		    return false;
-	});
 
-$(function(){
+
 		$('#prhrt').html("loading...");
 
-		var url_ = site_url_ + "/classes/getclass/" ;
+		var url_ = site_url_ + "/class_in_session/getclassinsession/" ;
 		var data_=$(this).serialize();
 		
 		$.ajax({
@@ -41,10 +43,10 @@ $(function(){
 				var obj = JSON.parse(data);
 				var str = '';
 				str = str + '<table class="table table-bordered">';
-				for(i=0; i<obj.clssTotal.length; i++){
+				for(i=0; i<obj.csess.length; i++){
 					str = str + "<tr>";
-					str= str + '<class="prn" id="'+obj.clssTotal[i]['class_ID']+'" name="clss">';
-					str = str + "<td>" + obj.clssTotal[i]['course'] + ' ' + obj.clssTotal[i]['sem_ID'] + ' ' + obj.clssTotal[i]['section'] + "</td>";
+				//	str= str + '<td><input type="radio" name="clss" class="prn" id="'+obj.clssTotal[i]['class_ID']+'"></td>';
+					str = str + '<td>'+obj.csess[i]['class_sess_ID']+'</td>';
 					
 					str = str + "</tr>";
 				}
@@ -52,11 +54,12 @@ $(function(){
 				$('#prhrt').html(str);
 			}
 		});
-		    return false;
-	});
+
 $('body').on('click','.prn',function(){
 		$('#rgn').html("loading...");
+		//alert(this.id);
 		var crsid=this.id;
+
 
 		var url_ = site_url_ + "/studentregi/getStudents/" +crsid ;
 		var data_=$(this).serialize();
@@ -89,3 +92,4 @@ $('body').on('click','.prn',function(){
 		});
 		    return false;
 	});
+});

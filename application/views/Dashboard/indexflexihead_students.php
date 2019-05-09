@@ -83,7 +83,8 @@
              <div class="panel-heading"> <h3>Flexible Heads</h3></div>
             <table class="table table-bordered with-check" >
              <tr>
-               <th>                   
+               <th>
+               <!-- <form name="frmSelectStudents" id="frmSelectStudents" method="post" action=""-->                   
                    <table class="table table-bordered table-striped with-check">
                        <tr>
                           <th style="text-align: left">Select Flexible Head</th>
@@ -116,6 +117,7 @@
                         </th>
                     </tr>
                   </table>
+                  <form>
                 </th>
               </tr>
             </table>

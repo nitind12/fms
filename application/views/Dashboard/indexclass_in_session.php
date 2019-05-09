@@ -9,22 +9,21 @@
 		</div>
 		<h2><div class="page-header">Class In Session</div></h2>
 		<div >
+			<form name="frmInsertClasses" id="frmInsertClasses" method="post" action="<?php echo site_url('class_in_session/insert_record');?>">
         <table class="table table-bordered table-striped with-check">
 
 				<tr>
 					<td>Total Class</td>
-					<td>Classes in new session</td>
-					<td>Used Classes</td>
+					<td>Classes in new session (2018-19)</td>
 				</tr>
 				<tr>
 					<td><div id="prhere" style="clear:both"></div></td>
 					<td><div id="prhrt" style="clear:both"></div></td>
-					<td disabled="disabled"></td>
 
 			</table>
 		</div>
 		<div>
-		<input type="submit" class="btn btn-primary" Value="SUBMIT CLASSES TO SESSION 2018-19">
+		<input type="submit" class="btn btn-primary" id="submitClasses" Value="SUBMIT CLASSES TO SESSION 2018-19">
 		</div>
 
 						
