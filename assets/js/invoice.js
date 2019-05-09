@@ -193,7 +193,7 @@ $('#frmInvoice').submit(function(){
 										dues = obj.invoice[f]['due_Amount'];
 									}
 							}
-							str = str + "<td>"+dues+"</td>";
+							str = str + '<td class="due" id="due_'+invid+'">'+dues+'</td>';
 							if(invid == 'x'){
 								//str = str + '<td></td>';
 								str= str +'<td><span class="fa" id="payhere_'+obj.students[s]['student_ID']+'" ></span></td>';
@@ -245,7 +245,7 @@ $('#frmInvoice').submit(function(){
 			var arr = str.split("_");
 			var stdid = arr[0];
 			var invid = arr[2];
-			var url_ = site_url_ + "/invoice/generateInvoice/"+str;
+			var url_ = site_url_ + "/invoice/generateInvoice/"+stdid;
 			var data_ = $('#frmInvoice').serialize();
 			//alert(data_);
 			
@@ -263,13 +263,24 @@ $('#frmInvoice').submit(function(){
 					$('#'+str).addClass('fa-print');
 					$('#'+str).removeClass('invoicelock');
 					$('#'+str).addClass('printinvoice');
-					//var newid = str+"_invid_"+obj.resultant['newinvid'];
-					//$('#'+str).attr('id', newid);
-					//id_ = 'undo_'+stdid;
-					//$('#'+id_).addClass('fa-undo undo_invoice');
+					var newid = str+"_invid_"+obj.resultant['newinvid'];
+					$('#'+str).attr('id', newid);
+					id_new = 'undo_invid_'+obj.resultant['newinvid'];
+					id_= 'undo_'+stdid;
+					$('#'+id_).addClass('fa-undo undo_invoice');
+					$('#'+id_).attr('id', id_new);
 					//alert('hello');
-					/*id1_ = 'payhere_'+invid;
-					$('#'+id1_).addClass('fa-play payhere');*/
+					id_new2 = 'payhere_'+stdid+'_invid_'+obj.resultant['newinvid'];
+					id1_='payhere_'+stdid;
+					$('#'+id1_).addClass('fa-play payhere');
+					$('#'+id1_).attr('id', id_new2);
+					id_new3='due_'+obj.resultant['newinvid'];
+					id4_='due_'+invid;
+					$('#'+id4_).addClass('due');
+					$('#'+id4_).attr('id', id_new3);
+
+
+
 				}
 			}
 		});
