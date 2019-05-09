@@ -20,6 +20,7 @@
 				str = str + '<tbody>'
 				str = str + '<tr height="100">';
 				str = str + '<td align="left" style="width: 150px; padding: 0px 0px 0px 8px; vertical-align: middle">Date: <u>'+obj.curr_date+'</u>';
+				str = str + '<input type="hidden" id="_date_'+obj.curr_date+'" name="date_" value="'+obj.curr_date+'">';
 				str = str + '</td>';
 				str = str + '<td align="center" style="width: 500px;padding: 0px 0px 0px 8px; vertical-align: middle"><h4 align="center"><b>The Demo School,Haldwani </b><br>Receipt</h4>';
 				str = str + '</td>'; 
@@ -167,8 +168,10 @@
 			  	str = str + '<input type="text"  style="width: 75px; padding: 0px" name="txtdate" id="txtnum">';
 			  	str = str + '</div>'; 
 			  	str = str + '</div>';*/
-			  	//str = str + '<div style="border-radius: 5px; background: rgb(80, 80, 80); color: rgb(255, 255, 255); padding: 0px 3px; width: 100%; float: left; display: block; border: 0px solid rgb(255, 0, 0);" id="_noncashdetail"><div style="float: left"><b id="_ccdd_no" style="font-size: 9px">Cheque</b> No.<br><input type="text" style="width: 75px; padding: 0px" name="txtCCDDNumber" id="txtCCDDNumber">&nbsp;</div><div style="float: right"><b id="_ccdd_dt" style="font-size: 9px">Cheque</b> Date<br><input type="text" style="width: 75px; padding: 0px" name="txtCCDDDate" id="txtCCDDDate"></div></div>';
-			  	//str = str + '<div style="float: right"><b id="_ccdd_dt" style="font-size: 9px">';
+			  	str = str + '<div style="border-radius: 5px; background: rgb(80, 80, 80); color: rgb(255, 255, 255); padding: 0px 3px; width: 100%; float: left; display: block; border: 0px solid rgb(255, 0, 0);" id="_noncashdetail">';
+			  	str = str + '<div style="float: left; display: none" id="_ccdd_no"><div style="float: left"><b style="font-size: 9px">Cheque</b> No.<br><input type="text" style="width: 75px; padding: 0px" name="txtCCDDNumber" id="txtCCDDNumber">&nbsp;</div><div style="float: right"><b id="_ccdd_dt" style="font-size: 9px">Cheque</b> Date<br><input type="text" style="width: 75px; padding: 0px" name="txtCCDDDate" id="txtCCDDDate"></div></div>';
+			  	str = str + '</div>';
+			  	str = str + '<div style="float: right"><b id="_ccdd_dt" style="font-size: 9px">';
 
 
 
@@ -194,7 +197,7 @@
 				str = str + '<tr>';
 				str = str + '<td colspan="2"><div class="col-sm-5" style="visibility:visible;font-size: 10px; text-align: right" ><input type="button"  value="Submit Fee" id="invoice_submit" class="btn btn-primary submit_button"></div>';
 				//str = str + '<div class="col-sm-12 hide_button style="margin-top: 10px">';
-				//alert(obj.students['invoice_ID']);
+				//alert(obj.students['invoice_ID']);receipt_msg
 				str = str + '<div class="col-sm-5" style="visibility:visible;font-size: 10px; text-align: right" id="print_submit"><div style="float: right; color: #ff0000; padding: 0px 0px 0px 0px"><a href="'+site_url_+'/preceipt/print_/'+obj.students['invoice_ID']+'" class="btn btn-danger" target="_blank" id="printreceipt_button">Print Fee</a></div><div style="float: right; color: #ff0000; padding: 0px 10px 0px 0px" id="receipt_msg"></div>';
 
 	     	   	str = str + '</div>';
@@ -240,20 +243,18 @@
 
 
 
-	/*$('body').on('click','#PaymentMode',function(){
-		alert(this.val());
-		if(this.val() == 'cash'){
-			$('#_ccdd_no').addClass('fade');
-		} else {
-			$('# _noncashdetail').removeClass('fade');
+	$('body').on('change','#PaymentMode',function(){
+		if($(this).val() == 'cash'){
+			$('#_ccdd_no').hide();
+		} else if($(this).val()!='cash'){
+			$('#_ccdd_no').show();
 		}
 	});
-	*/
+	
 	$('body').on('click','#invoice_submit',function(){
 	 
 			var url_ = site_url_ + "/receipt/generatereceipt/";
 			var data_ = $('#frmSubmtInvoice').serialize();
-			//alert(data_);	
 		$.ajax
 		({
 			type: "POST",
@@ -266,8 +267,10 @@
 				if(obj.resultant.bool == true){
 					$('#invoice_submit').hide();
 					$('#printreceipt_button').show();
+					//alert("record inserted successfully")
 					//$('#printreceipt_button').attr('href', site_url_+"/preceipt/print_/"+obj.resultant.recptid);
 					$('#receiptNo').html(obj.resultant.recptid);
+					$('#receipt_msg').html("Your record has been successfully inserted !");	
 				}
 			/*error: function(xhr, status, error){
 				alert(xhr.responseText);
@@ -276,8 +279,8 @@
 		});
 		return false;
 	});
-		
-	
+
+
 	function convertNumberToWords(amount) {
     var words = new Array();
     words[0] = '';
