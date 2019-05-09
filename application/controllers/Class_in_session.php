@@ -27,10 +27,9 @@ function __construct(){
 	function getclassinsession()
 	{
 		$this->load->model('classinsessionmodel', 'csm');
-		$data['csess'] = $this->csm->getclassinsessions();
+		$data['csess'] = $this->csm->getclassinsession('2018-19');
 		echo json_encode($data);
 	}
-
 	function insert_record(){
 		$data = $this->csm->submission();
 

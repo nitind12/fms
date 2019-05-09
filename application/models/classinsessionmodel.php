@@ -7,50 +7,40 @@ class classinsessionmodel extends CI_Model {
 	}
 
 	function submission(){
-		$csid = $this->input->post('txtcsid');
-		$sid_ = $this->input->post('txtsid');
-		$clss = $this->input->post('txtclass');
+		$csid = $this->input->post('classes');
+		$classes_in_text = $this->input->post('classes_in_text');
+		$sess = '2018-19';
+		for ($i=0; $i<count($csid); $i++){
+			$this->db->where('class_ID', $csid[$i]);
+			$this->db->where('session_ID', $sess);
+			$query = $this->db->get('class_in_session');
 
-		$this->db->where('class_sess_ID', $csid);
-		$query = $this->db->get('class_in_session');
+			if($query->num_rows()!=0){
 
-		if($query->num_rows()!=0){
-			$bool_ = array(
-				'res' => false,
-				'msg' => '<strong>The name already exists. Please try again !!</strong>'
-			);
-		} else {
-
-			$data = array(
-				'class_sess_ID' => $csid,
-			);
-			$this->db->insert('class_in_session', $data);
-            $data2= array(
-            	'class_sess_ID' =>$csid,
-                'session_ID'=>$sid_,
-           );
-                $this->db->insert('session_master',$data2);
-
-                $data3=array(
-                	'class_sess_ID' =>$csid,
-                	'class_ID'=>$clss,
-
-                );
-                	$this->db->insert('class',$data3);
-
-			$bool_ = array(
-				'res' => true,
-				'msg' => '<strong class="text-success">Record successfully inserted...</strong>'
-			);
+			} else {
+				$csid__ = $classes_in_text[$i]."-".$sess;
+				$data = array(
+					'class_sess_ID'=>$csid__,
+					'class_ID' => $csid[$i],
+					'session_ID'=>$sess
+				);
+				$this->db->insert('class_in_session', $data);
+	             
+				$bool_ = array(
+					'res' => true,
+					'msg' => '<strong class="text-success">Record successfully inserted...</strong>'
+				);
+			}
 		}
-
+		//die();
 	return $bool_;
 }
 
-	function getclassinsessions(){
-		$this->db->select('course,sem,section');
-		$query= $this->db->get('class');
+	function getclassinsession($str){
+		$this->db->from('class a');
+		$this->db->join('class_in_session b','a.class_ID=b.class_ID');
+		$this->db->where('session_ID',$str);
+		$query= $this->db->get();
 		return $query->result();
-	
 	}
 }
