@@ -13,7 +13,6 @@ class receipt extends CI_Controller {
 	 function index()
 	{
 		$data['class_in_session'] = $this->frm->getclass('2018-19');
-
 		//$data['invoice'] = $this->frm->getinvoice();
 		//$data['getdata'] = $this->frm->put_value($cls,$yrf,$monf,$yrt,$mont);
 		$data['students'] = $this->frm->getstudent('BCA2018-19_I');
