@@ -81,10 +81,10 @@
     <div id="afhead" class="tab-pane fade">
 
              <div class="panel-heading"> <h3>Flexible Heads</h3></div>
+             <form name="frmSelectStudents" id="frmSelectStudents" method="post" action="<?php echo site_url('flexihead_students/getflexihead_students');?>">
             <table class="table table-bordered with-check" >
              <tr>
-               <th>
-               <!-- <form name="frmSelectStudents" id="frmSelectStudents" method="post" action=""-->                   
+               <th>                   
                    <table class="table table-bordered table-striped with-check">
                        <tr>
                           <th style="text-align: left">Select Flexible Head</th>
@@ -112,12 +112,12 @@
                        <th>
                        <div id="studen" style="clear:both"></div>
                         <div class="controls">
-                            <input type="button" value="Add Fee to selected Student(s)" class="btn btn-success span9" id="associate" onclick="clickme();">
+                            <input type="submit" value="Add Fee to selected Student(s)" class="btn btn-success span9" id="associate">
                               <input type="reset" value="X" class="btn btn-danger cancel_sassociate_flexible_head_with_Student span3" style="float: right"> </div>
                         </th>
                     </tr>
                   </table>
-                  <form>
+                  </form>
                 </th>
               </tr>
             </table>

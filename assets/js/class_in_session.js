@@ -79,10 +79,20 @@ $('body').on('click','.prn',function(){
 				str = str + "<th>Flexible Heads</th>"
 				str = str + "</tr>"
 				for(i=0; i<obj.stud.length; i++){
+					var flexi = '';
+					for(j=0; j<obj.flx_students.length; j++){
+						if(obj.stud[i]['student_ID'] == obj.flx_students[j]['student_ID']){
+							if(flexi == ''){
+								flexi = flexi + obj.flx_students[j]['fee_Head'];
+							} else {
+								flexi = flexi + ", " + obj.flx_students[j]['fee_Head'];
+							}
+						}
+					}
 					str = str + "<tr>";
 					str = str + "<td>" + obj.stud[i]['student_ID']  + "</td>";
 					str = str + "<td>" + obj.stud[i]['first_Name'] + ' ' + obj.stud[i]['last_Name']  + "</td>";
-					str = str + "<td></td>"
+					str = str + "<td>"+flexi+"</td>"
 
 					str = str + "</tr>";
 				}

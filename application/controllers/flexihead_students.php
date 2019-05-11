@@ -40,6 +40,10 @@ function __construct(){
 
 		redirect('flexihead_students');
 	}
+	function getflexihead_students(){
+		$data['flexi_students'] = $this->fm->getflexihead_students();
+	}
+
 
 	function delete_record($fhid){
 		$data['delete'] = $this->fm->deletion($fhid);

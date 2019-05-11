@@ -220,6 +220,18 @@ class student_model extends CI_Model {
 		$query = $this->db->get('course_details');
 		return $query->result();
 	}
+	function getFlxStudents($crsid)
+	{
+		$this->db->select('a.student_ID, c.fee_Head');
+		$this->db->where('b.class_ID', $crsid);
+		$this->db->from('student_details a');
+		$this->db->join('student_in_session b', 'a.student_ID=b.student_ID');
+		$this->db->join('flexible_fee_associate_class c', 'b.student_ID=c.student_ID');
+		$this->db->join('fee_flexible_head d', 'c.flexible_head_ID=d.flexible_head_ID');
+		$query=$this->db->get();
+		return $query->result();
+	
+	}
 	
 
 

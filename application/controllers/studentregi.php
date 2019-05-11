@@ -29,9 +29,10 @@ class studentregi extends CI_Controller {
 		echo json_encode($data);
 	}
 
-	function getStudents($crsid=''){
+	function getStudents($crsid){
 		$this->load->model('student_model', 'stm');
 		$data['stud'] = $this->stm->getStudentsCoursewise($crsid);
+		$data['flx_students'] = $this->stm->getFlxStudents($crsid);
 		echo json_encode($data);
 	}
 
