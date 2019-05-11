@@ -1,3 +1,6 @@
+<style type="text/css" media="print">
+	.hide_button{display: none}
+</style>
 <div class="row">
 		<div style="clear: both; height: 45px"></div>
 				<div class="col-sm-12 hide_button" align="center" 	style="margin-top: 10px">

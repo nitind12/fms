@@ -300,7 +300,6 @@ $('#frmInvoice').submit(function(){
 			var invid = arr[2];
 			var url_ = site_url_ + "/invoice/deleteInvoice/"+invid;
 			var data_ = $('#frmInvoice').serialize();
-			alert(data_);
 			
 		$.ajax
 		({
@@ -312,8 +311,8 @@ $('#frmInvoice').submit(function(){
 				//$('#invoicedatahere').html(data)
 				var obj = JSON.parse(data);
 				$('#'+str).removeClass('fa-undo undo_invoice');
-				str1='due_'
-				$('#'+str).addClass('fa-lock invoicelock');
+				str1='due_'+
+				$('#'+str1).addClass('fa-lock invoicelock');
 
 			}
 			/*error: function(xhr, status, error){
