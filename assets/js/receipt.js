@@ -173,6 +173,11 @@
 			  	str = str + '</div>';
 
 			  	
+			  	str = str + '<div style="border-radius: 5px; background: rgb(80, 80, 80); color: rgb(255, 255, 255); padding: 0px 3px; width: 100%; float: left; display: block; border: 0px solid rgb(255, 0, 0);" id="_noncashdetail">';
+			  	str = str + '<div style="float: left; display: none" id="_dccdd_no"><div style="float: left"><b style="font-size: 9px">DD</b> No.<br><input type="text" style="width: 75px; padding: 0px" name="txtCCDDNumber" id="txtCCDDNumber">&nbsp;</div><div style="float: right"><b id="_ccdd_dt" style="font-size: 9px">DD</b> Date<br><input type="text" style="width: 75px; padding: 0px" name="txtCCDDDate" id="txtCCDDDate"></div></div>';
+			  	str = str + '</div>';
+			  	str = str + '<div style="float: right"><b id="_dccdd_dt" style="font-size: 9px">';
+
 
 
 
@@ -236,6 +241,8 @@
 		
 		totalAmt=parseInt(totalDue) - parseInt(discount);
 		}
+
+
 		
 		$("#receipt_label").html(":Rs. " + totalAmt);
 		$('#total_amnt_in_words').html(convertNumberToWords(totalAmt));
@@ -259,7 +266,10 @@
 		}
 
 
+		
 	});
+
+	
 	
 	$('body').on('click','#invoice_submit',function(){
 	 
@@ -281,7 +291,7 @@
 					//alert("record inserted successfully")
 					//$('#printreceipt_button').attr('href', site_url_+"/preceipt/print_/"+obj.resultant.recptid);
 					$('#receiptNo').html(obj.resultant.recptid);
-					$('#receipt_msg').html("Your record has been successfully inserted !");	
+					$('#receipt_msg').html("Data is successfully inserted !");	
 				}
 			/*error: function(xhr, status, error){
 				alert(xhr.responseText);

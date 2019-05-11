@@ -137,9 +137,11 @@
                    <th style="text-align: left">Select Class</th>
                </tr>
                <tr>
+
                    <th><div  id="prhrt" style="clear: both"></div></th>
               </tr>
-            
+
+                      
               </table>
             </th>
              <th>
