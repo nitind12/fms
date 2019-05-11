@@ -1,4 +1,4 @@
-<?php
+	<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Fee_receipt_model extends CI_Model {
@@ -21,7 +21,6 @@ class Fee_receipt_model extends CI_Model {
 		//echo $this->db->last_query(); die();
 		return $query->result();
 	}*/
-	
 	function getclass($classid){
 		$this->db->where('session_ID', $classid);
 		$query=$this->db->get('class_in_session');
@@ -31,7 +30,7 @@ class Fee_receipt_model extends CI_Model {
 	function getstudent($cssid){
 		$this->db->from('student_details a');
 		$this->db->join('student_in_session b', 'a.student_ID=b.student_ID');
-		$this->db->where('b.class_sess_ID', $cssid);
+		$this->db->where('class_sess_ID', $cssid);
 		$query=$this->db->get();
 		//echo $this->db->last_query(); die();
 		return $query->result();
@@ -182,7 +181,7 @@ class Fee_receipt_model extends CI_Model {
 		$this->db->join('fee_receipt d', 'e.student_ID=d.student_ID');
 
 		$this->db->where('d.receipt_ID', $recptid);
-		$query = $this->db->get();
+		$query = $this->db->get(); 
 		return $query->row();
 	}
 	/*function getstudentdiscountInvoice($invid, $stdid){
@@ -203,6 +202,7 @@ class Fee_receipt_model extends CI_Model {
 		//$c_no = $this->input->post('txtno');
 		//$c_date = $this->input->post('txtdate');
 		$desc = $this->input->post('txtDesc');
+		$date = $this->input->post('date_');
 		$invoice = $this->getstudentInvoice($invoice_ID);
 		
 		
@@ -249,7 +249,7 @@ class Fee_receipt_model extends CI_Model {
 			'date_of_Entry'=>2019-4-12,
 			'session_ID'=>$session,
 			'username'=>'fms',
-			'date'=>2019-4-12,		
+			'date'=>$date,		
 		);
 		//print_r($data_);
 		$data['bool']=$this->db->insert('fee_receipt', $data_);

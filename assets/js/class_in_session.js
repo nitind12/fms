@@ -46,6 +46,7 @@ $(function(){
 				for(i=0; i<obj.clssTotal.length; i++){
 					str = str + "<tr>";
 					str= str + '<td><input type="radio" name="clss" class="prn" id="'+obj.clssTotal[i]['class_ID']+'"></td>';
+					str = str + "<td>" + obj.clssTotal[i]['course'] + ' ' + obj.clssTotal[i]['sem_ID'] + ' ' + obj.clssTotal[i]['section'];
 					str = str + '<td>'+obj.clssTotal[i]['course']+ ' ' + obj.clssTotal[i]['sem_ID']+ ' '+obj.clssTotal[i]['section'];
 					
 					str = str + "</tr>";

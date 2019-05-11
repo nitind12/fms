@@ -28,8 +28,7 @@ $(function(){
 			}
 		});
 		    return false;
-	});
-
+});
 $('body').on('click','.hear',function(){
 	$('#print2').html("loading...");
 		alert(this.id);
@@ -60,3 +59,22 @@ $('body').on('click','.hear',function(){
 		    return false;
 	});
 
+$(function(){
+$('#frmDeletion').submit(function(){
+
+		var url_ = site_url_ + "/dropstudent/Deletion/";
+		//var data_ = $(this).serialize();
+		
+		$.ajax({
+			type: "GET",
+			url: url_,
+			//data: data_,
+			success: function(data){
+				//alert(data);
+				//$('#invoicedatahere').html(data)
+				var obj = JSON.parse(data);
+			}
+		});
+		    return false;
+	});
+});

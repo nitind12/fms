@@ -109,6 +109,8 @@
 					</div></a>
 				</div>
 				<div class="col-xs-6 col-md-4 col-lg-4 no-padding">
+					<a href="displaydue">
+
 					<div class="panel panel-red panel-widget border-right" style="background-color:#eedfde;margin-bottom:-23px;margin-top:
 					-18px;">
 						<div class="row no-padding"><i class="fa fa-thumbs-down fa-3x"></i>
@@ -121,7 +123,7 @@
 							</div>
 							<div><h4>Total Dues(in Rs.)</h4></div>
 						</div>
-					</div>
+					</div></sa>
 				</div>
 			</div><!--/.row-->
 		</div>

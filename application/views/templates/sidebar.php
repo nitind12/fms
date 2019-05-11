@@ -85,7 +85,7 @@
 					<li><a class="" href="#">
 						<span class="fa fa-arrow-right">&nbsp;</span>	<small> All Classes Session wise</small>
 					</a></li>
-					<li><a class="" href="#">
+					<li><a class="" href="displaydue">
 						<span class="fa fa-arrow-right">&nbsp;</span> <small>Total Dues this Month</small>
 					</a></li>
 				</ul>

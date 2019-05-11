@@ -18,6 +18,7 @@ class dropstudent extends CI_Controller {
 
 		$this->load->model('class_model','cm');
 		$data['class'] = $this->cm->getclasses();
+		$data['delete'] = $this->dm->studentDelete();
 
 		$this->load->view('templates/header');
 		$this->load->view('templates/navheader');
@@ -25,11 +26,10 @@ class dropstudent extends CI_Controller {
 		$this->load->view('Dashboard/indexdrop',$data);
 		$this->load->view('templates/footer');
 	}
-
-	function delete_record(){
-		$data= $this->dm->deletion();
-		$this->load->model('drop_student_model','dm');
-		$this->session->set_flashdata('msg_', $data['msg']);
-		redirect('dropstudent');
-	}
+	public function Deletion()
+	{
+		$data['delete'] = $this->dm->studentDelete();
+		//print_r($data);
+		echo json_encode($data);
+	}	
 }
