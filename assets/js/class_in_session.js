@@ -31,7 +31,7 @@ $(function(){
 
 		$('#prhrt').html("loading...");
 
-		var url_ = site_url_ + "/class_in_session/getclassinsession/" ;
+		var url_ = site_url_ + "/classes/getclass/" ;
 		var data_=$(this).serialize();
 		
 		$.ajax({
@@ -43,10 +43,10 @@ $(function(){
 				var obj = JSON.parse(data);
 				var str = '';
 				str = str + '<table class="table table-bordered">';
-				for(i=0; i<obj.csess.length; i++){
+				for(i=0; i<obj.clssTotal.length; i++){
 					str = str + "<tr>";
-				//	str= str + '<td><input type="radio" name="clss" class="prn" id="'+obj.clssTotal[i]['class_ID']+'"></td>';
-					str = str + '<td>'+obj.csess[i]['class_sess_ID']+'</td>';
+					str= str + '<td><input type="radio" name="clss" class="prn" id="'+obj.clssTotal[i]['class_ID']+'"></td>';
+					str = str + '<td>'+obj.clssTotal[i]['course']+ ' ' + obj.clssTotal[i]['sem_ID']+ ' '+obj.clssTotal[i]['section'];
 					
 					str = str + "</tr>";
 				}
