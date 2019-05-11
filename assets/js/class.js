@@ -87,7 +87,7 @@ $('body').on('click','.prnt',function(){
           		 	str = str + '</div>';
 
           		 	str = str + '<div class="form-actions" align="right">';  
-                     str = str + '<input type="button" value="Update Class" class="btn btn-danger classUpdate" style="margin-top:10px;">';
+                     str = str + '<input type="button" onclick="clickupd'+obj.clss_sess[0].class_ID+'" value="Update Class" class="btn btn-danger classUpdate" style="margin-top:10px;">';
                     str = str + '<button type="reset" class="btn btn-primary classUpdateCancel" style="margin-top:10px;">Cancel</button>';                             
                     str = str + '</div>';
           		 str = str + '</form>';
@@ -101,4 +101,7 @@ $('body').on('click','.prnt',function(){
 	});
 
 });
-     
+    
+    function clickupd(id){
+    	alert(id);
+    } 
