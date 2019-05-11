@@ -194,7 +194,12 @@ $('#frmInvoice').submit(function(){
 										dues = obj.invoice[f]['due_Amount'];
 									}
 							}
+							if(invid=='x'){
 							str = str + '<td class="due" id="due_'+invid+'">'+dues+'</td>';
+							}
+							else{
+							str = str + '<td class="due" id="due_'+invid+'">'+dues+'</td>';
+							}
 							if(invid == 'x'){
 								//str = str + '<td></td>';
 								str= str +'<td><span class="fa" id="payhere_'+obj.students[s]['student_ID']+'" ></span></td>';
@@ -277,7 +282,7 @@ $('#frmInvoice').submit(function(){
 					$('#'+id1_).attr('id', id_new2);
 					id_new3='due_'+obj.resultant['newinvid'];
 					id4_='due_'+invid;
-					$('#'+id4_).addClass('due');
+					$('#'+id4).addClass('due');
 					$('#'+id4_).attr('id', id_new3);
 
 
@@ -296,7 +301,6 @@ $('#frmInvoice').submit(function(){
 			var invid = arr[2];
 			var url_ = site_url_ + "/invoice/deleteInvoice/"+invid;
 			var data_ = $('#frmInvoice').serialize();
-			alert(data_);
 			
 		$.ajax
 		({
@@ -308,6 +312,9 @@ $('#frmInvoice').submit(function(){
 				//$('#invoicedatahere').html(data)
 				var obj = JSON.parse(data);
 				$('#'+str).removeClass('fa-undo undo_invoice');
+				str1='due_'+
+				$('#'+str1).addClass('fa-lock invoicelock');
+
 			}
 			/*error: function(xhr, status, error){
 				alert(xhr.responseText);

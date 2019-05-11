@@ -21,6 +21,7 @@ class Fee_receipt_model extends CI_Model {
 		//echo $this->db->last_query(); die();
 		return $query->result();
 	}*/
+	
 	function getclass($classid){
 		$this->db->where('session_ID', $classid);
 		$query=$this->db->get('class_in_session');
@@ -30,7 +31,7 @@ class Fee_receipt_model extends CI_Model {
 	function getstudent($cssid){
 		$this->db->from('student_details a');
 		$this->db->join('student_in_session b', 'a.student_ID=b.student_ID');
-		$this->db->where('class_sess_ID', $cssid);
+		$this->db->where('b.class_sess_ID', $cssid);
 		$query=$this->db->get();
 		//echo $this->db->last_query(); die();
 		return $query->result();
