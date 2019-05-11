@@ -169,10 +169,10 @@
 			  	str = str + '</div>'; 
 			  	str = str + '</div>';*/
 			  	str = str + '<div style="border-radius: 5px; background: rgb(80, 80, 80); color: rgb(255, 255, 255); padding: 0px 3px; width: 100%; float: left; display: block; border: 0px solid rgb(255, 0, 0);" id="_noncashdetail">';
-			  	str = str + '<div style="float: left; display: none" id="_ccdd_no"><div style="float: left"><b style="font-size: 9px">Cheque</b> No.<br><input type="text" style="width: 75px; padding: 0px" name="txtCCDDNumber" id="txtCCDDNumber">&nbsp;</div><div style="float: right"><b id="_ccdd_dt" style="font-size: 9px">Cheque</b> Date<br><input type="text" style="width: 75px; padding: 0px" name="txtCCDDDate" id="txtCCDDDate"></div></div>';
+			  	str = str + '<div style="float: left; display: none" id="_ccdd_no"><div style="float: left"><b style="font-size: 9px"  id="mode1">Cheque</b> No.<br> <input type="text" style="color:black !mportant; background: black; width: 75px; padding: 0px" name="txtCCDDNumber" id="txtCCDDNumber">&nbsp;</div><div style="float: right"><b id="mode2" style="font-size: 9px">Cheque</b> Date<br><input type="text" style="color:black !mportant; background: black; width: 75px; padding: 0px" name="txtCCDDDate" id="txtCCDDDate"></div></div>';
 			  	str = str + '</div>';
-			  	str = str + '<div style="float: right"><b id="_ccdd_dt" style="font-size: 9px">';
 
+			  	
 
 
 
@@ -248,13 +248,24 @@
 			$('#_ccdd_no').hide();
 		} else if($(this).val()!='cash'){
 			$('#_ccdd_no').show();
+
+			if($(this).val() == 'cheque'){
+			$('#mode1').html('cheque');
+			$('#mode2').html('cheque');
+		}else if($(this).val() =='DD'){
+			$('#mode1').html('DD');
+			$('#mode2').html('DD');
 		}
+		}
+
+
 	});
 	
 	$('body').on('click','#invoice_submit',function(){
 	 
 			var url_ = site_url_ + "/receipt/generatereceipt/";
 			var data_ = $('#frmSubmtInvoice').serialize();
+			//alert(data_);
 		$.ajax
 		({
 			type: "POST",

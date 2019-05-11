@@ -203,6 +203,7 @@ class Fee_receipt_model extends CI_Model {
 		//$c_no = $this->input->post('txtno');
 		//$c_date = $this->input->post('txtdate');
 		$desc = $this->input->post('txtDesc');
+		$date = $this->input->post('date_');
 		$invoice = $this->getstudentInvoice($invoice_ID);
 		
 		
@@ -249,7 +250,7 @@ class Fee_receipt_model extends CI_Model {
 			'date_of_Entry'=>2019-4-12,
 			'session_ID'=>$session,
 			'username'=>'fms',
-			'date'=>2019-4-12,		
+			'date'=>$date,		
 		);
 		//print_r($data_);
 		$data['bool']=$this->db->insert('fee_receipt', $data_);
