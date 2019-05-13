@@ -227,8 +227,9 @@ class student_model extends CI_Model {
 		$this->db->from('student_details a');
 		$this->db->join('student_in_session b', 'a.student_ID=b.student_ID');
 		$this->db->join('flexible_fee_associate_class c', 'b.student_ID=c.student_ID');
-		$this->db->join('fee_flexible_head d', 'c.flexible_head_ID=d.flexible_head_ID');
+		$this->db->join('fee_flexible_head d', 'c.fee_Head=d.fee_Head');
 		$query=$this->db->get();
+		//echo $this->db->last_query(); 
 		return $query->result();
 	
 	}

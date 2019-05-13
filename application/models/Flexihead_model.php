@@ -13,7 +13,7 @@ class Flexihead_model extends CI_Model {
 
 		$fidold=$this->db->insert_id();
 
-		$this->db->where('fee_Head', $ffh);
+		$this->db->where('fee_Head', $ffh_);
 		$query = $this->db->get('fee_flexible_head');
 
 		if($query->num_rows()!=0){
@@ -86,6 +86,7 @@ class Flexihead_model extends CI_Model {
 				'username'=>'fms',
 
 			);
-		}
 			$this->db->insert('flexible_fee_associate_class', $data);
-	}}
+		}
+	}
+}

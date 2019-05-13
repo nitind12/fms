@@ -138,7 +138,7 @@
                </tr>
                <tr>
 
-                   <th><div  id="prhrt" style="clear: both"></div></th>
+                   <th><div  id="prhrt1" style="clear: both"></div></th>
               </tr>
 
                       
@@ -146,13 +146,7 @@
             </th>
              <th>
               <table class="table table-striped with-check">
-             <tr>
-             <th>  Associated Heads for the Selected Class</th>
-            </tr>
-            <tr>
-              <th><br><br></th>
-            </tr>
-
+            
            <tr>
              
               <th>Student with there Flexible Heads</th>  

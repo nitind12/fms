@@ -18,14 +18,16 @@ class classinsessionmodel extends CI_Model {
 			if($query->num_rows()!=0){
 
 			} else {
-				$csid__ = $classes_in_text[$i]."-".$sess;
+				$xx = explode("_", $csid[$i]);
+				$ii = $xx[0]; 
+				$csid__ = $classes_in_text[$ii-1]."-".$sess;
 				$data = array(
 					'class_sess_ID'=>$csid__,
-					'class_ID' => $csid[$i],
+					'class_ID' => $xx[1],
 					'session_ID'=>$sess
 				);
 				$this->db->insert('class_in_session', $data);
-	             
+				echo $this->db->last_query();
 				$bool_ = array(
 					'res' => true,
 					'msg' => '<strong class="text-success">Record successfully inserted...</strong>'
