@@ -17,7 +17,7 @@ $(function(){
 				str = str + '<table class="table">';
 				for(i=0; i<obj.clssTotal.length; i++){
 					str = str + "<tr>";
-					str = str + '<td><input type="checkbox" name="classes[]" value="'+obj.clssTotal[i]['class_ID']+'"  id="'+obj.clssTotal[i]['class_ID']+'"></td>';
+					str = str + '<td><input type="checkbox" name="classes[]" value="'+(i+1)+'_'+obj.clssTotal[i]['class_ID']+'"  id="'+obj.clssTotal[i]['class_ID']+'"></td>';
 
 					str = str + "<td>" + obj.clssTotal[i]['course'] + ' ' + obj.clssTotal[i]['sem_ID'] + ' ' + obj.clssTotal[i]['section'];
 					str = str + "<input type='hidden' name='classes_in_text[]' value='"+obj.clssTotal[i]['course'] + ' ' + obj.clssTotal[i]['sem_ID'] + ' ' + obj.clssTotal[i]['section']+"'>"+"</td>"
@@ -30,6 +30,32 @@ $(function(){
 
 
 		$('#prhrt').html("loading...");
+
+		var url_ = site_url_ + "/class_in_session/getclassinsession/" ;
+		var data_=$(this).serialize();
+		
+		$.ajax({
+			type: "GET",
+			url: url_,
+			data:data_,
+			success: function(data){
+				//alert(data);
+				var obj = JSON.parse(data);
+				var str = '';
+				str = str + '<table class="table table-bordered">';
+				for(i=0; i<obj.csess.length; i++){
+					str = str + "<tr>";
+					str= str + '<td><input type="radio" name="clss" class="prn" id="'+obj.csess[i]['class_ID']+'"></td>';
+					str = str + "<td>" + obj.csess[i]['class_sess_ID'];
+					//str = str + '<td>'+obj.clssTotal[i]['course']+ ' ' + obj.clssTotal[i]['sem_ID']+ ' '+obj.clssTotal[i]['section'];
+					str =  str +  '</td>';
+					str = str + "</tr>";
+				}
+				str = str + "</table>";
+				$('#prhrt').html(str);
+			}
+		});
+		$('#prhrt1').html("loading...");
 
 		var url_ = site_url_ + "/classes/getclass/" ;
 		var data_=$(this).serialize();
@@ -49,10 +75,11 @@ $(function(){
 					str = str + "<td>" + obj.clssTotal[i]['course'] + ' ' + obj.clssTotal[i]['sem_ID'] + ' ' + obj.clssTotal[i]['section'];
 					//str = str + '<td>'+obj.clssTotal[i]['course']+ ' ' + obj.clssTotal[i]['sem_ID']+ ' '+obj.clssTotal[i]['section'];
 					str = str + '</td>';
+					str =  str +  '</td>';
 					str = str + "</tr>";
 				}
 				str = str + "</table>";
-				$('#prhrt').html(str);
+				$('#prhrt1').html(str);
 			}
 		});
 
@@ -80,10 +107,20 @@ $('body').on('click','.prn',function(){
 				str = str + "<th>Flexible Heads</th>"
 				str = str + "</tr>"
 				for(i=0; i<obj.stud.length; i++){
+					var flexi = '';
+					for(j=0; j<obj.flx_students.length; j++){
+						if(obj.stud[i]['student_ID'] == obj.flx_students[j]['student_ID']){
+							if(flexi == ''){
+								flexi = flexi + "<span title='"+obj.flx_students[j]['fee_Head']+"'>"+obj.flx_students[j]['fee_Head']+"</span>";
+							} else {
+								flexi = flexi + ", " + "<span title='"+obj.flx_students[j]['fee_Head']+"'>"+obj.flx_students[j]['fee_Head']+"</span>";
+							}
+						}
+					}
 					str = str + "<tr>";
 					str = str + "<td>" + obj.stud[i]['student_ID']  + "</td>";
 					str = str + "<td>" + obj.stud[i]['first_Name'] + ' ' + obj.stud[i]['last_Name']  + "</td>";
-					str = str + "<td></td>"
+					str = str + "<td>"+flexi+"</td>"
 
 					str = str + "</tr>";
 				}

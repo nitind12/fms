@@ -13,7 +13,7 @@ class Flexihead_model extends CI_Model {
 
 		$fidold=$this->db->insert_id();
 
-		$this->db->where('fee_Head', $ffh);
+		$this->db->where('fee_Head', $ffh_);
 		$query = $this->db->get('fee_flexible_head');
 
 		if($query->num_rows()!=0){
@@ -75,5 +75,18 @@ class Flexihead_model extends CI_Model {
 			//$query=$this->db->get('manage_flexible_head');
 			//return $query->row();
 		}*/
+	function getflexihead_students(){
+		$flxhead =  $this->input->post('flex_head');
+		$students = $this->input->post('std');
+		//echo count($students) . "  ";
+		for($i=0; $i<count($students); $i++){
+			$data = array(
+				'student_ID'=> $students[$i], 
+				'fee_Head'=>$flxhead,
+				'username'=>'fms',
 
+			);
+			$this->db->insert('flexible_fee_associate_class', $data);
+		}
+	}
 }
