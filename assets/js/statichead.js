@@ -147,5 +147,35 @@ $(function(){
 		});
 		    return false;
 	});
+$(function(){
+	
+		$('#printselectedclasshere').html("loading...");
+
+		var url_ = site_url_ + "/statichead_students/getstatichead/" ;
+		var data_=$(this).serialize();
+		
+		$.ajax({
+			type: "GET",
+			url: url_,
+			data:data_,
+			success: function(data){
+				//alert(data);
+				var obj = JSON.parse(data);
+				var str = '';
+				str = str + '<table class="table table-bordered">';
+				for(i=0; i<obj.classes.length; i++){
+					str = str + "<tr>";
+					str = str + '<td><span class="fa fa-plus"></td>';
+					//str = str + '<td class="stdin" id="'+obj.class[i]['class_ID']+'">';
+					str = str + "<td>" + obj.classes[i]['course'] + ' ' + obj.classes[i]['sem_ID'] + ' ' + obj.classes[i]['section'] + "</td>";
+					str = str + "</tr>";
+				}
+				 
+				str = str + "</table>";
+				$('#printselectedclasshere').html(str);
+			}
+		});
+		    return false;
+	});
 
 

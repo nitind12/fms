@@ -1,21 +1,18 @@
 <script src="<?php echo base_url('assets/js/jquery-1.11.1.min.js');?>"></script>
 
-<script type="text/javascript" src="<?php echo base_url('assets/js/invoice.js');?>?version=20.9"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/invoice.js');?>?version=21.7"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/myscript2.js');?>?version=1.2"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/myscript3.js');?>?version=5.6"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/myscript.js');?>?version=6.5"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/receipt.js');?>?version=14.1"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/myscript.js');?>?version=6.6"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/session.js');?>?version=1.8"></script>
-<script type="text/javascript" src="<?php echo base_url('assets/js/class_in_session.js');?>?version=3.1"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/receipt.js');?>?version=13.7"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/myscript.js');?>?version=6.6"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/session.js');?>?version=1.8"></script>
 
-<script type="text/javascript" src="<?php echo base_url('assets/js/class_in_session.js');?>?version=3.2"></script>
-<script type="text/javascript" src="<?php echo base_url('assets/js/class.js');?>?version=4.7"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/class_in_session.js');?>?version=3.3"></script>
 
-<script type="text/javascript" src="<?php echo base_url('assets/js/class_in_session.js');?>?version=3.0"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/class.js');?>?version=4.8"></script>
 
 <script type="text/javascript" src="<?php echo base_url('assets/js/student.js');?>?version=1.9"></script>
@@ -24,7 +21,7 @@
 <script type="text/javascript" src="<?php echo base_url('assets/js/displaydue.js');?>?version=1.3"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/drop.js');?>?version=1.6"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/static_in_class.js');?>?version=1.0"></script>
-<script type="text/javascript" src="<?php echo base_url('assets/js/statichead.js');?>?version=1.1"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/statichead.js');?>?version=1.2"></script>
 
 
 <!--script type="text/javascript" src="<?php //echo base_url('assets/js/preceipt.js');?>?version=1.6"></script-->

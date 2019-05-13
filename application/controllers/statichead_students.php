@@ -9,12 +9,10 @@ function __construct(){
 			redirect('login');
 		}
 	}
-	/*function index(){
-		}*/
 	
 	function insert_record(){
 		$data = $this->sm->submission();
-		$data['static_data'] = $this->sm->getstatichead();
+		//$data['static_data'] = $this->sm->getstatichead();
 		$this->load->view('templates/header');
 		$this->load->view('templates/navheader');
 		$this->load->view('templates/receiptside');
@@ -23,6 +21,15 @@ function __construct(){
 		$this->session->set_flashdata('msg_', $data['msg']);
 
 		redirect('statichead_students');
+	}
+	function index(){
+		$data['static_data'] = $this->sm->getstatichead();
+		$this->load->view('templates/header');
+		$this->load->view('templates/navheader');
+		$this->load->view('templates/receiptside');
+		$this->load->view('Dashboard/index_static_in_class', $data);
+		$this->load->view('templates/footer');
+		
 	}
 	function getstatichead(){
 		$data['static_data'] = $this->sm->getstatichead();

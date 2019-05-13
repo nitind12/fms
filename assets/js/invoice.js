@@ -181,7 +181,7 @@ $('#frmInvoice').submit(function(){
 								str= str +'<td><span class="fa" id="undo_'+obj.students[s]['student_ID']+'" ></span></td>';
 								}
 								else {//str = str + '<td><span class="fa fa-print printinvoice" id="'+obj.students[s]['student_ID']+"_"+invid+'"  ></span></td>';
-								str = str +'<td><a href="'+site_url_+"/invoiceprint/index/"+invid+'" target="_blank"><span class="fa fa-print printinvoice"></span></a></td>';
+								str = str +'<td><span class="fa fa-print printinvoice" id="'+obj.students[s]['student_ID']+"_x_"+invid+'"></span></td>';
 								str= str +'<td><span class="fa fa-undo undo_invoice" id="undo_'+invid+'" ></span></td>';
 								}
 								
@@ -221,28 +221,17 @@ $('#frmInvoice').submit(function(){
 	return false;
 	});
 
-	/*$('body').on('click','.printinvoice',function(){
+	$('body').on('click','.printinvoice',function(){
  
 		//alert(this.id);
 
 		var str = this.id;
 		var arr = str.split("_");
 		var stdid = arr[0];
-		var invid = arr[2];
-		var url_ = site_url_ + "/invoiceprint/index/"+stdid+"/"+invid;
-		var data_ = $(this).serialize();
-		$.ajax({
-			type: "GET",
-			url: url_,
-			data: data_,
-			success: function(data){
-				//alert(data);
-				//$('#invoicedatahere').html(data)
-				var obj = JSON.parse(data);
-			}
-		});
-	return false;
-});*/
+		var invid = arr[3];
+		var url_ = site_url_ + "/invoiceprint/index/"+'invid_'+invid;
+		window.open(url_);
+	});
 	$('body').on('click','.invoicelock',function(){
 	 
 			//alert(this.id);
@@ -282,7 +271,7 @@ $('#frmInvoice').submit(function(){
 					$('#'+id1_).attr('id', id_new2);
 					id_new3='due_'+obj.resultant['newinvid'];
 					id4_='due_'+invid;
-					$('#'+id4).addClass('due');
+					$('#'+id4_).addClass('due');
 					$('#'+id4_).attr('id', id_new3);
 
 
@@ -311,9 +300,13 @@ $('#frmInvoice').submit(function(){
 			{
 				//$('#invoicedatahere').html(data)
 				var obj = JSON.parse(data);
+				var prid = obj.studid+'_x_'+'invid_'+invid;
+
 				$('#'+str).removeClass('fa-undo undo_invoice');
-				str1='due_'+
-				$('#'+str1).addClass('fa-lock invoicelock');
+				str1=obj.studid+'_x';
+				$('#'+prid).removeClass('fa fa-print printinvoice');
+				$('#'+prid).addClass('fa fa-lock invoicelock');
+				$('#'+prid).attr('id', str1);
 
 			}
 			/*error: function(xhr, status, error){

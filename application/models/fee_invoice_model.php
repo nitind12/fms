@@ -35,10 +35,20 @@ class Fee_invoice_model extends CI_Model {
 	}
 
 	function deleteInvoice($invid){
+
+		$this->db->where('invoice_ID', $invid);
+		$query = $this->db->get('fee_invoice');
+		if($query->num_rows()!=0){
+			$r = $query->row();
+			$stdid=$r->student_ID;
+		} else {
+			$stdid = 'x';
+		}
 		$this->db->where('invoice_ID', $invid);
 		$query = $this->db->delete('fee_invoice');
 		//echo $this->db->last_query(); die();
 		//return $query->row();
+		return $stdid;
 	}
 	function getinvoicedata($str){
 		$this->db->from('student_details a');

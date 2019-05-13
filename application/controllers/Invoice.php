@@ -19,7 +19,7 @@ class Invoice extends CI_Controller {
 		
 	}
 	function deleteInvoice($invid){
-		$data['delete'] = $this->fim->deleteInvoice($invid);
+		$data['studid'] = $this->fim->deleteInvoice($invid);
 		echo json_encode($data);
 	}
 	function getinvoicedata($str){

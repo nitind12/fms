@@ -146,12 +146,7 @@
             </th>
              <th>
               <table class="table table-striped with-check">
-             <tr>
-             <th>  Associated Heads for the Selected Class</th>
-            </tr>
-            <tr>
-              <th><br><br></th>
-            </tr>
+             
 
            <tr>
              

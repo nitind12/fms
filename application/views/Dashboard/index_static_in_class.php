@@ -71,6 +71,8 @@
     </div>
     <div class="controls span4">
     <div class="widget-box">
+            <form class="form" id="frmStaticheadData">
+
             <div  style="border: #ff0000 solid 0px; width: 50px; height:50px; float: right; right: 0px; z-index: 2222; position: absolute;" id="student_photo_here"></div>
             <div class="widget-title"> <span class="icon"> <i class="icon-ok-sign"></i> </span>
                 <h5>Static Heads</h5>
@@ -122,6 +124,23 @@
                 <input type="button" value="Add Fee to selected Class" class="btn btn-success span9" id="associate_static_head_with_classes">
                 <input type="reset" value="X" class="btn btn-danger cancel_static_associates_classes span3" style="float: right">
             </div>
+        </div>
+        <div class="widget-content nopadding" style="overflow: auto; height: 350px">
+            <table class="table table-bordered table-striped with-check">
+              <thead>
+                <tr>
+                  <th style="text-align: left">Selected Classes(s)</th>
+                </tr>
+                <tr>
+                  <th id="printselectedclasshere"></th>
+                </tr>
+              </thead>
+              <tbody id="classes_associates_staticHeads">
+                
+              </tbody>
+            </table>
+          </form>
+          </div>
         </div>
     </div>
     
