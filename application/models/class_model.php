@@ -118,6 +118,51 @@ class class_model extends CI_Model {
 
 			return $query->result();
 		}
+		function class_update($str)
+		{
+		$Course_ = $this->input->post('txtEditClass_');
+
+		$Semester_=$this->input->post('txtEditSemester_');
+
+		$Section_=$this->input->post('txtSection_');
+
+		//$cid = $this->db->insert_id();
+		$this->db->where('course_ID', $str);
+		$query = $this->db->get('course_details');
+
+		if($query->num_rows()!=0){
+			$bool_ = array(
+				'res' => false,
+				'msg' => '<b class="text-danger">This id already exists. Please try again !!</b>'
+			);
+		} else {
+
+			$data = array(
+				
+				'course' => $Course_,
+
+			);
+			$this->db->insert('course_details', $data);
+
+			$csid=$this->db->insert_id();
+
+			$data1=array(
+				'course_ID' => $csid,
+				'sem_ID'=> $Semester_,
+				'section'=>$Section_,
+			);
+			$this->db->where('class_ID',$str);
+			$this->db->insert('class',$data1);
+		
+
+			$bool_ = array(
+				'res' => true,
+				'msg' => '<b class="text-success">Record successfully inserted...</b>'
+			);
+		}
+	return $bool_;
+
+		}
 
 	}
 		

@@ -68,15 +68,15 @@ $('body').on('click','.prnt',function(){
                  	str=str+ '<label class="control-label" style="color: #cc3300">Class</label>';
                  	str=str+   '<div class="controls">';                      
                  		str=str+ '<input type="hidden" name="txtEditClass_ID" value="" autocomplete="off" required="required" class="span11" id="txtEditClass_ID"/>';
-          				 str=str+ '<input type="text" name="txtEditClass_" value="'+obj.clss_sess[0].course+'" autocomplete="off" required="required" class="span11" id="txtEditClass_"/>';
+          				 str=str+ '<input type="text" name="txtEditClass_" value="'+obj.clss_sess[0].course+'" autocomplete="off" required="required" class="txtEdit1" id="txtEditClass_"/>';
           		 	str = str + '</div>';
           		 	str=str+ '<label class="control-label" style="color: #cc3300">Semester</label>';
                  	str=str+   '<div class="controls">';                      
                  		str=str+ '<input type="hidden" name="txtEditClass_ID" value="" autocomplete="off" required="required" class="span11" id="txtEditClass_ID"/>';
-          				 str=str+ '<input type="text" name="txtEditClass_" value="'+obj.clss_sess[0].sem_ID+'" autocomplete="off" required="required" class="span11" id="txtEditClass_"/>';
+          				 str=str+ '<input type="text" name="txtEditSemester_" value="'+obj.clss_sess[0].sem_ID+'" autocomplete="off" required="required" class="txtEdit2" id="txtEditSemester_"/>';
           		 	str = str + '</div>';
           		 	str=str+ '<label class="control-label" style="color: #cc3300">Section</label>';
-          		 	str = str + '<select class="form-control" name="txtSemester" id="txtSemester">';
+          		 	str = str + '<select class="form-control" name="txtSection_" id="txtSection_">';
 										str = str + '<option>Select</option>';
 								        str = str + '<option>A</option>';
 									     str = str + '<option>B</option>';
@@ -87,7 +87,7 @@ $('body').on('click','.prnt',function(){
           		 	str = str + '</div>';
 
           		 	str = str + '<div class="form-actions" align="right">';  
-                     str = str + '<input type="button" id="clickupd'+obj.clss_sess[0].class_ID+'" value="Update Class" class="btn btn-danger classUpdate" style="margin-top:10px;">';
+                     str = str + '<input type="button" id="'+obj.clss_sess[0].class_ID+'" value="Update Class" class="btn btn-danger classUpdate" style="margin-top:10px;">';
                     str = str + '<button type="reset" class="btn btn-primary classUpdateCancel" style="margin-top:10px;">Cancel</button>';                             
                     str = str + '</div>';
           		 str = str + '</form>';
@@ -102,10 +102,20 @@ $('body').on('click','.prnt',function(){
 
 	$('body').on('click', '.classUpdate', function(){
 		alert(this.id);
+		var id1=this.id;
+		var url_ = site_url_ + "/classes/getclass_sess/"+id1 ;
+		var data_=$(frmClasses_Edit).serialize();
+		alert(data_);
+		$.ajax({
+			type: "POST",
+			url: url_,
+			data:data_,
+			success: function(data){
+				//alert(data);
+				var obj = JSON.parse(data);
+			}
 	});
 
 });
-    
-    function clickupd(id){
-    	alert(id);
-    } 
+});
+   
