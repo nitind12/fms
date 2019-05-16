@@ -13,7 +13,7 @@ function __construct(){
 		$this->load->view('templates/header');
 		$this->load->view('templates/navheader');
 		$this->load->view('templates/masterside');
-		$this->load->view('Dashboard/index_static_in_class');
+		$this->load->view('Dashboard/indexstatic');
 		$this->load->view('templates/footer');
 	}
 
