@@ -199,8 +199,8 @@ class Fee_receipt_model extends CI_Model {
 		$paid_amount = $this->input->post('paid_amount');
 		$fine = $this->input->post('_fine_');
 		$mode = $this->input->post('PaymentMode');
-		//$c_no = $this->input->post('txtno');
-		//$c_date = $this->input->post('txtdate');
+		$c_no = $this->input->post('txtCCDDNumber');
+		$c_date = $this->input->post('txtCCDDDate');
 		$desc = $this->input->post('txtDesc');
 		$date = $this->input->post('date_');
 		$invoice = $this->getstudentInvoice($invoice_ID);
@@ -244,9 +244,9 @@ class Fee_receipt_model extends CI_Model {
 			'type_ID'=>11,
 			'fee_Mode'=>$mode,
 			'bank_Name'=>'SBI',
-			'cheque_No'=>123,
-			'cheque_Date'=>2019-4-12,
-			'date_of_Entry'=>2019-4-12,
+			'cheque_No'=>$c_no,
+			'cheque_Date'=>$c_date,
+			'date_of_Entry'=>$date,
 			'session_ID'=>$session,
 			'username'=>'fms',
 			'date'=>$date,		
@@ -254,7 +254,18 @@ class Fee_receipt_model extends CI_Model {
 		//print_r($data_);
 		$data['bool']=$this->db->insert('fee_receipt', $data_);
 		$data['recptid'] = $this->db->insert_id();
-	return $data;
-	}
+		
+		$this->db->where('invoice_ID', $invoice_ID);
+		$query=$this->db->get('fee_invoice');
+		$r=$query->row();
 
+		$new_due = $r->due_Amount - $paid_amount;
+
+		$this->db->where('invoice_ID', $invoice_ID);
+		$data2 = array(
+			'due_Amount'=>$new_due
+		);
+			$this->db->update('fee_invoice',$data2);
+		return $data;
+	}
 }

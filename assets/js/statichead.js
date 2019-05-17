@@ -135,9 +135,10 @@ $(function(){
 				str = str + "</tr>";
 				for(i=0; i<obj.classes.length; i++){
 					str = str + "<tr>";
-					str = str + '<td><input type="checkbox"  id="'+obj.classes[i]['class_ID']+'" ></td>';
+					str = str + '<td><input type="checkbox"  name="clss" value="'+obj.classes[i]['class_sess_ID']+'" id="'+obj.classes[i]['class_sess_ID']+'" class="classes"  ></td>';
 					//str = str + '<td class="stdin" id="'+obj.class[i]['class_ID']+'">';
-					str = str + "<td>" + obj.classes[i]['course'] + ' ' + obj.classes[i]['sem_ID'] + ' ' + obj.classes[i]['section'] + "</td>";
+					str = str + "<td>" + obj.classes[i]['class_sess_ID'];
+					str = str + '</td>';
 					str = str + "</tr>";
 				}
 				 
@@ -167,7 +168,8 @@ $(function(){
 					str = str + "<tr>";
 					str = str + '<td><span class="fa fa-plus"></td>';
 					//str = str + '<td class="stdin" id="'+obj.class[i]['class_ID']+'">';
-					str = str + "<td>" + obj.classes[i]['course'] + ' ' + obj.classes[i]['sem_ID'] + ' ' + obj.classes[i]['section'] + "</td>";
+					str = str + "<td>" + obj.classes[i]['class_sess_ID'];
+					str = str + "</td>";
 					str = str + "</tr>";
 				}
 				 
@@ -177,5 +179,40 @@ $(function(){
 		});
 		    return false;
 	});
+$(function(){
+		$('#staticheadshere').html("loading...");
+
+		var url_ = site_url_ + "/statichead_students/getstatichead/" ;
+		var data_=$(this).serialize();
+		
+		$.ajax({
+			type: "GET",
+			url: url_,
+			data:data_,
+			success: function(data){
+				//alert(data);
+				var obj = JSON.parse(data);
+				var str = '';
+				str = str + '<table class="table table-bordered">';
+				str = str + "<tr>";
+				str = str + "<th>#</th>";
+				str = str + "<th>Static Heads</th>";
+				str = str + "<th>Amount</th>";
+				str = str + "</tr>";
+				for(i=0; i<obj.static_data.length; i++){
+					str = str + "<tr>";
+					str = str + '<td><input type="radio"  value="'+obj.static_data[i]['fee_Head']+'" class="static" name="static_head" id="'+obj.static_data[i]['static_head_ID']+'"></td>';
+					str = str + "<td>" + obj.static_data[i]['fee_Head'] + "</td>";
+					str = str + "<td>" + obj.static_data[i]['amount'] + "</td>";
+					str = str + "</tr>";
+				}
+				 
+				str = str + "</table>";
+				$('#staticheadshere').html(str);
+			}
+		});
+		    return false;
+	});
+	
 
 

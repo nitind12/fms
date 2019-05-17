@@ -10,15 +10,15 @@
 		<div class="panel-heading">Drop Student</div>
 		<div class="panel-body">
 			
-			<form class="frm" id="frmDeletion" >
+			<form class="frm" id="frmDeletion" method="post" action="<?php echo site_url('dropstudent/deletion');?>" >
 								
 
 									<div class="form-group col-sm-3">
-										<label>Course</label>
+										<label>Select Course</label>
 										<select class="form-control" name="txtcourse" id="txtcourse">
 											<option>Select Course</option>
 											<?php foreach ($class as $item) { ?>
-											<option value="<?php echo $item->class_ID;?>"><?php echo $item->class_ID; ?></option>
+											<option value="<?php echo $item->class_ID;?>"><?php echo $item->course .' '. $item->sem_ID .' '. $item->section; ?></option>
 											<?php } ?>
 										</select>
 									</div>
@@ -26,9 +26,9 @@
 									<div class="form-froup col-sm-3">
 										<label>Select Student</label>
 											<select class="form-control" name="txtStudent" id="txtStudent">
-												<option>Select</option>
+												<option>Select Student</option>
 												<?php foreach ($students as $item) { ?>
-												<option value="<?php echo $item->student_ID;?>"><?php echo $item->student_ID; ?></option>
+												<option value="<?php echo $item->student_ID;?>"><?php echo $item->first_Name .' '. $item->last_Name; ?></option>
 												<?php } ?>
 											</select>
 									</div>
@@ -38,7 +38,7 @@
 									</div>-->
 									<div class="form-group">
 									<div class="col-md-12 widget-right">
-										<input type="submit" class="btn btn-primary btn-md pull-right" value="Submit">
+										<input type="submit" class="btn btn-primary btn-md pull-right" value="Drop Student">
 									</div>
 									</div>
 			</form>

@@ -86,7 +86,7 @@
 
 <div class="controls span4">
     <div class="widget-box">
-            <form class="form" id="frmStaticheadData">
+            <form name="frmStaticheadData" class="form" id="frmStaticheadData" method="post" action="<?php echo site_url('statichead_students/getstaticheads');?>">
 
             <div  style="border: #ff0000 solid 0px; width: 50px; height:50px; float: right; right: 0px; z-index: 2222; position: absolute;" id="student_photo_here"></div>
             <div class="widget-title"> <span class="icon"> <i class="icon-ok-sign"></i> </span>
@@ -94,22 +94,17 @@
             </div>
             <div class="widget-content">
                 <div class="control-group">
-                    <label class="control-label">Select Head</label>
                     <div class="controls">
-                    <select name="cmbStaticHeads" id="cmbStaticHeads" class="span12" required="required">
-                      <option value="">Select Static head</option>
-                      <?php foreach ($static_data as $item) {?>
-                        <option value="<?php echo $item->static_head_ID;?>"><?php echo $item->fee_Head;?></option>
-                      <?php } ?>
-                   </select>
+                      <table class="table table-bordered table-striped with-check">
+                       <tr>
+                          <th style="text-align: left">Select Static Heads</th>
+                       </tr>
+                          <th> <div  id="staticheadshere" style="clear: both; overflow: hidden;";></div></th>
+                          </tr>
+                   </table>
                     </div>
                 </div>
-                 <div class="control-group">
-                    <label class="control-label">Amount</label>
-                    <div class="controls">
-                        <input type="text" name="txtFeeStaticHeadAmt" value="" class="span12 text" autocomplete="off" required="required" id="txtFeeStaticHeadAmt"  />
-                    </div>
-                </div>
+                 
             </div>
         </div>
   </div>
@@ -136,10 +131,11 @@
         </div>
        <div class="control-group">
             <div class="controls">
-                <input type="button" value="Add Fee to selected Class" class="btn btn-success span9" id="associate_static_head_with_classes">
+                <input type="submit" value="Add Fee to selected Class" class="btn btn-success span9" id="associate_static_head_with_classes">
                 <input type="reset" value="X" class="btn btn-danger cancel_static_associates_classes span3" style="float: right">
             </div>
         </div>
+      </form>
         <div class="widget-content nopadding" style="overflow: auto; height: 350px">
             <table class="table table-bordered table-striped with-check">
               <thead>

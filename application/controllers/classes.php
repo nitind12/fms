@@ -41,10 +41,17 @@ function __construct(){
 	function getclass_sess($str){
 		//$str = $this->input->post('str');
 		$data['clss_sess'] = $this->cm->getclass_sess($str);
+		//$data['clss_update'] = $this->cm->class_update($str);
+		/*$data['clss_invoice'] = $this->cm->getclass_invoice();*/
+		echo json_encode($data);
+	}
+	function updateclass_sess($str){
+		//$str = $this->input->post('str');
 		$data['clss_update'] = $this->cm->class_update($str);
 		/*$data['clss_invoice'] = $this->cm->getclass_invoice();*/
 		echo json_encode($data);
 	}
+
 	function delete_record($cid){
 		$data['delete'] = $this->cm->deletion($cid);
 		echo json_encode($data);

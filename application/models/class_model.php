@@ -118,8 +118,10 @@ class class_model extends CI_Model {
 
 			return $query->result();
 		}
+
 		function class_update($str)
 		{
+
 		$Course_ = $this->input->post('txtEditClass_');
 
 		$Semester_=$this->input->post('txtEditSemester_');
@@ -152,7 +154,7 @@ class class_model extends CI_Model {
 				'section'=>$Section_,
 			);
 			$this->db->where('class_ID',$str);
-			$this->db->insert('class',$data1);
+			$this->db->update('class',$data1);
 		
 
 			$bool_ = array(
@@ -160,9 +162,27 @@ class class_model extends CI_Model {
 				'msg' => '<b class="text-success">Record successfully inserted...</b>'
 			);
 		}
-	return $bool_;
+		return $bool_;
 
 		}
+		function getclass_in_session($str){
+			$this->db->from('class a');
+			$this->db->join('course_details b', 'a.course_ID=b.course_ID');
+			$this->db->join('class_in_session c', 'a.class_ID=c.class_ID');
+			$this->db->where('c.class_sess_ID',$str);
+
+			$query= $this->db->get();
+
+			return $query->result();
+		}
+		function getclass_sessionwise(){
+			$this->db->from('class a');
+			$this->db->join('class_in_session b', 'a.class_ID=b.class_ID');
+			$query= $this->db->get();
+
+			return $query->result();
+		}
+
 
 	}
 		

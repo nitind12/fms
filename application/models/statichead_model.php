@@ -67,8 +67,22 @@ class statichead_model extends CI_Model {
 			//$this->db->select('flexible_head_ a');
 			//$this->db->join('flexible_fee_associate_class b','a.flexible_head_ID = b.flexible_head_ID');
 			$this->db->from('class a');
-			$this->db->join('course_details b','a.course_ID=b.course_ID');
+			$this->db->join('class_in_session b','a.class_ID=b.class_ID');
 			$query=$this->db->get();
 			return $query->result();
 		}
+		function getstatichead_classwise(){
+		$statichead =  $this->input->post('static_head');
+		$classes = $this->input->post('clss');
+		//echo count($students) . "  ";
+		for($i=0; $i<count($classes); $i++){
+			$data = array(
+				'fee_Head'=>$statichead,
+				'username'=>'fms',
+				'class_sess_ID'=>$classes,
+
+			);
+			$this->db->insert('static_fee_associate_class', $data);
+		}
+	}
 }

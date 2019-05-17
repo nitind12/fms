@@ -45,4 +45,7 @@ function __construct(){
 		$data['delete'] = $this->sm->deletion($shid);
 		echo json_encode($data);
 	}
+	function getstaticheads(){
+		$data['staticheads_data'] = $this->sm->getstatichead_classwise();
+	}
 }

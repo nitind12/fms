@@ -82,7 +82,7 @@
 					<li><a class="" href="totalclasses">
 						<span class="fa fa-arrow-right">&nbsp;</span> <small> All Students class Wise</small>
 					</a></li>
-					<li><a class="" href="#">
+					<li><a class="" href="class_sessionwise">
 						<span class="fa fa-arrow-right">&nbsp;</span>	<small> All Classes Session wise</small>
 					</a></li>
 					<li><a class="" href="displaydue">
