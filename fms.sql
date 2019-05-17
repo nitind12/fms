@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 07, 2019 at 04:17 AM
+-- Generation Time: May 17, 2019 at 04:10 PM
 -- Server version: 5.6.11
 -- PHP Version: 5.5.3
 
@@ -46,8 +46,8 @@ CREATE TABLE IF NOT EXISTS `class` (
 --
 
 INSERT INTO `class` (`class_ID`, `course_ID`, `sem_ID`, `section`) VALUES
-(1, 101, 1, 'A'),
-(2, 101, 1, 'B'),
+(1, 173, 0, ''),
+(2, 185, 1, 'A'),
 (3, 101, 2, 'A'),
 (4, 101, 2, 'B'),
 (5, 101, 3, 'A'),
@@ -104,6 +104,12 @@ CREATE TABLE IF NOT EXISTS `class_in_session` (
 --
 
 INSERT INTO `class_in_session` (`class_sess_ID`, `class_ID`, `session_ID`) VALUES
+('BCA 1 A-2018-19', 4, '2018-19'),
+('BCA 1 B-2018-19', 2, '2018-19'),
+('BCA 3 B-2018-19', 6, '2018-19'),
+('BCA 4 B-2018-19', 8, '2018-19'),
+('BCA 5 B-2018-19', 10, '2018-19'),
+('BCA 6 B-2018-19', 12, '2018-19'),
 ('BCA2018-19_I', 1, '2018-19'),
 ('BCA2018-19_II', 3, '2018-19'),
 ('BCA2018-19_III', 5, '2018-19'),
@@ -122,7 +128,7 @@ CREATE TABLE IF NOT EXISTS `course_details` (
   `course` varchar(20) DEFAULT NULL,
   `university` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`course_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=103 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=186 ;
 
 --
 -- Dumping data for table `course_details`
@@ -130,7 +136,19 @@ CREATE TABLE IF NOT EXISTS `course_details` (
 
 INSERT INTO `course_details` (`course_ID`, `course`, `university`) VALUES
 (101, 'BCA', 'Kumaun University'),
-(102, 'MCA', 'UTU');
+(102, 'MCA', 'UTU'),
+(174, 'BCA', NULL),
+(175, 'BCA', NULL),
+(176, 'BCA', NULL),
+(177, 'BCA', NULL),
+(178, 'BCA', NULL),
+(179, 'BCA', NULL),
+(180, 'BBA', NULL),
+(181, 'BBA', NULL),
+(182, 'BCA', NULL),
+(183, 'BCA', NULL),
+(184, 'BCA', NULL),
+(185, 'BCA', NULL);
 
 -- --------------------------------------------------------
 
@@ -208,6 +226,7 @@ CREATE TABLE IF NOT EXISTS `fee_flexible_head` (
   `fee_Head` varchar(10) DEFAULT NULL,
   `amount` int(10) DEFAULT NULL,
   `username` varchar(20) DEFAULT NULL,
+  `how_many_Times` varchar(20) NOT NULL,
   `date` date DEFAULT NULL,
   PRIMARY KEY (`flexible_head_ID`),
   UNIQUE KEY `user_name_4` (`username`),
@@ -228,10 +247,10 @@ CREATE TABLE IF NOT EXISTS `fee_flexible_head` (
 -- Dumping data for table `fee_flexible_head`
 --
 
-INSERT INTO `fee_flexible_head` (`flexible_head_ID`, `fee_Head`, `amount`, `username`, `date`) VALUES
-(1, 'Bus', 600, 'fms', '2019-04-25'),
-(2, 'Karate', 400, 'manish', '2019-04-25'),
-(3, 'Hostel', 700, 'kanika', '2019-04-25');
+INSERT INTO `fee_flexible_head` (`flexible_head_ID`, `fee_Head`, `amount`, `username`, `how_many_Times`, `date`) VALUES
+(1, 'Bus', 600, 'fms', 'one time', '2019-04-25'),
+(2, 'Karate', 400, 'manish', 'one time', '2019-04-25'),
+(3, 'Hostel', 700, 'kanika', 'one time', '2019-04-25');
 
 -- --------------------------------------------------------
 
@@ -266,15 +285,14 @@ CREATE TABLE IF NOT EXISTS `fee_invoice` (
   KEY `student_ID` (`student_ID`),
   KEY `static_head_ID` (`static_head_ID`),
   KEY `flexible_head_ID` (`flexible_head_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=27 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=62 ;
 
 --
 -- Dumping data for table `fee_invoice`
 --
 
 INSERT INTO `fee_invoice` (`invoice_ID`, `session_ID`, `class_sess_ID`, `year_From`, `month_From`, `year_To`, `month_To`, `no_of_Month`, `description`, `student_ID`, `static_head_ID`, `static_head_Amount`, `flexible_head_ID`, `flexible_head_Amount`, `actual_Amount`, `applicable_discount_Amount`, `previous_due_Amount`, `due_Amount`) VALUES
-(25, '2018-19', 'BCA2018-19_I', 2019, 'April', 2019, 'May', 1, 'x', 1000, 'Registrati,Books', '1000,800', 'Bus,Karate', '600,400', 2800, 400, 0, 2400),
-(26, '2018-19', 'BCA2018-19_I', 2019, 'April', 2019, 'May', 1, 'x', 1000, 'Registrati,Books', '1000,800', 'Bus,Karate', '600,400', 2800, 400, 0, 2400);
+(61, '2018-19', 'BCA2018-19_I', 2019, 'April', 2019, 'May', 1, 'x', 1000, '', '1000,800', '', '600,400', 2800, 400, 0, -600);
 
 -- --------------------------------------------------------
 
@@ -296,8 +314,8 @@ CREATE TABLE IF NOT EXISTS `fee_receipt` (
   `type_ID` int(10) NOT NULL,
   `fee_Mode` varchar(10) NOT NULL,
   `bank_Name` varchar(20) NOT NULL,
-  `cheque_No` int(10) NOT NULL,
-  `cheque_Date` date NOT NULL,
+  `cheque_No` varchar(15) NOT NULL,
+  `cheque_Date` varchar(25) NOT NULL,
   `date_of_Entry` date NOT NULL,
   `session_ID` varchar(20) NOT NULL,
   `username` varchar(20) NOT NULL,
@@ -310,27 +328,16 @@ CREATE TABLE IF NOT EXISTS `fee_receipt` (
   KEY `invoice_ID` (`invoice_ID`),
   KEY `invoice_ID_2` (`invoice_ID`),
   KEY `student_ID` (`student_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=80 ;
 
 --
 -- Dumping data for table `fee_receipt`
 --
 
 INSERT INTO `fee_receipt` (`receipt_ID`, `invoice_ID`, `student_ID`, `discount_ID`, `discount_Status`, `discount_Amount`, `description`, `actual_paid_Amount`, `paid`, `fine`, `type_ID`, `fee_Mode`, `bank_Name`, `cheque_No`, `cheque_Date`, `date_of_Entry`, `session_ID`, `username`, `date`) VALUES
-(1, 2, 1001, '10,11', 1, 600, '', 2400, 1850, 0, 11, 'cash', 'SBI', 123, '0000-00-00', '0000-00-00', '2018-19', 'fms', '2019-05-06'),
-(2, 4, 1002, '11', 1, 200, '', 2400, 2250, 0, 11, 'cash', 'SBI', 123, '0000-00-00', '0000-00-00', '2018-19', 'fms', '2019-05-06'),
-(3, 6, 1003, '10,11', 1, 600, 'xx', 2800, 2250, 0, 11, 'cash', 'SBI', 123, '0000-00-00', '0000-00-00', '2018-19', 'fms', '0000-00-00'),
-(4, 21, 1000, '10', 1, 400, 'xx', 2800, 2450, 50, 11, 'cash', 'SBI', 123, '0000-00-00', '0000-00-00', '2018-19', 'fms', '0000-00-00'),
-(5, 21, 1000, '10', 1, 400, '', 2800, 0, 0, 11, 'cash', 'SBI', 123, '0000-00-00', '0000-00-00', '2018-19', 'fms', '0000-00-00'),
-(6, 21, 1000, '10', 1, 400, 'xx', 2800, 2400, 0, 11, 'cash', 'SBI', 123, '0000-00-00', '0000-00-00', '2018-19', 'fms', '0000-00-00'),
-(7, 21, 1000, '10', 1, 400, '', 2800, 2400, 0, 11, 'cash', 'SBI', 123, '0000-00-00', '0000-00-00', '2018-19', 'fms', '0000-00-00'),
-(8, 21, 1000, '10', 1, 400, '', 2800, 0, 0, 11, 'cash', 'SBI', 123, '0000-00-00', '0000-00-00', '2018-19', 'fms', '0000-00-00'),
-(9, 21, 1000, '10', 1, 400, '', 2800, 0, 0, 11, 'cash', 'SBI', 123, '0000-00-00', '0000-00-00', '2018-19', 'fms', '0000-00-00'),
-(10, 31, 1005, '', 1, 0, 'xx', 1800, 500, 0, 11, 'cash', 'SBI', 123, '0000-00-00', '0000-00-00', '2018-19', 'fms', '0000-00-00'),
-(11, 31, 1005, '', 1, 0, 'x', 1800, 500, 0, 11, 'cash', 'SBI', 123, '0000-00-00', '0000-00-00', '2018-19', 'fms', '0000-00-00'),
-(12, 31, 1005, '', 1, 0, 'xx', 1800, 500, 0, 11, 'cash', 'SBI', 123, '0000-00-00', '0000-00-00', '2018-19', 'fms', '0000-00-00'),
-(13, 31, 1005, '', 1, 0, 'xx', 1800, 500, 0, 11, 'cash', 'SBI', 123, '0000-00-00', '0000-00-00', '2018-19', 'fms', '0000-00-00'),
-(14, 1, 1000, '10', 1, 400, 'xx', 2800, 2400, 0, 11, 'cash', 'SBI', 123, '0000-00-00', '0000-00-00', '2018-19', 'fms', '0000-00-00');
+(77, 61, 1000, '10', 1, 400, '', 2800, 1000, 0, 11, 'cheque', 'SBI', '123', '2019-11-04', '2019-05-17', '2018-19', 'fms', '2019-05-17'),
+(78, 61, 1000, '10', 1, 400, '', 2800, 1000, 0, 11, 'cheque', 'SBI', '123', '2019-11-04', '2019-05-17', '2018-19', 'fms', '2019-05-17'),
+(79, 61, 1000, '10', 1, 400, '', 2800, 1000, 0, 11, 'cheque', 'SBI', '123', '2019-11-04', '2019-05-17', '2018-19', 'fms', '2019-05-17');
 
 -- --------------------------------------------------------
 
@@ -345,18 +352,20 @@ CREATE TABLE IF NOT EXISTS `fee_static_head` (
   `date` date DEFAULT NULL,
   `amount` int(20) DEFAULT NULL,
   `discount_Applicable` int(2) NOT NULL,
+  `how_many_Times` varchar(20) NOT NULL,
   PRIMARY KEY (`static_head_ID`),
   KEY `username` (`username`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=103 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=104 ;
 
 --
 -- Dumping data for table `fee_static_head`
 --
 
-INSERT INTO `fee_static_head` (`static_head_ID`, `fee_Head`, `username`, `date`, `amount`, `discount_Applicable`) VALUES
-(100, 'Registrati', 'fms', '2019-04-06', 1000, 0),
-(101, 'Exam', 'fms', '2019-04-06', 500, 0),
-(102, 'Books', 'fms', '2019-04-06', 800, 0);
+INSERT INTO `fee_static_head` (`static_head_ID`, `fee_Head`, `username`, `date`, `amount`, `discount_Applicable`, `how_many_Times`) VALUES
+(100, 'Registrati', 'fms', '2019-04-06', 1000, 0, 'one Time'),
+(101, 'Exam', 'fms', '2019-04-06', 500, 0, 'one Time'),
+(102, 'Books', 'fms', '2019-04-06', 800, 0, 'one Time'),
+(103, 'compulsary', 'fms', '2019-05-08', 500, 0, 'one Time');
 
 -- --------------------------------------------------------
 
@@ -394,6 +403,7 @@ CREATE TABLE IF NOT EXISTS `flexible_fee_associate_class` (
   `amount` int(10) NOT NULL,
   `username` varchar(20) NOT NULL,
   `date` date NOT NULL,
+  `fee_Head` varchar(10) NOT NULL,
   PRIMARY KEY (`flexible_class_fee_ID`),
   KEY `user_name` (`username`),
   KEY `username` (`username`),
@@ -406,14 +416,14 @@ CREATE TABLE IF NOT EXISTS `flexible_fee_associate_class` (
 -- Dumping data for table `flexible_fee_associate_class`
 --
 
-INSERT INTO `flexible_fee_associate_class` (`flexible_class_fee_ID`, `student_ID`, `flexible_head_ID`, `amount`, `username`, `date`) VALUES
-(10, 1000, 1, 600, 'fms', '2019-04-29'),
-(11, 1000, 2, 400, 'fms', '2019-04-29'),
-(12, 1001, 1, 600, 'fms', '2019-04-29'),
-(13, 1002, 1, 600, 'fms', '2019-04-29'),
-(14, 1003, 1, 600, 'fms', '2019-04-29'),
-(15, 1004, 1, 600, 'fms', '2019-04-29'),
-(16, 1003, 2, 400, 'fms', '2019-04-29');
+INSERT INTO `flexible_fee_associate_class` (`flexible_class_fee_ID`, `student_ID`, `flexible_head_ID`, `amount`, `username`, `date`, `fee_Head`) VALUES
+(10, 1000, 1, 600, 'fms', '2019-04-29', ''),
+(11, 1000, 2, 400, 'fms', '2019-04-29', ''),
+(12, 1001, 1, 600, 'fms', '2019-04-29', ''),
+(13, 1002, 1, 600, 'fms', '2019-04-29', ''),
+(14, 1003, 1, 600, 'fms', '2019-04-29', ''),
+(15, 1004, 1, 600, 'fms', '2019-04-29', ''),
+(16, 1003, 2, 400, 'fms', '2019-04-29', '');
 
 -- --------------------------------------------------------
 
@@ -509,11 +519,9 @@ CREATE TABLE IF NOT EXISTS `session_master` (
 --
 
 INSERT INTO `session_master` (`session_ID`, `session_Start`, `session_End`, `date`) VALUES
-('', 0, 0, '0000-00-00'),
 ('2018-19', 2018, 2019, '2019-04-06'),
 ('2019-20', 2019, 2020, '2019-04-06'),
-('2020-21', 2020, 2021, '2019-04-05'),
-('2021-22', 0, 0, '0000-00-00');
+('2020-21', 2020, 2021, '2019-04-05');
 
 -- --------------------------------------------------------
 
@@ -739,6 +747,7 @@ CREATE TABLE IF NOT EXISTS `static_fee_associate_class` (
   `amount` int(10) NOT NULL,
   `username` varchar(20) NOT NULL,
   `date` date NOT NULL,
+  `fee_Head` varchar(10) NOT NULL,
   PRIMARY KEY (`static_class_fee_ID`),
   KEY `static_head_id` (`static_head_ID`),
   KEY `user_name` (`username`),
@@ -751,9 +760,9 @@ CREATE TABLE IF NOT EXISTS `static_fee_associate_class` (
 -- Dumping data for table `static_fee_associate_class`
 --
 
-INSERT INTO `static_fee_associate_class` (`static_class_fee_ID`, `class_sess_ID`, `static_head_ID`, `amount`, `username`, `date`) VALUES
-(1, 'BCA2018-19_I', 100, 1000, 'fms', '2019-04-29'),
-(2, 'BCA2018-19_I', 102, 800, 'fms', '2019-04-29');
+INSERT INTO `static_fee_associate_class` (`static_class_fee_ID`, `class_sess_ID`, `static_head_ID`, `amount`, `username`, `date`, `fee_Head`) VALUES
+(1, 'BCA2018-19_I', 100, 1000, 'fms', '2019-04-29', ''),
+(2, 'BCA2018-19_I', 102, 800, 'fms', '2019-04-29', '');
 
 -- --------------------------------------------------------
 
@@ -1136,7 +1145,7 @@ CREATE TABLE IF NOT EXISTS `student_in_session` (
   KEY `username` (`username`),
   KEY `student_ID` (`student_ID`),
   KEY `class_ID` (`class_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `student_in_session`
@@ -1147,12 +1156,7 @@ INSERT INTO `student_in_session` (`std_ID`, `student_ID`, `class_sess_ID`, `sess
 (2, 1001, 'BCA2018-19_I', '2018-19', 2, 'charu', '1', '2019-02-23'),
 (3, 1002, 'BCA2018-19_I', '2018-19', 1, 'charu', '1', '2019-04-09'),
 (4, 1003, 'BCA2018-19_I', '2018-19', 1, 'charu', '1', '2019-04-10'),
-(5, 1004, 'BCA2018-19_I', '2018-19', 1, 'charu', '1', '2019-04-05'),
-(6, 1005, 'BCA2018-19_I', '2018-19', 1, 'charu', '1', '2019-04-17'),
-(7, 1006, 'BCA2018-19_I', '2018-19', 1, 'charu', '1', '2019-04-15'),
-(8, 1007, 'BCA2018-19_I', '2018-19', 1, 'charu', '1', '2019-04-01'),
-(9, 1008, 'BCA2018-19_I', '2018-19', 1, 'charu', '1', '2019-04-15'),
-(10, 1009, 'BCA2018-19_I', '2018-19', 1, 'charu', '1', '2019-04-08');
+(7, 1006, 'BCA2018-19_I', '2018-19', 1, 'charu', '1', '2019-04-15');
 
 -- --------------------------------------------------------
 
