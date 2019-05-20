@@ -40,7 +40,7 @@
 						<span class="fa fa-arrow-right">&nbsp;</span> Static in class
 					</a></li>
 					<li><a class="" href="flexihead_students">
-						<span class="fa fa-arrow-right">&nbsp;</span> Flexihead-students
+						<span class="fa fa-arrow-right">&nbsp;</span> Flexihead in students
 					</a></li>
 					<li><a class="" href="dropstudent">
 						<span class="fa fa-arrow-right">&nbsp;</span> Drop student

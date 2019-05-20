@@ -24,6 +24,7 @@ class totaldisplay extends CI_Controller {
 	public function total()
 	{
 		$data['class_in_session'] = $this->ftm->getclass('2018-19');
+		
 		$data['receipttotal'] = $this->ftm->getreceiptdata_total();
 		$data['studenttotal'] = $this->ftm->getstudentdata_total();
 		echo json_encode($data);

@@ -10,11 +10,11 @@ class Fee_due_model extends CI_Model {
 		return $query->result();
 	}
 	function getinvoicedata($str){
-		$this->db->from('fee_receipt a');
-		$this->db->join('student_in_session b', 'a.student_ID=b.student_ID');
-		$this->db->join('fee_invoice c', 'b.class_sess_ID=c.class_sess_ID');
-		$this->db->join('student_details d', 'c.student_ID=d.student_ID');
-		$this->db->where('b.class_sess_ID',$str);
+		$newstr = str_replace('%20', ' ', $str);
+		$this->db->from('student_details a');
+		$this->db->join('fee_receipt b','a.student_ID=b.student_ID');
+		$this->db->join('fee_invoice c', 'b.invoice_ID=c.invoice_ID');
+		$this->db->where('c.class_sess_ID',$newstr);
 		$query = $this->db->get();
 		return $query->result();
 	}

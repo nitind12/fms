@@ -8,7 +8,7 @@
 			</ol>
 		</div><!--/.row-->
 		
-		<div class="panel-heading">Session</div>
+		<div class="panel-heading">Insert Sessions</div>
 		<div class="panel-body">
 			<form class="form form-vertical" action="<?php echo site_url('sessions/insert_record');?>" method="post" id="frm1">
 						 
@@ -17,7 +17,7 @@
 								<div class="col-md-3">
 									<div class="form-group">
 									<label>Session ID</label>
-									<input type="text" name="txtsid" id="txtsid">
+									<input class="form-control" name="txtsid" id="txtsid">
 								</div>
 							</div>
 								<div class="col-md-3">

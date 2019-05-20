@@ -18,9 +18,9 @@ class class_sessionwise extends CI_Controller {
 		$this->load->view('Dashboard/indexclass_sesswise');
 		$this->load->view('templates/footer');
 	}
-	function getclass_sesswise()
+	function getsession()
 	{
-		$data['class_sessionwise'] = $this->cm->getclass_sessionwise();
+		$data['session'] = $this->cm->getsession();
 		echo json_encode($data);
 
 	}

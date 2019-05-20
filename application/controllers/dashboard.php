@@ -11,7 +11,6 @@ class Dashboard extends CI_Controller {
 	}
 	public function index()
 	{
-		
 		$this->load->model('My_model', 'mm');
 		$data['number'] = $this->mm->totalStudents();
 		$data['no'] = $this->mm->totalClasses();

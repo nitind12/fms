@@ -166,19 +166,20 @@ class class_model extends CI_Model {
 
 		}
 		function getclass_in_session($str){
+			//$newstr = str_replace('%20', ' ', $str);
 			$this->db->from('class a');
 			$this->db->join('course_details b', 'a.course_ID=b.course_ID');
 			$this->db->join('class_in_session c', 'a.class_ID=c.class_ID');
-			$this->db->where('c.class_sess_ID',$str);
+			$this->db->where('c.session_ID',$str);
 
 			$query= $this->db->get();
 
 			return $query->result();
 		}
-		function getclass_sessionwise(){
-			$this->db->from('class a');
-			$this->db->join('class_in_session b', 'a.class_ID=b.class_ID');
-			$query= $this->db->get();
+		function getsession(){
+			//$this->db->from('class a');
+			$this->db->select('session_ID');
+			$query= $this->db->get('session_master');
 
 			return $query->result();
 		}

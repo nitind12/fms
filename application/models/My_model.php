@@ -17,6 +17,17 @@ class My_model extends CI_Model {
 			$r = $query->row();
 			$this->session->set_userdata('user_', $r->username);
 			$this->session->set_userdata('status_', $r->name);
+
+			if($this->input->post('remember')){
+				if(!isset($_COOKIE['user_'])) {
+					$cookie_name = 'user_';
+					$cookie_value = $r->username;
+					setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+					$cookie_name = 'pwd_';
+					$cookie_value = $pwd;
+					setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+				}
+			}
 		} else {
 			$bool = false;
 		}
