@@ -51,10 +51,12 @@ class Fee_invoice_model extends CI_Model {
 		return $stdid;
 	}
 	function getinvoicedata($str){
+		$newstr = str_replace('%20', ' ', $str);
 		$this->db->from('student_details a');
 		$this->db->join('fee_invoice b','a.student_ID=b.student_ID');
-		$this->db->where('b.class_sess_ID', $str);
+		$this->db->where('b.class_sess_ID', $newstr);
 		$query = $this->db->get();
+		
 		return $query->result();
 	}
 	function get_duesdata($stdid){

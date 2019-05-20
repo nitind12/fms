@@ -23,14 +23,14 @@
             <tr>
               <th>
                 <div class="panel-body ">
-                  <form class="form form-vertical" name="frm" action="<?php echo site_url('flexihead_students/insert_record');?>" method="post" id="frm">
+                  <form class="form form-vertical" name="frm" action="<?php echo site_url('statichead_students/insert_record');?>" method="post" id="frm">
                      <div class="form-group ">
                        <label>New static Head</label>
-                         <input class="form-control"name="txtffh" id="txtffh">
+                         <input class="form-control"name="txtsth" id="txtsth">
                     </div>
                     <div class="form-group">
                       <label>Amount</label>
-                        <input class="form-control" name="txtffhamt" id="txtffhamt">
+                        <input class="form-control" name="txtsthamt" id="txtsthamt">
                     </div>
                   
                 <div class="form-group">
@@ -63,8 +63,8 @@
                 <div class="">View Static Head<em class="caret"></em></div>
                 <table>
                   <tr>
-                    <th><div style="clear: both;" id= "printheres"></div></th>
-                    <th> <div style="clear: both;" id= "printheres1"></div> <div style="clear: both;" id= "ptrn"></div>  </th>
+                    <th><div style="clear: both;" id= "printstaticdata"></div></th>
+                    <th> <div style="clear: both;" id= "printstaticdata1"></div> <div style="clear: both;" id= "ptrn"></div>  </th>
                  </tr>
                </table>
                 
@@ -86,56 +86,42 @@
 
 <div class="controls span4">
     <div class="widget-box">
-            <form name="frmStaticheadData" class="form" id="frmStaticheadData" method="post" action="<?php echo site_url('statichead_students/getstaticheads');?>">
-
-            <div  style="border: #ff0000 solid 0px; width: 50px; height:50px; float: right; right: 0px; z-index: 2222; position: absolute;" id="student_photo_here"></div>
-            <div class="widget-title"> <span class="icon"> <i class="icon-ok-sign"></i> </span>
-                <h3>Static Heads</h3>
-            </div>
-            <div class="widget-content">
-                <div class="control-group">
-                    <div class="controls">
-                      <table class="table table-bordered table-striped with-check">
+        <form name="frmSelectStudents" id="frmSelectStudents" method="post" action="<?php echo site_url('statichead_students/getstaticheads');?>">
+            <table class="table table-bordered with-check" >
+             <tr>
+               <th>                   
+                   <table class="table table-bordered table-striped with-check">
                        <tr>
-                          <th style="text-align: left">Select Static Heads</th>
+                          <th style="text-align: left">Select Static Head</th>
                        </tr>
                           <th> <div  id="staticheadshere" style="clear: both; overflow: hidden;";></div></th>
                           </tr>
                    </table>
-                    </div>
-                </div>
-                 
-            </div>
-        </div>
-  </div>
-  <div class="controls span3">
-    <div class="widget-box">
-          <div class="widget-title">
-            <h5>Classes in Session 2018-19</h5>
-          </div>
-          <div class="widget-content nopadding" style="overflow: auto; height: 350px">
-            <table class="table table-bordered table-striped with-check">
-              <thead>
-                <tr>
-                  <th style="text-align: left">Select Classes(s)</th>
-                </tr>
-                <tr>
-                  <th id="printclasshere"></th>
-                </tr>
-              </thead>
-              <tbody id="classes_associates_staticHeads">
-                
-              </tbody>
+               </th>
+               <th>
+                   <table class="table table-bordered table-striped with-check">
+                     <tr>
+                         <th style="text-align: left">Classes in Session 2018-19</th>
+                      </tr>
+                        <th> <div class="myscroll" id="printclasshere" style="clear: both";></div></th>
+
+                      </tr>
+                      <tr>
+                       <th>
+                       <div id="studen" style="clear:both"></div>
+                        <div class="controls">
+                            <input type="submit" value="Add Fee to selected Student(s)" class="btn btn-success span9" id="associate">
+                              <input type="reset" value="X" class="btn btn-danger cancel_sassociate_flexible_head_with_Student span3" style="float: right"> </div>
+                        </th>
+                    </tr>
+                    </table>
+               </th>
+         </form>
+            </th>
+              </tr>
             </table>
-          </div>
-        </div>
-       <div class="control-group">
-            <div class="controls">
-                <input type="submit" value="Add Fee to selected Class" class="btn btn-success span9" id="associate_static_head_with_classes">
-                <input type="reset" value="X" class="btn btn-danger cancel_static_associates_classes span3" style="float: right">
-            </div>
-        </div>
-      </form>
+          <h4><strong>View Associated Static Heads</strong></h4>
+            
         <div class="widget-content nopadding" style="overflow: auto; height: 350px">
             <table class="table table-bordered table-striped with-check">
               <thead>

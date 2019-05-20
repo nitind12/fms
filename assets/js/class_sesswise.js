@@ -1,7 +1,7 @@
 $(function(){
 		$('#class_sesswise').html("loading...");
 
-		var url_ = site_url_ + "/class_sessionwise/getclass_sesswise/" ;
+		var url_ = site_url_ + "/class_sessionwise/getsession/" ;
 		var data_=$(this).serialize();
 		
 		$.ajax({
@@ -14,13 +14,13 @@ $(function(){
 				var str = '';
 				str = str + '<table class="table table-bordered table-hover">';
 				str = str + "<tr>";
-				str = str + "<th> Class</th>";
+				str = str + "<th>Total Sessions</th>";
 
 				str = str + "</tr>";
-				for(i=0; i<obj.class_sessionwise.length; i++){
+				for(i=0; i<obj.session.length; i++){
 					str = str + "<tr>";
-					str = str + '<td class="clss"  id="'+obj.class_sessionwise[i]['class_sess_ID']+'">';
-					str = str  + obj.class_sessionwise[i]['class_sess_ID']; 
+					str = str + '<td class="clss"  id="'+obj.session[i]['session_ID']+'">';
+					str = str  + obj.session[i]['session_ID']; 
 					str = str + "</td>";
 
 					str = str + "</tr>";

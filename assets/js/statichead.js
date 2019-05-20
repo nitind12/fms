@@ -40,6 +40,8 @@ $(function(){
 });
 
 
+
+
 $('body').on('click','.print',function(){
 	//alert(this.id);
 	var str=this.id;
@@ -53,52 +55,65 @@ $('body').on('click','.print',function(){
 				//alert(data);
 				var obj = JSON.parse(data);
 				var str = '';
-				str = str + '<div class="dotted"';
- 		 		str=str+ '<div class="widget-box" id="edit_flexible_head_panel" style="display: block;">'
-           		str=str+ '<div style="border: #ff0000 solid 0px; width: 50px; height:50px; float: right; right: 0px; z-index: 2222; position: absolute;" id="student_photo_here"></div>';
-           		str=str+ ' <div class="widget-title"> <span class="icon"> <i class="icon-hand-right"></i> </span>';
-               	str=str+ ' <h5 style="color: #DD0000">Update Flexible Head</h5>';
-           		str=str+ ' </div>';
-           		str=str+ '<div class="widget-content" style="color: #DD0000">';
-           		str = str + '<form name="frm" action="http://localhost/fms/index.php/flexihead_students/insert_record" method="post">';
-              	str=str+ '<div class="control-group">';
-                str=str+ '<label class="control-label">Edit Flexible Head</label>';
-                str=str+ '<div class="controls">';
-                str=str+ '<input type="text" name="txtffh" value="'+obj.statichead_data[0].fee_Head+'" class="span12 text" autocomplete="off" required="required" id="" style="color: #0000DD">';
-                str=str+ '<input type="hidden" name="txtFlexID_edit" value="1" class="span12 text" required="required" id="txtFlexID_edit">';
-                str=str+ '</div>';
-               	str=str+ '</div>';
-                str=str+ '<div class="control-group">';
-                str=str+ '<label class="control-label">Amount</label>';
-               	str=str+ '<div class="controls">';
-                str=str+'<input type="text" name="txtffhamt" value=" '+obj.statichead_data[0].amount+'" class="span12 text" autocomplete="off" required="required" id="txtFlexibleHeadAmt_edit" style="color: #0000DD" >';
-                str=str+ '</div>';
-                str=str+ '</div>';
-                str=str+ '<div class="control-group" data-select2-id="30">';
-                str=str+ '<label class="control-label">How many times</label>';
-                 str=str+ '<div class="controls" data-select2-id="29">';
-                 str=str+ '<select name="txthmt" id="cmbDuration_felxi_edit" class="span12 select2-hidden-accessible" required="required" data-select2-id="cmbDuration_felxi_edit" tabindex="-1" aria-hidden="true" style="">';
-				str=str+ '<option value="1" data-select2-id="17">One time</option>';
-				str=str+ '<option value="n" selected="selected" data-select2-id="8">As per selected months</option>';
-				str=str+ '</select><span class="select2 select2-container select2-container--default select2-container--below" dir="ltr" data-select2-id="18" style="width: 100px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-cmbDuration_felxi_edit-container"><span class="select2-selection__rendered" id="select2-cmbDuration_felxi_edit-container" role="textbox" aria-readonly="true" title="As per selected months"></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>';
+				str=str+ '<div class="widget-box" id="editClass" style="display:block">';
+            	 str=str+ '<div class="widget-title"  style="color: #cc3300"> <span class="icon"> <i class="icon-align-justify"></i> </span>';
+                	 str=str+ '<h5  style="color: #cc3300">Edit Class</h5>';
                  str=str+ '</div>';
-                str=str+' </div>';
+            str=str+ '<div class="widget-content nopadding">';
                 str=str+ '<div class="control-group">';
-                str=str+ '<div class="controls">';
+                str=str+ '<form action="#" class="form-horizontal" name="frmupdate" id="frmupdate" method="post" accept-charset="utf-8">';
+                 	str=str+ '<label class="control-label" style="color: #cc3300">Edit Static Head</label>';
+                 	str=str+   '<div class="controls">';                      
+          				 str=str+ '<input type="text" name="txtffh" value="'+obj.statichead_data[0].fee_Head+'" autocomplete="off" required="required" class="txtEdit1" id="txtffh"/>';
+          		 	str = str + '</div>';
+          		 	str=str+ '<label class="control-label" style="color: #cc3300">Amount</label>';
+                 	str=str+   '<div class="controls">';                      
+             				 str=str+ '<input type="text" name="txtffhamt" value="'+obj.statichead_data[0].amount+'" autocomplete="off" required="required" class="txtEdit2" id="txtffhamt"/>';
+          		 	str = str + '</div>';
+          		 	str=str+ '<label class="control-label" style="color: #cc3300">Section</label>';
+          		 	str = str + '<select class="form-control" name="txthmt" id="txthmt">';
+										str = str + '<option>Select</option>';
+								        str = str + '<option>one Time</option>';
+									    str = str + '<option>As per selected Months</option>';
+								         str = str + '</select>';
+                                 
+                 	str=str+   '<div class="controls">';                      
+                 		//str=str+ '<input type="hidden" name="txtEditClass_ID" value="" autocomplete="off" required="required" class="span11" id="txtEditClass_ID"/>';
+          		 	str = str + '</div>';
 
-                str=str+ '<br></br>';
-
-                str=str+ '<input type="submit" value="Update" class="btn btn-primary" id="update_flexible_head">'
-                  str=str+ '<input type="reset" value="Cancel" class="btn btn-danger cancel_flexible_head_update">';
-                  str = str + '</form>';
-                  str=str+ '</div>';
-               str=str+  '</div>';
-                str=str+ '</div>';
-               str=str+ '</div>	';
-               str + str + '</div>';
+          		 	str = str + '<div class="form-actions" align="right">';  
+                     str = str + '<input type="button" id="'+obj.statichead_data[0].static_head_ID+'" value="Update" class="btn btn-danger staticUpdate" style="margin-top:10px;">';
+                    str = str + '<button type="reset" class="btn btn-primary classUpdateCancel" style="margin-top:10px;">Cancel</button>';                             
+                    str = str + '</div>';
+                    str = str + "<div style='color: #ff0000;' id='msg_'></div>";
+          		 str = str + '</form>';
+                 str=str+ '</div>';
+             str=str+ '</div>';
+            str = str + '</div';
 				$('#printstaticdata1').html(str);
        }
 	});
+});
+$('body').on('click', '.staticUpdate', function(){
+		//alert(this.id);
+		var id1=this.id;
+		var url_ = site_url_ + "/statichead_students/updatestatichead_data/"+id1 ;
+
+		var data_=$('#frmupdate').serialize();
+		//alert(data_);
+		$.ajax({
+			type: "POST",
+			url: url_,
+			data:data_,
+			success: function(data){
+				var obj = JSON.parse(data);
+				//$('#msg_').html(obj._update.msg);
+			},
+			error: function(xhr, status, error){
+				alert(xhr.responseText);
+			}
+	});
+
 });
 $('body').on('click','.del',function(){
 	//alert(this.id);
@@ -135,7 +150,7 @@ $(function(){
 				str = str + "</tr>";
 				for(i=0; i<obj.classes.length; i++){
 					str = str + "<tr>";
-					str = str + '<td><input type="checkbox"  name="clss" value="'+obj.classes[i]['class_sess_ID']+'" id="'+obj.classes[i]['class_sess_ID']+'" class="classes"  ></td>';
+					str = str + '<td><input type="radio"  name="classes" value="'+obj.classes[i]['class_sess_ID']+'" id="'+obj.classes[i]['class_sess_ID']+'" class="selectclass"></td>';
 					//str = str + '<td class="stdin" id="'+obj.class[i]['class_ID']+'">';
 					str = str + "<td>" + obj.classes[i]['class_sess_ID'];
 					str = str + '</td>';
@@ -152,7 +167,7 @@ $(function(){
 	
 		$('#printselectedclasshere').html("loading...");
 
-		var url_ = site_url_ + "/statichead_students/getstatichead/" ;
+		var url_ = site_url_ + "/statichead_students/getstatichead_details/" ;
 		var data_=$(this).serialize();
 		
 		$.ajax({
@@ -164,14 +179,33 @@ $(function(){
 				var obj = JSON.parse(data);
 				var str = '';
 				str = str + '<table class="table table-bordered">';
+				str = str + "<tr>";
+				str = str + "<th>Class</th>";
+				str = str + "<th>Fee Head</th>";
+				str = str + "</tr>";
 				for(i=0; i<obj.classes.length; i++){
-					str = str + "<tr>";
-					str = str + '<td><span class="fa fa-plus"></td>';
+				var static = '';
+					
+					for(j=0; j<obj.static_classes.length; j++)
+					{
+						if(obj.classes[i]['class_sess_ID'] == obj.static_classes[j]['class_sess_ID'])
+						{
+							if(static == ''){
+								static = static + obj.static_classes[j]['static_head_ID'];
+							} else {
+								static = static + ", "+ obj.static_classes[j]['static_head_ID'];
+							}
+						}
+					}				
+				str = str + "<tr>";
+				//	str = str + '<td><span class="fa fa-plus"></td>';
 					//str = str + '<td class="stdin" id="'+obj.class[i]['class_ID']+'">';
-					str = str + "<td>" + obj.classes[i]['class_sess_ID'];
-					str = str + "</td>";
-					str = str + "</tr>";
-				}
+				str = str + "<td>" + obj.classes[i]['class_sess_ID'];
+				str = str + "</td>";
+				str = str + "<td>" + static+ "</td>";
+				str = str + "</tr>";
+			
+			}
 				 
 				str = str + "</table>";
 				$('#printselectedclasshere').html(str);
@@ -201,7 +235,7 @@ $(function(){
 				str = str + "</tr>";
 				for(i=0; i<obj.static_data.length; i++){
 					str = str + "<tr>";
-					str = str + '<td><input type="radio"  value="'+obj.static_data[i]['fee_Head']+'" class="static" name="static_head" id="'+obj.static_data[i]['static_head_ID']+'"></td>';
+					str = str + '<td><input type="radio"  value="'+obj.static_data[i]['static_head_ID']+'" class="static" name="static_head" id="'+obj.static_data[i]['static_head_ID']+'"></td>';
 					str = str + "<td>" + obj.static_data[i]['fee_Head'] + "</td>";
 					str = str + "<td>" + obj.static_data[i]['amount'] + "</td>";
 					str = str + "</tr>";

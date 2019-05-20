@@ -35,11 +35,13 @@ $('body').on('click','.invc',function(){
 		$('#ttinvoice1').html("loading...");
 		//alert(this.id);
 		str = this.id;
-		var url_ = site_url_ + "/invoice/getinvoicedata/"+str ;
+		//alert(str);
+		var url_ = site_url_ + "/invoice/getinvoicedata/"+str;
+		//alert(url_);
 		var data_=$(this).serialize();
 		
 		$.ajax({
-			type: "GET",
+			type: "POST",
 			url: url_,
 			data:data_,
 			success: function(data){

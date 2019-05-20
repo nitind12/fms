@@ -15,7 +15,7 @@
 						
 						<table  class="table table-bordered">
 						<tr>
-							<th>Class Session Wise</th>
+							<th>Sessions</th>
 						</tr>
 						<tr>
 							<td><div  id="class_sesswise" style="clear:both;"></div></td>

@@ -111,9 +111,9 @@ $('body').on('click','.prn',function(){
 					for(j=0; j<obj.flx_students.length; j++){
 						if(obj.stud[i]['student_ID'] == obj.flx_students[j]['student_ID']){
 							if(flexi == ''){
-								flexi = flexi + "<span title='"+obj.flx_students[j]['fee_Head']+"'>"+obj.flx_students[j]['fee_Head']+"</span>";
+								flexi = flexi + "<span title='"+obj.flx_students[j]['flexible_head_ID']+"'>"+obj.flx_students[j]['flexible_head_ID']+"</span>";
 							} else {
-								flexi = flexi + ", " + "<span title='"+obj.flx_students[j]['fee_Head']+"'>"+obj.flx_students[j]['fee_Head']+"</span>";
+								flexi = flexi + ", " + "<span title='"+obj.flx_students[j]['flexible_head_ID']+"'>"+obj.flx_students[j]['flexible_head_ID']+"</span>";
 							}
 						}
 					}

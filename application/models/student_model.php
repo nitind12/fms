@@ -102,11 +102,11 @@ class student_model extends CI_Model {
 
 			$data6= array(
 				'student_ID' =>$sidold,
-				'discount_offered' => $txtdisc_,
-				'discount_on' => $dis_,
+				'discount_Type' => $txtdisc_,
+				'category' => $dis_,
 			);
 			$this->db->where('student_ID',$sidold);
-			$this->db->update('discount',$data6);
+			$this->db->update('discount_details',$data6);
 
 			$bool_ = array(
 				'res' => false,
@@ -169,10 +169,10 @@ class student_model extends CI_Model {
 
 			$data6= array(
 				'student_ID' => $sid,
-				'discount_offered' => $txtdisc_,
-				'discount_on' => $dis_,
+				'discount_Type' => $txtdisc_,
+				'category' => $dis_,
 			);
-			$this->db->insert('discount',$data6);
+			$this->db->insert('discount_details',$data6);
 
 
 			$bool_ = array(
@@ -208,10 +208,9 @@ class student_model extends CI_Model {
 	}
 
 	function getStudentsCoursewise($crsid){
-		$this->db->where('class_ID', $crsid);
 		$this->db->from('student_details a');
 		$this->db->join('student_in_session b', 'a.student_ID=b.student_ID');
-
+		$this->db->where('b.class_ID', $crsid);
 		$query=$this->db->get();
 		return $query->result();
 	}
@@ -222,12 +221,12 @@ class student_model extends CI_Model {
 	}
 	function getFlxStudents($crsid)
 	{
-		$this->db->select('a.student_ID, c.fee_Head');
+		$this->db->select('a.student_ID, c.flexible_head_ID');
 		$this->db->where('b.class_ID', $crsid);
 		$this->db->from('student_details a');
 		$this->db->join('student_in_session b', 'a.student_ID=b.student_ID');
 		$this->db->join('flexible_fee_associate_class c', 'b.student_ID=c.student_ID');
-		$this->db->join('fee_flexible_head d', 'c.fee_Head=d.fee_Head');
+		$this->db->join('fee_flexible_head d', 'c.flexible_head_ID=d.flexible_head_ID');
 		$query=$this->db->get();
 		//echo $this->db->last_query(); 
 		return $query->result();
