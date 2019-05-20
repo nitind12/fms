@@ -38,7 +38,7 @@
 									</div>-->
 									<div class="form-group">
 									<div class="col-md-12 widget-right">
-										<input type="submit" class="btn btn-primary btn-md pull-right" value="Drop Student">
+										<input type="submit" class="btn btn-primary btn-md pull-left" value="Drop Student">
 									</div>
 									</div>
 			</form>
