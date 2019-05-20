@@ -34,7 +34,7 @@ $(function(){
 $('body').on('click','.rec',function(){
 		$('#ttreceipt1').html("loading...");
 		//alert(this.id);
-		str=this.id;
+		var str=this.id;
 		var url_ = site_url_ + "/receipt/getreceiptdata/"+str ;
 		var data_=$(this).serialize();
 		

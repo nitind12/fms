@@ -47,5 +47,18 @@ function __construct(){
 	}
 	function getstaticheads(){
 		$data['staticheads_data'] = $this->sm->getstatichead_classwise();
+		
+	}
+	function getstatichead_details(){
+		$data['classes'] = $this->sm->getclasses();
+
+		$data['static_classes'] = $this->sm->getstatichead_details();
+
+		echo json_encode($data);
+		
+	}
+	function updatestatichead_data($str){
+		$data['update_static_data'] = $this->sm->updatestaticheads_data($str);
+		echo json_encode($data);
 	}
 }

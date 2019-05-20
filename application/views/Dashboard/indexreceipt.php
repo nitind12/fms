@@ -69,12 +69,12 @@
 										<select name="cmbYearf" id="cmbYearf" required="required">
 											<option value="">Select Year</option>
 											<?php for ($loop=date('Y');$loop>=2014; $loop--) {?>
-												<?php if($loop == 2019){
+												<!--<?php if($loop == 2019){
 													$sel_ = " selected='selected'";
 												} else {
 													$sel_ = '';
-												} ?>
-												<option value="<?php echo $loop;?>"<?php echo $sel_;?>><?php echo $loop;?></option>
+												} ?>-->
+												<option value="<?php echo $loop;?>"><?php echo $loop;?></option>
 											<?php } ?>
 										</select>
 								</div>
@@ -85,12 +85,12 @@
 									<select name="cmbMonthf" id="cmbMonthf" required="required">
 											<option value="">Select Month</option>
 											<?php for ($loop=1;$loop<=12; $loop++) {?>
-												<?php if($loop == 4){
+												<!--<?php if($loop == 4){
 													$sel_ = " selected='selected'";
 												} else {
 													$sel_ = '';
-												} ?>
-												<option value="<?php echo $this->my_lib->getMonths($loop);?>"<?php echo $sel_;?>><?php echo $this->my_lib->getMonths($loop);?>
+												} ?>-->
+												<option value="<?php echo $this->my_lib->getMonths($loop);?>"><?php echo $this->my_lib->getMonths($loop);?>
 												</option>
 											<?php } ?>
 										</select>
@@ -100,12 +100,12 @@
 										<select name="cmbYeart" id="cmbYeart" required="required">
 											<option value="">Select Year</option>
 											<?php for ($loop=date('Y');$loop<=2019; $loop++) {?>
-												<?php if($loop == 2019){
+												<!--<?php if($loop == 2019){
 													$sel_ = " selected='selected'";
 												} else {
 													$sel_ = '';
-												} ?>
-												<option value="<?php echo $loop;?>"<?php echo $sel_;?>><?php echo $loop;?></option>
+												} ?>-->
+												<option value="<?php echo $loop;?>"s><?php echo $loop;?></option>
 											<?php } ?>
 										</select>
 								</div>
@@ -116,12 +116,12 @@
 									<select name="cmbMontht" id="cmbMontht" required="required">
 											<option value="">Select Month</option>
 											<?php for ($loop=1;$loop<=12; $loop++) {?>
-												<?php if($loop == 5){
+												<!--<?php if($loop == 5){
 													$sel_ = " selected='selected'";
 												} else {
 													$sel_ = '';
-												} ?>
-												<option value="<?php echo $this->my_lib->getMonths($loop);?>"<?php echo $sel_;?>><?php echo $this->my_lib->getMonths($loop);?>
+												} ?>-->
+												<option value="<?php echo $this->my_lib->getMonths($loop);?>"><?php echo $this->my_lib->getMonths($loop);?>
 												</option>
 											<?php } ?>
 										</select>

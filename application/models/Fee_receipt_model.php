@@ -3,26 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Fee_receipt_model extends CI_Model {
 
-	/*function getclasses_sessionwise($session){
-		$this->db->where('session_ID', $session);
-		$query=$this->db->get('class_in_session');
-		//echo $this->db->last_query(); die();
-		return $query->result();
-	}*/
-	/*function getcourse($course){
-		$this->db->where('course_ID', $course);
-		$query=$this->db->get('course_details');
-		//echo $this->db->last_query(); die();
-		return $query->result();
-	}*/
-	/*function getinvoice($class,$yearfrom,$monthfrom,$yearto,$monthto){
-		$this->db->where('course_ID', $course);
-		$query=$this->db->get('course_details');
-		//echo $this->db->last_query(); die();
-		return $query->result();
-	}*/
-	function getclass($classid){
-		$this->db->where('session_ID', $classid);
+	function getclass($sessid){
+		$this->db->where('session_ID', $sessid);
 		$query=$this->db->get('class_in_session');
 		//echo $this->db->last_query(); die();
 		return $query->result();
@@ -60,10 +42,11 @@ class Fee_receipt_model extends CI_Model {
 		return $query->result();
 	}
 	function getreceiptdata($str){
+		$newstr = str_replace('%20', ' ', $str);
 		$this->db->from('student_details a');
 		$this->db->join('fee_receipt b', 'a.student_ID=b.student_ID');
 		$this->db->join('student_in_session c', 'a.student_ID=c.student_ID');
-		$this->db->where('c.class_sess_ID',$str);
+		$this->db->where('c.class_sess_ID',$newstr);
 		//$this->db->where('b.student_ID', $sid);
 		$query = $this->db->get();
 		//echo $this->db->last_query(); die();
@@ -92,14 +75,7 @@ class Fee_receipt_model extends CI_Model {
 		//echo $this->db->last_query(); die();
 		return $query->result();
 	}
-	/*function put_value($cls,$yrf,$monf,$yrt,$mont)
-	{
-		$this->db->from('fee_invoice a');
-		$this->db->join('class_in_session b', 'a.class_sess_ID=b.class_sess_ID');
-		$query='select * from fee_invoice where class_ID='.$cls.' and year_From='.$yrf.' and month_From='.$monf.' and year_To='.$yrt.' month_To='.$mont.' ';
-		return $this->db->query($query)->result();
-	}*/
-
+	
 	function getstudentreceiptdata($invid,$stdid){
 		$this->db->from('student_details a');
 		$this->db->join('fee_invoice b','a.student_ID=b.student_ID');
@@ -259,7 +235,7 @@ class Fee_receipt_model extends CI_Model {
 		$query=$this->db->get('fee_invoice');
 		$r=$query->row();
 
-		$new_due = $r->due_Amount - $paid_amount;
+		$new_due = $r->due_Amount - $paid_amount + $fine;
 
 		$this->db->where('invoice_ID', $invoice_ID);
 		$data2 = array(

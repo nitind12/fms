@@ -49,8 +49,8 @@ class Flexihead_model extends CI_Model {
 
 	function deletion($fhid){
 		
-		$this->db->where('fhead_ID', $fhid);
-		$query=$this->db->delete('manage_flexible_head');
+		$this->db->where('flexible_head_ID', $fhid);
+		$query=$this->db->delete('fee_flexible_head');
 		
 		}
 
@@ -82,11 +82,45 @@ class Flexihead_model extends CI_Model {
 		for($i=0; $i<count($students); $i++){
 			$data = array(
 				'student_ID'=> $students[$i], 
-				'fee_Head'=>$flxhead,
+				'flexible_head_ID'=>$flxhead,
 				'username'=>'fms',
 
 			);
 			$this->db->insert('flexible_fee_associate_class', $data);
 		}
 	}
+	function updateflexiheads_data($str)
+		{
+
+		$fhead = $this->input->post('txtffh');
+		$amnt=$this->input->post('txtffhamt');
+		$hmt=$this->input->post('txthmt');
+
+		//$cid = $this->db->insert_id();
+		//$this->db->where('flexible_head_ID', $str);
+		/*$query = $this->db->get('fee_flexible_head');
+
+		if($query->num_rows()!=0){
+			$bool_ = array(
+				'res' => false,
+				'msg' => '<b class="text-danger">This id already exists. Please try again !!</b>'
+			);
+		} else {*/
+
+			$data=array(
+				'fee_Head' => $fhead,
+				'amount'=> $amnt,
+				'how_many_Times'=>$hmt,
+			);
+			$this->db->where('flexible_head_ID',$str);
+			$this->db->update('fee_flexible_head',$data);
+		
+
+			$bool_ = array(
+				'res' => true,
+				'msg' => '<b class="text-success">Record successfully inserted...</b>'
+			);
+		return $bool_;
+
+		}
 }

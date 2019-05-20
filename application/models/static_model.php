@@ -55,5 +55,7 @@ function getstaticheads(){
 		return $query->result();
 
 	}
+	
+
 }
 

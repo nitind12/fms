@@ -40,7 +40,7 @@
 						<span class="fa fa-arrow-right">&nbsp;</span> Static in class
 					</a></li>
 					<li><a class="" href="flexihead_students">
-						<span class="fa fa-arrow-right">&nbsp;</span> Flexihead-students
+						<span class="fa fa-arrow-right">&nbsp;</span> Flexihead in students
 					</a></li>
 					<li><a class="" href="dropstudent">
 						<span class="fa fa-arrow-right">&nbsp;</span> Drop student
@@ -90,6 +90,6 @@
 					</a></li>
 				</ul>
 			</li>
-			<li><a href="login"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
+			<li><a href="<?php echo site_url('login/logout');?>"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
 		</ul>
 	</div>
