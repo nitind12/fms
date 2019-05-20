@@ -32,7 +32,6 @@ $(function(){
 					$('#txtpincode').val(obj['stud']['pincode']);
 					$('#txtsibling').val(obj['stud']['siblings']);
 					$('#txtdoa').val(obj['stud']['date']);	
-					$('#txtdisc').val(obj['stud']['discount_offered']);
 					$('#disc').val(obj['stud']['discount_on']);
 					$('#txtcourse').val(obj['stud']['course_ID']);
 
@@ -59,7 +58,7 @@ $(function(){
 				var obj=JSON.parse(data);	
 				var data_ = $('#txtsibling').val();	
 				if(data_ != ''){
-					$('#txtsibling').val(data_ + ", " + obj['stud']['student_ID']);
+					$('#txtsibling').val(data_ +  ", " + obj['stud']['student_ID']);
 				} else {
 					$('#txtsibling').val(obj['stud']['student_ID']);
 				}	
