@@ -7,8 +7,10 @@ class login extends CI_Controller {
 	{
 		
 		$this->session->sess_destroy();
+		$this->load->model('My_model','mm');
+		$data['session'] = $this->mm->getsession();
 		$this->load->view('templates/header');
-		$this->load->view('Dashboard/login');
+		$this->load->view('Dashboard/login',$data);
 		$this->load->view('templates/footer');
 		$this->load->view('templates/footer2');
 	}

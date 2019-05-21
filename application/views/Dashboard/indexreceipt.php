@@ -49,7 +49,7 @@
 						<span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span>
 					</div>
 					<div class="panel-body">
-						<form class="form" id="frmInvoice">
+						<form class="form" id="frmInvoice" >
 							<fieldset>
 								<!-- Class input-->
 								<div class="form-group col-md-4">
