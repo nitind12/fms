@@ -271,7 +271,7 @@
 	 
 			var url_ = site_url_ + "/receipt/generatereceipt/";
 			var data_ = $('#frmSubmtInvoice').serialize();
-			alert(data_);
+			//alert(data_);
 		$.ajax
 		({
 			type: "POST",

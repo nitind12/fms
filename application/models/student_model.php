@@ -102,11 +102,11 @@ class student_model extends CI_Model {
 
 			$data6= array(
 				'student_ID' =>$sidold,
-				'discount_Type' => $txtdisc_,
-				'category' => $dis_,
+				'discount_offered' => $txtdisc_,
+				'discount_on' => $dis_,
 			);
 			$this->db->where('student_ID',$sidold);
-			$this->db->update('discount_details',$data6);
+			$this->db->update('discount',$data6);
 
 			$bool_ = array(
 				'res' => false,
@@ -169,10 +169,10 @@ class student_model extends CI_Model {
 
 			$data6= array(
 				'student_ID' => $sid,
-				'discount_Type' => $txtdisc_,
-				'category' => $dis_,
+				'discount_offered' => $txtdisc_,
+				'discount_on' => $dis_,
 			);
-			$this->db->insert('discount_details',$data6);
+			$this->db->insert('discount',$data6);
 
 
 			$bool_ = array(
