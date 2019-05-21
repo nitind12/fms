@@ -236,3 +236,19 @@ $('body').on('click','.stdi',function(){
 		});
 });
 
+$('body').on('click','.stdi',function(){
+	var crsid= this.id;
+	var url_= site_url_  + "/classes/getclass/" + crsid;
+		$.ajax({
+			type:"GET",
+			url : url_,
+			success:function(data){
+				var obj = JSON.parse(data);
+			var str = " ";
+				str = str + "<span class='btn btn-success'><strong>" +obj.clssTotal[crsid-1]['course'] + ' ' + obj.clssTotal[crsid-1]['sem_ID'] + ' ' + obj.clssTotal[crsid-1]['section'];
+				str = str + "</strong></span>";
+				
+				$('#clswsee').html(str);
+			}
+		});
+});

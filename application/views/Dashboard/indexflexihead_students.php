@@ -106,7 +106,10 @@
                <th>
                    <table class="table table-bordered table-striped with-check">
                       <tr>
-                       <th style="text-align: left">Select Classe(s)</th>
+                       <th>
+                       <table><tr><th style="text-align: left">Select Classe(s)</th>
+                       <th><div id="clswsee" style="clear:both"></div></th></tr></table>
+
                     </tr>
                     <tr>
                        <th>

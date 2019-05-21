@@ -236,7 +236,7 @@
 							<div class="form-group col-md-3" >
 										<label>Discount offered(if any?)</label>
 										<select class="form-control" name="txtdisc" id="txtdisc">
-											<option>Select</option>
+											<<option>Select</option>
 											<option>No Discount</option>
 											<option>Reference</option>
 											<option>Categorical</option>

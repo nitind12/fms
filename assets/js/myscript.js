@@ -33,6 +33,7 @@ $(function(){
 					$('#txtsibling').val(obj['stud']['siblings']);
 					$('#txtdoa').val(obj['stud']['date']);	
 					$('#disc').val(obj['stud']['discount_on']);
+					$('#txtdisc').val(obj['stud']['discount_offered']);
 					$('#txtcourse').val(obj['stud']['course_ID']);
 
 
@@ -76,11 +77,11 @@ $(function(){
 			success: function(data){
 				//alert(data);	
 				var obj=JSON.parse(data);	
-				var data_ = $('#disc').val();	
+				var data_ = $('#txtdisc').val();	
 				if(data_ != ''){
-					$('#disc').val(data_ + ", " + obj['stud']['discount_offered']);
+					$('#txtdisc').val(data_ + ", " + obj['stud']['discount_offered']);
 				} else {
-					$('#disc').val(obj['stud']['discount_offered']);
+					$('#txtdisc').val(obj['stud']['discount_offered']);
 				}	
 			}
 		});
