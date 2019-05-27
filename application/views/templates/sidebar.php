@@ -71,10 +71,10 @@
 				</a>
 				<ul class="children collapse" id="reports">
 					<li><a class="" href="currenttotaldisplay">
-						<span class="fa fa-arrow-right">&nbsp;</span> <small>Today's Payments</small>
+						<span class="fa fa-arrow-right">&nbsp;</span> <small>Today's Collection</small>
 					</a></li>
 					<li><a class="" href="totaldisplay">
-						<span class="fa fa-arrow-right">&nbsp;</span> <small>Total Payments</small>
+						<span class="fa fa-arrow-right">&nbsp;</span> <small>Total Collection</small>
 					</a></li>
 					<li><a class="" href="invoicedisplay">
 						<span class="fa fa-arrow-right">&nbsp;</span><small> All invoices Class wise</small>
