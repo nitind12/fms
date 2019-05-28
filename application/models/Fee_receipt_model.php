@@ -3,16 +3,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Fee_receipt_model extends CI_Model {
 
-	function getclass($sessid){
-		$this->db->where('session_ID', $sessid);
+	function getclass(){
+		$this->db->where('session_ID', $this->session->userdata('SESS_'));
 		$query=$this->db->get('class_in_session');
 		//echo $this->db->last_query(); die();
 		return $query->result();
 	}
-	function getstudent($cssid){
+	function getclassinsession($session){
+		$this->db->where('session_ID', $session);
+		$query=$this->db->get('class_in_session');
+		//echo $this->db->last_query(); die();
+		return $query->result();
+	}
+	function getstudent(){
+		$cls=$this->input->get('cmbClass');
 		$this->db->from('student_details a');
 		$this->db->join('student_in_session b', 'a.student_ID=b.student_ID');
-		$this->db->where('class_sess_ID', $cssid);
+		$this->db->where('b.class_sess_ID', $cls);
 		$query=$this->db->get();
 		//echo $this->db->last_query(); die();
 		return $query->result();
@@ -25,10 +32,11 @@ class Fee_receipt_model extends CI_Model {
 		//echo $this->db->last_query(); die();
 		return $query->result();
 	}
-	function getstaticfee($cssid){
+	function getstaticfee(){
+		$cls=$this->input->get('cmbClass');
 		$this->db->from('fee_static_head a');
 		$this->db->join('static_fee_associate_class b', 'a.static_head_ID=b.static_head_ID');
-		$this->db->where('b.class_sess_ID', $cssid);
+		$this->db->where('b.class_sess_ID', $cls);
 		$query = $this->db->get();
 		//echo $this->db->last_query(); die();
 		return $query->result();
@@ -155,7 +163,7 @@ class Fee_receipt_model extends CI_Model {
 		$this->db->from('student_details e');
 		$this->db->join('student_in_session c','a.class_ID=c.class_ID');
 		$this->db->join('fee_receipt d', 'e.student_ID=d.student_ID');
-
+		$this->db->join('discount_details f', 'f.discount_ID=d.discount_ID');
 		$this->db->where('d.receipt_ID', $recptid);
 		$query = $this->db->get(); 
 		return $query->row();
@@ -243,5 +251,6 @@ class Fee_receipt_model extends CI_Model {
 		);
 			$this->db->update('fee_invoice',$data2);
 		return $data;
+
 	}
 }

@@ -13,7 +13,7 @@ class studentregi extends CI_Controller {
 	public function index()
 	{
 		$this->load->model('student_model', 'stm');
-		$data['students'] = $this->stm->getStudents();
+		$data['students'] = $this->stm->getstudentsdata();
 		$this->load->model('class_model', 'cm');
 		$data['course'] = $this->cm->getclasses();
 
@@ -23,9 +23,9 @@ class studentregi extends CI_Controller {
 		$this->load->view('Dashboard/indexstudentregi', $data);
 		$this->load->view('templates/footer');
 	}
-	function getStudent($stdid=''){
-		$this->load->model('student_model', 'stm');
+	function getStudent($stdid=""){
 		$data['stud'] = $this->stm->getStudents($stdid);
+		$data['student'] = $this->stm->getstudentsdetails();
 		echo json_encode($data);
 	}
 

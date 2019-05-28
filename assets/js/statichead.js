@@ -191,9 +191,9 @@ $(function(){
 						if(obj.classes[i]['class_sess_ID'] == obj.static_classes[j]['class_sess_ID'])
 						{
 							if(static == ''){
-								static = static + obj.static_classes[j]['static_head_ID'];
+								static = static + obj.static_classes[j]['fee_Head'];
 							} else {
-								static = static + ", "+ obj.static_classes[j]['static_head_ID'];
+								static = static + ", "+ obj.static_classes[j]['fee_Head'];
 							}
 						}
 					}				

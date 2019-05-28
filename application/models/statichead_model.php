@@ -88,9 +88,10 @@ class statichead_model extends CI_Model {
 			$this->db->insert('static_fee_associate_class', $data);
 	}
 	function getstatichead_details(){
-		$this->db->select('class_sess_ID,static_head_ID');
-		$query=$this->db->get('static_fee_associate_class');
-		//echo $this->db->last_query(); 
+		$this->db->from('fee_static_head a');
+		$this->db->join('static_fee_associate_class b','a.static_head_ID=b.static_head_ID');
+		//echo $this->db->last_query();
+		$query=$this->db->get();
 		return $query->result();
 	}
 	function updatestaticheads_data($str)

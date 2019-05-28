@@ -20,20 +20,20 @@ $('#ttlstdnts').html("loading...");
 				str = str + "<th>Class Of Admission</th>";
 				str = str + "<th>Date Of Admission</th>";
 				str = str + "</tr>";
-				for(i=0; i<obj.stud.length; i++){
+				for(i=0; i<obj.student.length; i++){
 					str = str + "<tr>";
-					str = str + "<td>" + obj.stud[i]['student_ID'] + "</td>";
-					str = str + "<td>" + obj.stud[i]['first_Name'] + ' ' + obj.stud[i]['last_Name'] + "</td>";
+					str = str + "<td>" + obj.student[i]['student_ID'] + "</td>";
+					str = str + "<td>" + obj.student[i]['first_Name'] + ' ' + obj.student[i]['last_Name'] + "</td>";
 					
-					if(obj['stud'][i]['gender'] == 'MALE'){
+					if(obj['student'][i]['gender'] == 'MALE'){
 				
 					str = str + '<td><img src="http://localhost/fms/assets/male.png" style="width:20px" alt="Male" title="Male"></td>';
 				} else {
 					str = str + '<td><img src="http://localhost/fms/assets/female.png" style="width:20px" alt="Female" title="Female"></td>';
 
 				}
-					str = str + "<td>" + obj.stud[i]['course'] + ' ' + obj.stud[i]['sem_ID'] + ' ' + obj.stud[i]['section'] + "</td>";
-					str = str + "<td>" + obj.stud[i]['date'] + "</td>";
+					str = str + "<td>" + obj.student[i]['course'] + ' ' + obj.student[i]['sem_ID'] + ' ' + obj.student[i]['section'] + "</td>";
+					str = str + "<td>" + obj.student[i]['date'] + "</td>";
 					str = str + "</tr>";
 				}
 				 

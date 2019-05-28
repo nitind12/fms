@@ -7,12 +7,12 @@ class session_model extends CI_Model {
 	}
 
 	function submission(){
-		$sid_ = $this->input->post('txtsid');
-		$sstart_ = $this->input->post('txtsstart');
+		//$sid_ = $this->input->post('txtsid');
+		$start_ = $this->input->post('txtstart');
 		$send_=$this->input->post('txtsend');
 		$dte_=$this->input->post('txtdte');
 
-		$this->db->where('session_ID', $sid_);
+		//$this->db->where('session_ID', $sid_);
 		$query = $this->db->get('session_master');
 
 		if($query->num_rows()!=0){
@@ -21,10 +21,10 @@ class session_model extends CI_Model {
 				'msg' => '<b class="text-danger">This id already exists. Please try again !!</b>'
 			);
 		} else {
-
+			$sid_= $start_."-".$send_;
 			$data = array(
 				'session_ID' => $sid_,
-				'session_Start' => $sstart_,
+				'session_Start' => $start_,
 				'session_End' => $send_,
 				'date'=> $dte_
 			);

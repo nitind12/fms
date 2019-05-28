@@ -56,6 +56,7 @@ $('body').on('click','.classes',function(){
 				
 
 				str = str + "<tr>";
+					str = str + "<th>Print</th>";
 					str = str + "<th>Invoice Id</th>";
 				//str = str + "<th>Invoice Id</th>";
 					str = str + "<th>Duration</th>";
@@ -68,6 +69,9 @@ $('body').on('click','.classes',function(){
 
 				for(i=0; i<obj.invoicedata.length; i++){
 				str = str + "<tr>";
+					str = str +'<td>';
+					str = str + '<a href="'+site_url_+"/preceipt/print_/"+obj.invoicedata[i]['invoice_ID']+'" target="_blank"><span class="fa fa-print"></span></a>';
+					str = str +'</td>';
 					str = str + '<td>';
 					str = str  + obj.invoicedata[i]['invoice_ID']; 
 					str = str + '</td>';

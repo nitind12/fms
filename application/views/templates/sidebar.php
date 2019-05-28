@@ -42,9 +42,7 @@
 					<li><a class="" href="flexihead_students">
 						<span class="fa fa-arrow-right">&nbsp;</span> Flexihead in students
 					</a></li>
-					<li><a class="" href="dropstudent">
-						<span class="fa fa-arrow-right">&nbsp;</span> Drop student
-					</a></li>
+					
 				</ul>
 			</li>
 			<li class="parent"><a data-toggle="collapse" href="#registration"><em class="fa fa-graduation-cap">&nbsp;</em>
@@ -71,10 +69,10 @@
 				</a>
 				<ul class="children collapse" id="reports">
 					<li><a class="" href="currenttotaldisplay">
-						<span class="fa fa-arrow-right">&nbsp;</span> <small>Today's Payments</small>
+						<span class="fa fa-arrow-right">&nbsp;</span> <small>Today's Collection</small>
 					</a></li>
 					<li><a class="" href="totaldisplay">
-						<span class="fa fa-arrow-right">&nbsp;</span> <small>Total Payments</small>
+						<span class="fa fa-arrow-right">&nbsp;</span> <small>Total Collection</small>
 					</a></li>
 					<li><a class="" href="invoicedisplay">
 						<span class="fa fa-arrow-right">&nbsp;</span><small> All invoices Class wise</small>

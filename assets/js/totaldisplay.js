@@ -30,7 +30,7 @@ $('#frmAmount').submit(function(){
 					str = str +'<tr>';
 					if(obj.studenttotal[s]['student_ID'] == obj.receipttotal[r]['student_ID']){
 					str = str + "<td>"+obj.receipttotal[r]['receipt_ID']+"</td>";
-					str = str + "<td>"+obj.receipttotal[r]['receipt_ID']+"</td>";
+					str = str + "<td>"+obj.receipttotal[r]['date']+"</td>";
 					str = str + "<td>"+obj.receipttotal[r]['class_ID']+"</td>";
 					str = str + "<td>"+obj.receipttotal[r]['invoice_ID']+"</td>";
 					str = str + "<td>"+obj.receipttotal[r]['paid']+"</td>";
