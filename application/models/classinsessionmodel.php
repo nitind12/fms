@@ -26,6 +26,7 @@ class classinsessionmodel extends CI_Model {
 					'class_ID' => $xx[1],
 					'session_ID'=>$sess
 				);
+				
 				$this->db->insert('class_in_session', $data);
 				echo $this->db->last_query();
 				$bool_ = array(
