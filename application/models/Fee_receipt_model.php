@@ -9,10 +9,11 @@ class Fee_receipt_model extends CI_Model {
 		//echo $this->db->last_query(); die();
 		return $query->result();
 	}
-	function getstudent($cssid){
+	function getstudent(){
+		$cls=$this->input->get('cmbClass');
 		$this->db->from('student_details a');
 		$this->db->join('student_in_session b', 'a.student_ID=b.student_ID');
-		$this->db->where('class_sess_ID', $cssid);
+		$this->db->where('b.class_sess_ID', $cls);
 		$query=$this->db->get();
 		//echo $this->db->last_query(); die();
 		return $query->result();
@@ -25,10 +26,11 @@ class Fee_receipt_model extends CI_Model {
 		//echo $this->db->last_query(); die();
 		return $query->result();
 	}
-	function getstaticfee($cssid){
+	function getstaticfee(){
+		$cls=$this->input->get('cmbClass');
 		$this->db->from('fee_static_head a');
 		$this->db->join('static_fee_associate_class b', 'a.static_head_ID=b.static_head_ID');
-		$this->db->where('b.class_sess_ID', $cssid);
+		$this->db->where('b.class_sess_ID', $cls);
 		$query = $this->db->get();
 		//echo $this->db->last_query(); die();
 		return $query->result();

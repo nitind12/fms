@@ -23,9 +23,9 @@ class studentregi extends CI_Controller {
 		$this->load->view('Dashboard/indexstudentregi', $data);
 		$this->load->view('templates/footer');
 	}
-	function getStudent($stdid=''){
-		$this->load->model('student_model', 'stm');
-		$data['stud'] = $this->stm->getStudents($stdid);
+	function getStudent(){
+
+		$data['student'] = $this->stm->getstudentsdetails();
 		echo json_encode($data);
 	}
 

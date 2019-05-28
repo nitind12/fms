@@ -54,7 +54,7 @@ class My_model extends CI_Model {
 
 	function totalStudents(){
 		$this->db->select('COUNT(student_ID) AS TOTAL_');
-		$query = $this->db->get('student_details');
+		$query = $this->db->get('student_in_session');
 		return $query->row();
 		
 	}
@@ -97,6 +97,12 @@ class My_model extends CI_Model {
 		$this->db->join('fee_receipt b','a.student_ID = b.student_ID');
 		$this->db->where('b.date',$str);
 		$query = $this->db->get();
+		return $query->result();
+	}
+	function getsession()
+	{
+		$this->db->select('session_ID');
+		$query = $this->db->get('session_master');
 		return $query->result();
 	}
 

@@ -14,7 +14,7 @@ class dropstudent extends CI_Controller {
 	public function index()
 	{
 		$this->load->model('student_model','stm');
-		$data['students'] = $this->stm->getStudents();
+		$data['students'] = $this->stm->getstudentsdetails();
 
 		$this->load->model('class_model','cm');
 		$data['class'] = $this->cm->getclasses();

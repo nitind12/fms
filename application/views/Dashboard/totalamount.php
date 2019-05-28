@@ -32,12 +32,7 @@
                                         <select class="form-control"  name="cmbMonthf" id="cmbMonthf" required="required">
                                             <option>Select Month</option>
                                           <?php for ($loop=1;$loop<=12; $loop++) {?>
-                                                <?php if($loop == 4){
-                                                    $sel_ = " selected='selected'";
-                                                } else {
-                                                    $sel_ = '';
-                                                } ?>
-                                                <option value="<?php echo $this->my_lib->getMonths($loop);?>"<?php echo $sel_;?>><?php echo $this->my_lib->getMonths($loop);?>
+                                                <option value="<?php echo $this->my_lib->getMonths($loop);?>"><?php echo $this->my_lib->getMonths($loop);?>
                                                 </option>
                                             <?php } ?>
                                         </select>
@@ -49,12 +44,8 @@
                                         <select class="form-control"  name="cmbMontht" id="cmbMontht" required="required">
                                             <option>Select To</option>
                                            <?php for ($loop=1;$loop<=12; $loop++) {?>
-                                                <?php if($loop == 5){
-                                                    $sel_ = " selected='selected'";
-                                                } else {
-                                                    $sel_ = '';
-                                                } ?>
-                                                <option value="<?php echo $this->my_lib->getMonths($loop);?>"<?php echo $sel_;?>><?php echo $this->my_lib->getMonths($loop);?>
+                                                
+                                                <option value="<?php echo $this->my_lib->getMonths($loop);?>"><?php echo $this->my_lib->getMonths($loop);?>
                                                 </option>
                                             <?php } ?>
                                         </select>
