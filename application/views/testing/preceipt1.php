@@ -115,6 +115,9 @@
 										<tr valign="top">
 											<td class="label_">Mode:<?php	echo $receipt->fee_Mode;?> </td>
 											<td class="content"></td>
+										<tr valign="top">
+											<td class="label_">Discount:<?php	echo $receipt->discount_Amount;?> </td>
+											<td class="content"></td>
 										</tr>
 											<tr valign="top">
 											<td class="label_">Total Paid:&nbsp<?php echo $receipt->paid;?>&nbsp&nbsp<b>Rs. </b>/-</td>
