@@ -42,9 +42,7 @@
 					<li><a class="" href="flexihead_students">
 						<span class="fa fa-arrow-right">&nbsp;</span> Flexihead in students
 					</a></li>
-					<li><a class="" href="dropstudent">
-						<span class="fa fa-arrow-right">&nbsp;</span> Drop student
-					</a></li>
+					
 				</ul>
 			</li>
 			<li class="parent"><a data-toggle="collapse" href="#registration"><em class="fa fa-graduation-cap">&nbsp;</em>
