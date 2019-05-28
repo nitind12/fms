@@ -163,7 +163,8 @@ class Fee_receipt_model extends CI_Model {
 		$this->db->from('student_details e');
 		$this->db->join('student_in_session c','a.class_ID=c.class_ID');
 		$this->db->join('fee_receipt d', 'e.student_ID=d.student_ID');
-		$this->db->join('discount_details f', 'f.discount_ID=d.discount_ID');
+		//$this->db->join('discount_details f', 'f.discount_ID=d.discount_ID');
+		//$this->db->select('d.discount_Amount');
 		$this->db->where('d.receipt_ID', $recptid);
 		$query = $this->db->get(); 
 		return $query->row();
@@ -199,11 +200,11 @@ class Fee_receipt_model extends CI_Model {
 				{
 					if($d_id == '')
 					{
-						$d_id=$item->discount_ID;
+						$d_id=$item->discount_Type;
 					}
 					else
 					{
-			 		$d_id=$d_id.','.$item->discount_ID;
+			 		$d_id=$d_id.','.$item->discount_Type;
 			 		}
 			 		if($d_amount == 0)
 					{

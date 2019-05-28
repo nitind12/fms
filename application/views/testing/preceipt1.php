@@ -116,30 +116,11 @@
 											<td class="label_">Mode:<?php	echo $receipt->fee_Mode;?> </td>
 											<td class="content"></td>
 										<tr valign="top">
-											<td class="label_">Discount:<?php	echo $receipt->discount_Amount;?> </td>
+											<td class="label_">Discount:<?php	echo $receipt->discount_Amount;?>(<?php	echo $receipt->discount_ID;?> ) </td>
 											<td class="content"></td>
 										</tr>
-										<tr valign="top">
-											<td class="label_">Discount:
-												<?php
-												$discount='';
-												foreach($receipt as $item3)
-												{
-													if($discount == '')
-													{
-														$discount= $item3->discount_Amount;
-													}else
-													{
-														$discount= $discount + $item3->discount_Amount;
-
-													}
-												}
-												echo $discount;
-												?>
-												
-
-											<td class="content"></td>
-										</tr>
+										
+									
 											<tr valign="top">
 											<td class="label_">Total Paid:&nbsp<?php echo $receipt->paid;?>&nbsp&nbsp<b>Rs. </b>/-</td>
 											<td></td>
