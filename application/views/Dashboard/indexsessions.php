@@ -14,16 +14,16 @@
 						 
 				<fieldset>
 								<!--student details-->
-								<div class="col-md-3">
+								<!--<div class="col-md-3">
 									<div class="form-group">
 									<label>Session ID</label>
 									<input class="form-control" name="txtsid" id="txtsid">
 								</div>
-							</div>
+							</div>-->
 								<div class="col-md-3">
 									<div class="form-group">
 									<label>Session Start</label>
-									<select class="form-control" name="txtsstart" id="txtsstart">
+									<select class="form-control" name="txtstart" id="txtstart">
 											<option>Select</option>
 											<?php for ($loop=2025;$loop>=2014; $loop--) {?>
 												<option value="<?php echo $loop;?>"><?php echo $loop;?></option>

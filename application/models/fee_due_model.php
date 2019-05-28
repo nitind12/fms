@@ -3,8 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Fee_due_model extends CI_Model {
 
-	function getclass($classid){
-		$this->db->where('session_ID', $classid);
+	function getclass(){
+		$this->db->where('session_ID', $this->session->userdata('SESS_'));
 		$query=$this->db->get('class_in_session');
 		//echo $this->db->last_query(); die();
 		return $query->result();

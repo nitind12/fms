@@ -27,7 +27,7 @@
 											<b></b>
 											</div>
 									<span class="header_text">
-									<b>The Demo School, Haldwani</b><br>
+									<b>Fee Management School, Haldwani</b><br>
 									<span style="font-weight: 100">Fee Receipt <br>
 									<span style="font-size: 13px; font-weight: bold">
 										2019, May									</span>
@@ -114,6 +114,27 @@
 										</tr>
 										<tr valign="top">
 											<td class="label_">Mode:<?php	echo $receipt->fee_Mode;?> </td>
+											<td class="content"></td>
+										</tr>
+										<tr valign="top">
+											<td class="label_">Discount:
+												<?php
+												$discount='';
+												foreach($receipt as $item3)
+												{
+													if($discount == '')
+													{
+														$discount= $item3->discount_Amount;
+													}else
+													{
+														$discount= $discount + $item3->discount_Amount;
+
+													}
+												}
+												echo $discount;
+												?>
+												
+
 											<td class="content"></td>
 										</tr>
 											<tr valign="top">

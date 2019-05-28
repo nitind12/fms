@@ -23,7 +23,7 @@ class displaydue extends CI_Controller {
 	}
 	public function getduedata()
 	{
-		$data['class_in_session'] = $this->fdm->getclass('2018-19');
+		$data['class_in_session'] = $this->fdm->getclass();
 		echo json_encode($data);
 
 	}

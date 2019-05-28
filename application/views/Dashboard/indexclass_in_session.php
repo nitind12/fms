@@ -14,7 +14,7 @@ f<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 
 				<tr>
 					<td>Total Class</td>
-					<td>Classes in new session (2018-19)</td>
+					<td>Classes in new session</td>
 				</tr>
 				<tr>
 					<td><div id="prhere" style="clear:both"></div></td>
@@ -23,7 +23,7 @@ f<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 			</table>
 		</div>
 		<div>
-		<input type="submit" class="btn btn-primary" id="submitClasses" Value="SUBMIT CLASSES TO SESSION 2018-19">
+		<input type="submit" class="btn btn-primary" id="submitClasses" Value="SUBMIT CLASSES TO SESSION">
 		</div>
 
 						

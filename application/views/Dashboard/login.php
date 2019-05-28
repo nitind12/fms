@@ -21,13 +21,14 @@
 				<div class="panel-body">
 					<form role="form" name="frmLogin" id="frmLogin" action="<?php echo site_url('login/authenticate');?>" method="post">
 						<fieldset>
-							<!--<dv class="main_input_box">
 							<div class="form-group">
-								<select>
-										<option class="col-md-5">Select Session</option>
+								<select  class="form-control" name="cmbSession" id="cmbSession">
+										<option>Select Session</option>
 										<?php foreach ($session as $item) {?>
-												<option value="<?php echo $item->session_ID;?>"><?php echo $item->session_ID;?></option>
-										<?php } ?>-->
+											<option value="<?php echo $item->session_ID;?>"><?php echo $item->session_ID;?></option>
+										<?php } ?>
+								</select>
+							</div>
 							<div class="form-group">
 								<input class="form-control" placeholder="Username" name="txtUsr" type="text" autofocus="" value="<?php echo $usr;?>">
 							</div>

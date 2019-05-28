@@ -243,4 +243,12 @@ class student_model extends CI_Model {
 		//echo $this->db->last_query(); 
 		return $query->result();
 	}
+	function getstudentsdata()
+	{
+		$this->db->select('*');
+		$query=$this->db->get('student_details');
+		//echo $this->db->last_query(); 
+		return $query->result();
+	}	
+	
 }

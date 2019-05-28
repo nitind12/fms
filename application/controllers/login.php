@@ -16,6 +16,11 @@ class login extends CI_Controller {
 	}
 
 	function authenticate(){
+		$this->session->set_userdata('SESS_',$this->input->post('cmbSession'));
+		//$this->session->userdata('SESS_');
+		//$this->load->model('fee_receipt_model', 'frm');
+		//$this->frm->getclass($session);
+		//$this->load->view('Dashboard/indexreceipt',$data);
 		$this->load->model('my_model');
 		$r = $this->my_model->authenticate();
 		if($r == true){

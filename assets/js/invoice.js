@@ -122,7 +122,7 @@ $('#frmInvoice').submit(function(){
 						
 
 
-							for (d=0; d<obj.discount.length; d++)
+							/*for (d=0; d<obj.discount.length; d++)
 							{
 									if(obj.students[s]['student_ID'] == obj.discount[d]['student_ID'])
 									{
@@ -131,7 +131,7 @@ $('#frmInvoice').submit(function(){
 											d_amount = obj.discount[d]['discount_Amount'];	
 										} else d_amount =parseInt(d_amount) + parseInt(obj.discount[d]['discount_Amount']);
 									}
-							}
+							}*/
 	
 						
 							f_amount=0;
@@ -149,9 +149,9 @@ $('#frmInvoice').submit(function(){
 										{	
 													f_amount = flexible_amount;
 										}			
-													if(d_amount == ''){
+												/*	if(d_amount == ''){
 														s_amount = parseInt(s_amount) - '';
-													}else s_amount = parseInt(s_amount) - parseInt(d_amount);
+													}else s_amount = parseInt(s_amount) - parseInt(d_amount);*/
 													if(f_amount == 0){
 															total_fee=s_amount;
 													}else {total_fee = parseInt(s_amount) + parseInt(f_amount);}
@@ -195,10 +195,10 @@ $('#frmInvoice').submit(function(){
 									}
 							}
 							if(invid=='x'){
-							str = str + '<td class="due" id="due_'+invid+'">'+dues+'</td>';
+							str = str + '<td class="due" id="due_'+obj.students[s]['student_ID']+'">'+dues+'</td>';
 							}
 							else{
-							str = str + '<td class="due" id="due_'+invid+'">'+dues+'</td>';
+							str = str + '<td class="due" id="due_invid_'+obj.students[s]['student_ID']+'">'+dues+'</td>';
 							}
 							if(invid == 'x'){
 								//str = str + '<td></td>';
@@ -265,12 +265,13 @@ $('#frmInvoice').submit(function(){
 					$('#'+id_).addClass('fa-undo undo_invoice');
 					$('#'+id_).attr('id', id_new);
 					//alert('hello');
+
 					id_new2 = 'payhere_'+stdid+'_invid_'+obj.resultant['newinvid'];
 					id1_='payhere_'+stdid;
 					$('#'+id1_).addClass('fa-play payhere');
 					$('#'+id1_).attr('id', id_new2);
-					id_new3='due_'+obj.resultant['newinvid'];
-					id4_='due_'+invid;
+					id_new3='due_invid_'+stdid;
+					id4_='due_'+stdid;
 					$('#'+id4_).addClass('due');
 					$('#'+id4_).attr('id', id_new3);
 

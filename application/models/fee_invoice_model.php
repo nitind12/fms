@@ -178,7 +178,7 @@ class Fee_invoice_model extends CI_Model {
 					
 		
 
-		$session = '2018-19';
+		$session = '2018-2019';
 			
 		$total_amount=0;
 		$total_amount=$s_amount+$f_amount;

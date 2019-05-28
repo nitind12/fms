@@ -91,6 +91,7 @@
 
 				due_Amount='';
 				discount_Amount='';
+				total='';
 				//tfine='';
 				//t_amount='';
 				
@@ -112,6 +113,7 @@
 				str = str + '<td style="color: #909000">Discount? <span style="float: right; padding: 8px 0px; font-size: 11px" class="fa fa-minus"></span><div style="float: left; font-size: 8px; color: #0000ff; clear: both"></div>';
 				str = str + '</td>';
 				discount_Amount=obj.students['applicable_discount_Amount'];
+				total=parseInt($total_due) - parseInt(discount_Amount);
 				str = str + '<td>'
 				str = str + '<label class="receipt_label">: Rs.</label><span class="receipt_content">' +discount_Amount+'/-</td>';
 				str = str + '<input type="hidden" id="_discount_" name="_discount_" value="'+discount_Amount+'" style="width: 100px; padding: 0px; background: #f0f000; border:#000000 solid 0px">';
@@ -128,10 +130,9 @@
 
 				str = str + '<tr style="font-weight: bold">';
 				str = str + '<td>Total</td>';
-				
-
-				str = str + '<td>';
-				str = str + '<label class="receipt_label" id="receipt_label">: Rs. </label><span class="receipt_content"><span class="total_amnt" id="total_amnt_display"></span><input type="hidden" id="total_amnt" name="total_amnt" value="1000" style="width: 100px; padding: 0px; border:#000000 solid 0px; font-weight: bold">/-</span>';
+				str = str + '<td id="totalamount">';
+	
+				str = str + '<label class="receipt_label" id="receipt_label">Rs.'+total+'</label><span class="receipt_content"><span class="total_amnt" id="total_amnt_display"></span><input type="hidden" id="total_amnt" name="total_amnt" value="1000" style="width: 100px; padding: 0px; border:#000000 solid 0px; font-weight: bold">/-</span>';
 				str = str + '</td>';
 				
 			
@@ -224,6 +225,7 @@
 		return false;
 	});
 	$('body').on('click','#update_total', function(){
+		//$('#totalamount').hide();
 		tfine=$("#fine").val();
 		if(tfine != 0)
 		{
@@ -240,7 +242,7 @@
 
 
 		
-		$("#receipt_label").html(":Rs. " + totalAmt);
+		$("#receipt_label").html("Rs. " + totalAmt);
 		$('#total_amnt_in_words').html(convertNumberToWords(totalAmt));
 	});
 

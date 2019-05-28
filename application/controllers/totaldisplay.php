@@ -12,7 +12,7 @@ class totaldisplay extends CI_Controller {
 	}
 	public function index()
 	{
-		$data['class_in_session'] = $this->ftm->getclass('2018-19');
+		$data['class_in_session'] = $this->ftm->getclass();
 		$data['reciepttotal'] = $this->ftm->getreceiptdata_total();
 		$data['studenttotal'] = $this->ftm->getstudentdata_total();
 		$this->load->view('templates/header');

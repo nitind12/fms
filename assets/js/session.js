@@ -1,5 +1,5 @@
 $(function(){
-	$('#txtsid').change(function(){
+	//$('#txtsid').change(function(){
 		$('#prnthere').html("loading...");
 
 		var url_ = site_url_ + "/sessions/getsession/" ;
@@ -35,7 +35,7 @@ $(function(){
 				str = str + "</table>";
 				$('#prnthere').html(str);
 			}
-		});
+		//});
 });
 });
 $('body').on('click','.del',function(){
