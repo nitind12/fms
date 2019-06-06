@@ -1,9 +1,9 @@
 <script src="<?php echo base_url('assets/js/jquery-1.11.1.min.js');?>"></script>
 
-<script type="text/javascript" src="<?php echo base_url('assets/js/invoice.js');?>?version=22.5"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/invoice.js');?>?version=22.6"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/myscript2.js');?>?version=1.2"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/myscript.js');?>?version=7.2"></script>
-<script type="text/javascript" src="<?php echo base_url('assets/js/session.js');?>?version=2.3"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/session.js');?>?version=2.4"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/myscript3.js');?>?version=7.4"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/receipt.js');?>?version=14.9"></script>
 

@@ -46,13 +46,8 @@ $('body').on('click','.del',function(){
 			type: "GET",
 			url: url_,
 			success: function(data){
-				alert('deleted');
-
-
-
-				
-			
-			}
+				//alert('deleted');
+	}
 		});
 		});
 

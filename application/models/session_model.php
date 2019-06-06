@@ -2,17 +2,19 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class session_model extends CI_Model {
-	function __construct(){
-		parent::__construct();
-	}
+	
 
-	function submission(){
-		//$sid_ = $this->input->post('txtsid');
+	function submission()
+	{
 		$start_ = $this->input->post('txtstart');
-		$send_=$this->input->post('txtsend');
-		$dte_=$this->input->post('txtdte');
-
-		//$this->db->where('session_ID', $sid_);
+		print_r($start_);
+		$send_ = $this->input->post('txtsend');
+		print_r($send_);
+		$dte_ = $this->input->post('txtdte');
+		print_r($dte_);
+		$sid_ = $start_."-".$send_;
+		print_r($sid_);		
+		$this->db->where('session_ID', $sid_);
 		$query = $this->db->get('session_master');
 
 		if($query->num_rows()!=0){
@@ -21,12 +23,11 @@ class session_model extends CI_Model {
 				'msg' => '<b class="text-danger">This id already exists. Please try again !!</b>'
 			);
 		} else {
-			$sid_= $start_."-".$send_;
 			$data = array(
 				'session_ID' => $sid_,
 				'session_Start' => $start_,
 				'session_End' => $send_,
-				'date'=> $dte_
+				'date' => $dte_,
 			);
 			$this->db->insert('session_master', $data);
 

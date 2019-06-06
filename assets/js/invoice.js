@@ -191,7 +191,7 @@ $('#frmInvoice').submit(function(){
 									if(obj.students[s]['student_ID'] == obj.invoice[f]['student_ID'])
 									{
 										
-										dues = obj.invoice[f]['due_Amount'];
+										dues = obj.invoice[f]['actual_Amount'];
 									}
 							}
 							if(invid=='x'){
