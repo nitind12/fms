@@ -109,20 +109,20 @@
 											<td class="content"></td>
 										</tr>
 																				<tr valign="top">
-											<td class="label_" width="130">Heads:&nbsp Admission </td>
+											<td class="label_" width="130">Heads: Admission </td>
 											
 										</tr>
 										<tr valign="top">
-											<td class="label_">Mode:<?php	echo $receipt->fee_Mode;?> </td>
+											<td class="label_">Mode: <?php	echo $receipt->fee_Mode;?> </td>
 											<td class="content"></td>
 										<tr valign="top">
-											<td class="label_">Discount:<?php	echo $receipt->discount_Amount;?>(<?php	echo $receipt->discount_ID;?> ) </td>
+											<td class="label_">Discount: <?php 	echo $receipt->discount_Amount;?>(<?php	echo $receipt->discount_ID;?> ) </td>
 											<td class="content"></td>
 										</tr>
 										
 									
 											<tr valign="top">
-											<td class="label_">Total Paid:&nbsp<?php echo $receipt->paid;?>&nbsp&nbsp<b>Rs. </b>/-</td>
+											<td class="label_">Total Paid:&nbsp<?php echo $receipt->paid;?>&nbsp<b>Rs. </b>/-</td>
 											<td></td>
 											</td>
 										</tr>
