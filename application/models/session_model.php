@@ -7,16 +7,17 @@ class session_model extends CI_Model {
 	function submission()
 	{
 		$start_ = $this->input->post('txtstart');
-		print_r($start_);
+		//print_r($start_);
 		$send_ = $this->input->post('txtsend');
-		print_r($send_);
+		//print_r($send_);
 		$dte_ = $this->input->post('txtdte');
-		print_r($dte_);
+		//print_r($dte_);
 		$sid_ = $start_."-".$send_;
-		print_r($sid_);		
+		//print_r($sid_);		
 		$this->db->where('session_ID', $sid_);
 		$query = $this->db->get('session_master');
 
+		if($start_<$send_){
 		if($query->num_rows()!=0){
 			$bool_ = array(
 				'res' => false,
@@ -36,6 +37,13 @@ class session_model extends CI_Model {
 				'msg' => '<b class="text-success">Record successfully inserted...</b>'
 			);
 		}
+	}
+	else{
+		$bool_ = array(
+				'res' => false,
+				'msg' => '<b class="text-danger">This id can not be Taken. Please try again !!</b>'
+			);
+	}
 
 	return $bool_;
 	}
