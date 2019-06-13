@@ -46,7 +46,7 @@ function __construct(){
 	}
 	function getflexihead_students(){
 		$data['flexi_students'] = $this->fm->getflexihead_students();
-		
+		redirect('flexihead_students');
 	}
 
 
