@@ -101,7 +101,7 @@
                <th>
                    <table class="table table-bordered table-striped with-check">
                      <tr>
-                         <th style="text-align: left">Classes in Session 2018-19</th>
+                         <th style="text-align: left">Classes in Session</th>
                       </tr>
                         <th> <div class="myscroll" id="printclasshere" style="clear: both";></div></th>
 
