@@ -47,6 +47,7 @@ function __construct(){
 	}
 	function getstaticheads(){
 		$data['staticheads_data'] = $this->sm->getstatichead_classwise();
+		redirect('statichead_students');
 		
 	}
 	function getstatichead_details(){
