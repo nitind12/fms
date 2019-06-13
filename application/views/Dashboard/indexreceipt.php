@@ -69,12 +69,14 @@
 										<select name="cmbYearf" id="cmbYearf" required="required">
 											<option value="">Select Year</option>
 											<?php for ($loop=date('Y');$loop>=2014; $loop--) {?>
-												<!--<?php if($loop == 2019){
+												<?php if($loop == 2019){
 													$sel_ = " selected='selected'";
 												} else {
 													$sel_ = '';
-												} ?>-->
+												} ?>
 												<option value="<?php echo $loop;?>"><?php echo $loop;?></option>
+												<?php echo date("Y");?>
+
 											<?php } ?>
 										</select>
 								</div>
@@ -105,7 +107,7 @@
 												} else {
 													$sel_ = '';
 												} ?>-->
-												<option value="<?php echo $loop;?>"s><?php echo $loop;?></option>
+												<option value="<?php echo $loop;?>"><?php echo $loop;?></option>
 											<?php } ?>
 										</select>
 								</div>

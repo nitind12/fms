@@ -21,13 +21,13 @@
 						<table border="0"  align="center" cellpadding="0px" cellspacing="10px" class="table_" style="border:#009900 solid 0px">
 							<tbody><tr class="feeHeader" align="center" >
 
-								<td width="100" align="center"><img src="https://school.teamfreelancers.com/assets_/default-demo/logo/4.jpg?ver=1.4" width="100"></td>
+								<!--<td width="100" align="center"><img src="https://school.teamfreelancers.com/assets_/default-demo/logo/4.jpg?ver=1.4" width="100"></td>-->
 								<td width="500">
 									<div style="width:350px; background:0; border-radius: 5px">
 											<b></b>
 											</div>
 									<span class="header_text">
-									<b>Fee Management School, Haldwani</b><br>
+									<b>Fee Management System, Haldwani</b><br>
 									<span style="font-weight: 100">Fee Receipt <br>
 									<span style="font-size: 13px; font-weight: bold">
 										2019, May									</span>
